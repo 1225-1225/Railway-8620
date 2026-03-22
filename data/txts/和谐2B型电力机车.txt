@@ -1,0 +1,79 @@
+和谐2B型电力机车（HXD2B electric locomotive）是由[法国阿尔斯通公司](https://baike.baidu.com/item/法国阿尔斯通公司/2107382?fromModule=lemma_inlink)与中国中车大同电力机车有限公司联合研制的交流传动干线货运电力机车，采用单轴功率1600千瓦、总功率9600千瓦、轴重25吨的技术参数，最高运行时速120公里，2009年起共生产500台 [1] [6]。
+
+该车型基于阿尔斯通"Prima"机车技术平台，以"Prima 6000"电力机车为原型车开发，源于2004年《[中长期铁路网规划](https://baike.baidu.com/item/中长期铁路网规划/62609349?fromModule=lemma_inlink)》实施背景，2006年中法签署《[中法联合声明](https://baike.baidu.com/item/中法联合声明/10511996?fromModule=lemma_inlink)》后确立技术合作框架。2007年双方签订11亿欧元的技术合作合同，其中2台原型车由法国生产并于2009年完成测试，首台国产化机车于2010年5月下线 [2-4]。机车搭载交—直—交流电传动系统，采用ONIX IGBT水冷变流器和Agate微机网络控制，转向架采用箱形“目”字型构架与Eurotrol电空制动系统 [7-8]。2010年9月起配属上海等铁路局，承担[京沪铁路](https://baike.baidu.com/item/京沪铁路/19163517?fromModule=lemma_inlink)、[陇海铁路](https://baike.baidu.com/item/陇海铁路/2310641?fromModule=lemma_inlink)等干线货物牵引 [6]。
+
+中文名和谐2B型电力机车
+外文名HXD2B electric locomotive
+动力来源接触网供电
+原产国法国 中国
+产    量500台
+生产年份2009年-
+主要用户中国国家铁路集团有限公司
+生产商法国阿尔斯通公司 中车大同电力机车有限公司
+
+## 发展历史
+
+### 背景
+
+2004年，[中华人民共和国国务院](https://baike.baidu.com/item/中华人民共和国国务院/0?fromModule=lemma_inlink)常务会议通过了《[中长期铁路网规划](https://baike.baidu.com/item/中长期铁路网规划/863337?fromModule=lemma_inlink)》，并对研究通过的铁路机车车辆装备现代化实施方案明确指出，“加快我国铁路运输装备现代化，要按照引进先进技术、联合设计生产、打造中国品牌的总体要求”。根据国务院确立的上述方针，国家发改委与[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/0?fromModule=lemma_inlink)于2004年7月联合下达了《大功率交流传动电力机车技术引进与国产化实施方案》，正式开始了新型交流传动电力机车的采购过程。2004年10月，[法国阿尔斯通公司](https://baike.baidu.com/item/法国阿尔斯通公司/2107382?fromModule=lemma_inlink)和大同电力机车有限责任公司获得了180台HXD2型双节八轴10000千瓦大功率交流传动电力机车的订单 [1]。
+
+### 引进
+
+为解决中国铁路运输运能问题、实现中国铁路干线货运重载、快捷运输的目标，中国铁道部于2006年6月制定了六轴9600千瓦大功率交流传动电力机车的技术方案并确定了项目执行模式。2006年10月26日，[法国总统](https://baike.baidu.com/item/法国总统/0?fromModule=lemma_inlink)[希拉克](https://baike.baidu.com/item/希拉克/0?fromModule=lemma_inlink)访问中国，与[中国国家主席](https://baike.baidu.com/item/中国国家主席/0?fromModule=lemma_inlink)[胡锦涛](https://baike.baidu.com/item/胡锦涛/0?fromModule=lemma_inlink)举行正式会谈，会谈后两国元首签署了《中法联合声明》 [2]，并共同出席了多项合作协议的签字仪式。双边合作协议涵盖科技、能源、铁路运输、航空、航天等领域，其中，[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/4166105?fromModule=lemma_inlink)[首席执行官](https://baike.baidu.com/item/首席执行官/0?fromModule=lemma_inlink)孔柏客（Patrick Kron）与中国铁道部部长[刘志军](https://baike.baidu.com/item/刘志军/0?fromModule=lemma_inlink)签署了六轴大功率货运电力机车的生产合作意向书，总额达12亿欧元，阿尔斯通公司在此协议中所占份额为3亿欧元，其中方合作伙伴大同电力机车厂占9亿欧元。2007年3月12日，大同电力机车有限责任公司与法国阿尔斯通交通运输股份有限公司在北京签订了大功率交流传动六轴电力机车项目进口部件采购合同和技术合作合同，其中包括机车采购合同、[技术转让合同](https://baike.baidu.com/item/技术转让合同/4493987?fromModule=lemma_inlink)、进口零部件采购合同和技术服务合同等四个相互关联合同，但合同总额调整为11亿欧元（113亿元人民币），其中阿尔斯通份额约为3.1亿欧元，大同电力机车厂约为8亿欧元 [3]。同时，大同电力机车公司并与[北京铁路局](https://baike.baidu.com/item/北京铁路局/0?fromModule=lemma_inlink)、[中国技术进出口总公司](https://baike.baidu.com/item/中国技术进出口总公司/0?fromModule=lemma_inlink)签订了大功率交流传动六轴电力机车项目采购合同。
+
+根据最初签订的生产合作意向书，原定计划由[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/4166105?fromModule=lemma_inlink)的贝尔福工厂完成首批100台机车，其余400台机车将由大同电力机车负责生产制造；而采购合同和技术合作合同签订后，生产计划改为由贝尔福公司完成首10台机车，另外190台机车以散件形式付运并在中国组装，300台机车由大同电力机车生产。但在合同开始执行后，生产计划再次被改变，贝尔福公司仅负责完成首2台机车。
+
+### 研制
+
+新机车被定型为HXD2B型，其中“HX”是“和谐”的汉语拼音首字母缩写、“D”代表电力机车、“2”代表大同电力机车公司的生产厂商代号，通称为“和谐”2B型电力机车。[HXD2B型电力机车](https://baike.baidu.com/item/HXD2B型电力机车/2144850?fromModule=lemma_inlink)是在阿尔斯通“[Prima](https://baike.baidu.com/item/Prima/0?fromModule=lemma_inlink)”机车技术平台上，以“Prima 6000”电力机车为原型车，开发研制的大功率交流传动干线货运用六轴电力机车。机车轴式Co-Co，轴重25吨，采用交—直—交流电传动、“ONIX”IGBT水冷轴控牵引变流器、“Agate”微机网络控制系统、变频异步牵引电动机，单轴功率为1600千瓦，额定总功率为9600千瓦，最高运行速度为120公里/小时。
+
+2009年6月，首2台HXD2B型机车（0001、0002）在法国贝尔福工厂落成。机车经过厂内的初步调试后，其中一台机车于同年11月被送往位于位于[捷克共和国](https://baike.baidu.com/item/捷克共和国/0?fromModule=lemma_inlink)[中波希米亚州](https://baike.baidu.com/item/中波希米亚州/0?fromModule=lemma_inlink)的维林环形铁路试验中心（Zku?ební centrum VUZ Velim）进行运行试验；而另一台机车于同年12月初被送往位于[奥地利维也纳](https://baike.baidu.com/item/奥地利维也纳/9090338?fromModule=lemma_inlink)的阿森纳尔铁路技术试验中心（Rail Tec Arsenal）的实验室，进行气候[风洞实验](https://baike.baidu.com/item/风洞实验/10394777?fromModule=lemma_inlink)。由于HXD2B型机车车体尺寸已经超过欧盟规定的机车车辆限界，机车需要通过水路和陆路运输，在法国[斯特拉斯堡](https://baike.baidu.com/item/斯特拉斯堡/0?fromModule=lemma_inlink)装船送往维也纳。2010年5月23日，HXD2B、[HXD2C型电力机车](https://baike.baidu.com/item/HXD2C型电力机车/8065986?fromModule=lemma_inlink)下线剪彩仪式在大同电力机车公司举行，首台国产化的[HXD2B型电力机车](https://baike.baidu.com/item/HXD2B型电力机车/2144850?fromModule=lemma_inlink)（0003）下线 [4]。2010年7月10日，2台原装进口机车由“[马士基](https://baike.baidu.com/item/马士基/0?fromModule=lemma_inlink)三宝垄”号[集装箱船](https://baike.baidu.com/item/集装箱船/0?fromModule=lemma_inlink)运抵中国[天津港](https://baike.baidu.com/item/天津港/0?fromModule=lemma_inlink)， [5]然后由汽车运输至山西大同，随后被送往[中国铁道科学研究院](https://baike.baidu.com/item/中国铁道科学研究院/0?fromModule=lemma_inlink)北京环形铁道试验基地进行[型式试验](https://baike.baidu.com/item/型式试验/9711371?fromModule=lemma_inlink)和综合性能试验。
+
+### 运用
+
+2010年5月，HXD2B型电力机车开始投入批量生产。 [6]2010年9月，HXD2B型机车开始配属[上海铁路局](https://baike.baidu.com/item/上海铁路局/0?fromModule=lemma_inlink)南京东机务段，由上海机务段南翔运用二车间、南京东机务段宁东运用车间、徐州机务段徐州运用车间支配运用，担当京沪铁路[南翔](https://baike.baidu.com/item/南翔/0?fromModule=lemma_inlink)、南京东、徐州北、济西之间，以及[陇海铁路](https://baike.baidu.com/item/陇海铁路/0?fromModule=lemma_inlink)徐州北至连云港东、墟沟北间的货物列车牵引任务。2011年11月，北京铁路局丰台机务段也开始配属HXD2B型电力机车，由丰台机务段、[唐山机务段](https://baike.baidu.com/item/唐山机务段/1970757?fromModule=lemma_inlink)、[天津机务段](https://baike.baidu.com/item/天津机务段/8101609?fromModule=lemma_inlink)支配运用，担当京沪铁路丰台西、[南仓](https://baike.baidu.com/item/南仓/0?fromModule=lemma_inlink)至济西之间，以及[津山铁路](https://baike.baidu.com/item/津山铁路/0?fromModule=lemma_inlink)南仓、[山海关](https://baike.baidu.com/item/山海关/0?fromModule=lemma_inlink)至沈阳西之间的货物列车交路。
+
+## 技术特点
+
+### 总体结构
+
+[HXD2B型电力机车](https://baike.baidu.com/item/HXD2B型电力机车/2144850?fromModule=lemma_inlink)是六轴大功率干线货运用电力机车，车体采用框架式整体承载全钢箱型壳体焊接结构，车体侧墙采用波纹钢板，并设有宽度为787毫米的维修门。车体两端各设有一个司机室，司机可在任何一端司机室对机车进行控制。司机室采用框架式焊接钢结构，前窗采用一整体电热玻璃，为司乘人员提供了良好的视角，并满足机车在寒冷季节使用的需要。车内设备采用模块化结构、两侧屏柜化布置，并设中间贯通走廊；车上并设有[电水壶](https://baike.baidu.com/item/电水壶/0?fromModule=lemma_inlink)、[冰箱](https://baike.baidu.com/item/冰箱/0?fromModule=lemma_inlink)、[微波炉](https://baike.baidu.com/item/微波炉/0?fromModule=lemma_inlink)、[卫生间](https://baike.baidu.com/item/卫生间/0?fromModule=lemma_inlink)等生活设施。每台机车车顶设有两台DSA-200型单臂式[受电弓](https://baike.baidu.com/item/受电弓/0?fromModule=lemma_inlink)，其他车顶外置设备包括[真空断路器](https://baike.baidu.com/item/真空断路器/0?fromModule=lemma_inlink)、接地开关、避雷器、高压连接器等高压设备。机车采用独立通风方式，从侧墙过滤窗和车顶百叶窗吸入冷风，向发热部件冷却后从车底排出，并维持机械间呈微正压，改善机车防尘效果及防寒性能。[机车轴式](https://baike.baidu.com/item/机车轴式/0?fromModule=lemma_inlink)为Co-Co，持续功率为9600千瓦；机车轴重为25吨。[空气制动](https://baike.baidu.com/item/空气制动/0?fromModule=lemma_inlink)系统采用法维莱公司（Faiveley）的 “Eurotrol” 微机控制电空制动机，具有空电联合制动、阶段缓解、断钩保护、备用制动等功能。 [7]
+
+### 电气系统
+
+HXD2B型电力机车是交—直—交流电传动的单相工频交流电力机车，机车主电路由[主变压器](https://baike.baidu.com/item/主变压器/5195197?fromModule=lemma_inlink)、[牵引变流器](https://baike.baidu.com/item/牵引变流器/7125693?fromModule=lemma_inlink)、牵引电动机三大部分构成。每台机车设有6套完全相同的牵引变流单元，分别安装在3个牵引变流柜内。接触网导线上的25千伏单相工频交流电电流，经受电弓、主断路器进入机车后再输入主变压器，交流电经过主变压器的6个牵引绕组降压后向牵引变流单元供电；单相交流电经过6组四象限脉冲整流器整流为直流电，然后向电压为3750伏的中间直流回路供电，再由6组牵引逆变器转换成[三相交流电](https://baike.baidu.com/item/三相交流电/7680897?fromModule=lemma_inlink)输出，每组逆变器向一台异步牵引电动机供电，实现机车的轴控驱动，使牵引电动机产生转矩，将电能转变为机械能，经过齿轮的传递驱动轮对。
+
+[主变压器](https://baike.baidu.com/item/主变压器/5195197?fromModule=lemma_inlink)由[大同ABB牵引变压器有限公司](https://baike.baidu.com/item/大同ABB牵引变压器有限公司/5648435?fromModule=lemma_inlink)制造，为芯式结构、多分裂绕组的[单相变压器](https://baike.baidu.com/item/单相变压器/1671911?fromModule=lemma_inlink)，以卧式悬挂方式吊装于车底中部，设计容量高达12600千伏安。主变流器是基于[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/4166105?fromModule=lemma_inlink) “Prima” 机车技术平台的 “ONIX” 变流系统，每组主变流器由一个四象限脉冲整流器、一个中间直流环节、一个[PWM](https://baike.baidu.com/item/PWM/0?fromModule=lemma_inlink)逆变器组成，功率控制模块采用水冷[IGBT](https://baike.baidu.com/item/IGBT/0?fromModule=lemma_inlink)变流模块（6500V/600A），中间直流电压为3750伏。[牵引电动机](https://baike.baidu.com/item/牵引电动机/0?fromModule=lemma_inlink)采用由永济电机公司国产化的YJ90B型牵引电动机，该型电动机为六极三相鼠笼式[异步](https://baike.baidu.com/item/异步/0?fromModule=lemma_inlink)牵引电动机，定子采用全叠片无机壳结构以减轻重量和改善散热，额定功率为1600千瓦，额定电压为2942伏，[冷却方式](https://baike.baidu.com/item/冷却方式/6119588?fromModule=lemma_inlink)为强迫通风，采用磁场定向[直接转矩控制](https://baike.baidu.com/item/直接转矩控制/9561040?fromModule=lemma_inlink)。
+
+机车辅助供电电路由第2～5轴的牵引变流单元中间直流回路供电，每台机车设有两组相同的辅助供电电路，每组辅助电源由两组IGBT辅助逆变器和一组充电机电路组成，正常情况下其中一个为恒频恒压变流器（CVCF），为牵引电动机通风机和油水冷却塔风机供电；另一个为变频变压变流器（VVVF），向水泵、油泵、蓄电池充电机等设备供电。
+
+### 控制系统
+
+[HXD2B型电力机车](https://baike.baidu.com/item/HXD2B型电力机车/2144850?fromModule=lemma_inlink)采用了[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/4166105?fromModule=lemma_inlink)开发的“Agate”微机网络控制系统，机车控制系统（TCMS）由6个牵引控制单元（TCU）、2个主处理机单元、4个辅助变流器控制单元（ACU）和制动控制单元（BCU）和4个司机操纵显示单元（DDU）构成。该系统是基于WorldFIP网络通信总线，网络架构分为FIP车辆网络（FIPV）和FIP列车网络（FIPT）两级，其中FIPV负责每节机车内部各设备的信息交换，而FIPT用于两台重联机车之间的通信；控制系统具有全面的机车控制、监测、传输、故障诊断、显示和存储功能。
+
+### 转向架
+
+机车走行部为两台完全相同的三轴[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)，转向架构架采用钢板焊成箱形结构的 “目” 字型构架，轮对轴箱采用拉杆定位。一系悬挂采用螺旋弹簧加双轴箱拉杆配垂向[油压减震器](https://baike.baidu.com/item/油压减震器/15787274?fromModule=lemma_inlink)；二系悬挂为橡胶堆。[牵引力](https://baike.baidu.com/item/牵引力/0?fromModule=lemma_inlink)或制动力通过单推挽水平短牵引拉杆牵引装置传递。牵引电动机采用[滚动轴承](https://baike.baidu.com/item/滚动轴承/53483?fromModule=lemma_inlink)抱轴式半悬挂、单边刚性直齿传动。基础制动装置为单侧双闸瓦踏面制动单元，并带有闸瓦间隙调节器；其中三组制动单元具有停放制动功能。转向架并设有轮缘润滑装置。 [8]
+
+## 技术数据
+
+| UIC轴式                                                      | Co'Co'                                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [轨距](https://baike.baidu.com/item/轨距/0?fromModule=lemma_inlink) | 1,435毫米                                                    |
+| 轮径                                                         | 1,250毫米（新轮）                                            |
+| 轴重                                                         | 25吨                                                         |
+| 轴距                                                         | 2,250+2,000毫米                                              |
+| 机车长度                                                     | 22,960毫米（车钩中心距）                                     |
+| 机车宽度                                                     | 2,850毫米                                                    |
+| 机车高度                                                     | ≤4,800毫米（降弓状态）                                       |
+| 整备重量                                                     | 150吨                                                        |
+| 受流电压                                                     | AC 25 kV 50 Hz                                               |
+| 传动方式                                                     | 交—直—交流电                                                 |
+| 牵引电动机                                                   | YJ90B × 6                                                    |
+| 最高速度                                                     | 120公里/小时                                                 |
+| 持续速度                                                     | 76公里/小时                                                  |
+| 牵引功率                                                     | 9,600千瓦（持续）9,900千瓦（最大）                           |
+| 牵引力                                                       | 584千牛（起动）455千牛（持续）                               |
+| 制动方式                                                     | [踏面制动](https://baike.baidu.com/item/踏面制动/0?fromModule=lemma_inlink)、[再生制动](https://baike.baidu.com/item/再生制动/0?fromModule=lemma_inlink) |
+| 制动功率                                                     | 9,600千瓦（电制动） [9]                                      |
+| 列车制动                                                     | [空气制动](https://baike.baidu.com/item/空气制动/0?fromModule=lemma_inlink) |

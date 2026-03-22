@@ -1,0 +1,63 @@
+**复兴3型电力机车**（原名**和谐3G型电力机车**）是[中车大连机车车辆](https://www.qiuwenbaike.cn/wiki/中车大连机车车辆)为中国铁路生产的八轴[交流传动](https://www.qiuwenbaike.cn/wiki/交流傳動)客用电力机车，亦是继[Re465](https://www.qiuwenbaike.cn/wiki/瑞士联邦铁路Re460型电力机车)及[FXD1](https://www.qiuwenbaike.cn/wiki/复兴1型电力机车)机车后，在国铁系统内营运的第三款200公里级别电力机车。首两组试制机车于2016年出厂，经测试后已于2017年10月22日于[兰新客运专线](https://www.qiuwenbaike.cn/wiki/兰新客运专线)上投入服务。本型机车单轴功率为1400kW，整车装车功率11200kW，与同期研发的FXD1大致相似，并同属中国目前最大功率快速电力机车之一。与株机及大同厂生产的HXD1G（现已更名为复兴1型电力机车）及HXD2G不同，本型机车的牵引及辅助供电系统全面采用日本[东芝公司](https://www.qiuwenbaike.cn/wiki/东芝公司)技术[[3\]](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#cite_note-3)，但相关产品仍在中国境内的合营公司生产。其昵称为包公。
+
+## 目录
+
+
+
+- [1 发展历史](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#发展历史)
+- 2 衍生型
+  - [2.1 复兴3型动力集中动车组动力车](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#复兴3型动力集中动车组动力车)
+- [3 参见](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#參见)
+- [4 注释](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#注释)
+
+## 发展历史
+
+- 2012年12月，[国铁](https://www.qiuwenbaike.cn/wiki/中国铁路总公司)开展时速200公里电力机车研发项目，北车大连开始研制本型机车。[[4\]](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#cite_note-4)
+- 2016年4月17日，第一辆HXD3G机车正式下线，并送抵[北京环行铁道](https://www.qiuwenbaike.cn/wiki/北京环行铁道)进行形式测试。[[5\]](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#cite_note-5)及后，此等机车在单机测试中时速达到241km/h，打破[SS8](https://www.qiuwenbaike.cn/wiki/SS8)创下的中国机车速度纪录[[6\]](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#cite_note-6)。
+- 2017年5月，两辆试制HXD3G机车开始在[京九铁路](https://www.qiuwenbaike.cn/wiki/京九铁路)等地进行动态测试，负责牵引行包列车。
+- 2017年10月22日，HXD3G与HXD1G同步在兰新客运专线投入服务。
+- 2018年5月28日，第一辆HXD3G经由北京铁路枢纽，返回大连机车车辆进行拆解分析；原来由HXD1G或HXD3G担当的列车交路暂时恢复由[HXD1D](https://www.qiuwenbaike.cn/wiki/HXD1D)（双机）代替。
+- 2018年11月28日，HXD3G型电力机车获得由国家铁路局颁发的型号合格证和制造许可证，取得批量生产条件和商业运营资格。
+- 2018年12月12日，HXD3G型电力机车原型车更名为复兴FXD3型电力机车。
+- 2019年5月1日，FXD3原型机车以[甲种运送](https://www.qiuwenbaike.cn/wiki/車輛運送)方式，由[HXD2B](https://www.qiuwenbaike.cn/index.php?title=HXD2B&action=edit&redlink=1)-0449送返兰州西机务段，继续在兰新客运专线提供服务。2019年7月起，该型机车与FXD1型机车共同担当[Z41/42次列车](https://www.qiuwenbaike.cn/wiki/Z40/41、Z42/39次列车)和[Z105/106次列车](https://www.qiuwenbaike.cn/wiki/Z105/106次列车)兰州-乌鲁木齐区间牵引任务[[7\]](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#cite_note-7)[[8\]](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#cite_note-8)。
+
+## 衍生型
+
+### 复兴3型动力集中动车组动力车
+
+**复兴3型动力集中动车组动力车**（车号为FXD3-Jxxxx）是基于复兴3型电力机车平台研制的用于[CR200J型动力集中式动车组](https://www.qiuwenbaike.cn/wiki/复兴号CR200J型电力动车组)的动力车，单机功率5600KW，为双节重联的复兴3型电力机车的一半。此型号的动力车仅可供CR200J型动车组编组使用，可根据编组需要，单机或前后双机编入8节/16节/18节的[25T](https://www.qiuwenbaike.cn/wiki/25T型客车)型拖车中。
+
+|                       复兴3型电力机车                        |                                                              |
+| :----------------------------------------------------------: | ------------------------------------------------------------ |
+| [![img](https://tu.zhongwen.wiki/images/qiuwenbaike/zh/thumb/4/49/HXD3G_0001%40BCR_%2820170328163010%29.jpg/290px-HXD3G_0001%40BCR_%2820170328163010%29.jpg)](https://www.qiuwenbaike.cn/wiki/File:HXD3G_0001@BCR_(20170328163010).jpg)HXD3G-0001停泊于北京环行铁道 |                                                              |
+|                             概览                             |                                                              |
+|       [类型](https://www.qiuwenbaike.cn/wiki/铁路机车)       | [电力机车](https://www.qiuwenbaike.cn/wiki/电力机车)         |
+|                            原产国                            | ![img](https://tu.zhongwen.wiki/images/qiuwenbaike/zh/thumb/0/08/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E6%97%97.png/22px-%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E6%97%97.png) [中国](https://www.qiuwenbaike.cn/wiki/中华人民共和国) |
+|                            生产商                            | [中车大连机车车辆](https://www.qiuwenbaike.cn/wiki/中车大连机车车辆) |
+|                           序列编号                           | **HXD3G→FXD3** 0001、0002                                    |
+|                           生产年份                           | 2016年—                                                      |
+|                             产量                             | 2台试制车，已投入服务                                        |
+|                           主要用户                           | [![中华人民共和国](https://tu.zhongwen.wiki/images/qiuwenbaike/zh/thumb/0/08/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E6%97%97.png/22px-%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E6%97%97.png)](https://www.qiuwenbaike.cn/wiki/中华人民共和国) [中国铁路总公司](https://www.qiuwenbaike.cn/wiki/中国铁路总公司) |
+|                           技术数据                           |                                                              |
+|     [华氏轮式](https://www.qiuwenbaike.cn/wiki/華氏式別)     | 0-4-4-0+0-4-4-0                                              |
+| [UIC轴式](https://www.qiuwenbaike.cn/wiki/UIC铁路机车轴式分类) | Bo-Bo+Bo-Bo                                                  |
+|         [轨距](https://www.qiuwenbaike.cn/wiki/轨距)         | 1,435毫米                                                    |
+|                             轮径                             | 1250/1200/1150毫米（全新/半磨耗/全磨耗）                     |
+|                             轴重                             | 19.5吨                                                       |
+|                           机车长度                           | 37735mm                                                      |
+|                           机车宽度                           | 3100mm                                                       |
+|                           机车高度                           | 3950mm                                                       |
+|                           整备重量                           | 2×78吨                                                       |
+|                           受流电压                           | AC 25 kV 50 Hz                                               |
+|                           传动方式                           | 交—直—交流电                                                 |
+|                           调速方式                           | 大连东芝机车电气设备（[大连机车车辆](https://www.qiuwenbaike.cn/wiki/大连机车车辆)-[东芝公司](https://www.qiuwenbaike.cn/wiki/东芝公司)）制水冷[IEGT](https://www.qiuwenbaike.cn/index.php?title=IEGT&action=edit&redlink=1)-[VVVF](https://www.qiuwenbaike.cn/wiki/变频器)（VVVF由[中车永济电机](https://www.qiuwenbaike.cn/wiki/中车永济电机)制造） |
+|                           驱动方式                           | 六连杆中空轴架悬驱动                                         |
+|                          牵引电动机                          | 中车永济电机制三相诱导电动机YJ-277B/C型（东芝公司授权生产） 额定功率：1400kW/台 |
+|                           最高速度                           | 241km/h（试验） 210km/h（构造） 不低于160km/h（营运）        |
+|                           持续速度                           | 95km/h                                                       |
+|                           牵引功率                           | 11,200千瓦                                                   |
+|                            牵引力                            | 480千牛（起动） 424千牛（持续）                              |
+|     [制动方式](https://www.qiuwenbaike.cn/wiki/铁路制动)     | [轮盘制动](https://www.qiuwenbaike.cn/wiki/轮盘制动)、[再生制动](https://www.qiuwenbaike.cn/wiki/再生制動) |
+|                            制动力                            | 305千牛                                                      |
+|                           安全系统                           | LKJ-2000及[CTCS](https://www.qiuwenbaike.cn/wiki/CTCS)       |
+|                             备注                             | [[1\]](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#cite_note-1)[[2\]](https://www.qiuwenbaike.cn/wiki/复兴3型电力机车#cite_note-2) 主变压器：东芝公司制（额定功率：50kVac） |

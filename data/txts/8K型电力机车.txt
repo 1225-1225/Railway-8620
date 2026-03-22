@@ -1,0 +1,172 @@
+8K型电力机车是[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/273691?fromModule=lemma_inlink)于1980年代通过国际招标、按照“技贸结合”方式向[欧洲](https://baike.baidu.com/item/欧洲/145550?fromModule=lemma_inlink)五十赫兹集团订购引进的[电力机车](https://baike.baidu.com/item/电力机车/2309796?fromModule=lemma_inlink)车型，投入[丰沙铁路](https://baike.baidu.com/item/丰沙铁路/4974349?fromModule=lemma_inlink)、[京包铁路](https://baike.baidu.com/item/京包铁路/1702531?fromModule=lemma_inlink)使用，担当晋煤外运煤炭列车的牵引任务。 [14]
+
+8K型机车共计150台，其中由[法国](https://baike.baidu.com/item/法国/1173384?fromModule=lemma_inlink)整车进口148台，其余2台由五十赫兹集团通过技术转让、由[株洲电力机车厂](https://baike.baidu.com/item/株洲电力机车厂/10622606?fromModule=lemma_inlink)试制。在消化吸收8K型电力机车大量先进技术的基础上，不但使中国国产电力机车的技术水平及质量大为提高，并且促进了国产机车设计思想、项目管理和配套技术的发展，对后来韶山4型、韶山5型、韶山6型等国产电力机车的研制和改进产生积极影响。
+
+中文名8K型电力机车
+外文名8K type electric locomotive
+动力来源接触网供电
+类    型电力机车
+生产国法国、中国
+生产厂商五十赫兹集团、株洲电力机车厂
+生产型号8K
+序列编号001～150
+生产年份1987年—1989年
+产    量150台
+主要用户中国铁路总公司
+昵    称法国橙
+机车类型货运机车
+
+## 发展历史
+
+### 背景
+
+1978年，中国开始实行[改革开放](https://baike.baidu.com/item/改革开放/0?fromModule=lemma_inlink)，将全国的建设重心转到了经济发展上，[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/0?fromModule=lemma_inlink)提出了“内电并举，以电为主”的发展战略，要求以8年时间，让电力、内燃机车牵引承担的铁路货运量达到65%以上，其中电力机车务必达到35%以上。但相比其他发达国家，当时中国的电力机车技术水平相对落后；至1980年，第一代采用调压开关调压的[韶山1型电力机车](https://baike.baidu.com/item/韶山1型电力机车/0?fromModule=lemma_inlink)才开始投入大批量生产，第二代采用级间相控调压的[韶山3型电力机车](https://baike.baidu.com/item/韶山3型电力机车/0?fromModule=lemma_inlink)刚刚试制成功，第三代采用相控无级调压的[韶山4型电力机车](https://baike.baidu.com/item/韶山4型电力机车/0?fromModule=lemma_inlink)仍处于计划阶段，而同期国外的相控电力机车已经发展成熟，并正在向交流传动技术发展。
+
+为了提高铁路机车产能和产品技术水平，从1980年代起，铁道部开始利用[世界银行](https://baike.baidu.com/item/世界银行/0?fromModule=lemma_inlink)和其他国家贷款引进铁路设备和技术。1982年，世界银行铁路项目负责人到访[株洲电力机车](https://baike.baidu.com/item/株洲电力机车/4694645?fromModule=lemma_inlink)工厂了解贷款项目，当时中方的意见是，提高中国自身的机车生产能力，将比长期使用贷款购买外国机车对中国更有利。根据对株洲电力机车工厂贷款的需要，世界银行并邀请中国派员出国考察；为此，铁道部于1983年10月至12月期间派出了电力机车技术考察组赴[欧洲](https://baike.baidu.com/item/欧洲/0?fromModule=lemma_inlink)进行技术考察 [1]。根据世界银行的建议和安排，此行前往[英国](https://baike.baidu.com/item/英国/144602?fromModule=lemma_inlink)、[瑞士](https://baike.baidu.com/item/瑞士/0?fromModule=lemma_inlink)、[瑞典](https://baike.baidu.com/item/瑞典/0?fromModule=lemma_inlink)、[法国](https://baike.baidu.com/item/法国/1173384?fromModule=lemma_inlink)四个[电气化铁路](https://baike.baidu.com/item/电气化铁路/0?fromModule=lemma_inlink)比较先进的欧洲国家，了解这些国家的电力机车技术、生产、运用和维修等方面的状况，并对多种当时主流的电力机车车型作比较，包括[英国](https://baike.baidu.com/item/英国/144602?fromModule=lemma_inlink)铁路的87型电力机车、瑞典国铁的Rc系列电力机车、法国国铁的BB 15000、[BB 22200型电力机车](https://baike.baidu.com/item/BB 22200型电力机车/19974400?fromModule=lemma_inlink)、以及[瑞士联邦铁路](https://baike.baidu.com/item/瑞士联邦铁路/0?fromModule=lemma_inlink)的Re 4/4IV、Re 6/6型电力机车等。通过对工厂和铁路的实地考察，中国认识到要在短期内全面提高国产电力机车水平，很有必要引进国外的先进技术。 [1]
+
+与此同时，进入1980年代以后，由于煤炭产量和货物运输量增加，[中国](https://baike.baidu.com/item/中国/1122445?fromModule=lemma_inlink)[交通运输](https://baike.baidu.com/item/交通运输/0?fromModule=lemma_inlink)滞后的矛盾显得越来越突出。在当时铁路运输能力有限，[公路交通](https://baike.baidu.com/item/公路交通/0?fromModule=lemma_inlink)不发达的情况下，[山西省](https://baike.baidu.com/item/山西省/0?fromModule=lemma_inlink)出省通道通过能力小，造成山西出产煤炭大量积压，仅1983年山西全省积压待运煤多达3,000余万吨，不少煤矿积煤出现自燃和被洪水冲走，另一方面也无法满足全国各地对煤炭的迫切需求。为了提高晋煤外运能力，丰沙大铁路（[丰沙铁路](https://baike.baidu.com/item/丰沙铁路/0?fromModule=lemma_inlink)与[京包铁路](https://baike.baidu.com/item/京包铁路/0?fromModule=lemma_inlink)[大同](https://baike.baidu.com/item/大同/9011?fromModule=lemma_inlink)至[沙城](https://baike.baidu.com/item/沙城/2647633?fromModule=lemma_inlink)段的合称）电气化改造工程于1981年动工；1982年完成了[石太铁路](https://baike.baidu.com/item/石太铁路/0?fromModule=lemma_inlink)的电气化改造；1983年，为增加晋煤外运通道，[中国](https://baike.baidu.com/item/中国/1122445?fromModule=lemma_inlink)[国务院](https://baike.baidu.com/item/国务院/343590?fromModule=lemma_inlink)正式批准修建[大秦铁路](https://baike.baidu.com/item/大秦铁路/0?fromModule=lemma_inlink)。 [2]
+
+### 引进
+
+在国产电力机车在数量、质量均未能满足的情况下，铁道部决定从国外购买电力机车，一方面以解决当时晋煤外运运力不足、满足电气化铁路增长的需求，另一方面引进国外先进技术，尽快缩短中国与世界先进水平间的差距。为此，中国铁道部于1985年初启动了中国铁路第一个技术和贸易结合的大型采购项目，通过国际招标、按“技贸合作”方式引进一批大功率电力机车。对于机车选型，主要考虑是要满足近期铁路货运的牵引要求、质量上可靠耐用，并对国产电力机车有借鉴作用。 [1]
+
+这也是中国铁路第一种按照中国铁道部招标书要求、通过国际招标引进的铁路机车，铁道部通过中国机械进出口总公司向世界著名的机车制造公司发出招标书，参加招标的公司包括以法国[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/0?fromModule=lemma_inlink)为首的欧洲五十赫兹集团、瑞典通用电机（ASEA）、[美国通用电气](https://baike.baidu.com/item/美国通用电气/0?fromModule=lemma_inlink)、[捷克斯洛伐克](https://baike.baidu.com/item/捷克斯洛伐克/0?fromModule=lemma_inlink)[斯柯达](https://baike.baidu.com/item/斯柯达/0?fromModule=lemma_inlink)、[西德](https://baike.baidu.com/item/西德/0?fromModule=lemma_inlink)[西门子](https://baike.baidu.com/item/西门子/25878?fromModule=lemma_inlink)、由[三菱](https://baike.baidu.com/item/三菱/0?fromModule=lemma_inlink)、[日立](https://baike.baidu.com/item/日立/0?fromModule=lemma_inlink)、[东芝](https://baike.baidu.com/item/东芝/0?fromModule=lemma_inlink)组成的日本财团、[罗马尼亚](https://baike.baidu.com/item/罗马尼亚/395923?fromModule=lemma_inlink)[克拉约瓦电力机车设备](https://baike.baidu.com/item/克拉约瓦电力机车设备/0?fromModule=lemma_inlink)、[南斯拉夫](https://baike.baidu.com/item/南斯拉夫/0?fromModule=lemma_inlink)康查尔电气等共7个国家的9家机车制造商。 [3]
+
+经过谈判和评标后，中国机械进出口总公司正式向欧洲五十赫兹集团购买150台8K型电力机车，交易总额达15亿元人民币（3亿美元），是当时中国最大一笔机车交易。贸易合同和[技术转让合同](https://baike.baidu.com/item/技术转让合同/4493987?fromModule=lemma_inlink)于1985年3月27日在北京签字，[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/4166105?fromModule=lemma_inlink)董事长兼五十赫兹集团代表让·皮埃尔·德乔治（Jean-Pierre Desgeorges）、时任[国务院](https://baike.baidu.com/item/国务院/343590?fromModule=lemma_inlink)副总理[李鹏](https://baike.baidu.com/item/李鹏/115999?fromModule=lemma_inlink)、经贸部长郑柘彬、铁道部长[陈璞如](https://baike.baidu.com/item/陈璞如/0?fromModule=lemma_inlink)等出席了签字仪式 [4]。在机车型号中，“8”代表八轴，“K”代表[可控硅](https://baike.baidu.com/item/可控硅/0?fromModule=lemma_inlink)整流。根据合同，阿尔斯通公司于1987年初开始交付首台机车，并于1987年11月交付完毕，其中2台机车由五十赫兹集团与株洲电力机车厂合作完成。
+
+8K型电力机车是由五十赫兹集团专门为中国铁路设计制造的，株洲电力机车厂和[株洲电力机车研究所](https://baike.baidu.com/item/株洲电力机车研究所/0?fromModule=lemma_inlink)也派出人员参与机车的设计。8K型电力机车大量继承了法国电力机车的传统设计和技术，例如车体整体承载方式、走廊通风系统、高度集成化中央电器柜、转向架结构、两段相控整流桥电路等方面均沿袭了与BB 15000型电力机车相似的设计，并采用了与[6G](https://baike.baidu.com/item/6G/6430687?fromModule=lemma_inlink)型、[ND4](https://baike.baidu.com/item/ND4/6271594?fromModule=lemma_inlink)型机车类似的系列化司机室 [1]。此外，8K型电力机车也集结了五十赫兹集团内各家公司的技术产品，包括瑞士勃朗-包维利公司的电子控制系统和[GTO](https://baike.baidu.com/item/GTO/3394788?fromModule=lemma_inlink)辅助逆变器、法国电气牵引设备公司（MTE）的[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)、AEG的传动齿轮箱、西门子的[主变压器](https://baike.baidu.com/item/主变压器/0?fromModule=lemma_inlink)、[牵引电动机](https://baike.baidu.com/item/牵引电动机/0?fromModule=lemma_inlink)和辅助电机等。
+
+### 交付
+
+8K型机车由阿尔斯通公司的[贝尔福](https://baike.baidu.com/item/贝尔福/10782847?fromModule=lemma_inlink)工厂进行组装；1986年7月9日，首台机车在贝尔福出厂，随即在贝尔福至[米卢斯](https://baike.baidu.com/item/米卢斯/0?fromModule=lemma_inlink)的铁路上进行试验。1987年1月至9月间，共有63台8K型机车从法国[马赛港](https://baike.baidu.com/item/马赛港/0?fromModule=lemma_inlink)装船付运，送抵[天津新港](https://baike.baidu.com/item/天津新港/0?fromModule=lemma_inlink)，配属[北京铁路局](https://baike.baidu.com/item/北京铁路局/0?fromModule=lemma_inlink)丰台西电力机务段（京局台段），由[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/4166105?fromModule=lemma_inlink)售后服务组与机务段共同对已到段机车进行试验，并随即投入丰沙大铁路运用；同年，原配属丰台西机务段的[韶山1型电力机车](https://baike.baidu.com/item/韶山1型电力机车/7612282?fromModule=lemma_inlink)全部调出 [5]。然而，由于受到合同规定交货时间限制，8K型电力机车从签订合同之日起到交付第一台机车仅用了21个月，在没有试制样车和充足试验时间的情况下立即投入批量生产，8K型机车投入运用初期质量问题和故障事件较多，被迫放缓了交货进度，1988年初恢复交付机车和验收工作，分别配属丰台西电力机务段和大同西电力机务段（京局大段），148台进口8K机车于1989年初交付完毕。 [5]
+
+### 运用
+
+8K型机车投入丰沙大铁路运用之后，大幅提高了线路运输能力，上行、下行牵引定数分别提高到4000吨和3500吨。1988年，丰沙铁路沙城至[张家口](https://baike.baidu.com/item/张家口/0?fromModule=lemma_inlink)段完成了上行重车方向8124万吨的货运密度，其中晋煤完成6700万吨，创造了当时中国客货混运铁路货运量的历史最高纪录 [2]。1988年11月，[大秦铁路](https://baike.baidu.com/item/大秦铁路/0?fromModule=lemma_inlink)一期工程大同至大石庄（大秦线西段）建成通车，湖东电力机务段随之成立，并开始配属韶山3型电力机车和8K型电力机车。1990年，铁道部为验证开行万吨级重载列车的可行性，于同年5月至6月在大秦铁路举行了大规模的重载列车综合试验，其中成功采用8K型电力机车和C63型专用敞车（装用旋转式车钩、ABDW型制动机和大容量缓冲器）试验开行单机牵引6000吨和双机牵引10000吨的重载单元列车 [6]。1995年，大秦铁路实验性开行8K型机车单机牵引的6000吨级列车每天20列，双机牵引10000吨级列车每月开行一列，但由于万吨重载列车技术尚未成熟，并曾经发生断钩事故，因此当时并未广泛采用。
+
+2005年3月，中国铁道部撤销全路所有铁路分局，北京铁路局下辖的[太原铁路分局](https://baike.baidu.com/item/太原铁路分局/8370760?fromModule=lemma_inlink)与大同铁路分局合并成立新的[太原铁路局](https://baike.baidu.com/item/太原铁路局/0?fromModule=lemma_inlink)，随后原大同机务段（太局同段）合并到大同西电力机务段（太局大段），不久原大同西电力机务段又与湖东电力机务段合并，组建成新的湖东电力机务段（太局湖段）。与此同时，原丰台西电力机务段、原天津北机务段、原保定运用段和邯郸机务段在2005年12月整合组成了新的丰台机务段（京局丰段）。经过生产力布局调整后，所有8K型电力机车均分别配属北京铁路局丰台机务段和太原铁路局湖东电力机务段，于丰沙大铁路、大秦铁路和[北同蒲铁路](https://baike.baidu.com/item/北同蒲铁路/0?fromModule=lemma_inlink)运用。2007年起，随着大秦铁路开始引进HXD1、HXD2型大功率交流传动电力机车，原配属湖东电力机务段湖东运用车间的8K型机车陆续向大西运用车间调出，主力担当北同蒲铁路的货物列车和少量旅客列车的牵引任务，同时也向丰台机务段调出部分8K型机车。另外，由于春运期间客运机车运用紧张，北京地区有部分临客为8K型机车牵引。
+
+### 退出运营
+
+2010年起，由于8K型机车经过长年运用开始老化，且零件短缺对机车维护造成困难，丰台机务段的部分8K型机车开始有计划地报废拆解。2013年起，随着新生产的HXD2型机车逐步代替8K型机车的工作，丰台机务段的8K型机车开始大规模的退役。在2015年12月底，随着丰台机务段的8K-029与8K-144进入备用车序列，丰台机务段配属的8K型机车全部退出运营。2016年5月24日，随着太局湖段的8K-024牵引6824次到达大同站，8K型电力机车正式退役。
+
+### 技术转让
+
+在签订8K型机车贸易合同之后，中国机械进出口总公司与欧洲五十赫兹集团于1985年5月又签订了两台8K型电力机车的合作生产合同。五十赫兹集团负责无偿转让产品的全套图纸资料、机车零部件、制造工艺和检验方法，并负责培训机车试制验证和派遣专家来华指导，由株洲电力机车工厂承担机车生产工作，而株机厂及株机所同时派遗人员到欧洲多家工厂接受培训，作为验证技术转让的成效。1989年9月26日，最后两台8K型电力机车（149、150）在株洲电力机车厂落成。 [7]
+
+在1980年代中国从国外引进的8K、[6K](https://baike.baidu.com/item/6K/0?fromModule=lemma_inlink)、8G型三种电力机车车型之中，8K型机车是引进时间较早，也是技术最先进的车型；根据中国要求，三种机车均采用Bo二轴转向架为基础、单轴功率800千瓦、最高速度100公里/小时、以发挥[牵引力](https://baike.baidu.com/item/牵引力/0?fromModule=lemma_inlink)为主的交—直流电传动电力机车。在8K型电力机车的技术转让过程中，中国共引进了30个技术项目，包括机车车体、转向架、牵引电动机、主变压器、晶闸管、电子控制装置、辅助变流器等机车零部件。这些先进技术的引进和国产化，对后来中国国产电力机车造成重要影响，不但使国产机车的技术水平及质量稳定性大为提高，并且促进了国产机车设计思想、项目管理和配套技术的发展。 [1]
+
+1990年，在消化吸收8K型电力机车技术的基础上，株洲电力机车厂成功试制了韶山5型快速客运电力机车和韶山6型客货两用电力机车。两种机车均大量采用了8K型电力机车的技术，例如在车体结构、大功率晶闸管与整流管、电子控制装置、中央电器柜、功率因数补偿装置、主变压器设计以及通风机等方面均有不同程度的模仿和应用 [1]。此外，株机厂通过模仿8K、6K型机车的微机控制系统，为韶山4型0038号机车进行了实验性加装微机控制的技术改造，其研制和使用经验后来成为了[韶山8型电力机车](https://baike.baidu.com/item/韶山8型电力机车/0?fromModule=lemma_inlink)微机控制系统的基础和改进方向。1993年，株机厂针对早期韶山4型电力机车的主要问题，从韶山4型0159号机车开始进行重大改进，研制了韶山4改进型机车，其转向架构架结构、推挽式中间单斜牵引拉杆、三次谐波滤波器、车体顶盖等均借鉴自8K型机车。
+
+## 技术特点
+
+### 总体结构
+
+8K型电力机车是双节[重联](https://baike.baidu.com/item/重联/0?fromModule=lemma_inlink)的八轴干线货运用大功率电力机车，适用于供电制式为25千伏工频[单相交流电](https://baike.baidu.com/item/单相交流电/0?fromModule=lemma_inlink)的电气化铁路，机车轴式2×（Bo-Bo）。每组机车由两节完全相同的四轴机车通过中间[车钩](https://baike.baidu.com/item/车钩/0?fromModule=lemma_inlink)和橡胶联挂风挡连接而成，每节车为一个完整系统，设有一个司机室，可由司机在任何一端司机室对机车进行控制，两节机车也可以分离作为两台四轴机车独立运行。两节机车之间设有内部电气重联控制[电缆](https://baike.baidu.com/item/电缆/0?fromModule=lemma_inlink)和空气制动系统的重联控制风管，并有中间走廊连通，车顶设有25千伏高压连接线。机车持续功率为6400千瓦，最高速度100公里/小时。 [8]
+
+每节机车车体包括了司机室、中央室、车顶和连接通道四个主要部分，司机室后中央机械室为贯通式双走廊，车体采用侧墙与底架联合承载的非对称[框架式结构](https://baike.baidu.com/item/框架式结构/7279611?fromModule=lemma_inlink)。中央室内靠近司机室部分设有蓄电池柜、牵引电动机通风机、[自动信号装置](https://baike.baidu.com/item/自动信号装置/4267023?fromModule=lemma_inlink)等设备；中央部分设有高度集成化的中央电器柜，机车主整流器、高压和低压电器装置、控制逻辑装置、冷却系统均集中在电器柜内；而机车尾部设有牵引电动机通风机、[空气压缩机](https://baike.baidu.com/item/空气压缩机/3736299?fromModule=lemma_inlink)等设备。每节机车司机室之后车顶装一台单臂[受电弓](https://baike.baidu.com/item/受电弓/0?fromModule=lemma_inlink)；机车内最重的主变压器被安装在车体底架下面而不是在车体里面，以降低机车的总重心并缩短了与中央电器柜之间的线缆长度。 [9]
+
+### 转向架
+
+每节机车的走行部为两台二轴[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)，采用由碳钢板焊接而成的H型构架转向架，以方便更换牵引电动机。一系悬挂采用轴箱[螺旋弹簧](https://baike.baidu.com/item/螺旋弹簧/0?fromModule=lemma_inlink)与弹性连杆的独立悬挂结构；二系悬挂采用免维护的橡胶堆支承。机车牵引力与制动力通过中央低位斜拉杆推挽式牵引装置传递，机车牵引点在轨道平面上，具有动力学稳定性好、粘着利用率高的优点。 [9]
+
+转向架中的车轴均为动轴，每台转向架装有两台TAO649D型牵引电动机，为六极串励脉流电动机，持续功率1000千瓦，实际使用功率被限制在800千瓦。[牵引电机](https://baike.baidu.com/item/牵引电机/4040190?fromModule=lemma_inlink)沿用与法国国铁BB 15000型机车相同的[滚动轴承](https://baike.baidu.com/item/滚动轴承/53483?fromModule=lemma_inlink)抱轴悬挂结构、单边直齿传动，牵引齿轮传动比为69：17，但由于中国与法国铁路钢轨连接方式不同，牵引电机在机车运行时承受较大的振动，导致抱轴箱体较常出现疲劳裂损。 [10]
+
+### 电路系统
+
+8K型电力机车采用交—直流电传动方式，机车主电路沿用法国相控电力机车传统的两段串联相控整流桥调压方式，由一段半控整流桥和一段全控整流桥组成，并采用[晶闸管](https://baike.baidu.com/item/晶闸管/0?fromModule=lemma_inlink)调节的牵引电机无级磁场削弱电路，具有电路简单、硅元件数量少的优点。牵引时向转向架上两台牵引电动机[串联](https://baike.baidu.com/item/串联/10951120?fromModule=lemma_inlink)供电，而使用[再生制动](https://baike.baidu.com/item/再生制动/0?fromModule=lemma_inlink)时全控挢变为[逆变](https://baike.baidu.com/item/逆变/10749972?fromModule=lemma_inlink)装置，半控桥作为[励磁电源](https://baike.baidu.com/item/励磁电源/2358426?fromModule=lemma_inlink)装置 [8]；但牵引电机串联供电却有粘着能力较差的缺点，发生空转后粘着再恢复能力较低，因此8K型机车设有先进的防空转防滑行系统，通过检测轮周速度差异进行电机减载来校正[牵引力](https://baike.baidu.com/item/牵引力/0?fromModule=lemma_inlink)。相比调压开关调压电力机车，晶闸管相控电力机车的功率因数相对较低，因此8K型电力机车设有大容量3、5次[谐波滤波器](https://baike.baidu.com/item/谐波滤波器/10890456?fromModule=lemma_inlink)的功率因数补偿装置，机车在50～100%功率范围内功率因数均可大于0.9，以提高电气化线路的总效率。 [9]
+
+机车辅助电路采用瑞士勃朗-包维利公司（BBC）提供的GTO辅助逆变器，取代了旋转式[劈相机](https://baike.baidu.com/item/劈相机/0?fromModule=lemma_inlink)向机车辅助机械供电，功率容量为50kVA。然而该套系统可靠性较差，自8K型电力机车投入运营以来其GTO辅助逆变器机组几乎每天有烧损故障发生，严重影响列车的安全可靠运行。因此，研制8K型机车用[IGBT](https://baike.baidu.com/item/IGBT/0?fromModule=lemma_inlink)辅助逆变器替代GTO辅助逆变器的课题于1997年初被列为中国铁道部科研计划项目，由[北京交通大学电气工程学院](https://baike.baidu.com/item/北京交通大学电气工程学院/5115999?fromModule=lemma_inlink)负责研制。IGBT辅助逆变器于1996年10月初开始装车试运行，后因故障多未推广使用，而是由本段科技开发科自行研制的IPM逆变器1998年5月装车试运行，后扩大推广至成功使用。 [11]
+
+### 控制系统
+
+8K型机车采用了瑞士勃朗-包维利公司（BBC）的电子控制系统，对每一个转向架独立供电的相控整流桥进行独立控制，并设有故障[自动检测装置](https://baike.baidu.com/item/自动检测装置/9794785?fromModule=lemma_inlink)，具有较高可靠性。 [9]
+
+在150台8K型电力机车之中，有两台机车（135、136）试验安装了BBC公司的MICAS（Micro-Computer Automation System）微机控制系统，采用了[微机](https://baike.baidu.com/item/微机/0?fromModule=lemma_inlink)来控制机车的牵引、制动、防空转及故障保护等功能 [12]。[微机系统](https://baike.baidu.com/item/微机系统/2852578?fromModule=lemma_inlink)采用一个16位[英特尔](https://baike.baidu.com/item/英特尔/0?fromModule=lemma_inlink)80186[中央处理器](https://baike.baidu.com/item/中央处理器/0?fromModule=lemma_inlink)计算机车控制特性，一个16位8097[微控制器](https://baike.baidu.com/item/微控制器/0?fromModule=lemma_inlink)控制晶闸管触发，另一个8位8031微控制器负责管理前两者之间的通讯，均为当时国际上最新型的处理器和微控制器产品。然而为了保证与其他8K型机车的设备互换性，这两台机车的微机控制功能及输入、输出信号都要与模拟控制相同，导致微机控制的优势未能充分发挥，并未具备更重要的故障诊断、记忆和显示功能。与同期日本进口[6K](https://baike.baidu.com/item/6K/0?fromModule=lemma_inlink)型机车的微机系统相比，8K型机车MICAS系统虽然[硬件](https://baike.baidu.com/item/硬件/0?fromModule=lemma_inlink)上较先进，但功能上并不比6K型机车全面，因此MICAS系统较适合用于既有机车的改造，取代模拟控制。1991年，株洲电力机车厂在MICAS系统系统基础上，为[韶山4型电力机车](https://baike.baidu.com/item/韶山4型电力机车/0?fromModule=lemma_inlink)设计了微机控制系统并进行了试验，成为国产电力机车微机系统的开端。 [12]
+
+## 事故
+
+1987年7月28日，丰台西电力机务段的8K型015号、026号机车在段内调车时相撞，机车经修复后恢复运用，但车体结构和强度均受到影响。1993年，经铁道部批准，两组机车的B节机车报废，而两台A节机车“二合为一”，沿用8K型026号机车号。 [5]
+
+1989年7月18日上午11时50分，81576次货物列车经由京包铁路上行线运行至西湾堡至柴沟堡之间，列车机后第17位敞车发生热切轴，而导致机后第17至27位车辆脱轨颠覆并侵入下行线；2分钟后，由两台8K型电力机车牵引的大5次货物列车从下行方向驶来，与81576次列车机后第22位车辆相撞。事故造成8K型机车大、中破各一台，中断上下行行车近69小时。
+
+1995年5月18日下午4时40分，北京铁路局丰台西电力机务段的8K型106号机车，牵引2235次货物列车经由京包铁路运行至柴沟堡至天镇间K249+155处，由于区间[自动闭塞](https://baike.baidu.com/item/自动闭塞/0?fromModule=lemma_inlink)系统突然停电，司机没有认真确认[信号](https://baike.baidu.com/item/信号/32683?fromModule=lemma_inlink)，将灭灯的分区信号误认为绿色灯光，盲目继续运行，导致与前方停在区间内的古1次货物列车追尾相撞。事故造成机车小破1台，货车报废4辆。 [5] [13]
+
+2015年5月3日，山西大同一辆面包车（车牌晋B·71284）从高速公路桥上坠入一铁路，一男子被困，消防人员救出该男子后，面包车被一列货运列车（本务8K-141,配属京局丰段）撞上。导致8K-141小破
+
+## 机车命名
+
+| **机车编号** | **名称**   | **备注**                 |
+| ------------ | ---------- | ------------------------ |
+| 8K-008       | 科技号     | 已摘牌，现于东郊铁博展览 |
+| 8K-135       | 工人先锋号 | 已摘牌，现已拆解         |
+| 8K-147       | 青年文明号 |                          |
+| 8K-148       | 民兵号     |                          |
+
+## 车辆现状
+
+### 保存车辆
+
+8K型001号机车，先后配属于北京铁路局丰台西机务段（京局台段）、丰台机务段（京局丰段），退役后，经过大修，存放在北京铁路局丰台机务段内，作展品展示。
+
+8K型008号机车，先后配属于[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)丰台西机务段（京局台段）、丰台机务段（京局丰段），退役后于2012年12月进入[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/0?fromModule=lemma_inlink)收藏。
+
+8K型065号机车，先后配属于北京铁路局丰台西机务段（京局台段）、丰台机务段（京局丰段），退役后于2012年12月交于[天津铁道职业技术学院](https://baike.baidu.com/item/天津铁道职业技术学院/2962156?fromModule=lemma_inlink)，作教学用车。
+
+8K型091号机车，先后配属于北京铁路局大同机务段（京局大段）、[太原铁路局](https://baike.baidu.com/item/太原铁路局/7535864?fromModule=lemma_inlink)湖东机务段（太局湖段），现存放在太原铁路局太原机务段北场机车陈列馆，作展品展示。
+
+### 封存车辆
+
+8K型018号机车，现封存于北京铁路局丰台机务段，号牌被拆除。
+
+8K型011号机车，现封存于太原铁路局大同运用车间。
+
+8K型072号机车，现封存于北京铁路局丰台机务段（原丰台西机务段），并改号018。
+
+8K型021号机车，现封存于太原铁路局大同运用车间。
+
+8K型024号机车，现封存于太原铁路局湖东机务段大同西运用车间。
+
+8K型039号机车，现封存于北京铁路局丰台机务段（原丰台西机务段）。
+
+8K型067号机车，现封存于太原铁路局大同运用车间。
+
+8K型077号机车，现封存于太原铁路局大同运用车间。
+
+8K型100号机车，现封存于北京铁路局丰台机务段（原丰台西机务段）。
+
+8K型110号机车，现封存于太原铁路局大同运用车间。
+
+8K型116号机车，现封存于太原铁路局湖东机务段大同西运用车间。
+
+8K型119号机车，现封存于太原铁路局湖东机务段大同西运用车间。
+
+8K型120号机车，现封存于太原铁路局大同运用车间。
+
+8K型130号机车，现封存于太原铁路局湖东机务段大同西运用车间。
+
+## 技术数据
+
+| **华氏轮式**                                                 | 0-4-4-0+0-4-4-0                |
+| ------------------------------------------------------------ | ------------------------------ |
+| **UIC轴式**                                                  | Bo-Bo+Bo-Bo                    |
+| **[轨距](https://baike.baidu.com/item/轨距/0?fromModule=lemma_inlink)** | 1,435毫米                      |
+| **轮径**                                                     | 1200毫米（半磨耗）             |
+| **轴重**                                                     | 23吨                           |
+| **通过****[最小曲线半径](https://baike.baidu.com/item/最小曲线半径/0?fromModule=lemma_inlink)** | 125米                          |
+| **机车长度**                                                 | 2 × 18,114毫米                 |
+| **机车宽度**                                                 | 3,048毫米                      |
+| **机车高度**                                                 | 3,980毫米（车顶平面至轨面）    |
+| **构架尺寸**                                                 | 2 × 16,736毫米                 |
+| **整备重量**                                                 | 184吨                          |
+| **受流电压**                                                 | 单相交流 25 kV/50 Hz           |
+| **传动方式**                                                 | 交—直流电                      |
+| **牵引电动机**                                               | TAO649D × 8                    |
+| **最高速度**                                                 | 100公里/小时                   |
+| **持续速度**                                                 | 48公里/小时                    |
+| **牵引功率**                                                 | 6,400千瓦（持续）              |
+| **牵引力**                                                   | 628千牛（起动）471千牛（持续） |
+| **制动方式**                                                 | 再生制动                       |
+| **制动功率**                                                 | 5,200千瓦（电制动）            |
+| **制动力**                                                   | 382.5千牛（50公里/小时）       |
+| **列车制动**                                                 | 空气制动                       |

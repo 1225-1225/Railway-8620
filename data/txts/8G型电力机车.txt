@@ -1,0 +1,99 @@
+8G型电力机车（外文名：8G type electric locomotive）是[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/273691?fromModule=lemma_inlink)根据1985年《中苏长期贸易协定》，以易货贸易形式从苏联诺沃切尔卡斯克电力机车厂进口的干线货运电力机车，共100台，于1987—1990年间生产，1988—1991年分批交付，全部配属中国铁路太原铁路局使用。其原型为苏联VL80型电力机车，车体外观参考VL85型，采用Bo-Bo轴式转向架及交—直流电传动系统，持续功率6400千瓦，中文昵称“八哥”。 [1-3] [6] [9]
+
+该型机车引进源于1985年签署的中苏贸易协定，1986年正式签订生产合同，未包含技术引进内容，以耐用可靠为技术定位。机车长期配属太原北机务段，承担[石太铁路](https://baike.baidu.com/item/石太铁路/7587426?fromModule=lemma_inlink)、[北同蒲铁路](https://baike.baidu.com/item/北同蒲铁路/10970989?fromModule=lemma_inlink)晋煤外运任务。2009年划归太原机务段管理，2011年部分机车转配侯马北机务段并投入[太中银铁路](https://baike.baidu.com/item/太中银铁路/5352395?fromModule=lemma_inlink)运营。2012年起退役机车由[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/4388121?fromModule=lemma_inlink)等单位保存。
+
+中文名8G型电力机车
+外文名8G type electric locomotive
+类    型电力机车
+生产国苏联
+生产厂商诺沃切尔卡斯克电力机车厂
+生产型号8G
+序列编号001～100
+生产年份1987年—1990年
+产    量100台
+主要用户中国铁路总公司太原铁路局
+机车类型货运机车
+昵    称八哥 [8
+
+## 发展历史
+
+### 背景
+
+中国和苏联之间关系经历了曲折的发展历程，在1950年代中苏关系处于友好合作时期，苏联曾经向中国提供VL60型电力机车的设计资料和生产技术，令中国于1958年成功试制了第一代国产干线电力机车——6Y1型。从1960年代开始，中苏关系逐步恶化；1970年代两国关系基本处于僵冷、对峙的局面。踏入1980年代，[中苏关系实现正常化](https://baike.baidu.com/item/中苏关系实现正常化/15688349?fromModule=lemma_inlink)，中苏经贸关系也开始恢复，并于1982年展开贸易蹉商。1985年7月，时任[中国](https://baike.baidu.com/item/中国/1122445?fromModule=lemma_inlink)[国务院](https://baike.baidu.com/item/国务院/343590?fromModule=lemma_inlink)副总理[姚依林](https://baike.baidu.com/item/姚依林/0?fromModule=lemma_inlink)访问苏联，期间双方签订了《1986～1990年长期贸易协定》和《关于苏联在中国建设和改造工业项目的经济、技术合作协议》，其中《中苏长期贸易协定》是中苏两国经济贸易关系发展史上第一个长期贸易协定。根据此项协定，双方签订了每年换货和付款的议定书，双方贸易额在[苏联](https://baike.baidu.com/item/苏联/0?fromModule=lemma_inlink)第十二个五年计划期间要增长到120亿[卢布](https://baike.baidu.com/item/卢布/1883?fromModule=lemma_inlink) [1]，其中包括苏联将向中国出口[电力机车](https://baike.baidu.com/item/电力机车/0?fromModule=lemma_inlink)、[铁路货车](https://baike.baidu.com/item/铁路货车/0?fromModule=lemma_inlink)、[汽车](https://baike.baidu.com/item/汽车/0?fromModule=lemma_inlink)、[飞机](https://baike.baidu.com/item/飞机/70237?fromModule=lemma_inlink)、动力设备等商品 [2]，而中国则向苏联出口[食品](https://baike.baidu.com/item/食品/0?fromModule=lemma_inlink)、轻工业产品予以交换。
+
+### 引进
+
+1985年8月，[中国铁路机车车辆工业总公司](https://baike.baidu.com/item/中国铁路机车车辆工业总公司/0?fromModule=lemma_inlink)（中华人民共和国铁道部工业总局）派出技术条件谈判代表团赴苏联，与全苏动力机械进出口公司（Энергомашэкспорт）、[诺沃切尔卡斯克电力机车厂](https://baike.baidu.com/item/诺沃切尔卡斯克电力机车厂/0?fromModule=lemma_inlink)（НЭВЗ）及全苏电力机车研究与设计院（ВЭлНИИ）就电力机车的技术条件进行初步协商。至1986年5月，双方确定了机车技术条件，并正式签订了100台8G型电力机车的生产合同；合同规定苏联于1987年底开始交付第一台机车，至1990年底交付完毕 [2]。在8G型机车型号中，“8”代表八轴，而“G”代表硅[半导体](https://baike.baidu.com/item/半导体/385669?fromModule=lemma_inlink)整流。
+
+8G型电力机车是继[8K](https://baike.baidu.com/item/8K/828226?fromModule=lemma_inlink)型、[6K](https://baike.baidu.com/item/6K/0?fromModule=lemma_inlink)型机车之后，中国在1980年代从国外引进的第三种电力机车；根据中国要求，三种机车均采用Bo二轴转向架为基础、单轴功率800千瓦、最高速度100公里/小时、以发挥牵引力为主的交—直流电传动电力机车。由于8G型机车是根据中苏贸易协定按照换货贸易形式引进，在技术条件方面中方并没有太多选择；且鉴于苏联当时的电力机车技术水平，8G型机车并不包含技术引进内容，主要要求是耐用、可靠，以满足当时中国铁路货运的实际需要，其次是和其余两种车型作比较。 [3]
+
+因此，与经过国际招标、按照“技贸结合”形式引进的8K、6K型机车相比，8G型机车的技术水平相对落后，是以苏联于1979年开始批量生产、质量稳定的VL80S（ВЛ80）型电力机车为原型，根据中国的实际使用要求进行改进，很大程度上仍保留了苏联电力机车的传统技术，例如调压电路仍然采用低压侧调压开关、有级调压、过渡电抗器级位转换等，与中国早期的[韶山1型电力机车](https://baike.baidu.com/item/韶山1型电力机车/0?fromModule=lemma_inlink)类似，技术水平仍然停留在1970年代；但8G型机车的牵引特性仍然比早期的[韶山4型电力机车](https://baike.baidu.com/item/韶山4型电力机车/0?fromModule=lemma_inlink)好，且机车按中国要求采用质量更好的机、电部件，其可靠程度相对较高。
+
+### 运用
+
+8G型电力机车于1988年至1991年间分批运抵中国，全部100台机车均配属当时的[北京铁路局](https://baike.baidu.com/item/北京铁路局/0?fromModule=lemma_inlink)太原北电力机务段（京局原段），经过[牵引试验](https://baike.baidu.com/item/牵引试验/12728839?fromModule=lemma_inlink)后，根据机车性能和运输任务需要，确定在[石太铁路](https://baike.baidu.com/item/石太铁路/0?fromModule=lemma_inlink)投入60台，在[北同蒲铁路](https://baike.baidu.com/item/北同蒲铁路/0?fromModule=lemma_inlink)投入40台，担当牵引“晋煤外运”重载煤炭列车的牵引任务，在此后近二十年间成为石太、北同蒲铁路的主力。2003年，20台8G型机车由太原北机务段转配石家庄电力机务段（京局石段）运用；但由于石家庄电力机务段缺乏8G型机车的使用和维护经验，至2005年初这批机车又恢复配属太原北机务段，但001、004号机车在配属石家庄机务段运用期间报废。2005年3月，[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)下辖的[太原铁路分局](https://baike.baidu.com/item/太原铁路分局/8370760?fromModule=lemma_inlink)与大同铁路分局合并成立新的[太原铁路局](https://baike.baidu.com/item/太原铁路局/0?fromModule=lemma_inlink)，所有8G型机车仍然配属太原北机务段。2009年8月，太原铁路局进行站段布局调整，撤销了太原北机务段，将太原北机务段建制划归太原机务段管理，所有8G型机车改配属为太原机务段（太局太段）。 [4]
+
+2011年初；[太中银铁路](https://baike.baidu.com/item/太中银铁路/0?fromModule=lemma_inlink)开通运营，太原机务段投入35台8G型机车担当直通货物列车的牵引任务，由于太中银铁路采用[GSM-R](https://baike.baidu.com/item/GSM-R/0?fromModule=lemma_inlink)网络终端通信系统，运用于该线的8G型机车均加装了列车综合无线调度通信设备（CIR）；同时，[南同蒲铁路](https://baike.baidu.com/item/南同蒲铁路/0?fromModule=lemma_inlink)榆次至侯马北间完成了电气化改造，35台8G型电力机车转配侯马北机务段，担当[侯马](https://baike.baidu.com/item/侯马/3508603?fromModule=lemma_inlink)北至[太原](https://baike.baidu.com/item/太原/24334?fromModule=lemma_inlink)北间31对货运列车交路。8G型机车主要运用于[同蒲铁路](https://baike.baidu.com/item/同蒲铁路/0?fromModule=lemma_inlink)、[石太铁路](https://baike.baidu.com/item/石太铁路/0?fromModule=lemma_inlink)、[太中银铁路](https://baike.baidu.com/item/太中银铁路/0?fromModule=lemma_inlink)，以及[太岚铁路](https://baike.baidu.com/item/太岚铁路/0?fromModule=lemma_inlink)、西山铁路等煤运支线。由于中国的机车大修工厂大多不具备对国外进口机车检修的条件，因此8G型机车的大修均由太原（北）机务段负责。 [5]
+
+## 技术特点
+
+### 车体结构
+
+8G型电力机车是双机[重联](https://baike.baidu.com/item/重联/0?fromModule=lemma_inlink)的8轴大功率干线货运用电力机车，机车总体结构与苏联VL80型电力机车基本相同，但采用了较后期VL85型电力机车的车体外观。8G型机车由两节完全相同的四轴机车通过中间[车钩](https://baike.baidu.com/item/车钩/0?fromModule=lemma_inlink)和风挡连接而成，并有中间走廊连通。每节车为一个完整系统，其中一端设有司机室，可由司机在任何一端司机室对机车进行控制，也可以采用任何一节四轴机车单独工作。机车两端设有[重联](https://baike.baidu.com/item/重联/0?fromModule=lemma_inlink)装置，可以让一台或多台机车重联工作。每组机车均使用两台8GS型双臂式[受电弓](https://baike.baidu.com/item/受电弓/0?fromModule=lemma_inlink)，车顶设有25千伏高压连接线。车内电气间采用单侧贯通式内走廊；机车车体中部设[变压器](https://baike.baidu.com/item/变压器/0?fromModule=lemma_inlink)室。机车持续功率6400[千瓦](https://baike.baidu.com/item/千瓦/0?fromModule=lemma_inlink)，轴式为2×（Bo-Bo）。 [6]
+
+### 电路系统
+
+8G型电力机车为交—直流电传动电力机车，机车主电路采用由大功率[二极管](https://baike.baidu.com/item/二极管/102466?fromModule=lemma_inlink)组成的双拍桥式[整流电路](https://baike.baidu.com/item/整流电路/0?fromModule=lemma_inlink)，二次侧牵引[绕组](https://baike.baidu.com/item/绕组/0?fromModule=lemma_inlink)分为两组，每组正负半波分别通过整流装置向两组负载供电，提高了变压器利用率；并采用低压侧[开关](https://baike.baidu.com/item/开关/2275072?fromModule=lemma_inlink)调压、中点抽头式整流，[牵引电机](https://baike.baidu.com/item/牵引电机/4040190?fromModule=lemma_inlink)端[电压](https://baike.baidu.com/item/电压/0?fromModule=lemma_inlink)的调压是通过调压开关分段将调压绕组接入或断开来实现；为增加调压级数，机车采用了不对称调压方式，级间转换采用过渡电抗器，调压开关共有36个级位，其中只有9级为经济运行级，其余27级为非运行级。为进一步提高机车运行速度，调压电路设有三级磁场削弱，磁削电路中增加了感应分流器，用以磁场削弱时改善牵引电动机的换向和防止电压突变而引起的牵引电动机过载。
+
+由于中方要求辅助电机系统具有较高可靠性，8G型机车辅助电路采用电容式分相电路，取消了异步[劈相机](https://baike.baidu.com/item/劈相机/0?fromModule=lemma_inlink)，驱动六台三相鼠笼[异步电动机](https://baike.baidu.com/item/异步电动机/987100?fromModule=lemma_inlink)，用于冷却牵引电动机、主硅机组、[主变压器](https://baike.baidu.com/item/主变压器/5195197?fromModule=lemma_inlink)、制动电阻，以及驱动[空气压缩机](https://baike.baidu.com/item/空气压缩机/0?fromModule=lemma_inlink)等设备。
+
+### 转向架
+
+机车走行部为四台二轴[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)，一系[悬挂](https://baike.baidu.com/item/悬挂/0?fromModule=lemma_inlink)为钢板弹簧和螺旋弹簧，二系悬挂为摇摆式吊杆弹性悬挂装置。每台转向架装用两台НБ-515型六极串励式脉流[牵引电动机](https://baike.baidu.com/item/牵引电动机/0?fromModule=lemma_inlink)，同一转向架的两台电动机[并联](https://baike.baidu.com/item/并联/0?fromModule=lemma_inlink)，分别由各自的硅整流装置单独供电，组成部分集中供电方式，电机负荷分配比较均匀。牵引电机持续功率800[千瓦](https://baike.baidu.com/item/千瓦/0?fromModule=lemma_inlink)、小时功率830千瓦、[额定电压](https://baike.baidu.com/item/额定电压/7901104?fromModule=lemma_inlink)1020伏，采用滑动抱轴式半悬挂、双边斜齿轮传动 [7]。转向架通过低重心斜拉杆传递牵引力和制动力。 [6]
+
+### 制动系统
+
+8G型电力机车也继承了VL80型机车的制动系统，每节机车装有[空气压缩机](https://baike.baidu.com/item/空气压缩机/0?fromModule=lemma_inlink)一台，风缸设置于车顶，采用苏联传统的卡赞切夫自动[空气制动机](https://baike.baidu.com/item/空气制动机/0?fromModule=lemma_inlink)；设有二级[电阻制动](https://baike.baidu.com/item/电阻制动/0?fromModule=lemma_inlink)，当机车采用[电阻制动](https://baike.baidu.com/item/电阻制动/5316339?fromModule=lemma_inlink)而运行速度降至30±5公里/小时，将制动电阻约一半短接，以增加机车低速时的制动力矩，有效扩大了电阻制动的应用范围；当电阻制动处于低速状态时，机车具有恒速功能，即自动减小[励磁电流](https://baike.baidu.com/item/励磁电流/11030976?fromModule=lemma_inlink)，保持恒定速度运行。机车具有电空联合制动功能，空气制动和电阻制动可以同时进行，当电阻制动失效时也能够自动转为空气制动。 [6]
+
+### 技术改造
+
+8G型电力机车经过长期运用之后，尤其自2000年代起，设备自然损耗随着运用公里数增加而日益加剧，且原制造厂已不再提供技术支持和生产所需配件，导致进口配件短缺并影响机车的维护和使用。因此8G型机车在进行大修时，已经对车上设备进行了大量技术检修和更换。例如将原装苏制卡赞切夫空气制动机更换为韶山4型电力机车使用的国产DK-1型电空制动机，并改装与中国国产“韶山”系列电力机车通用的电空制动控制器。真空断路器、空气压缩机、控制电源柜、受电弓、速度表等设备也分别改装仿制产品
+
+## 机车命名
+
+机车编号：8G-025
+
+命名：青年号
+
+## 车辆保存
+
+8G型002号机车，曾配属于太原北机务段、石家庄电力机务段，侯马机务段，2012年退役，同年12月进入[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/4388121?fromModule=lemma_inlink)永久保存。
+
+8G型076号机车，曾配属于太原北机务段、侯马机务段，2014年退役，现存放在太原铁路局太原机务段北场进行展示。
+
+8G型097号机车，曾配属于太原北机务段、侯马机务段，2014年退役，现存放在太原铁路局榆次机务折返段，作为救援队演练用车。
+
+## 技术数据
+
+| **华氏轮式**                                                 | 0-4-4-0+0-4-4-0                    |
+| ------------------------------------------------------------ | ---------------------------------- |
+| **UIC轴式**                                                  | Bo-Bo+Bo-Bo                        |
+| **[轨距](https://baike.baidu.com/item/轨距/0?fromModule=lemma_inlink)** | 1,435毫米                          |
+| **轮径**                                                     | 1200毫米（半磨耗）                 |
+| **轴重**                                                     | 23吨                               |
+| **通过****[最小曲线半径](https://baike.baidu.com/item/最小曲线半径/0?fromModule=lemma_inlink)** | 125米                              |
+| **机车长度**                                                 | 2 × 17,260毫米                     |
+| **机车宽度**                                                 | 3,156毫米                          |
+| **机车高度**                                                 | 3,850毫米（车顶平面至轨面）        |
+| **构架尺寸**                                                 | 2 × 16,200毫米                     |
+| **整备重量**                                                 | 184吨                              |
+| **受流电压**                                                 | 单相交流 25 kV/50 Hz               |
+| **传动方式**                                                 | 交—直流电                          |
+| **牵引电动机**                                               | НБ-515 × 8                         |
+| **最高速度**                                                 | 100公里/小时                       |
+| **持续速度**                                                 | 50公里/小时                        |
+| **牵引功率**                                                 | 6,620千瓦（小时）6,400千瓦（持续） |
+| **牵引力**                                                   | 627.8千牛（起动）451千牛（持续）   |
+| **制动方式**                                                 | 二级电阻制动                       |
+| **制动功率**                                                 | 5,400千瓦（电制动）                |
+| **列车制动**                                                 | 空气制动                           |

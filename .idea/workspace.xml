@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="94a1ec0e-a948-4bb9-b45b-7bb9a0fd8c93" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/LangChain-8620.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/db-forest-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_E:/PyCharm/LangChain-8620" value="3AORt1eH2swMjRwwI6pLINOVEif" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedChatMode">
+    <option name="chatModeId" value="Agent" />
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="chat-panel" value="GPT-5.1-Codex-Max" />
+      <entry key="agent-panel" value="GPT-5.1-Codex-Max" />
+    </selectedModels>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="Vue Composition API Component" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="3AORt1eH2swMjRwwI6pLINOVEif" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python 测试.pytest (test_retriever.py 内).executor": "Run",
+    "Python.add_count.executor": "Run",
+    "Python.agent.executor": "Run",
+    "Python.app_file_uploader.executor": "Run",
+    "Python.build_city_nodes.executor": "Run",
+    "Python.build_vector_store.executor": "Run",
+    "Python.check_pkl.executor": "Run",
+    "Python.clean_text.executor": "Run",
+    "Python.config_data.executor": "Run",
+    "Python.exact_stations.executor": "Run",
+    "Python.extract_city_coords.executor": "Run",
+    "Python.extract_railway.executor": "Run",
+    "Python.get_city_station.executor": "Run",
+    "Python.get_station.executor": "Run",
+    "Python.knowledge_base.executor": "Run",
+    "Python.llm.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.merge_national.executor": "Run",
+    "Python.merge_trains.executor": "Run",
+    "Python.rag.executor": "Run",
+    "Python.railway_drawing.executor": "Run",
+    "Python.railway_get.executor": "Run",
+    "Python.railway_read.executor": "Run",
+    "Python.read_railways.executor": "Run",
+    "Python.read_stations.executor": "Run",
+    "Python.retriever_test.executor": "Run",
+    "Python.scrap.executor": "Run",
+    "Python.scrap_stations.executor": "Run",
+    "Python.scrap_trains.executor": "Run",
+    "Python.shp_to_pkl.executor": "Run",
+    "Python.unzip.executor": "Run",
+    "Python.vector_stores.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "E:/PyCharm/LangChain-8620/data",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "E:\\PyCharm\\LangChain-8620\\frontend\\node_modules\\prettier",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "E:\\PyCharm\\LangChain-8620\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\PyCharm\LangChain-8620\data" />
+      <recent name="E:\PyCharm\LangChain-8620\data\trainvis" />
+      <recent name="E:\PyCharm\LangChain-8620\data\station" />
+      <recent name="E:\PyCharm\LangChain-8620\data\railways" />
+      <recent name="E:\PyCharm\LangChain-8620" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\PyCharm\LangChain-8620\data" />
+      <recent name="E:\PyCharm\LangChain-8620\frontend\public\maps" />
+      <recent name="E:\PyCharm\LangChain-8620\frontend" />
+      <recent name="E:\PyCharm\LangChain-8620\agent" />
+      <recent name="E:\PyCharm\LangChain-8620\agent\tools" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.31033.139" />
+        <option value="bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="94a1ec0e-a948-4bb9-b45b-7bb9a0fd8c93" name="更改" comment="" />
+      <created>1772461841646</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772461841646</updated>
+      <workItem from="1772461843225" duration="5174000" />
+      <workItem from="1772519879300" duration="11162000" />
+      <workItem from="1772542921119" duration="46000" />
+      <workItem from="1772622338475" duration="2345000" />
+      <workItem from="1772626471604" duration="369000" />
+      <workItem from="1772627084101" duration="755000" />
+      <workItem from="1772633130559" duration="536000" />
+      <workItem from="1772633688762" duration="2605000" />
+      <workItem from="1772636466998" duration="1183000" />
+      <workItem from="1772681797548" duration="4798000" />
+      <workItem from="1772775929100" duration="23040000" />
+      <workItem from="1772863441946" duration="1724000" />
+      <workItem from="1772865264735" duration="17399000" />
+      <workItem from="1772976922143" duration="1719000" />
+      <workItem from="1772979645570" duration="76000" />
+      <workItem from="1772982708422" duration="405000" />
+      <workItem from="1773044377435" duration="6003000" />
+      <workItem from="1773129158103" duration="16338000" />
+      <workItem from="1773194394996" duration="12657000" />
+      <workItem from="1773317260495" duration="2126000" />
+      <workItem from="1773370083487" duration="6254000" />
+      <workItem from="1773399591705" duration="6391000" />
+      <workItem from="1773407527879" duration="1381000" />
+      <workItem from="1773409689549" duration="5324000" />
+      <workItem from="1773460523207" duration="12422000" />
+      <workItem from="1773493369149" duration="5932000" />
+      <workItem from="1773575571511" duration="8797000" />
+      <workItem from="1773618939251" duration="7286000" />
+      <workItem from="1773641436029" duration="5184000" />
+      <workItem from="1773659239495" duration="1468000" />
+      <workItem from="1773667139989" duration="2647000" />
+      <workItem from="1773670477807" duration="993000" />
+      <workItem from="1773832065069" duration="3274000" />
+      <workItem from="1773835847640" duration="1499000" />
+      <workItem from="1773837732910" duration="5566000" />
+      <workItem from="1773972390883" duration="7198000" />
+      <workItem from="1774169698677" duration="269000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/LangChain_8620$main.coverage" NAME="main 覆盖结果" MODIFIED="1772776244559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$rag.coverage" NAME="rag 覆盖结果" MODIFIED="1772530076876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$agent.coverage" NAME="agent 覆盖结果" MODIFIED="1773044685265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$add_count.coverage" NAME="add_count 覆盖结果" MODIFIED="1773495362818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$scrap_trains.coverage" NAME="scrap_trains 覆盖结果" MODIFIED="1773469706218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$app_file_uploader.coverage" NAME="app_file_uploader 覆盖结果" MODIFIED="1772520534224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$read_stations.coverage" NAME="read_stations 覆盖结果" MODIFIED="1773644587903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$pytest__test_retriever_py__.coverage" NAME="pytest (test_retriever.py 内) 覆盖结果" MODIFIED="1772787776349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$extract_city_coords.coverage" NAME="extract_city_coords 覆盖结果" MODIFIED="1773241715842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$merge_national.coverage" NAME="merge_national 覆盖结果" MODIFIED="1773240200460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$extract_railway.coverage" NAME="extract_railway 覆盖结果" MODIFIED="1773235288716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$railway_drawing.coverage" NAME="railway_drawing 覆盖结果" MODIFIED="1774000505540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$railway_read.coverage" NAME="railway_read 覆盖结果" MODIFIED="1773659688044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$get_city_station.coverage" NAME="get_city_station 覆盖结果" MODIFIED="1773974820670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$read_railways.coverage" NAME="read_railways 覆盖结果" MODIFIED="1773238127417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$vector_stores.coverage" NAME="vector_stores 覆盖结果" MODIFIED="1772521760912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$build_city_nodes.coverage" NAME="build_city_nodes 覆盖结果" MODIFIED="1773318197722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$railway_get.coverage" NAME="railway_get 覆盖结果" MODIFIED="1773406148698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$config_data.coverage" NAME="config_data 覆盖结果" MODIFIED="1772804630913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$unzip.coverage" NAME="unzip 覆盖结果" MODIFIED="1773839029647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$check_pkl.coverage" NAME="check_pkl 覆盖结果" MODIFIED="1773379452226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$clean_text.coverage" NAME="clean_text 覆盖结果" MODIFIED="1772776755767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$get_station.coverage" NAME="get_station 覆盖结果" MODIFIED="1773318005140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$exact_stations.coverage" NAME="exact_stations 覆盖结果" MODIFIED="1773841939429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$llm.coverage" NAME="llm 覆盖结果" MODIFIED="1772805676083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$merge_trains.coverage" NAME="merge_trains 覆盖结果" MODIFIED="1773469972692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$retriever_test.coverage" NAME="retriever_test 覆盖结果" MODIFIED="1772789203763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$knowledge_base.coverage" NAME="knowledge_base 覆盖结果" MODIFIED="1772466546920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$build_vector_store.coverage" NAME="build_vector_store 覆盖结果" MODIFIED="1772788846421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent/rag" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$scrap.coverage" NAME="scrap 覆盖结果" MODIFIED="1773468261926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$shp_to_pkl.coverage" NAME="shp_to_pkl 覆盖结果" MODIFIED="1773238964019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+    <SUITE FILE_PATH="coverage/LangChain_8620$scrap_stations.coverage" NAME="scrap_stations 覆盖结果" MODIFIED="1773471437769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mytools" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

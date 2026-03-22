@@ -1,0 +1,227 @@
+韶山1型电力机车（SS1），是[中国铁路](https://baike.baidu.com/item/中国铁路/49652?fromModule=lemma_inlink)的第一代（有级[调压](https://baike.baidu.com/item/调压/54274723?fromModule=lemma_inlink)、交—[直流电](https://baike.baidu.com/item/直流电/1023266?fromModule=lemma_inlink)传动）国产客、货两用干线[电力机车](https://baike.baidu.com/item/电力机车/2309796?fromModule=lemma_inlink)。韶山1型电力机车原称**6Y1型**，原型车为[苏联](https://baike.baidu.com/item/苏联/199168?fromModule=lemma_inlink)的[VL60型电力机车](https://baike.baidu.com/item/VL60型电力机车/20103729?fromModule=lemma_inlink)，首台机车于1958年试制成功，但因质量不过关未能批量生产，此后20多年间经历了三次重大技术改进，跳出了仿制的框框，于1968年更名为**“韶山1型”**，1980年基本定型并投入[大批量生产](https://baike.baidu.com/item/大批量生产/170570?fromModule=lemma_inlink) [1]。1958年至1988年间，[株洲电力机车厂](https://baike.baidu.com/item/株洲电力机车厂/10622606?fromModule=lemma_inlink)累计生产了826台韶山1型机车。
+
+韶山1型机车在1970年代至1980年代一度成为[中华人民共和国](https://baike.baidu.com/item/中华人民共和国/106554?fromModule=lemma_inlink)电气化[铁路干线](https://baike.baidu.com/item/铁路干线/4242175?fromModule=lemma_inlink)的主型[电力机车](https://baike.baidu.com/item/电力机车/2309796?fromModule=lemma_inlink)，并开创了中国铁路以“[韶山](https://baike.baidu.com/item/韶山/83936?fromModule=lemma_inlink)”（毛泽东故乡）命名的干线电力机车家族的生产历史，其研制经验为以后中国电力机车的研制与发展奠定了坚实的基础。
+
+韶山1型电力机车是20世纪60-90年代中国铁路干线主型客货运电力机车的代表，其原型车韶山1008号机车具有很高的[历史价值](https://baike.baidu.com/item/历史价值/53355894?fromModule=lemma_inlink)，被定为国家[一级文物](https://baike.baidu.com/item/一级文物/2783869?fromModule=lemma_inlink)。该文物现收藏于[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/4388121?fromModule=lemma_inlink)。
+
+中文名韶山1型电力机车
+外文名SS1 type electric locomotive
+动力来源电力
+生产国中国
+设计1株洲电力机车厂
+设计2株洲电力机车研究所
+生产厂商株洲电力机车厂
+生产型号6Y1 / SS1（韶山1）
+序列编号16Y1型：0001～0007
+序列编号2韶山1型：008～649、0650～0826
+生产年份1958年—1988年
+产    量6Y1型：7台、韶山1型：819台，总计826台
+用    户中国国家铁路集团有限公司
+首次运行1958年12月28日
+全部退役日期2014年9月19日
+昵    称“芍药”
+
+## 发展历史
+
+### 背景
+
+韶山1型电力机车的研制始于1950年代。[中华人民共和国](https://baike.baidu.com/item/中华人民共和国/0?fromModule=lemma_inlink)成立以后，随着[国民经济](https://baike.baidu.com/item/国民经济/6135834?fromModule=lemma_inlink)逐渐恢复，为了在第二、第三个五年计划内更大规模地开展经济建设，国务院科学规划小组编制了《1956—1967年科学技术发展远景规划》。在1956年，[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/273691?fromModule=lemma_inlink)也制定了《铁路十二年科技发展规划》，提出“[技术政策](https://baike.baidu.com/item/技术政策/12651686?fromModule=lemma_inlink)的中心环节是牵引动力的改造，要迅速地有步骤地由[蒸汽机车](https://baike.baidu.com/item/蒸汽机车/2309698?fromModule=lemma_inlink)转到电力机车和[内燃机车](https://baike.baidu.com/item/内燃机车/2309513?fromModule=lemma_inlink)上去”。但由于当时中国工业基础薄弱，也缺乏制造[干线电力机车](https://baike.baidu.com/item/干线电力机车/22501088?fromModule=lemma_inlink)的经验，在当时的[国际环境](https://baike.baidu.com/item/国际环境/340506?fromModule=lemma_inlink)下要取得电力机车的制造技术，[苏联](https://baike.baidu.com/item/苏联/199168?fromModule=lemma_inlink)的协助自然成为首选。1957年10月，毛泽东率领代表团赴苏联参加[苏联](https://baike.baidu.com/item/苏联/199168?fromModule=lemma_inlink)[十月革命](https://baike.baidu.com/item/十月革命/468?fromModule=lemma_inlink)40周年庆祝活动，并选派了50位[科学技术人员](https://baike.baidu.com/item/科学技术人员/1585798?fromModule=lemma_inlink)随同赴苏访问考察，中国籍此机会向苏联提出了向中国提供[电气化铁路](https://baike.baidu.com/item/电气化铁路/5950740?fromModule=lemma_inlink)及电力机车[技术资料](https://baike.baidu.com/item/技术资料/1903008?fromModule=lemma_inlink)的要求，并列入《中苏技术合作协议》条文 [2]。随后，经国务院批准，中国组织了一个由[第一机械工业部](https://baike.baidu.com/item/第一机械工业部/2400479?fromModule=lemma_inlink)、铁道部以及高校有关专家学者组成的电力机车考察团，分成电力机车总体、机械、电机、控制、电器、工艺、引燃管及[高压开关](https://baike.baidu.com/item/高压开关/7460019?fromModule=lemma_inlink)等6个[专业组](https://baike.baidu.com/item/专业组/22604882?fromModule=lemma_inlink)，于1957年12月赴苏联诺沃切尔卡斯克电力机车厂（НЭВЗ）、全苏列宁电工技术研究院（ВЭИ）进行为期四个月的电力机车制造技术考察学习。
+
+### 研制
+
+研制电力机车的首要条件是决定供电制式，在当时相当先进的电压25千伏、频率50赫兹的交流供电制式仅在[法国](https://baike.baidu.com/item/法国/1173384?fromModule=lemma_inlink)和苏联国内少数铁路试用，中国曾经考虑采用当时最普及3000伏直流供电，但经过详细论证，最终决定采用25千伏工频单相交流制 [2]。在苏联工程技术专家的指导下，中国决定以苏联当时最新型、刚投入批量生产的[VL60型电力机车](https://baike.baidu.com/item/VL60型电力机车/20103729?fromModule=lemma_inlink)为原型，结合[中国铁路](https://baike.baidu.com/item/中国铁路/49652?fromModule=lemma_inlink)的[技术规范](https://baike.baidu.com/item/技术规范/8788769?fromModule=lemma_inlink)进行仿制。考察团在完成电力机车技术[设计任务书](https://baike.baidu.com/item/设计任务书/5142023?fromModule=lemma_inlink)和[技术设计](https://baike.baidu.com/item/技术设计/5891911?fromModule=lemma_inlink)预定任务之后，于1958年6月全部回国，组成了电力机车设计处，在苏联专家帮助下展开了电力机车的研制。
+
+由于[株洲](https://baike.baidu.com/item/株洲/478382?fromModule=lemma_inlink)机车车辆工厂和[湘潭](https://baike.baidu.com/item/湘潭/410349?fromModule=lemma_inlink)[电机厂](https://baike.baidu.com/item/电机厂/3638597?fromModule=lemma_inlink)有合作制造工矿用小型电力机车的经验，铁道部决定以这两家工厂承担电力机车的试制任务，[中国铁道科学研究院](https://baike.baidu.com/item/中国铁道科学研究院/6332480?fromModule=lemma_inlink)、[上海交通大学](https://baike.baidu.com/item/上海交通大学/131671?fromModule=lemma_inlink)、[北京铁道学院](https://baike.baidu.com/item/北京铁道学院/1760871?fromModule=lemma_inlink)、[唐山铁道学院](https://baike.baidu.com/item/唐山铁道学院/3755507?fromModule=lemma_inlink)等单位参加联合设计 [3]。1958年7月15日至20日，由国家技术委员会等组成的技术审查委员会在湘潭电机厂审核了国产电力机车的设计任务书和技术[设计方案](https://baike.baidu.com/item/设计方案/2257691?fromModule=lemma_inlink)，设计过程中方对VL60型机车进行大量修改以满足中国铁路的实际需要，其中重大修改达78处。
+
+试制工作于同年8月开始，株洲机车车辆工厂负责机车车体、转向架等机械部分，而湘潭电机厂负责牵引电动机、整流装置等电气部分。1958年11月18日，由株洲机车车辆工厂负责试制的电力机车车体、[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)等机械部分组装完成，随后被送往湘潭电机厂进行总体组装。
+
+1958年12月28日，中国第一台干线电力机车在湘潭电机厂出厂，定型为**6Y1型**，编号0001，命名为**[韶山](https://baike.baidu.com/item/韶山/83936?fromModule=lemma_inlink)****号**。“6Y1”型号中的“6”代表机车有六根车轴，“Y”代表采用[引燃管](https://baike.baidu.com/item/引燃管/0?fromModule=lemma_inlink)整流，“1”代表第一种型号。6Y1型机车设计为客、货两用干线电力机车，采用低压侧调压开关调压，功率为3900千瓦，最大速度为100公里/小时。机车出厂后随即赴北京，在新建的[环形铁道](https://baike.baidu.com/item/环形铁道/16521626?fromModule=lemma_inlink)试验基地进行试验，但引燃管整流器不能正常工作返厂整修。
+
+在1959年10月的国庆节期间，6Y1型“韶山号”电力机车与[大连](https://baike.baidu.com/item/大连/152852?fromModule=lemma_inlink)机车车辆工厂的巨龙型、[戚墅堰](https://baike.baidu.com/item/戚墅堰/5331069?fromModule=lemma_inlink)机车车辆工厂的先行型、[青岛](https://baike.baidu.com/item/青岛/60244?fromModule=lemma_inlink)四方机车[车辆厂](https://baike.baidu.com/item/车辆厂/7861529?fromModule=lemma_inlink)的[卫星型内燃机车](https://baike.baidu.com/item/卫星型内燃机车/7628473?fromModule=lemma_inlink)一同前往北京展出，并于同年12月参加第二次全国工业交通展览会。1959年11月12日，时任全国人大常委会副委员长、中国科学院院长郭沫若亲自[题诗](https://baike.baidu.com/item/题诗/8501845?fromModule=lemma_inlink)祝贺。
+
+“电掣风驰今在眼，巨龙追逐卫星奔。韶山初见星星火，此日已经燎大原。”——郭沫若，1959年11月12日。
+
+1960年3月，第二台[6Y1型电力机车](https://baike.baidu.com/item/6Y1型电力机车/8743620?fromModule=lemma_inlink)（6Y1-0002）在田心机车车辆工厂落成。1960年5月，中国第一条电气化[铁路干线](https://baike.baidu.com/item/铁路干线/4242175?fromModule=lemma_inlink)——[宝成铁路](https://baike.baidu.com/item/宝成铁路/0?fromModule=lemma_inlink)[宝鸡](https://baike.baidu.com/item/宝鸡/395847?fromModule=lemma_inlink)至凤州段建成通电，6Y1型电力机车于1961年5月起赴宝成铁路实地试运行，但由于[制造工艺](https://baike.baidu.com/item/制造工艺/7476927?fromModule=lemma_inlink)较差，造成机车存在引燃管逆弧、调压开关烧损“放炮”和[牵引电机](https://baike.baidu.com/item/牵引电机/4040190?fromModule=lemma_inlink)[环火](https://baike.baidu.com/item/环火/5211367?fromModule=lemma_inlink)三大质量关键问题，且制动性能不良又缺乏[电阻制动](https://baike.baidu.com/item/电阻制动/5316339?fromModule=lemma_inlink)，列车下坡时危险性较大，6Y1型机车未能批量生产 [3]。为了应付电力机车短缺的情况，铁道部决定从法国进口一批由[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/4166105?fromModule=lemma_inlink)生产的[6Y2型电力机车](https://baike.baidu.com/item/6Y2型电力机车/0?fromModule=lemma_inlink)作为过渡。6Y2型机车同样采用引燃管[整流](https://baike.baidu.com/item/整流/5428170?fromModule=lemma_inlink)，但使用更先进的高压侧调压且带有[再生制动](https://baike.baidu.com/item/再生制动/2366478?fromModule=lemma_inlink)，于1961年8月15日正式投入宝成铁路运行。 [2]
+
+### 改进
+
+面对机车的先天性质量问题，铁道部和[一机部](https://baike.baidu.com/item/一机部/589122?fromModule=lemma_inlink)在1961年两度在株洲召开会议，针对6Y1型1、2号机车存在的可靠性问题，决定由田心机车车辆工厂、[株洲电力机车研究所](https://baike.baidu.com/item/株洲电力机车研究所/6276031?fromModule=lemma_inlink)、湘潭电机厂组成6Y1型电力机车质量改进联合工作组和[技术服务](https://baike.baidu.com/item/技术服务/1120224?fromModule=lemma_inlink)组，进行技术攻关。
+
+随着中国[半导体技术](https://baike.baidu.com/item/半导体技术/4639714?fromModule=lemma_inlink)的发展，且国产引燃管质量不稳定、寿命短，在株洲所、田心机厂、北京[变压器厂](https://baike.baidu.com/item/变压器厂/565365?fromModule=lemma_inlink)共同努力下，于1966年6月生产的6Y1型0004号机车开始采用大功率硅半导体[整流器](https://baike.baidu.com/item/整流器/0?fromModule=lemma_inlink)取代引燃管作为整流装置，成为中国第一台采用硅整流器的电力机车，每台机车共用960只硅元件，使用效果良好。
+
+1967年，通过借鉴6Y2型机车的技术，田心机厂试制了6Y1型0007号机车。针对牵引电动机[故障率](https://baike.baidu.com/item/故障率/9850187?fromModule=lemma_inlink)高，主要是环火和[电枢](https://baike.baidu.com/item/电枢/5499227?fromModule=lemma_inlink)匝间短路的问题，经研究发现苏联的NB410（НБ410）型牵引电机设计中存在的根本性缺陷，电压高、极数多、[换向片](https://baike.baidu.com/item/换向片/5211308?fromModule=lemma_inlink)多而薄，因此株洲所、田心机厂共同研制了1500伏四极带补偿绕组的ZQ650-1型牵引电动机。初期6Y1型机车仿照苏联VL60型机车，采用28元件的调压开关与[铁芯](https://baike.baidu.com/item/铁芯/9063923?fromModule=lemma_inlink)过渡电抗器，容易造成调压开关触头烧损、牵引电机飞弧等故障；为此又研制了新的20元件带[灭弧罩](https://baike.baidu.com/item/灭弧罩/6288572?fromModule=lemma_inlink)的调压开关，并设计试制了[空心电抗器](https://baike.baidu.com/item/空心电抗器/1351783?fromModule=lemma_inlink)，减小了[过渡电流](https://baike.baidu.com/item/过渡电流/7347483?fromModule=lemma_inlink)的冲击。通过这些改进，0007号机车成功解决了引燃管、调压开关和牵引电机三大问题，并采用了碳滑板单臂[受电弓](https://baike.baidu.com/item/受电弓/0?fromModule=lemma_inlink)取代原来的[双臂受电弓](https://baike.baidu.com/item/双臂受电弓/53351537?fromModule=lemma_inlink)、加装了电阻制动，解决了初期的许多故障问题。 [3]
+
+1968年，田心机厂、株机所总结了之前的经验和成果，试制了6Y1型0008号机车，为6Y1型电力机车的第一次重大技术改造，综合改进整流装置，牵引电动机功率提高到700千瓦，[机车小时](https://baike.baidu.com/item/机车小时/22658104?fromModule=lemma_inlink)功率提高到4200千瓦，持续功率3780千瓦，电阻[制动功率](https://baike.baidu.com/item/制动功率/12577778?fromModule=lemma_inlink)也提高到2800千瓦，最大速度90公里/小时。第八台6Y1型机车试制成功后，田心机厂报请铁道部请求对该型电力机车投入批量生产，而当时正值文革时期，铁道部已实行[军事管制](https://baike.baidu.com/item/军事管制/3522305?fromModule=lemma_inlink)。1968年4月27日，经铁道部军管会决定，批准自008号机车开始，6Y1型电力机车正式定名为**韶山1型**，并于1969年开始小批量生产。在1975年7月1日，参与宝成铁路[全线](https://baike.baidu.com/item/全线/1115431?fromModule=lemma_inlink)电气化通车典礼的机车即为008号机车。 [3]
+
+在[生产过程](https://baike.baidu.com/item/生产过程/10626316?fromModule=lemma_inlink)中，田心机厂、株机所又根据机务段的实际运用经验，对韶山1型机车进行了许多改进。1971年，从韶山1061号机车开始进行第二次重大技术改进，主要改进包括加大了主变压器容量，用过渡硅机组取代过渡电抗器，电阻制动也改为硅机组励磁，运行级位从9级增加到33级等。1976年，从韶山1型131号机车开始进行第三次重大技术改进，将[主电路](https://baike.baidu.com/item/主电路/10668571?fromModule=lemma_inlink)中抽式电路改为单拍式双开口桥式整流调压电路，取消了过渡硅机组而与主整流机组合并等。 [4]
+
+### 生产及运用
+
+经过三次重大技术改进，韶山1型电力机车趋于成熟、稳定。1980年，经铁道部审定，从韶山1221号车起基本定型并开始[大批量生产](https://baike.baidu.com/item/大批量生产/170570?fromModule=lemma_inlink)，至此，已经距首台6Y1型机车出厂超过20年的时间。截至1982年底，株洲电力机车厂已经生产了299台韶山1型电力机车，分别配属4个[铁路局](https://baike.baidu.com/item/铁路局/5223787?fromModule=lemma_inlink)（郑州铁路局、[成都铁路局](https://baike.baidu.com/item/成都铁路局/6504066?fromModule=lemma_inlink)、[武汉铁路局](https://baike.baidu.com/item/武汉铁路局/6504450?fromModule=lemma_inlink)、[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)），1个[铁路公司](https://baike.baidu.com/item/铁路公司/4681104?fromModule=lemma_inlink)（[广州铁路集团](https://baike.baidu.com/item/广州铁路集团/10530353?fromModule=lemma_inlink)），下辖6个机务段（宝鸡机务段、安康机务段、勉西机务段、马角坝机务段、六里坪机务段、石家庄机务段、株洲机务段），运用于宝成铁路、[阳安铁路](https://baike.baidu.com/item/阳安铁路/4369740?fromModule=lemma_inlink)、[襄渝铁路](https://baike.baidu.com/item/襄渝铁路/4394398?fromModule=lemma_inlink)[襄阳](https://baike.baidu.com/item/襄阳/890763?fromModule=lemma_inlink)至安康段、[陇海铁路](https://baike.baidu.com/item/陇海铁路/2310641?fromModule=lemma_inlink)宝鸡至天水段、[石太铁路](https://baike.baidu.com/item/石太铁路/7587426?fromModule=lemma_inlink)等。
+
+韶山1型电力机车于1988年停产，共制造826台（包括7台6Y1型） [5]。不同年代生产的机车的车号[铭牌](https://baike.baidu.com/item/铭牌/5824945?fromModule=lemma_inlink)也有区别，其中6Y1型共7台，车号为“6Y1-0001”～“6Y1-0007”；第8台至第649台韶山1型机车，车号为“韶山1008”～“韶山1649”；第650台至第826台韶山1型机车，车号为“SS1-0650”～“SS1-0826”。
+
+### 退出运营
+
+至2000年代，早期生产的韶山1型机车的使用寿命已经接近或超过30年，开始进入报废阶段，许多机车已经相继被封存或按废铁出售拆解。
+
+2014年9月19日晚21时59分，韶山1309号电力机车完成牵引镇城底-太原的6806次客车牵引任务返回太原机务段后，中国国铁所持有的韶山1型[电力机车](https://baike.baidu.com/item/电力机车/2309796?fromModule=lemma_inlink)全部退出运营。
+
+## 技术特点
+
+### 总体结构
+
+韶山1型[电力机车](https://baike.baidu.com/item/电力机车/2309796?fromModule=lemma_inlink)是六轴干线客货运通用电力机车，采用双边[内走廊](https://baike.baidu.com/item/内走廊/53321892?fromModule=lemma_inlink)，设两端[司机室](https://baike.baidu.com/item/司机室/1209485?fromModule=lemma_inlink)。主要电器设备以机车最重设备[主变压器](https://baike.baidu.com/item/主变压器/5195197?fromModule=lemma_inlink)为中央，分平面斜对称布置为主，有利于重量平衡。车顶两端相对[车底](https://baike.baidu.com/item/车底/6491637?fromModule=lemma_inlink)转向架处各有一台[受电弓](https://baike.baidu.com/item/受电弓/4041611?fromModule=lemma_inlink)；中部有一台[空气断路器](https://baike.baidu.com/item/空气断路器/3067194?fromModule=lemma_inlink)；车顶两端还装有[制动电阻柜](https://baike.baidu.com/item/制动电阻柜/5522839?fromModule=lemma_inlink)。车体为全金属箱式承载结构，由[型钢](https://baike.baidu.com/item/型钢/10246718?fromModule=lemma_inlink)与钢板焊接而成。机车的两端各有一个司机室，机车中部是变压器室，向两端分别布置为1、2端高压室和1、2端辅助室。[通风系统](https://baike.baidu.com/item/通风系统/10143846?fromModule=lemma_inlink)采用车体[通风方式](https://baike.baidu.com/item/通风方式/56282377?fromModule=lemma_inlink)，[侧墙](https://baike.baidu.com/item/侧墙/53294457?fromModule=lemma_inlink)[百叶窗](https://baike.baidu.com/item/百叶窗/155581?fromModule=lemma_inlink)是车内设备通风冷却的进风窗口，早期的机车采用进风百叶窗窗口，后期采用大面积[竖式](https://baike.baidu.com/item/竖式/688154?fromModule=lemma_inlink)结构进风百叶窗，过滤除尘效果较好，外形美观大方。
+
+### 转向架
+
+[机车走行部](https://baike.baidu.com/item/机车走行部/22500703?fromModule=lemma_inlink)为两台完全相同的[三轴转向架](https://baike.baidu.com/item/三轴转向架/53633022?fromModule=lemma_inlink)，采用“目”字形箱型[焊接结构](https://baike.baidu.com/item/焊接结构/7722298?fromModule=lemma_inlink)的构架，构架由两根纵向[侧梁](https://baike.baidu.com/item/侧梁/53294545?fromModule=lemma_inlink)、[枕梁](https://baike.baidu.com/item/枕梁/2311781?fromModule=lemma_inlink)和[管型](https://baike.baidu.com/item/管型/10965483?fromModule=lemma_inlink)[端梁](https://baike.baidu.com/item/端梁/54547290?fromModule=lemma_inlink)组焊而成。车轮直径为1250毫米（新轮），采用[锻钢](https://baike.baidu.com/item/锻钢/3593265?fromModule=lemma_inlink)车轴和有孔[辐板](https://baike.baidu.com/item/辐板/5230673?fromModule=lemma_inlink)轮对。转向架设有二系[悬挂装置](https://baike.baidu.com/item/悬挂装置/23129151?fromModule=lemma_inlink)，一系悬挂装置由均衡梁和[钢弹簧](https://baike.baidu.com/item/钢弹簧/18831377?fromModule=lemma_inlink)组成，二系悬挂装置由中央支承和摇摆旁承组成，每台转向架有二个摩擦旁承和二个摇摆旁承，分别各承担一半的车体重量，[牵引力](https://baike.baidu.com/item/牵引力/480403?fromModule=lemma_inlink)和[制动力](https://baike.baidu.com/item/制动力/4338121?fromModule=lemma_inlink)通过中央支承传递。[制动装置](https://baike.baidu.com/item/制动装置/3448575?fromModule=lemma_inlink)采用由制动横梁和制动拉杆的组合式[基础制动装置](https://baike.baidu.com/item/基础制动装置/22501273?fromModule=lemma_inlink)，车轮的两侧都设有[闸瓦](https://baike.baidu.com/item/闸瓦/1438080?fromModule=lemma_inlink)。[牵引电动机](https://baike.baidu.com/item/牵引电动机/12713471?fromModule=lemma_inlink)在[转向架](https://baike.baidu.com/item/转向架/2593395?fromModule=lemma_inlink)上采用抱轴式悬挂、双侧刚性斜[齿轮传动](https://baike.baidu.com/item/齿轮传动/63511?fromModule=lemma_inlink)。
+
+### 传动系统
+
+机车采用交—直流电传动，接触网上的25千伏[单相交流电](https://baike.baidu.com/item/单相交流电/1811881?fromModule=lemma_inlink)通过[受电弓](https://baike.baidu.com/item/受电弓/0?fromModule=lemma_inlink)、[主断路器](https://baike.baidu.com/item/主断路器/2015823?fromModule=lemma_inlink)和[电流互感器](https://baike.baidu.com/item/电流互感器/7784039?fromModule=lemma_inlink)引入机车，电能经[主变压器](https://baike.baidu.com/item/主变压器/0?fromModule=lemma_inlink)降压，通过[整流器](https://baike.baidu.com/item/整流器/2216745?fromModule=lemma_inlink)整流[直流电](https://baike.baidu.com/item/直流电/1023266?fromModule=lemma_inlink)后，再经[平波电抗器](https://baike.baidu.com/item/平波电抗器/4930114?fromModule=lemma_inlink)[滤波](https://baike.baidu.com/item/滤波/2938301?fromModule=lemma_inlink)，供给两台转向架上六台并联连接的[直流牵引电动机](https://baike.baidu.com/item/直流牵引电动机/56536113?fromModule=lemma_inlink)，从而使牵引电动机产生转矩并驱动[轮对](https://baike.baidu.com/item/轮对/4162437?fromModule=lemma_inlink)。早期的6Y1型机车采用[引燃管](https://baike.baidu.com/item/引燃管/2006426?fromModule=lemma_inlink)整流，后来基本定型的韶山1型机车均改用了大功率半导体硅整流管代替引燃管，提高了设备可靠性，也延长了[机车检修周期](https://baike.baidu.com/item/机车检修周期/22552197?fromModule=lemma_inlink)。 [1]
+
+韶山1型电力机车装用一台TGQ1-6300/25型主变压器，额定[输入电压](https://baike.baidu.com/item/输入电压/8956306?fromModule=lemma_inlink)为25千伏，[额定容量](https://baike.baidu.com/item/额定容量/3513373?fromModule=lemma_inlink)为6300千伏安。[牵引变压器](https://baike.baidu.com/item/牵引变压器/10810296?fromModule=lemma_inlink)有四个[绕组](https://baike.baidu.com/item/绕组/6416058?fromModule=lemma_inlink)，包括高压[输入绕组](https://baike.baidu.com/item/输入绕组/10236095?fromModule=lemma_inlink)、两个牵引绕组和[辅助绕组](https://baike.baidu.com/item/辅助绕组/54810574?fromModule=lemma_inlink)，变压器采用强迫油循环风冷式冷却。整流装置方面，早期的[6Y1型电力机车](https://baike.baidu.com/item/6Y1型电力机车/8743620?fromModule=lemma_inlink)采用[引燃管](https://baike.baidu.com/item/引燃管/0?fromModule=lemma_inlink)整流器，每台机车上装有12个引燃管，以石墨和[水银](https://baike.baidu.com/item/水银/572967?fromModule=lemma_inlink)分别作为阳极和阴极，并用[引燃极](https://baike.baidu.com/item/引燃极/56487559?fromModule=lemma_inlink)在每个周波的[正半波](https://baike.baidu.com/item/正半波/56524697?fromModule=lemma_inlink)点燃电弧，因而称为引燃管。而后来的韶山1型电力机车采用了硅整流器，[整流方式](https://baike.baidu.com/item/整流方式/56523148?fromModule=lemma_inlink)为中抽式全波[二极管](https://baike.baidu.com/item/二极管/102466?fromModule=lemma_inlink)整流，定型后改为[双电源](https://baike.baidu.com/item/双电源/10009360?fromModule=lemma_inlink)单拍式全波二极管整流，整流装置型号为TGZ6-3000/1500型整流器和派生系列TGZ6A-3000/1500型整流器，额定输出[直流电压](https://baike.baidu.com/item/直流电压/8640960?fromModule=lemma_inlink)为1500伏，额定输出[直流电流](https://baike.baidu.com/item/直流电流/7477074?fromModule=lemma_inlink)为3000安培，采用ZP500-20型或ZP500-24型的二极管[整流元件](https://baike.baidu.com/item/整流元件/59228006?fromModule=lemma_inlink)，全车共用108只整流元件，整流装置采用强迫风冷。
+
+韶山1型电力机车采用变压器[低压侧调压](https://baike.baidu.com/item/低压侧调压/53301139?fromModule=lemma_inlink)开关进行调速控制，通过改变牵引变压器次边[低压绕组](https://baike.baidu.com/item/低压绕组/5195421?fromModule=lemma_inlink)抽头的接法来调节牵引电动机的[端电压](https://baike.baidu.com/item/端电压/3371324?fromModule=lemma_inlink)，从而实现机车的速度调节。和高压侧[调压](https://baike.baidu.com/item/调压/54274723?fromModule=lemma_inlink)方法相比，低压侧调压无需在牵引变压器设置[调压绕组](https://baike.baidu.com/item/调压绕组/56284031?fromModule=lemma_inlink)，因此大大减轻了其重量。主变压器设有22个抽头，其中级位[转换触头](https://baike.baidu.com/item/转换触头/56590288?fromModule=lemma_inlink)18个、绕组转换触头4个。早期第8～60台、第61～130台机车分别采用过渡电抗器、过渡硅机组进行级位转换，机车设有33级调压级，其中9级为[经济运行](https://baike.baidu.com/item/经济运行/3858178?fromModule=lemma_inlink)位。而以后生产的机车采用硅转换调压的桥接中抽线路，取消了过渡机组，通过改变主变压器低压绕组抽头的不同接法来调节电压，实现33个全经济运行级，并简化了机车结构 [1]。除此之外，还可以对牵引电动机实施三级磁场削弱，作为恒功区的辅助调速手段，磁场削弱率分别为70%、54%和45%。
+
+韶山1型电力机车采用ZQ650-1型牵引电动机，该型电动机是四极串励带[补偿绕组](https://baike.baidu.com/item/补偿绕组/5211289?fromModule=lemma_inlink)的[直流电动机](https://baike.baidu.com/item/直流电动机/6393701?fromModule=lemma_inlink)，[额定电压](https://baike.baidu.com/item/额定电压/7901104?fromModule=lemma_inlink)为1600伏，小时功率为700千瓦，[持续功率](https://baike.baidu.com/item/持续功率/5648592?fromModule=lemma_inlink)为630千瓦，[最高转速](https://baike.baidu.com/item/最高转速/3688957?fromModule=lemma_inlink)为每分钟1835转。 [1]
+
+### 技术改进
+
+| **车号**              | 1008～1060                                 | 1061～1130                                             | 1131～1220                                             | 1221～0826     |
+| --------------------- | ------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | -------------- |
+| **生产年代**          | 1968年～1971年                             | 1971年～1975年                                         | 1976年～1980年                                         | 1980年～1988年 |
+| **调压电路**          | 低压侧调压开关过渡电抗器级位转换           | 低压侧调压开关过渡硅机组级位转换                       | 低压侧调压开关整流硅机组部分元件级位转换               |                |
+| 33级调压9级经济运行位 | 33级调压33级全经济运行位                   |                                                        |                                                        |                |
+| **整流电路**          | 中抽式全波二极管整流螺旋式硅元件           | 中抽式全波二极管整流平板式硅元件                       | 双电源单拍式全波二极管整流（桥式整流电路）平板式硅元件 |                |
+| **电阻制动**          | 励磁发电机励磁功率2800千瓦                 | 主整流柜励磁功率3130千瓦                               | 可控硅相控励磁功率3200千瓦                             |                |
+| **悬挂系统**          | 一系悬挂为扁簧二系悬挂为摩擦旁承加摆式旁承 | 一系悬挂为圆簧加液压减震器二系悬挂为摩擦旁承加摆式旁承 |                                                        |                |
+| **通风系统**          | 侧墙进风百叶窗                             | 侧墙垂直百叶窗                                         |                                                        |                |
+
+## 事故
+
+1973年1月9日凌晨0时42分，从上海开往成都的83次[特快旅客列车](https://baike.baidu.com/item/特快旅客列车/455405?fromModule=lemma_inlink)运行在[宝成铁路](https://baike.baidu.com/item/宝成铁路/747690?fromModule=lemma_inlink)时，因列车晚点计划在[观音山站](https://baike.baidu.com/item/观音山站/10946848?fromModule=lemma_inlink)正线[临时停车](https://baike.baidu.com/item/临时停车/2829887?fromModule=lemma_inlink)会让从[秦岭](https://baike.baidu.com/item/秦岭/1396?fromModule=lemma_inlink)开往[宝鸡](https://baike.baidu.com/item/宝鸡/395847?fromModule=lemma_inlink)的804次[货物列车](https://baike.baidu.com/item/货物列车/5604461?fromModule=lemma_inlink)。但由于83次列车的[机车乘务员](https://baike.baidu.com/item/机车乘务员/3479682?fromModule=lemma_inlink)[疲劳驾驶](https://baike.baidu.com/item/疲劳驾驶/11063725?fromModule=lemma_inlink)，误以为列车正常运行通过观音山站，臆测行车并未确认信号，连续闯过显示红色的[信号机](https://baike.baidu.com/item/信号机/6409752?fromModule=lemma_inlink)出站，在观音山站与正在进站的804次货物列车正面冲突。事故造成22人死亡，44人重伤；韶山1型、[6Y2型电力机车](https://baike.baidu.com/item/6Y2型电力机车/8743635?fromModule=lemma_inlink)共报废3台，中断正线行车32小时48分。
+
+1981年10月5日凌晨3时32分，因暴雨造成堑坡[坍方](https://baike.baidu.com/item/坍方/8489284?fromModule=lemma_inlink)，1914次货物列车运行至[襄渝铁路](https://baike.baidu.com/item/襄渝铁路/4394398?fromModule=lemma_inlink)[曹家坝站](https://baike.baidu.com/item/曹家坝站/10865166?fromModule=lemma_inlink)至[青花站](https://baike.baidu.com/item/青花站/10865161?fromModule=lemma_inlink)间K485+136M处颠覆，机车翻入后河，造成韶山1型机车报废1台，货车小破1辆，中断正线行车14小时28分。
+
+1987年6月10日，郑州铁路局[洛阳机务段](https://baike.baidu.com/item/洛阳机务段/8102724?fromModule=lemma_inlink)的韶山1型机车，[双机牵引](https://baike.baidu.com/item/双机牵引/53352339?fromModule=lemma_inlink)1726次货物列车经由[陇海铁路](https://baike.baidu.com/item/陇海铁路/2310641?fromModule=lemma_inlink)运行至[新安县站](https://baike.baidu.com/item/新安县站/6971340?fromModule=lemma_inlink)至[铁门站](https://baike.baidu.com/item/铁门站/6971396?fromModule=lemma_inlink)间，由于区间[自动闭塞](https://baike.baidu.com/item/自动闭塞/2794140?fromModule=lemma_inlink)[系统故障](https://baike.baidu.com/item/系统故障/3247433?fromModule=lemma_inlink)，司机没有认真确认信号，将灭灯的分区信号误认为绿色灯光，盲目继续运行并连续闯过两台灭灯的信号机，导致与前方停在新安县站区间内的1724次货物列车追尾相撞。事故造成机车小破1台，货车大破1辆。
+
+1988年4月14日清晨4点14分，北京铁路局丰润机务段的韶山1505号机车，担当4982次[单机运行](https://baike.baidu.com/item/单机运行/53346872?fromModule=lemma_inlink)在[京秦铁路](https://baike.baidu.com/item/京秦铁路/6379268?fromModule=lemma_inlink)时司机在行车途中睡觉，机车[冒进信号](https://baike.baidu.com/item/冒进信号/5693794?fromModule=lemma_inlink)，于丰润站（今[唐山北站](https://baike.baidu.com/item/唐山北站/7245212?fromModule=lemma_inlink)）与韶山1型591号[机车牵引](https://baike.baidu.com/item/机车牵引/96269?fromModule=lemma_inlink)正在开出的77次货物列车正面冲突，造成两台韶山1型机车中破。
+
+1992年7月1日清晨5时29分，郑州铁路局[襄樊铁路分局](https://baike.baidu.com/item/襄樊铁路分局/8027042?fromModule=lemma_inlink)六里坪机务段的韶山1058号机车牵引1605次货物列车，经[襄渝铁路](https://baike.baidu.com/item/襄渝铁路/0?fromModule=lemma_inlink)运行至[十堰市](https://baike.baidu.com/item/十堰市/835186?fromModule=lemma_inlink)境内的[花果站](https://baike.baidu.com/item/花果站/7601522?fromModule=lemma_inlink)时，因扒乘货车的三名农民将列车机后第8位车辆其中一端[折角塞门](https://baike.baidu.com/item/折角塞门/18892529?fromModule=lemma_inlink)关闭，导致[列车制动](https://baike.baidu.com/item/列车制动/5622387?fromModule=lemma_inlink)失灵，与停留在花果站3道、由两台[韶山3型电力机车](https://baike.baidu.com/item/韶山3型电力机车/7812103?fromModule=lemma_inlink)双机牵引的1608次货物列车正面相撞，并引发大火，造成机车乘务员死亡4人、重伤1人，机车报废三台、大破一台，22辆货车报废，[直接经济损失](https://baike.baidu.com/item/直接经济损失/9746259?fromModule=lemma_inlink)900多万元人民币，中断襄渝铁路行车4小时26分。
+
+1993年1月16日下午2时07分，郑州铁路局安康铁路分局安康机务段的韶山1320号、副挂机车韶山1336号，牵引2605次货物列车，运行至襄渝铁路[大竹园站](https://baike.baidu.com/item/大竹园站/10864457?fromModule=lemma_inlink)至[大米溪站](https://baike.baidu.com/item/大米溪站/10864467?fromModule=lemma_inlink)间K353+625M处（胶蜡坡隧道内），因紫阳[工务段](https://baike.baidu.com/item/工务段/2012039?fromModule=lemma_inlink)违章施工，在没有办理[封锁区间](https://baike.baidu.com/item/封锁区间/54762268?fromModule=lemma_inlink)手续的情况下在该处更换重伤[钢轨](https://baike.baidu.com/item/钢轨/1007449?fromModule=lemma_inlink)，造成列车经过该处时机车及机后1至13位车辆脱轨颠覆，机车小破2台，货车报废6辆、大破3辆、中破1辆、小破3辆，中断行车96小时38分，构成行车[重大事故](https://baike.baidu.com/item/重大事故/55832087?fromModule=lemma_inlink)。 [6]
+
+1997年9月25日早上6时47分，[成都铁路局](https://baike.baidu.com/item/成都铁路局/6504066?fromModule=lemma_inlink)贵阳铁路分局贵阳机务段的韶山1518、1543号机车，[重联](https://baike.baidu.com/item/重联/1073526?fromModule=lemma_inlink)牵引1902次货物列车，运行至[湘黔铁路](https://baike.baidu.com/item/湘黔铁路/4049402?fromModule=lemma_inlink)[青溪站](https://baike.baidu.com/item/青溪站/7726990?fromModule=lemma_inlink)3道停车等待交会1911次货物列车时，由于重联机车与机后1位车辆的折角塞门被关闭导致列车[制动失效](https://baike.baidu.com/item/制动失效/7485559?fromModule=lemma_inlink)，列车进入青溪站[安全线](https://baike.baidu.com/item/安全线/10833336?fromModule=lemma_inlink)冲出土挡，两台机车与机后1～14位车辆颠覆，机后15位车辆脱轨，其中机后12位车辆装载的黄磷起火。造成机车大破、小破各1台，车辆报废14辆、中破1辆，中断行车11小时28分，构成行车重大事故。 [7]
+
+2004年6月14日上午11时25分，郑州铁路局西安铁路分局宝鸡机务段的韶山1571号机车，牵引19095次货物列车，运行至[陇海铁路](https://baike.baidu.com/item/陇海铁路/2310641?fromModule=lemma_inlink)杨陵镇站（今[杨陵站](https://baike.baidu.com/item/杨陵站/14193563?fromModule=lemma_inlink)，K1158+845.5M）时，因扒乘货车的闲杂人员恶意破坏，关闭折角塞门并提开机后1、2位车辆之间的[车钩](https://baike.baidu.com/item/车钩/5452180?fromModule=lemma_inlink)，导致列车在运行途中分离，司机发现列车分离后[紧急制动](https://baike.baidu.com/item/紧急制动/6839887?fromModule=lemma_inlink)停车，后部列车与前部列车追尾相撞，导致机后第一至九位车辆脱轨，机车小破1台，车辆报废9辆，扒乘货车者身亡。但由于韶山1571号机车修复费用大，故宝鸡机务段决定将其报废，而同时由于铁道部要求报废早期的韶山1型机车，宝鸡机务段又将1571号机车的车号套用到1208号机车，令原1208号机车避免提早报废。
+
+2007年7月9日下午5时许，[太原铁路局](https://baike.baidu.com/item/太原铁路局/0?fromModule=lemma_inlink)太原北机务段的SS1-0687号机车，牵引CT47940次货物列车（编组54辆，[总重](https://baike.baidu.com/item/总重/56624476?fromModule=lemma_inlink)4690吨），经由[太岚铁路](https://baike.baidu.com/item/太岚铁路/393425?fromModule=lemma_inlink)运行，准备在[古东站](https://baike.baidu.com/item/古东站/393553?fromModule=lemma_inlink)停车时，机车乘务员发现制动失灵，列车越过古东站冒进区间，于下午5时33分列车冒进[扫石站](https://baike.baidu.com/item/扫石站/393538?fromModule=lemma_inlink)上行[进站信号机](https://baike.baidu.com/item/进站信号机/11057573?fromModule=lemma_inlink)，5时35分列车进入安全线冲上土挡，机车和机后第一至第十位车辆颠覆坠入山沟、第11位车辆脱轨。事故造成两名机车乘务员在扫石站跳车时受伤，机车报废，车辆报废10辆。[事故原因](https://baike.baidu.com/item/事故原因/53206441?fromModule=lemma_inlink)是[古交](https://baike.baidu.com/item/古交/79235?fromModule=lemma_inlink)[列检所](https://baike.baidu.com/item/列检所/8739633?fromModule=lemma_inlink)作业人员更换机后1位车辆[缓解阀](https://baike.baidu.com/item/缓解阀/55838332?fromModule=lemma_inlink)后，进行[试风](https://baike.baidu.com/item/试风/1991574?fromModule=lemma_inlink)作业时关闭了2位车辆前端折角塞门，试风完毕后忘记将该[折角塞门](https://baike.baidu.com/item/折角塞门/18892529?fromModule=lemma_inlink)开启，且机车乘务员也没有及时发现。其事故性质与2005年9月的[太焦铁路](https://baike.baidu.com/item/太焦铁路/582258?fromModule=lemma_inlink)65001次列车[脱轨事故](https://baike.baidu.com/item/脱轨事故/9825416?fromModule=lemma_inlink)类似。
+
+## 机车命名
+
+| 机车编号 | 名称       | 配属                   |
+| -------- | ---------- | ---------------------- |
+| 韶山1107 | 共青团号   | 成都铁路局重庆机务段   |
+| 韶山1171 | 党员示范号 | 北京铁路局丰台机务段   |
+| 韶山1203 | 青年号     | 北京铁路局丰台机务段   |
+| 韶山1235 | 共青团号   | 成都铁路局重庆机务段   |
+| 韶山1426 | 先锋号     | 北京铁路局丰台机务段   |
+| 韶山1477 | 共青团号   | 成都铁路局重庆机务段   |
+| 韶山1545 | 先锋号     | 北京铁路局石家庄机务段 |
+| 韶山1548 | 共青团号   | 北京铁路局石家庄机务段 |
+| 韶山1630 | 民兵号     | 西安铁路局安康机务段   |
+| SS1-0680 | 民兵号     | 太原铁路局太原机务段   |
+
+## 车辆保存
+
+韶山1008号机车，于1969年5月30日出厂。曾先后配属[马角坝](https://baike.baidu.com/item/马角坝/10891585?fromModule=lemma_inlink)电力[机务段](https://baike.baidu.com/item/机务段/496883?fromModule=lemma_inlink)、[贵阳机务段](https://baike.baidu.com/item/贵阳机务段/10908929?fromModule=lemma_inlink)。2002年8月31日该车正式退役，随后被送进[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/0?fromModule=lemma_inlink)作静态展示。
+
+韶山1061号机车，为宝鸡电力[机车检修段](https://baike.baidu.com/item/机车检修段/53438258?fromModule=lemma_inlink)内展品。
+
+韶山1156号机车，原配属[郑州铁路局](https://baike.baidu.com/item/郑州铁路局/2310052?fromModule=lemma_inlink)六里坪机务段，退役后于2006年由郑州铁路局赠予郑州[世纪欢乐园](https://baike.baidu.com/item/世纪欢乐园/814674?fromModule=lemma_inlink)作静态展览。
+
+韶山1160号机车，原配属[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)[丰台机务段](https://baike.baidu.com/item/丰台机务段/9298551?fromModule=lemma_inlink)，退役后保存在位于北京市[昌平区](https://baike.baidu.com/item/昌平区/2504992?fromModule=lemma_inlink)[南口镇](https://baike.baidu.com/item/南口镇/7654?fromModule=lemma_inlink)的[北京铁路电气化学校](https://baike.baidu.com/item/北京铁路电气化学校/4994307?fromModule=lemma_inlink)，作为教学机车使用。
+
+韶山1227号机车，原配属[兰州铁路局](https://baike.baidu.com/item/兰州铁路局/3048371?fromModule=lemma_inlink)兰州西机务段，退役后存放于兰州西机务段进行展示，车号改为韶山2019。
+
+韶山1254号机车，原配属北京铁路局[唐山机务段](https://baike.baidu.com/item/唐山机务段/1970757?fromModule=lemma_inlink)，退役存放于北京铁路局丰台机务段储备厂内，为丰台救援队演练用机车。
+
+韶山1277号机车，保存在[黑龙江交通职业技术学院](https://baike.baidu.com/item/黑龙江交通职业技术学院/10455948?fromModule=lemma_inlink)，作为教学机车使用。
+
+韶山1307号机车，原配属[太原铁路局](https://baike.baidu.com/item/太原铁路局/7535864?fromModule=lemma_inlink)太原机务段，退役存放于太原铁路局[榆次](https://baike.baidu.com/item/榆次/1138133?fromModule=lemma_inlink)[机务折返段](https://baike.baidu.com/item/机务折返段/4177527?fromModule=lemma_inlink)，为救援队演练用机车。
+
+韶山1309号机车，原配属太原铁路局太原机务段，2014年9月退役后，现存放在太原铁路局太原机务段北场进行展示。
+
+韶山1321号机车，原配属[西安铁路局](https://baike.baidu.com/item/西安铁路局/6504528?fromModule=lemma_inlink)安康机务段，现保存在[武汉铁路职业技术学院](https://baike.baidu.com/item/武汉铁路职业技术学院/7752960?fromModule=lemma_inlink)（[藏龙岛](https://baike.baidu.com/item/藏龙岛/3097846?fromModule=lemma_inlink)校区），作为教学机车使用。
+
+SS1-0681号机车，原配属太原铁路局太原机务段，现存放在[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/4388121?fromModule=lemma_inlink)永久保存。
+
+SS1-0695号机车，原配属[沈阳铁路局](https://baike.baidu.com/item/沈阳铁路局/6503224?fromModule=lemma_inlink)[苏家屯机务段](https://baike.baidu.com/item/苏家屯机务段/15262349?fromModule=lemma_inlink)，2010年退役，随后被送进[沈阳铁路陈列馆](https://baike.baidu.com/item/沈阳铁路陈列馆/5584349?fromModule=lemma_inlink)作静态展示。
+
+SS1-0762号机车，原配属[广州铁路集团公司](https://baike.baidu.com/item/广州铁路集团公司/6503866?fromModule=lemma_inlink)[株洲机务段](https://baike.baidu.com/item/株洲机务段/14800778?fromModule=lemma_inlink)，退役存放于[娄底](https://baike.baidu.com/item/娄底/442128?fromModule=lemma_inlink)运用车间储备厂内，作为救援队演练用机车。
+
+SS1-0802号机车，原配属[广州铁路局](https://baike.baidu.com/item/广州铁路局/5886665?fromModule=lemma_inlink)（集团）公司株洲机务段，退役后存放于广州局[怀化](https://baike.baidu.com/item/怀化/2581750?fromModule=lemma_inlink)机务段。
+
+SS1-0818号机车，原配属兰州铁路局兰州西机务段，2013年退役，保存在西南交通大学机车博物园作静态展示。
+
+SS1-0821号机车，原配属广铁韶段，广铁广段，广铁株段。2010年退役，退役后曾担当[韶关](https://baike.baidu.com/item/韶关/868404?fromModule=lemma_inlink)运用车间调车机车，后保存于韶关运用车间。
+
+SS1-0826号机车，原配属广铁韶段，广铁广段，广铁株段。是最后一台出厂的韶山1型电力机车。2010年退役，退役后曾担当韶关运用车间调车机车。2019年10月，该车被保存在韶关运用车间[实训基地](https://baike.baidu.com/item/实训基地/3194703?fromModule=lemma_inlink)，做静态展示。
+
+## 技术数据
+
+| **华氏轮式**                                                 | 0-6-6-0                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **UIC轴式**                                                  | Co'Co'                                                       |
+| **[轨距](https://baike.baidu.com/item/轨距/0?fromModule=lemma_inlink)** | 1,435毫米                                                    |
+| **[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)** | 三轴                                                         |
+| **轮径**                                                     | 1,250毫米（新轮）                                            |
+| **轴重**                                                     | 23吨                                                         |
+| **轴距**                                                     | 4,600毫米                                                    |
+| **通过****[最小曲线半径](https://baike.baidu.com/item/最小曲线半径/0?fromModule=lemma_inlink)** | 125米                                                        |
+| **机车长度**                                                 | 19,400毫米（车底架长）20,368毫米（车钩中心距）               |
+| **机车宽度**                                                 | 3,106毫米                                                    |
+| **机车高度**                                                 | 4,140毫米（车顶平面至轨面）                                  |
+| **整备重量**                                                 | 138吨                                                        |
+| **砂储备量**                                                 | 0.4立方米                                                    |
+| **受流电压**                                                 | 单相交流 25 kV/50 Hz                                         |
+| **传动方式**                                                 | 交—直流电                                                    |
+| **牵引电动机**                                               | ZQ650-1                                                      |
+| **最高速度**                                                 | 90公里/小时                                                  |
+| **持续速度**                                                 | 43公里/小时                                                  |
+| **功率**                                                     | 持续功率3,780千瓦最大功率3900千瓦                            |
+| **牵引力**                                                   | 487.4千牛（起动）301.1千牛（持续）                           |
+| **制动方式**                                                 | 踏面制动、[电阻制动](https://baike.baidu.com/item/电阻制动/0?fromModule=lemma_inlink) |
+| **列车制动**                                                 | 电控[空气制动](https://baike.baidu.com/item/空气制动/22477680?fromModule=lemma_inlink) |
+
+[词条图册更多图册](https://baike.baidu.com/pic/韶山1型电力机车/7612282?fr=lemma)
+
+参考资料
+
+- 1《电力机车技术》编辑部．韶山1型电力机车技术资料连载：第一篇 总体线路.《电力机车技术》．株洲．株洲电力机车厂．1983年1月．11-62
+
+  
+
+- 2 张鸷中．中国电力机车的研制与发展.《中国科技史料》．北京．中国科学技术史学会．1998年4月19日．19：45-50
+
+  
+
+- 3 铁道部机车车辆工业总公司．铁路机车车辆工业企业管理协会.《中国铁路机车车辆工业(1949-1988)》．北京．中国铁道出版社．1989年
+
+  
+
+- 4 田心工厂技术科．SS1131号电力机车简讯.《机车电传动》．株洲．株洲电力机车研究所．1976年．（Z1）：57
+
+  
+
+- 5 铁道部运输局装备部．《中华人民共和国铁路机车概要》．北京．中国铁道出版社．2009年
+
+  
+
+- 6 铁道部安全监察司．更换重伤钢轨 未要点 未登记 未办封锁区间手续 工长违章蛮干 未防护 未联系 便拆断线路换钢轨.《铁路行车事故案例选编》．北京．中国铁道出版社．1999年．224-227
+
+  
+
+- 7 铁道部安全监察司．进站停车 司机用尽制动措施 速度不减 进入安全线撞土挡.《铁路行车事故案例选编》．北京．中国铁道出版社．1999年．330-331

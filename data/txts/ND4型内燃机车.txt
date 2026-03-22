@@ -1,0 +1,111 @@
+ND4型内燃机车是中国于1971年6月从[法国阿尔斯通公司](https://baike.baidu.com/item/法国阿尔斯通公司/2107382?fromModule=lemma_inlink)引进的干线货运电力传动机车，中文名ND4型，外文名China Railways ND4，昵称“法国蓝”。该车基于法国国铁CC 72000型机车改进设计，采用AGO V16 ESHR型柴油机，标称功率2150千瓦，最高时速100公里，整备重量138吨，主要承担[京原线](https://baike.baidu.com/item/京原线/11010972?fromModule=lemma_inlink)、[丰沙线](https://baike.baidu.com/item/丰沙线/5908371?fromModule=lemma_inlink)、京山线的煤炭运输任务。 [1] [12-13] [15]
+
+1973年11月50台机车全部交付北京铁路局丰台机务段，至1980年代末每台平均走行240万公里后频发电机体裂纹、牵引电机接地等故障。1987年起实施单台100万元投资的简易厂修仍无法根治问题，1990年按铁道部"维持使用、逐步淘汰"原则择劣报废，1995年剩余28台，2003年仅存05、15、46号机车。 [2] [4] [14]2004年4月15号机车成为唯一留存，经铁路爱好者呼吁后于2012年4月启动外观修复，2013年1月25日正式由[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/4388121?fromModule=lemma_inlink)收藏并定为国家二级文物。 [6-7] [9] [14]
+
+中文名ND4型内燃机车
+外文名China Railways ND4
+动力来源AGO V16 ESHR型高速柴油机
+类    型内燃电传动机车
+生产国法国
+生产厂商法国阿尔斯通公司
+生产型号AD48C
+序列编号01～50
+生产年份1973年
+产    量50台
+主要用户中国国家铁路集团有限公司
+昵    称法国蓝
+主运铁路京原线 丰沙线 京山线
+
+## 发展历史
+
+播报
+
+编辑
+
+### 引进
+
+1970年代初，[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)丰台机务段开始从[蒸汽机车](https://baike.baidu.com/item/蒸汽机车/2309698?fromModule=lemma_inlink)牵引向内燃化过渡。当时中国的电力传动[内燃机车](https://baike.baidu.com/item/内燃机车/2309513?fromModule=lemma_inlink)以直—直流电传动的[东风型内燃机车](https://baike.baidu.com/item/东风型内燃机车/8377661?fromModule=lemma_inlink)为主，技术性能仍然处于落后水平；而第二代交—直流电传动的[东风4型内燃机车](https://baike.baidu.com/item/东风4型内燃机车/8377422?fromModule=lemma_inlink)由于草率上马，导致整台机车的性能和质量未能过关。面对东风4型机车迟迟未能定型、内燃机车产能不足的情况，[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/273691?fromModule=lemma_inlink)决定从国外进口一批技术较为先进的内燃机车作为过渡。
+
+经过评选和谈判，中国机械进出口总公司与[法国](https://baike.baidu.com/item/法国/1173384?fromModule=lemma_inlink)[阿尔斯通公司](https://baike.baidu.com/item/阿尔斯通公司/4166105?fromModule=lemma_inlink)及电气牵引设备公司（MTE），于1971年6月23日在北京签订了从法国进口50台内燃机车的贸易合同，时任中国对外贸易部副部长李强、法国驻华大使艾蒂安·马纳克（Etienne Manac'h） 、阿尔斯通公司牵引部总经理罗杰·沙尔翁-德梅尔赛（Roger Chalvon-Demersay）等人出席了签字仪式 [1]。该型机车被定型为**ND4型**，其中“N”代表内燃机车、“D”代表电力传动；阿尔斯通公司内的设计代号为**AD48C**。ND4型机车是由阿尔斯通公司在法国国铁CC 72000型内燃机车基础上，根据中国铁路的使用要求专门设计制造的4000马力干线货运内燃机车，两者均装用一台阿尔萨斯机械制造公司制造的16缸高速柴油机，而车体结构、转向架等方面均有许多相似之处，并采用了和[6G](https://baike.baidu.com/item/6G/6430687?fromModule=lemma_inlink)、[8K型电力机车](https://baike.baidu.com/item/8K型电力机车/8740613?fromModule=lemma_inlink)相似的系列化司机室。
+
+### 运用
+
+1973年11月，ND4型机车运抵中国，50台机车全部配属[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)丰台机务段，开始了[丰台机务段](https://baike.baidu.com/item/丰台机务段/9298551?fromModule=lemma_inlink)干线牵引机车内燃化的进程 [2]。从1970年代中至1980年代初，ND4型机车曾经是[京原铁路](https://baike.baidu.com/item/京原铁路/4975376?fromModule=lemma_inlink)[丰台](https://baike.baidu.com/item/丰台/7606507?fromModule=lemma_inlink)西至[灵丘](https://baike.baidu.com/item/灵丘/3085112?fromModule=lemma_inlink)、[京山铁路](https://baike.baidu.com/item/京山铁路/5590554?fromModule=lemma_inlink)丰台西至[南仓](https://baike.baidu.com/item/南仓/8363362?fromModule=lemma_inlink)、[丰沙铁路](https://baike.baidu.com/item/丰沙铁路/4974349?fromModule=lemma_inlink)丰台西至[张家口](https://baike.baidu.com/item/张家口/522386?fromModule=lemma_inlink)区段的主力[货运机车](https://baike.baidu.com/item/货运机车/8737853?fromModule=lemma_inlink)，主要担当“晋煤外运”煤炭重载列车的牵引任务。至1984年后，丰台机务段大量配属从美国进口的[ND5型内燃机车](https://baike.baidu.com/item/ND5型内燃机车/4101334?fromModule=lemma_inlink)并投入丰沙、[京原铁路](https://baike.baidu.com/item/京原铁路/4975376?fromModule=lemma_inlink)运用，大部分ND4型机车改为投入[京山铁路](https://baike.baidu.com/item/京山铁路/5590554?fromModule=lemma_inlink)运用。
+
+随着机车运用时间日渐增长，由于种种原因，导致ND4型机车始终无法获得全面性维修、机车质量日益下降，机车老化问题严重 [3]。至1980年代末，每台ND4型机车已经平均走行了240～250万公里，主要质量问题和事故包括柴油机机体裂纹、活塞破损爆缸、曲轴颈烧损、牵引电机接地、电线[短路](https://baike.baidu.com/item/短路/83981?fromModule=lemma_inlink)和油管破裂导致机车火灾等问题 [2]。由于ND4型机车为进口机车，机务段和机车检修厂并不具备整车大修的能力，因此ND4型机车仅能由丰台机务段进行有限度的段修工作。为了维持机车基本质量，铁道部决定从1987年开始，对ND4型机车逐台投资100万元人民币实行简易厂修，增加了车体、转向架、电机的检修范围。然而，由于简易厂修能力有限，对一些威胁行车安全的质量问题仍然束手无策，而国产化部件往往价格偏高或质量不达标，因此机务段实际上对ND4型机车的质量并没有太大把握。 [2]
+
+1980年代末，针对ND4型机车的状况，铁道部制定了“维持使用、逐步淘汰”的原则，从1990年代起开始对ND4型机车择劣报废；同时又将ND4型机车从主要干线撤换下来，在[北京铁路枢纽](https://baike.baidu.com/item/北京铁路枢纽/11057435?fromModule=lemma_inlink)内[京门铁路](https://baike.baidu.com/item/京门铁路/1691623?fromModule=lemma_inlink)、[西北环线](https://baike.baidu.com/item/西北环线/8018129?fromModule=lemma_inlink)等支线担当小运转、调车任务，并转配部分机车至南口机务段、张家口机务段作为小运转机车使用（段修仍然在丰台机务段进行），以减轻机车负担。经过逐年报废，1995年末北京铁路局仅余下28台ND4型机车 [4]，至1997年末进一步减少至16台。 [5]
+
+2004年4月，最后三台ND4型机车的其中两台（46、05）报废拆解，仅余下一台15号机车，放置于丰台机务段内偏僻的储备厂。
+
+### 车辆保存
+
+对于硕果仅存的ND4型15号机车，中国铁路迷曾经多番呼吁，希望有关部门能让这台机车进入博物馆永久收藏，避免它沦为一堆废铁 [6]。2012年3月，[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/4388121?fromModule=lemma_inlink)馆长王新桥对媒体表示，“ND4最好的归宿是送到铁博当做展品”，并已经开始就外观修复进行调研 [7]；同年4月11日，中国铁道博物馆和丰台机务段开始对ND4型15号机车进行整修工作，修复的重点是外观和司机室，在向民众征集ND4机车的零件的同时，也对已无原厂配件的部件进行仿制。 [8]
+
+ND4型15号机车已于2013年1月25日，交由[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/4388121?fromModule=lemma_inlink)永久收藏，经鉴定后被定为国家[二级文物](https://baike.baidu.com/item/二级文物/2784073?fromModule=lemma_inlink)。 [9-11]
+
+### 机车命名
+
+| 机车编号 | 名称       | 挂牌时间                |
+| -------- | ---------- | ----------------------- |
+| ND4 - 32 | 青年文明号 | 1985年～1986年5月       |
+| ND4 - 37 | 工人先锋号 | 1986年5月～1997年9月4日 |
+
+## 技术特点
+
+播报
+
+编辑
+
+### 总体布置
+
+ND4型机车采用承载式[焊接](https://baike.baidu.com/item/焊接/513162?fromModule=lemma_inlink)钢结构车体，两端设有同等功能的司机室，可双向操纵机车，并设双侧内走廊。机车从前到后依次分别为1端司机室、辅助装置室、冷却室、动力室、电阻制动柜室、2端司机室。动力室位于机车中部，安装了一套[柴油发电机](https://baike.baidu.com/item/柴油发电机/758041?fromModule=lemma_inlink)组，以及[空气滤清器](https://baike.baidu.com/item/空气滤清器/6494528?fromModule=lemma_inlink)、车体通风机、起动风泵、[空气压缩机](https://baike.baidu.com/item/空气压缩机/3736299?fromModule=lemma_inlink)、起动机油泵等辅助装置。冷却室内设有[散热器](https://baike.baidu.com/item/散热器/6093247?fromModule=lemma_inlink)组和冷却风扇、起动风缸等。辅助装置室内设有预热锅炉、牵引电动机通风机、制动装置柜、水箱等设备。电阻制动柜室内设有[电阻制动](https://baike.baidu.com/item/电阻制动/5316339?fromModule=lemma_inlink)柜、整流器柜和电器控制柜。机车下部两台[转向架](https://baike.baidu.com/item/转向架/2593395?fromModule=lemma_inlink)之间吊挂着燃油箱、[蓄电池](https://baike.baidu.com/item/蓄电池/990661?fromModule=lemma_inlink)和总风缸。机车标称[功率](https://baike.baidu.com/item/功率/808705?fromModule=lemma_inlink)2150千瓦，构造速度为100公里/小时，整备重量138吨。 [12]
+
+### 柴油机
+
+ND4型机车装用一台由阿尔萨斯机械制造公司（SACM）设计制造、与法国国铁CC 72000型机车相同的AGO V16 ESHR型[柴油机](https://baike.baidu.com/item/柴油机/475904?fromModule=lemma_inlink)，属于AGO大缸径柴油机系列。该型柴油机为16[气缸](https://baike.baidu.com/item/气缸/4364878?fromModule=lemma_inlink)、[四冲程](https://baike.baidu.com/item/四冲程/4169365?fromModule=lemma_inlink)、[废气涡轮增压](https://baike.baidu.com/item/废气涡轮增压/5627590?fromModule=lemma_inlink)的直喷式V型高速柴油机，在50°V形夹角上方布置两套增压器和[中冷器](https://baike.baidu.com/item/中冷器/1075543?fromModule=lemma_inlink)。[气缸](https://baike.baidu.com/item/气缸/4364878?fromModule=lemma_inlink)直径为240毫米，[活塞](https://baike.baidu.com/item/活塞/753671?fromModule=lemma_inlink)行程为220毫米，标定转速为每分钟1350转，使用转速范围为每分钟550～1250转。柴油机标定功率为2940千瓦，装车功率为2680千瓦。 [13]
+
+ND4型机车是一种采用自动延时电控风启动的内燃机车，机车起动时由起动风缸和起动风泵提供[压缩空气](https://baike.baidu.com/item/压缩空气/5483421?fromModule=lemma_inlink)，高压空气经空气分配器和启动阀按柴油机点火顺序流入气缸并推动活塞，当[曲轴](https://baike.baidu.com/item/曲轴/1075989?fromModule=lemma_inlink)达到稳定转速后停止供气，同时[喷油泵](https://baike.baidu.com/item/喷油泵/10788937?fromModule=lemma_inlink)供油点火，从而驱动柴油机，整个过程均为自动控制，司机只要按下“启机”按钮，可以自动完成上述动作启动柴油机。 [13]
+
+### 传动系统
+
+传动装置为交-[直流电](https://baike.baidu.com/item/直流电/1023266?fromModule=lemma_inlink)传动，柴油机通过[弹性联轴器](https://baike.baidu.com/item/弹性联轴器/8984917?fromModule=lemma_inlink)直接驱动一台三相交流同步牵引[发电机](https://baike.baidu.com/item/发电机/995009?fromModule=lemma_inlink)，通过硅整流装置把[牵引发电机](https://baike.baidu.com/item/牵引发电机/15705014?fromModule=lemma_inlink)发出的三相交流电整流为直流电，再经过一套控制系统将电能输送给两台[转向架](https://baike.baidu.com/item/转向架/2593395?fromModule=lemma_inlink)上的六台直流串励[牵引电动机](https://baike.baidu.com/item/牵引电动机/12713471?fromModule=lemma_inlink)，通过传动[齿轮](https://baike.baidu.com/item/齿轮/81352?fromModule=lemma_inlink)驱动车轮。此外，牵引发电机的轴端通过万向轴带动定子发电机，用于对牵引发电机[励磁](https://baike.baidu.com/item/励磁/9204041?fromModule=lemma_inlink)，并向蓄电池充电及辅助回路供电。ND4型机车采用TAO-659型牵引电动机，额定功率为342千瓦，设有一级磁场削弱。 [12]
+
+### 转向架
+
+机车走行部为两台三轴无导框式钢板焊接结构[转向架](https://baike.baidu.com/item/转向架/2593395?fromModule=lemma_inlink)，轴式Co-Co。悬挂装置基本继承了CC 72000型机车的模式，采用阿尔斯通公司传统的无导框滚柱轴承式轴箱、轴箱拉杆定位，一系悬挂为轴箱螺旋钢弹簧与弹性定位拉杆悬挂结构，二系悬挂为橡胶堆全旁承承载；[牵引力](https://baike.baidu.com/item/牵引力/480403?fromModule=lemma_inlink)和制动力通过牵引中心销传递；这种悬挂方式后来亦被[韶山3型电力机车](https://baike.baidu.com/item/韶山3型电力机车/7812103?fromModule=lemma_inlink)沿用。[牵引电机](https://baike.baidu.com/item/牵引电机/4040190?fromModule=lemma_inlink)悬挂方式为滑动抱轴承式半悬挂，牵引齿轮传动比为4.64。 [12]
+
+## 技术数据
+
+播报
+
+编辑
+
+| **华氏轮式**                                                 | 0-6-6-0                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **UIC轴式**                                                  | Co'Co'                                                       |
+| **[轨距](https://baike.baidu.com/item/轨距/0?fromModule=lemma_inlink)** | 1,435毫米                                                    |
+| **轮径**                                                     | 1,050毫米                                                    |
+| **轴重**                                                     | 23吨                                                         |
+| **通过****[最小曲线半径](https://baike.baidu.com/item/最小曲线半径/0?fromModule=lemma_inlink)** | 125米                                                        |
+| **机车长度**                                                 | 23,020毫米（车钩中心距）                                     |
+| **机车宽度**                                                 | 3,290毫米                                                    |
+| **机车高度**                                                 | 4,500毫米                                                    |
+| **整备重量**                                                 | 138吨                                                        |
+| **燃料**                                                     | [柴油](https://baike.baidu.com/item/柴油/1274206?fromModule=lemma_inlink) |
+| **燃料储备量**                                               | 10,000升                                                     |
+| **机油储备量**                                               | 1,600公斤                                                    |
+| **水储备量**                                                 | 1,800公斤                                                    |
+| **砂储备量**                                                 | 1,200公斤                                                    |
+| **传动方式**                                                 | 交—直流电                                                    |
+| **发动机**                                                   | SACM AGO V16 ESHR型柴油机                                    |
+| **发动机功率**                                               | 2,680千瓦                                                    |
+| **牵引发电机**                                               | AT-73                                                        |
+| **牵引电动机**                                               | TAO-659 × 6                                                  |
+| **最高速度**                                                 | 100公里/小时                                                 |
+| **持续速度**                                                 | 24公里/小时                                                  |
+| **牵引功率**                                                 | 2,150千瓦                                                    |
+| **起动牵引力**                                               | 411千牛                                                      |
+| **持续牵引力**                                               | 304千牛                                                      |
+| **制动方式**                                                 | [踏面制动](https://baike.baidu.com/item/踏面制动/0?fromModule=lemma_inlink)、[电阻制动](https://baike.baidu.com/item/电阻制动/0?fromModule=lemma_inlink) |
+| **列车制动**                                                 | 空气制动                                                     |
