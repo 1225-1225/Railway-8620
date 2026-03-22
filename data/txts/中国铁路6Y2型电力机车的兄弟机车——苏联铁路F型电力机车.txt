@@ -1,0 +1,101 @@
+## 前言
+
+1960年5月，中国第一条电气化铁路干线——宝成铁路宝鸡至[凤州](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=凤州&zhida_source=entity)段建成通电，当时还被定型为6Y1型①的中国国产[韶山1型电力机车](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=韶山1型电力机车&zhida_source=entity)于1961年5月起赴宝成铁路实地试运行，但由于[制造工艺](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=制造工艺&zhida_source=entity)较差，造成机车存在引燃管逆弧、调压开关烧损和[牵引电机](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=牵引电机&zhida_source=entity)环火三大质量关键问题，且制动性能不良又缺乏[电阻制动](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=电阻制动&zhida_source=entity)，列车下坡时危险性较大，6Y1型机车未能批量生产。
+
+![img](https://pica.zhimg.com/v2-726c4c8d0bf965f6cd14d84c444156c4_1440w.jpg)
+
+6Y1-0001号机车
+
+为了应付电力机车短缺的情况、保证宝成铁路正常运营，中国铁道部决定从[法国阿尔斯通公司](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=法国阿尔斯通公司&zhida_source=entity)累计进口了25台电力机车作为过渡，这批机车在中国定型为6Y2型②。6Y2型机车同样采用引燃管整流，但使用更先进的高压侧调压且带有再生制动③。
+
+![img](https://pic2.zhimg.com/v2-cd4647332a62e657f3957446c5520f71_1440w.jpg)
+
+6Y2-28号机车
+
+实际上在中国从阿尔斯通公司订购6Y2型机车之前，苏联为了吸收交流电力机车的设计和制造经验，于1959年向阿尔斯通公司订购50台F型电力机车。6Y2型机车是在F型机车基础上根据中国铁路的实际运用条件改进而成。
+
+![img](https://pic1.zhimg.com/v2-80c73e9481713b846cb01ba4f3d83322_1440w.jpg)
+
+F-01号机车
+
+
+
+## 背景
+
+在[第二次世界大战](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=第二次世界大战&zhida_source=entity)之前，匈牙利和德国曾经研究采用高压工频单相交流电供电制式的电气化铁路；二战结束后，苏联、法国、日本等国相继在电气化铁路干线开始实践应用单相工频交流供电。
+
+1950年代，苏联首先建成了供电制式为20千伏、[50赫兹交流电](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=50赫兹交流电&zhida_source=entity)的莫斯科—库尔斯克—顿巴斯铁路，同时诺沃切尔卡斯克电力机车厂先后研制了适用于单相工频交流电气化铁路的VL61型（НО）、VL60型（Н6О）电力机车。后经研究发现，25千伏50赫兹交流供电是最能够平衡输电效率和供电成本的馈电制式，苏联确定在交流电气化铁路采用25千伏、50赫兹供电制式。
+
+
+
+## 历史
+
+为了吸收单相工频交流电电力机车的设计和制造经验，苏联于1957年7月向法国阿尔斯通公司订购了50台电力机车，定型为F型④。其中30台为货运机车（F／Ф型），10台为带有再生制动的货运机车（FR／ФР型），其余10台为客运机车（FP／ФП型）。
+
+![img](https://picx.zhimg.com/v2-1ec1bfba404fe3d4975b802d8fd5c927_1440w.jpg)
+
+F-02号机车
+
+这批机车在车体和[转向架](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=转向架&zhida_source=entity)等机械部分参考了法国国铁CC 7100型电力机车，而电气传动部分则借鉴了BB 12000、BB 16000型等法国第一代交流电力机车的[牵引控制系统](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=牵引控制系统&zhida_source=entity)。机车经过改进以满足苏联铁路的宽轨轨距，同时按苏联的要求将电流制式改为25千伏工频[单相交流电](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=2&q=单相交流电&zhida_source=entity)，采用引燃管整流并改进了通风系统。
+
+![img](https://picx.zhimg.com/v2-699a73e6ba606a476834673bdffe75d5_1440w.jpg)
+
+CC 7121号机车
+
+![img](https://pic2.zhimg.com/v2-5504cc52acadfba93032bbe8a3ac016f_1440w.jpg)
+
+BB 12125号机车
+
+![img](https://pic4.zhimg.com/v2-0ebc32274a1757c316c29ae5e647b08d_1440w.jpg)
+
+BB 16006号机车
+
+首台货运型机车（F-01／Ф-01）⑤于1959年4月出厂，并由阿尔斯通公司负责在[瓦朗谢讷](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=瓦朗谢讷&zhida_source=entity)—[蒂永维尔](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=蒂永维尔&zhida_source=entity)铁路进行试验；这批机车于1959年至1960年间陆续通过海路交付苏联，全部配属克拉斯诺亚尔斯克铁路局克拉斯诺亚尔斯克机务段。但与6Y2型机车一样，这批F型机车在运用上包括变压器、牵引电动机、再生制动、空气压缩机等方面均遇到不少技术问题，令苏联铁道部门花上不少时间来解决。
+
+![img](https://pic1.zhimg.com/v2-7927f6a24de831e74081fea21fceeca4_1440w.jpg)
+
+FP-05号机车
+
+![img](https://pica.zhimg.com/v2-e8b1b14456e42ea7225c0e4c9bf30be6_1440w.jpg)
+
+FR-40号机车
+
+至1970年代初期，F型电力机车由于设备自然损耗随运行里程增加而日益加剧，引燃管[整流器](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=整流器&zhida_source=entity)严重老化，因此开始被VL60型、VL60P型⑥机车取代，并陆续被封存。1973年8月，首批10台F型机车报废，包括7台F型、1台FR型、2台[FP型](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=FP型&zhida_source=entity)。1976年8月，另一批7台F型、5台FP型机车报废。其余F型机车部分被改装半导体硅整流器，取代了引燃管，这种机车更名为FK／ФК型。最后一台F型电力机车于1987年报废。
+
+仅存的唯一一台F型电力机车——FK-07号机车在退役后，于圣彼得堡俄罗斯铁道博物馆静态展示。
+
+![img](https://pic1.zhimg.com/v2-d0a6092b1cd9bdd89aba80eab2432358_1440w.jpg)
+
+FK-07号机车
+
+![img](https://pic3.zhimg.com/v2-22168b4c1dc8e2c49d842ae593ec44e4_1440w.jpg)
+
+FK-07号机车司机室内部的司机操作台
+
+
+
+## 后记
+
+一如6Y2型机车为中国提供了单相工频交流电电力机车的设计和制造经验一样，F型机车为苏联提供了单相工频交流电电力机车的设计和制造经验。虽然各自的经历并不相同，但这两款电力机车的结局却同归，终究成为一代记忆。
+
+
+
+## 技术数据
+
+![img](https://pica.zhimg.com/v2-0c67145187aa93b30e662b35539840be_1440w.jpg)
+
+技术数据
+
+## 注释
+
+①其中“6”代表六轴机车，“Y”代表引燃管整流，“1”代表第一种型号。
+
+②其中“6”代表六轴机车，“Y”代表引燃管整流，“2”代表第二种型号。
+
+③然而，西安铁路局宝鸡电力机务段在运用6Y2型机车中发现再生制动的缺点十分明显——在机车使用再生制动时，[电气系统](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=电气系统&zhida_source=entity)需要将[直流电逆](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=直流电逆&zhida_source=entity)变成交流电，大大增加了引燃管和牵引电动机的工作负荷，令引燃管、牵引电动机的平均使用寿命分别缩短20%和200万公里以上；同时，再生制动也减少了牵引变电所的[平均功率因数](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=平均功率因数&zhida_source=entity)并增加电网负荷，也增加了[谐波电流](https://zhida.zhihu.com/search?content_id=10898431&content_type=Article&match_order=1&q=谐波电流&zhida_source=entity)和对通信线路的干扰。1969年9月，由于部分机车引燃管老化，宝鸡电力机务段工程技术人员为6Y2型机车研制了半导体硅整流器，替代了引燃管整流，从而摆脱了依赖进口引燃管的局面并节约大量外汇资金，并将再生制动改为电阻制动；至1971年，所有6Y2型电力机车均完成了改造。
+
+④其中“F”（Ф）代表机车由法国（Франции）进口。
+
+⑤F-01在阿尔斯通公司测试期间被命名为T-01。
+
+⑥VL60P型电力机车在后期大修时，同样以硅整流器取代了原来的引燃管整流器，经过改造的机车改称为VL60PK型电力机车。

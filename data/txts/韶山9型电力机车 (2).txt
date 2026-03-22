@@ -1,0 +1,154 @@
+韶山9型电力机车（SS9）以成熟的韶山型系列电力机车技术为基础，采用了许多国际客运机车先进技术，是中国干线铁路牵引旅客列车功率最大的直流电力机车，机车持续功率4800kW。机车采用了轮对空心轴六连杆弹性传动机构和牵引电机架承式全悬挂三轴转向架，并装有全叠片机座机构的900kW脉流牵引电动机。机车进行了外形气动力学优化设计及轻量化设计，采用侧壁承载式全钢焊接结构的车体及各部件轻量化设计。机车司机室应用了人机工程学原理设计，采用全包结构装饰环境优雅、操纵方便。 [10]
+
+中文名韶山9型电力机车
+外文名SS9 type electric locomotive
+动力来源电力
+别    名SS9
+生产国中国
+设计1株洲电力机车厂
+设计2株洲电力机车研究所
+生产厂商株洲电力机车厂
+生产型号SS9
+序列编号10001～0043
+序列编号20044～0213（改进型）
+生产年份1998年—2006年
+产    量早期型43台、改进型171台
+主要用户中国铁路总公司
+昵    称青蛙、烧酒（改进型）
+
+## 发展历史
+
+### 早期型
+
+**研制**
+
+1998年初，根据[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/273691?fromModule=lemma_inlink)科技[教育司](https://baike.baidu.com/item/教育司/55166583?fromModule=lemma_inlink)《科教装【1998】06号》“关于下达SS9型客运电力机车[设计任务书](https://baike.baidu.com/item/设计任务书/5142023?fromModule=lemma_inlink)的通知”文件，以及铁道部科技[研究开发](https://baike.baidu.com/item/研究开发/55235326?fromModule=lemma_inlink)[项目合同](https://baike.baidu.com/item/项目合同/2755476?fromModule=lemma_inlink)的要求，[中国铁路机车车辆工业总公司](https://baike.baidu.com/item/中国铁路机车车辆工业总公司/15982278?fromModule=lemma_inlink)[株洲电力机车厂](https://baike.baidu.com/item/株洲电力机车厂/10622606?fromModule=lemma_inlink)、[株洲电力机车研究所](https://baike.baidu.com/item/株洲电力机车研究所/6276031?fromModule=lemma_inlink)开始在[韶山8型电力机车](https://baike.baidu.com/item/韶山8型电力机车/7824158?fromModule=lemma_inlink)的基础上，研制一种用于牵引时速160公里/小时准高速旅客列车的干线客运用六轴[电力机车](https://baike.baidu.com/item/电力机车/2309796?fromModule=lemma_inlink)，研制目的是加大机车功率、提高牵引力，以满足在较大坡度线路上的大编组旅客列车的提速需要 [1]。新机车被定型为**韶山9型**，代号**SS9**。
+
+**试验**
+
+1998年12月26日，首两台韶山9型电力机车（0001、0002）在[株洲电力机车](https://baike.baidu.com/item/株洲电力机车/4694645?fromModule=lemma_inlink)厂竣工。在机车各主要部件如[主变压器](https://baike.baidu.com/item/主变压器/5195197?fromModule=lemma_inlink)、高压电器柜、[低压电器](https://baike.baidu.com/item/低压电器/3467749?fromModule=lemma_inlink)柜、[硅整流装置](https://baike.baidu.com/item/硅整流装置/53434294?fromModule=lemma_inlink)、微机[控制装置](https://baike.baidu.com/item/控制装置/6819057?fromModule=lemma_inlink)等均分别完成了[型式试验](https://baike.baidu.com/item/型式试验/9711371?fromModule=lemma_inlink)后，两台机车先后分别于1999年1月和3月赴[郑州铁路局](https://baike.baidu.com/item/郑州铁路局/2310052?fromModule=lemma_inlink)[郑州](https://baike.baidu.com/item/郑州/123948?fromModule=lemma_inlink)机务南段进行运行考核 [2]。在运行考核期间，两台机车主要由[京武快车队](https://baike.baidu.com/item/京武快车队/4470345?fromModule=lemma_inlink)负责运用，承担[京广铁路](https://baike.baidu.com/item/京广铁路/630228?fromModule=lemma_inlink)北京西至武昌（[汉口](https://baike.baidu.com/item/汉口/809141?fromModule=lemma_inlink)）段的[快速旅客列车](https://baike.baidu.com/item/快速旅客列车/455420?fromModule=lemma_inlink)[长交路](https://baike.baidu.com/item/长交路/56510722?fromModule=lemma_inlink)牵引任务。至1999年7月底，两台机车共完成30万公里的运行考核。1999年7月31日至10月21日，两台机车在北京的[中国铁道科学研究院](https://baike.baidu.com/item/中国铁道科学研究院/6332480?fromModule=lemma_inlink)环行铁道试验基地进行了整车型式试验，试验包括机车称重、[受电弓](https://baike.baidu.com/item/受电弓/4041611?fromModule=lemma_inlink)、内部及外部过电压、[功率因数](https://baike.baidu.com/item/功率因数/1016945?fromModule=lemma_inlink)、[谐波](https://baike.baidu.com/item/谐波/3430915?fromModule=lemma_inlink)、[牵引性能](https://baike.baidu.com/item/牵引性能/55987140?fromModule=lemma_inlink)和制动性能等方面的试验。 [2]
+
+1999年11月1日至11月22日，韶山9型电力机车在郑州铁路局管内的京广铁路[郑州](https://baike.baidu.com/item/郑州/123948?fromModule=lemma_inlink)至[广水](https://baike.baidu.com/item/广水/723373?fromModule=lemma_inlink)区间往返进行[动力学](https://baike.baidu.com/item/动力学/650892?fromModule=lemma_inlink)评估试验，0001、0002号机车分别担任被试机车及陪试机车，期间机车最高试验速度达到190公里/小时。全部的型式试验工作于1999年12月结束，在2000年3月7日通过了铁道部[科技成果鉴定](https://baike.baidu.com/item/科技成果鉴定/10527764?fromModule=lemma_inlink)。在完成动力学[性能试验](https://baike.baidu.com/item/性能试验/4072188?fromModule=lemma_inlink)后，0001号机车于1999年12月至2000年5月间，在北京环行铁道进行的货物列车直线脱轨试验、[秦沈客运专线](https://baike.baidu.com/item/秦沈客运专线/1457716?fromModule=lemma_inlink)通信[信号设备](https://baike.baidu.com/item/信号设备/5648848?fromModule=lemma_inlink)、[TMIS](https://baike.baidu.com/item/TMIS/4946201?fromModule=lemma_inlink)车载识别[系统试验](https://baike.baidu.com/item/系统试验/56368267?fromModule=lemma_inlink)等多项部级科技试验项目中担任了牵引机车。1999年9月和2000年4月，该台机车又分别两次在[陇海铁路](https://baike.baidu.com/item/陇海铁路/2310641?fromModule=lemma_inlink)郑州至天水区间担当了[陇海线](https://baike.baidu.com/item/陇海线/1569114?fromModule=lemma_inlink)提速试验的牵引机车，其最高试验速度达到了150公里/小时。 [2]
+
+**运用**
+
+为了尽快满足[哈大铁路](https://baike.baidu.com/item/哈大铁路/4974608?fromModule=lemma_inlink)全线于2001年8月完成电气化改造后对客运电力机车的需求，株洲电力机车厂于2001年开始批量生产韶山9型电力机车，至2002年5月间共制造了43台（0001～0043），并全部交付[沈阳铁路局](https://baike.baidu.com/item/沈阳铁路局/0?fromModule=lemma_inlink)沈阳[机务段](https://baike.baidu.com/item/机务段/496883?fromModule=lemma_inlink)运用。直到2007年4月，为满足[中国铁路第六次大提速](https://baike.baidu.com/item/中国铁路第六次大提速/3365137?fromModule=lemma_inlink)的需要，部分早期型的韶山9型电力机车[转配](https://baike.baidu.com/item/转配/676024?fromModule=lemma_inlink)[上海铁路局](https://baike.baidu.com/item/上海铁路局/6504136?fromModule=lemma_inlink)上海机务段，投入[京沪铁路](https://baike.baidu.com/item/京沪铁路/19163517?fromModule=lemma_inlink)和[沪昆铁路](https://baike.baidu.com/item/沪昆铁路/5723522?fromModule=lemma_inlink)使用。这批早期生产的韶山9型机车均采用青绿色的[车身涂装](https://baike.baidu.com/item/车身涂装/17642242?fromModule=lemma_inlink)，中国的铁路爱好者对其昵称为“青蛙”。
+
+**大修**
+
+2006年10月起，所有早期型韶山9型电力机车（不包括2004年被撞毁报废的0004号机车）由沈阳铁路局逐步调往北车[太原机车车辆厂](https://baike.baidu.com/item/太原机车车辆厂/9190616?fromModule=lemma_inlink)进行大修，其后于2007年4月重新分配予上海铁路局及沈阳铁路局，并加上北车“[CNR](https://baike.baidu.com/item/CNR/24418337?fromModule=lemma_inlink)”牌号。
+
+### 改进型
+
+**研制**
+
+2002年，中国铁道部向株洲电力机车厂下达了《SS9型电力机车改进设计任务书》，要求株洲电力机车厂在早期生产的韶山9型电力机车的基础上，针对首批机车存在的问题进行改进，按照“模块化、标准化、系列化”的原则，对机车的设备布置、[通风系统](https://baike.baidu.com/item/通风系统/10143846?fromModule=lemma_inlink)、车体钢结构等进行重大设计改进。改进型机车是在原韶山9型电力机车的主要技术参数和牵引[制动特性](https://baike.baidu.com/item/制动特性/5351156?fromModule=lemma_inlink)不变的基础上，开发一种新型的[机车设备](https://baike.baidu.com/item/机车设备/55824108?fromModule=lemma_inlink)布置[设计平台](https://baike.baidu.com/item/设计平台/54822964?fromModule=lemma_inlink)，主要特点包括：采用独立通风系统、中央贯通走廊、屏柜化设备布置方式、标准化[司机室](https://baike.baidu.com/item/司机室/1209485?fromModule=lemma_inlink)、卧式主变压器、以及[流线型](https://baike.baidu.com/item/流线型/7204478?fromModule=lemma_inlink)车体外观等。中国铁道部并没对改进型机车给予新型号，但南车株机公司内部和[中国铁路](https://baike.baidu.com/item/中国铁路/49652?fromModule=lemma_inlink)爱好者普遍称改进型机车为“韶山9G型”或“[SS9G](https://baike.baidu.com/item/SS9G/9953822?fromModule=lemma_inlink)”。
+
+**运用**
+
+首台改进型机车（0044）于2002年6月在株洲电力机车厂落成 [3]。同年，开始批量生产改进型机车，首批机车配属沈阳机务段。2003年4月，[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)北京西机务段、[广州铁路集团](https://baike.baidu.com/item/广州铁路集团/10530353?fromModule=lemma_inlink)长沙机务段及广州机务段亦开始配属韶山9型电力机车，在[京秦铁路](https://baike.baidu.com/item/京秦铁路/6379268?fromModule=lemma_inlink)、[京广铁路](https://baike.baidu.com/item/京广铁路/630228?fromModule=lemma_inlink)投入运用。2003年10月，[秦沈客运专线](https://baike.baidu.com/item/秦沈客运专线/1457716?fromModule=lemma_inlink)正式开通运营，在该线上使用的韶山9型电力机车均加装了TVM430车载[超速防护](https://baike.baidu.com/item/超速防护/22502847?fromModule=lemma_inlink)设备。此外，韶山9型电力机车也参与了中国铁路第五次大提速的提速[牵引试验](https://baike.baidu.com/item/牵引试验/12728839?fromModule=lemma_inlink)，为开行点对点[直达特快列车](https://baike.baidu.com/item/直达特快列车/560316?fromModule=lemma_inlink)作好技术准备。2003年12月，韶山9型电力机车完成了北京至[哈尔滨](https://baike.baidu.com/item/哈尔滨/177863?fromModule=lemma_inlink)、北京至[长沙](https://baike.baidu.com/item/长沙/204237?fromModule=lemma_inlink)的长距离不停站牵引试验，试验列车编组19辆，期间最高试验速度达到173.1公里/小时。2004年，韶山9型电力机车被中国铁道部确定为[中国铁路第五次大提速](https://baike.baidu.com/item/中国铁路第五次大提速/23765168?fromModule=lemma_inlink)的主型机车之一，承担其中7对[直达旅客列车](https://baike.baidu.com/item/直达旅客列车/1905827?fromModule=lemma_inlink)牵引任务，[武昌南机务段](https://baike.baidu.com/item/武昌南机务段/4999734?fromModule=lemma_inlink)开始配属韶山9型机车。2008年，[京九直通车](https://baike.baidu.com/item/京九直通车/6854468?fromModule=lemma_inlink)及[沪九直通车](https://baike.baidu.com/item/沪九直通车/6854430?fromModule=lemma_inlink)改由广铁广段、京局京段或上局沪段的本型机车（改进型）牵引。虽然韶山9改型机车理论上可以一机直达香港，但在[九广铁路](https://baike.baidu.com/item/九广铁路/7277693?fromModule=lemma_inlink)上行驶的京九直通车，由于机车并未安装[东铁线](https://baike.baidu.com/item/东铁线/9405990?fromModule=lemma_inlink)适用的AWS或将来使用的Trainguard MT CBTC讯号系统，加上为保未来[广深港高速铁路](https://baike.baidu.com/item/广深港高速铁路/3952771?fromModule=lemma_inlink)开通后高铁接驳香港的客源，则仍旧使用设AWS的[韶山8型电力机车](https://baike.baidu.com/item/韶山8型电力机车/7824158?fromModule=lemma_inlink)，而且在短期内不会再升级。而自2017年起，沪九直通车在九广铁路以外牵引机车再全面升级为使用交流传动的广铁广段及上局沪段和谐1D型电力机车。
+
+至2006年停产，株洲电力机车厂累计生产了171台韶山9型改进型电力机车（0004、0044～0213）。改进型机车均采用红白色涂装；其中0045号机车出厂时曾采用蓝白色涂装，并参加了2003年初举行的铁道部新造机车质量展示会，展示会结束后又恢复红白色涂装。韶山9型改进型机车常被中国的铁路爱好者昵称为“烧酒”，源于韶山9型简称为“韶九”，与“烧酒”谐音。
+
+自2019年4月10日起，原由京局京段及广铁广段SS9G共同担当的Z35/36 [Z97](https://baike.baidu.com/item/Z97/2718524?fromModule=lemma_inlink)/98 Z201/202 X103/104更换为广铁广段HXD1D和京局京段HXD3D共同担当，标志着韶山9型电力机车正式退出京广长交路，退居二线，但SS9G仍然在[京广线](https://baike.baidu.com/item/京广线/901442?fromModule=lemma_inlink)上牵引短交路旅客列车及春运[临客](https://baike.baidu.com/item/临客/4325261?fromModule=lemma_inlink)。
+
+## 技术特点
+
+### 性能特点
+
+韶山9型电力机车是六轴干线客运电力机车，是在[韶山8型电力机车](https://baike.baidu.com/item/韶山8型电力机车/7824158?fromModule=lemma_inlink)基础上研制的系列化产品，同时吸收了[韶山6B型电力机车](https://baike.baidu.com/item/韶山6B型电力机车/7823855?fromModule=lemma_inlink)的经验，并克服了韶山8型技术上存在的问题，其高速动力学性能、牵引和制动性能均优于韶山8型机车，适用于长距离、长大坡道、大编组旅客列车的牵引需要 [4]。不同于韶山8型机车采用的Bo-Bo轴式（4轴），韶山9型机车采用Co-Co轴列式（6轴），[轴重](https://baike.baidu.com/item/轴重/8063544?fromModule=lemma_inlink)为21吨，比韶山8型机车的轴重轻7.1%。韶山9型机车的最高[运行速度](https://baike.baidu.com/item/运行速度/7917106?fromModule=lemma_inlink)与韶山8型相同，均为170公里/小时，但韶山9型机车的[持续功率](https://baike.baidu.com/item/持续功率/5648592?fromModule=lemma_inlink)为4800千瓦，起动加速时[最大功率](https://baike.baidu.com/item/最大功率/465305?fromModule=lemma_inlink)可达5400千瓦，[持续牵引力](https://baike.baidu.com/item/持续牵引力/53954134?fromModule=lemma_inlink)为169千牛，[电制动](https://baike.baidu.com/item/电制动/54584896?fromModule=lemma_inlink)（轮周）功率为4000千瓦，分别比韶山8型机车的持续功率、持续牵引力和电[制动功率](https://baike.baidu.com/item/制动功率/12577778?fromModule=lemma_inlink)高33.3%、34.1%、48.1% [4]。韶山9型机车克服了韶山8型在长大坡道牵引大编组列车功率不足的缺陷，可牵引18节客车在16‰、14‰、12‰、10‰的长大坡道上，分别以84公里/小时、92公里/小时、96公里/小时、105公里/小时的速度匀速上坡，提高列车的平均运营速度。
+
+### 总体布置
+
+**早期型**
+
+韶山9型机车车体采用侧壁承载式全钢焊接结构，并对车体、[变压器油箱](https://baike.baidu.com/item/变压器油箱/9832406?fromModule=lemma_inlink)、[转向架](https://baike.baidu.com/item/转向架/2593395?fromModule=lemma_inlink)及其他电气部件进行了轻量化设计，使其达到轴重21吨的要求 [1]。总体布置沿用双侧走廊、两端司机室，全车共分七个间隔室，中间为变压器室、然后向两侧依次为1、2端高压室，1、2端辅助室，1、2端司机室。主要电器设备以机车最重设备主变压器为中央，其他设备分平面斜对称布置为主，有利于重量平衡。两端司机室之后车顶各安装一台DSA-200型单臂式受电弓（早期使用TSG3-630/25型受电弓）；车顶中部装一台[主断路器](https://baike.baidu.com/item/主断路器/2015823?fromModule=lemma_inlink)。此外，机车头型设计突破了传统的以平面为主的多棱角[外形设计](https://baike.baidu.com/item/外形设计/53563747?fromModule=lemma_inlink)，司机室正面为[倾斜角](https://baike.baidu.com/item/倾斜角/10260713?fromModule=lemma_inlink)达68.85°的倾斜平面，机车外形全部采用圆弧过渡。机车采用车体自然通风方式，冷风通过机车[侧墙](https://baike.baidu.com/item/侧墙/53294457?fromModule=lemma_inlink)过滤器[百叶窗](https://baike.baidu.com/item/百叶窗/155581?fromModule=lemma_inlink)进入车内。[制动系统](https://baike.baidu.com/item/制动系统/894844?fromModule=lemma_inlink)采用DK-1型电控[空气制动机](https://baike.baidu.com/item/空气制动机/287577?fromModule=lemma_inlink)。
+
+早期的韶山9型机车是中国最后一款采用“一正一/二副”司机值乘设计的机车，在韶山9改型中已改为可供单司机值乘。
+
+**改进型**
+
+韶山9改进型机车的设备布置、车体外观有较大变化。改进型机车跟随国际趋势改用宽600毫米的贯通式中间走廊，放弃了中国“韶山”系列电力机车一贯的双侧走廊设计；车内设备随中间走廊斜对称布置，以利于轴重分配；[车顶盖](https://baike.baidu.com/item/车顶盖/5235282?fromModule=lemma_inlink)由原来的5个改为3个。屏柜及各部件采用[模块化设计](https://baike.baidu.com/item/模块化设计/3431616?fromModule=lemma_inlink)，包括1、2号硅整流柜，1、2号高压柜，2、 3号牵引通风机组，以便于部件维护和更换。同时，[牵引变压器](https://baike.baidu.com/item/牵引变压器/10810296?fromModule=lemma_inlink)由[壳式变压器](https://baike.baidu.com/item/壳式变压器/5195306?fromModule=lemma_inlink)改为芯式卧放变压器，悬挂在车体[底架](https://baike.baidu.com/item/底架/54430356?fromModule=lemma_inlink)以下，降低了机车的[重心高度](https://baike.baidu.com/item/重心高度/56583243?fromModule=lemma_inlink)。 [5]
+
+同时，株洲电力机车厂也邀请了[意大利](https://baike.baidu.com/item/意大利/148336?fromModule=lemma_inlink)著名汽车设计公司[宾尼法利纳](https://baike.baidu.com/item/宾尼法利纳/6037207?fromModule=lemma_inlink)（Pininfarina），参与对改进型机车车体外形的[流线型](https://baike.baidu.com/item/流线型/7204478?fromModule=lemma_inlink)[优化设计](https://baike.baidu.com/item/优化设计/3111221?fromModule=lemma_inlink)，采用圆弧微流线头型外观造型。由于宾尼法利纳也是[瑞士联邦铁路](https://baike.baidu.com/item/瑞士联邦铁路/10437347?fromModule=lemma_inlink)[Re460型电力机车](https://baike.baidu.com/item/Re460型电力机车/18915249?fromModule=lemma_inlink)车体的造型设计单位，因此这两种机车的外观也相当类似。改进型机车并改用独立通风系统，采用侧墙夹层[进风道](https://baike.baidu.com/item/进风道/56150704?fromModule=lemma_inlink)，因应冷却对象不同而分为四大通风支路 [3]。每条通风支路均有自己独立的进、出风风道，有助减低车内负压，改善机车防尘效果及防寒性能。机车采用了标准化司机室，可满足单司机值乘条件下司机在司机室内完成部分设备的转换和隔离。
+
+### 电路系统
+
+[主电路](https://baike.baidu.com/item/主电路/10668571?fromModule=lemma_inlink)
+
+韶山9型电力机车是交—[直流电](https://baike.baidu.com/item/直流电/1023266?fromModule=lemma_inlink)传动的单相工频[交流电力机车](https://baike.baidu.com/item/交流电力机车/6541722?fromModule=lemma_inlink)。早期型机车安装一台TBQ12-8668/25型主变压器，该型变压器采用一体化结构，与[平波电抗器](https://baike.baidu.com/item/平波电抗器/4930114?fromModule=lemma_inlink)、列车供电[滤波电抗器](https://baike.baidu.com/item/滤波电抗器/9759240?fromModule=lemma_inlink)合并安装并共用[冷却系统](https://baike.baidu.com/item/冷却系统/4290449?fromModule=lemma_inlink)，[冷却方式](https://baike.baidu.com/item/冷却方式/6119588?fromModule=lemma_inlink)为强迫油循环导向风冷冷却。改进型机车安装一台TBQ19-8668/25型卧式结构主变压器，安装在车体底架之下。
+
+机车主电路采用由大功率[晶闸管](https://baike.baidu.com/item/晶闸管/281255?fromModule=lemma_inlink)和[二极管](https://baike.baidu.com/item/二极管/102466?fromModule=lemma_inlink)组成的不等分三段半控桥[相控整流电路](https://baike.baidu.com/item/相控整流电路/7572193?fromModule=lemma_inlink)，[整流桥](https://baike.baidu.com/item/整流桥/10086968?fromModule=lemma_inlink)采取先大桥后小桥的顺控方式，其中一段半控桥占二分之一的整流电压用于[低速区](https://baike.baidu.com/item/低速区/53285487?fromModule=lemma_inlink)，另外两段半控桥占另外二分之一的整流电压用于高速区，以提高高速区的功率因数。每台机车设有两组相同的整流装置，向转向架独立[供电方式](https://baike.baidu.com/item/供电方式/8612005?fromModule=lemma_inlink)，同一台转向架上的三台[牵引电动机](https://baike.baidu.com/item/牵引电动机/12713471?fromModule=lemma_inlink)并联连接。为扩大机车恒功速度范围，机车可采用晶闸管分路进行无级磁场削弱。改进型机车安装由株洲[南车时代](https://baike.baidu.com/item/南车时代/12672329?fromModule=lemma_inlink)电气研制的TGZ29（0044～0111号机车）、TGZ29A（0112～0213号机车）型整流柜。
+
+此外，机车并设有[加馈电阻制动](https://baike.baidu.com/item/加馈电阻制动/7780537?fromModule=lemma_inlink)，使机车在低速区可以有较大的[制动力](https://baike.baidu.com/item/制动力/4338121?fromModule=lemma_inlink)，实现机车全过程[无级调速](https://baike.baidu.com/item/无级调速/3875976?fromModule=lemma_inlink) [1]。每台机车装有六台牵引电动机，分别安装在两台转向架上。机车采用ZD115型直流牵引电动机，是采用全[叠片](https://baike.baidu.com/item/叠片/12718210?fromModule=lemma_inlink)焊接机座机构、带有[补偿绕组](https://baike.baidu.com/item/补偿绕组/5211289?fromModule=lemma_inlink)的六极串励[直流电动机](https://baike.baidu.com/item/直流电动机/6393701?fromModule=lemma_inlink)，持续功率800千瓦，短时最大功率900千瓦，[绝缘等级](https://baike.baidu.com/item/绝缘等级/522597?fromModule=lemma_inlink)为全H级，冷却方式为强迫风冷。
+
+[辅助电路](https://baike.baidu.com/item/辅助电路/847088?fromModule=lemma_inlink)
+
+早期型机车采用旋转式[劈相机](https://baike.baidu.com/item/劈相机/6869140?fromModule=lemma_inlink)为辅助电路供电，将主变压器[辅助绕组](https://baike.baidu.com/item/辅助绕组/54810574?fromModule=lemma_inlink)供应[单相交流电](https://baike.baidu.com/item/单相交流电/1811881?fromModule=lemma_inlink)转换成[三相](https://baike.baidu.com/item/三相/3468298?fromModule=lemma_inlink)交流电，车内许多设备如变压器、整流装置、牵引电动机、[制动电阻柜](https://baike.baidu.com/item/制动电阻柜/5522839?fromModule=lemma_inlink)等装置的通风冷却，以及[空气压缩机](https://baike.baidu.com/item/空气压缩机/3736299?fromModule=lemma_inlink)的驱动均采用[三相交流电](https://baike.baidu.com/item/三相交流电/7680897?fromModule=lemma_inlink)动机，电压制式为380伏特三相交流电。而改进型机车的辅助[供电电源](https://baike.baidu.com/item/供电电源/3343361?fromModule=lemma_inlink)参考了[韶山7E型电力机车](https://baike.baidu.com/item/韶山7E型电力机车/4469494?fromModule=lemma_inlink)的方式，既可以选用静止式辅助[变流器](https://baike.baidu.com/item/变流器/5867827?fromModule=lemma_inlink)供电，也可以采用传统的劈相机系统供电；其中0044、0045号机车采用了辅助变流器，而从0046号机车开始又恢复采用劈相机。
+
+韶山9型电力机车并设有列车供电功能，每台装备了两套完全独立的列车[供电系统](https://baike.baidu.com/item/供电系统/7539952?fromModule=lemma_inlink)，[输出电压](https://baike.baidu.com/item/输出电压/5480610?fromModule=lemma_inlink)为600伏特直流电，功率为2×400千瓦，采用机车集中整流、客车分散逆变的供电方式，向旅客列车提供空调、采暖、茶炉、照明等供电电源 [1]。早期型机车采用分散式列车供电装置，列车供电系统各元件分布在机车各电器柜中，不利于系统的检修和维护。而改进型机车改为采用集中式列车供电柜，集中安装整流装置及其控制系统 [5]。0044、0045号机车是最早安装列车供电柜的改进型机车，而此后的0046～0111号机车在出厂时虽预留了列车供电柜位置但未安装，0112～0125号机车安装了ZS380B（TGF7A）型的供电柜，0126～0154号机车安装了ZS380C（TGF7A）型供电柜，从2006年生产的0155号机车开始安装了经过改良的TGF28型供电柜。随着25G型[直供电客车](https://baike.baidu.com/item/直供电客车/3454032?fromModule=lemma_inlink)的迅速普及，所有未安装供电柜的韶山9型电力机车于2009年完成改造，恢复列车供电功能。
+
+2015年，沈阳铁路局的其中十辆韶山9型机车供电制式改为AC380V，这些机车的[交流电](https://baike.baidu.com/item/交流电/1023508?fromModule=lemma_inlink)列车供电系统由[株洲电力机车研究所](https://baike.baidu.com/item/株洲电力机车研究所/6276031?fromModule=lemma_inlink)研制，首台接受改造的是0006号机车；已知有0006、0008、0009、0010、0011、0016、0034及0035等若干台机车改用交流供电柜。该型机车供电插座为灰色，以便与[DC](https://baike.baidu.com/item/DC/7625790?fromModule=lemma_inlink)600V供电机车区别 [6]。交流供电版韶山9型机车主要担当[大连](https://baike.baidu.com/item/大连/152852?fromModule=lemma_inlink)至北京的Z81/80、Z79/82次列车的牵引任务，以及由[东三省](https://baike.baidu.com/item/东三省/2440101?fromModule=lemma_inlink)进入[内蒙古](https://baike.baidu.com/item/内蒙古/173741?fromModule=lemma_inlink)东部地区[普速列车](https://baike.baidu.com/item/普速列车/2833534?fromModule=lemma_inlink)的本务机车。
+
+### 控制系统
+
+在[控制技术](https://baike.baidu.com/item/控制技术/8530708?fromModule=lemma_inlink)方面，韶山9型电力机车采用微机控制及[逻辑控制](https://baike.baidu.com/item/逻辑控制/4767979?fromModule=lemma_inlink)单元（LCU）技术，用以替代传统的继电器有触点控制电路，使逻辑控制由软件来完成，从而减少机车布线，简化了控制系统的设计。韶山9型电力机车的控制系统是在韶山8型、[韶山7D型电力机车](https://baike.baidu.com/item/韶山7D型电力机车/8378672?fromModule=lemma_inlink)的基础上发展而成，当操作机车时，司机指令传送到逻辑[控制单元](https://baike.baidu.com/item/控制单元/8762062?fromModule=lemma_inlink)，由逻辑控制单元进行[逻辑判断](https://baike.baidu.com/item/逻辑判断/9246454?fromModule=lemma_inlink)，并向[微机系统](https://baike.baidu.com/item/微机系统/2852578?fromModule=lemma_inlink)输出指令，由微机系统执行机车的特性控制。除此之外，微机系统和逻辑控制系统并具有与微机显示屏的通信功能，通过三者互相配合，机车可以实施恒流准恒速[控制特性](https://baike.baidu.com/item/控制特性/245917?fromModule=lemma_inlink)控制、制动系统的恒制动[力控制](https://baike.baidu.com/item/力控制/17209224?fromModule=lemma_inlink)、防空转及防滑行控制、轴重转移[补偿控制](https://baike.baidu.com/item/补偿控制/20968525?fromModule=lemma_inlink)、空电联合制动控制、列车供电控制、[故障诊断](https://baike.baidu.com/item/故障诊断/5928542?fromModule=lemma_inlink)与故障记录等功能 [4]。从2004年开始，韶山9型电力机车开始陆续加装由广州铁路[科研所](https://baike.baidu.com/item/科研所/50037751?fromModule=lemma_inlink)开发的车载[自动过分相](https://baike.baidu.com/item/自动过分相/16321023?fromModule=lemma_inlink)系统，通过安装[地面信号](https://baike.baidu.com/item/地面信号/53517330?fromModule=lemma_inlink)[感应器](https://baike.baidu.com/item/感应器/9521459?fromModule=lemma_inlink)、[信号处理](https://baike.baidu.com/item/信号处理/84717?fromModule=lemma_inlink)装置，并对机车的[微机控制系统](https://baike.baidu.com/item/微机控制系统/56333650?fromModule=lemma_inlink)软件进行升级，使机车过分相时能够自动[分合](https://baike.baidu.com/item/分合/9691844?fromModule=lemma_inlink)主断路器。
+
+### 转向架
+
+[机车走行部](https://baike.baidu.com/item/机车走行部/22500703?fromModule=lemma_inlink)为两台架悬式三轴转向架，构架采用“目”字形[箱形梁](https://baike.baidu.com/item/箱形梁/6530433?fromModule=lemma_inlink)焊接结构，[轴箱](https://baike.baidu.com/item/轴箱/56582542?fromModule=lemma_inlink)采用双拉杆式定位。一系[悬挂装置](https://baike.baidu.com/item/悬挂装置/23129151?fromModule=lemma_inlink)由螺旋圆弹簧、[橡胶垫](https://baike.baidu.com/item/橡胶垫/784583?fromModule=lemma_inlink)和垂向[油压减震器](https://baike.baidu.com/item/油压减震器/15787274?fromModule=lemma_inlink)组成；二系悬挂采用高柔圆弹簧及橡胶垫，车体与转向架之间并装有垂向[减震器](https://baike.baidu.com/item/减震器/4292214?fromModule=lemma_inlink)、横向减震器和抗[蛇行](https://baike.baidu.com/item/蛇行/9082375?fromModule=lemma_inlink)减震器。牵引力和制动力通过转向架与车体底架间的低位双侧平行拉杆牵引机构传递，与韶山6B型机车相同。
+
+韶山9型机车的[驱动装置](https://baike.baidu.com/item/驱动装置/4807533?fromModule=lemma_inlink)与韶山8型机车相同，牵引电动机采用双侧六连杆[轮对](https://baike.baidu.com/item/轮对/4162437?fromModule=lemma_inlink)[空心轴](https://baike.baidu.com/item/空心轴/3129183?fromModule=lemma_inlink)全悬挂安装方式，电动机与[齿轮箱](https://baike.baidu.com/item/齿轮箱/1059341?fromModule=lemma_inlink)组成的传动部件的全部重量悬挂在[转向架构架](https://baike.baidu.com/item/转向架构架/56597164?fromModule=lemma_inlink)上，牵引电动机的扭矩通过空心轴和两端的六连杆联轴盘传递到轮对，大幅减轻了转向架[簧下重量](https://baike.baidu.com/item/簧下重量/55836649?fromModule=lemma_inlink)及减小轮轨[作用力](https://baike.baidu.com/item/作用力/9884994?fromModule=lemma_inlink)。基础[制动装置](https://baike.baidu.com/item/制动装置/3448575?fromModule=lemma_inlink)与韶山6B型机车相同，采用单元式单侧双[闸瓦](https://baike.baidu.com/item/闸瓦/1438080?fromModule=lemma_inlink)[制动器](https://baike.baidu.com/item/制动器/1089546?fromModule=lemma_inlink)；每台转向架上设有一个停车蓄能制动装置。
+
+### 故障问题
+
+韶山9型机车是采用微机控制的电力机车之一，[沈阳铁路局](https://baike.baidu.com/item/沈阳铁路局/0?fromModule=lemma_inlink)的部分韶山9型机车在配属初期，曾经常发生系统死机问题，导致整辆机车无法启动，尤以冬天最为严重，影响[列车车次](https://baike.baidu.com/item/列车车次/6539632?fromModule=lemma_inlink)的[正点率](https://baike.baidu.com/item/正点率/5298238?fromModule=lemma_inlink)。及后有关方面为在中国[东北地区](https://baike.baidu.com/item/东北地区/7596883?fromModule=lemma_inlink)的韶山9型机车微机柜内加装[加热器](https://baike.baidu.com/item/加热器/4611064?fromModule=lemma_inlink)，使其微机系统在严寒环境下仍能保持稳定，大大减低微机[故障率](https://baike.baidu.com/item/故障率/9850187?fromModule=lemma_inlink)。 [7]
+
+## 机车事故
+
+2004年11月19日晚上22时32分，配属[沈阳铁路局](https://baike.baidu.com/item/沈阳铁路局/6503224?fromModule=lemma_inlink)[沈阳机务段](https://baike.baidu.com/item/沈阳机务段/153301?fromModule=lemma_inlink)的韶山9型0004号机车，牵引由佳木斯开往北京的[K340次](https://baike.baidu.com/item/K340次/17027301?fromModule=lemma_inlink)[旅客列车](https://baike.baidu.com/item/旅客列车/5567535?fromModule=lemma_inlink)，由于[哈尔滨站](https://baike.baidu.com/item/哈尔滨站/0?fromModule=lemma_inlink)的调车人员[违章作业](https://baike.baidu.com/item/违章作业/8844536?fromModule=lemma_inlink)，导致8辆货车从哈西[专用线](https://baike.baidu.com/item/专用线/5908802?fromModule=lemma_inlink)溜出、颠覆后侵入长滨铁路上行线，K340次列车于哈尔滨站顾乡场117号道岔处（K239+865M）与该货车发生[侧面冲突](https://baike.baidu.com/item/侧面冲突/7462151?fromModule=lemma_inlink)，造成K340次机车和机车后第一辆[行李车](https://baike.baidu.com/item/行李车/9441181?fromModule=lemma_inlink)、第二辆[硬座车](https://baike.baidu.com/item/硬座车/1911354?fromModule=lemma_inlink)脱轨 [8]。事故后机车报废，由于此次事故责任方为[哈尔滨铁路局](https://baike.baidu.com/item/哈尔滨铁路局/6503242?fromModule=lemma_inlink)，故哈局决定扣除全局职工当月安全奖金，并赔偿一台韶山9型机车予沈阳铁路局。2005年，一台新造韶山9改进型机车交付沈阳铁路局，机车车号沿用0004号。
+
+2005年7月31日晚上19时52分，配属沈阳铁路局沈阳机务段的韶山9型0089号机车，牵引由西安开往[长春](https://baike.baidu.com/item/长春/121865?fromModule=lemma_inlink)的K127次旅客列车，运行至[长大铁路](https://baike.baidu.com/item/长大铁路/1540598?fromModule=lemma_inlink)[新城子站](https://baike.baidu.com/item/新城子站/7264200?fromModule=lemma_inlink)至[新台子站](https://baike.baidu.com/item/新台子站/7264218?fromModule=lemma_inlink)间，因一处铁路信号电缆盒被盗，造成某区段[信号机](https://baike.baidu.com/item/信号机/6409752?fromModule=lemma_inlink)非正常显示，K127次列车的[机车乘务员](https://baike.baidu.com/item/机车乘务员/3479682?fromModule=lemma_inlink)涉违章作业，未及时采取停车措施，盲目解锁监控装置，致使列车与前行的33219次[货物列车](https://baike.baidu.com/item/货物列车/5604461?fromModule=lemma_inlink)发生追尾冲突，造成K127次机车及机车后第一辆行李车、第二辆[硬卧车](https://baike.baidu.com/item/硬卧车/22501197?fromModule=lemma_inlink)颠覆，第三至第五辆硬卧车脱轨 [9]。事故后机车报废。
+
+2008年4月28日凌晨4时38分，配属[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)[北京机务段](https://baike.baidu.com/item/北京机务段/1970686?fromModule=lemma_inlink)的韶山9型0182号机车，牵引由北京开往[青岛](https://baike.baidu.com/item/青岛/60244?fromModule=lemma_inlink)四方的[T195次列车](https://baike.baidu.com/item/T195次列车/19515276?fromModule=lemma_inlink)经由[胶济铁路](https://baike.baidu.com/item/胶济铁路/3758247?fromModule=lemma_inlink)运行，由于[济南铁路局](https://baike.baidu.com/item/济南铁路局/6503716?fromModule=lemma_inlink)管理混乱，区段[限速](https://baike.baidu.com/item/限速/2429304?fromModule=lemma_inlink)命令未有送达T195次列车，北京铁路局司机在未收到机车运行监控限速指令的情况下以正常速度131公里/小时行驶，但此时已超出线路实际限速80公里/小时[超速行驶](https://baike.baidu.com/item/超速行驶/2482150?fromModule=lemma_inlink)，当[列车通过](https://baike.baidu.com/item/列车通过/6651589?fromModule=lemma_inlink)胶济铁路[王村站](https://baike.baidu.com/item/王村站/5903739?fromModule=lemma_inlink)后，超速运行至[胶济线](https://baike.baidu.com/item/胶济线/5898708?fromModule=lemma_inlink)下行线[王村](https://baike.baidu.com/item/王村/383243?fromModule=lemma_inlink)至周村东间290公里800米处（处位编号K289+610）时，车尾第9～17位车辆突然发生脱轨并侵入上行线。凌晨4时41分，配属[济南铁路局济南机务段](https://baike.baidu.com/item/济南铁路局济南机务段/24265868?fromModule=lemma_inlink)的[东风11](https://baike.baidu.com/item/东风11/3671740?fromModule=lemma_inlink)型0400号机车，牵引由烟台开往[徐州](https://baike.baidu.com/item/徐州/6250?fromModule=lemma_inlink)的5034次旅客列车运行至上述路段，在会车时与侵入[限界](https://baike.baidu.com/item/限界/2795621?fromModule=lemma_inlink)的T195次列车第15～17位间发生冲突，致使5034次列车机车及机后1至5位车辆脱轨、颠覆，是为[4·28胶济铁路特别重大交通事故](https://baike.baidu.com/item/4·28胶济铁路特别重大交通事故/5209613?fromModule=lemma_inlink)。事故造成72人遇难，416人受伤（其中重伤70人，受伤旅客中有4名[法国](https://baike.baidu.com/item/法国/1173384?fromModule=lemma_inlink)籍旅客）。中断胶济铁路上下行行车21小时22分，构成铁路交通[特别重大事故](https://baike.baidu.com/item/特别重大事故/5451446?fromModule=lemma_inlink) [11]。事故后东风11型0400号机车报废，而肇事的韶山9型0182号机车并未出轨或损坏。
+
+## 封存状况
+
+SS9-0001、SS9-0002、SS9-0003、SS9-0007、SS9-0012、SS9-0022、SS9-0042现已封存于上海金卫西站。
+
+SS9-0045、SS9-0051、SS9-0113、SS9-0123、SS9-0133、SS9-0145、SS9-0147 、SS9-0149、SS9-0156、SS9-0176、SS9-0177、SS9-0178、SS9-0181、SS9-0182、SS9-0184现已封存于北京机务段。
+
+## 机车命名
+
+| 机车编号 | 名称       | 配属                 | 备注                       |
+| -------- | ---------- | -------------------- | -------------------------- |
+| SS9-0045 | 民兵号     | 沈阳铁路局沈阳机务段 | 已摘牌，后转配到北京机务段 |
+| SS9-0081 | 青年文明号 | 北京铁路局北京机务段 | 已摘牌，后转配到上海机务段 |
+
+## 技术数据
+
+| **华氏轮式**                                                 | 0-6-6-0                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **UIC轴式**                                                  | Co'Co'                                                       |
+| **[轨距](https://baike.baidu.com/item/轨距/0?fromModule=lemma_inlink)** | 1,435毫米                                                    |
+| **轮径**                                                     | 1,200毫米（半磨耗）                                          |
+| **轴重**                                                     | 21吨                                                         |
+| **通过****[最小曲线半径](https://baike.baidu.com/item/最小曲线半径/0?fromModule=lemma_inlink)** | 125米                                                        |
+| **机车长度**                                                 | 21,000毫米（车底架长度）22,216毫米（车钩中心距）             |
+| **机车宽度**                                                 | 3,100毫米                                                    |
+| **机车高度**                                                 | 4,132毫米（车顶受电弓座至轨面）                              |
+| **整备重量**                                                 | 126吨                                                        |
+| **受流电压**                                                 | 单相交流 25 kV/50 Hz                                         |
+| **传动方式**                                                 | 交—直流电                                                    |
+| **调速方式**                                                 | 晶闸管相位控制                                               |
+| **驱动方式**                                                 | 六连杆轮对中空轴架悬驱动                                     |
+| **牵引电动机**                                               | ZD115 × 6                                                    |
+| **最高速度**                                                 | 170公里/小时（营运）190公里/小时（试验，早期型）173.1公里/小时（试验，改进型） |
+| **持续速度**                                                 | 99公里/小时                                                  |
+| **牵引功率**                                                 | 4,800千瓦（持续）5,400千瓦（最大）                           |
+| **牵引力**                                                   | 286千牛（起动）169千牛（持续）                               |
+| **制动方式**                                                 | 踏面制动、加馈电阻制动                                       |
+| **制动功率**                                                 | 4,000千瓦（电制动）                                          |
+| **制动力**                                                   | 180千牛（15～80公里/小时）                                   |
+| **列车制动**                                                 | 电磁自动空气制动                                             |
+| **安全系统**                                                 | LKJ TVM430（秦沈客专及广深线专用机车，类似同由[阿尔斯通](https://baike.baidu.com/item/阿尔斯通/7095999?fromModule=lemma_inlink)生产之TBL 2）LKJ TVM300（广深线专用机车原有系统，使用至2007年为止） |
