@@ -1,1 +1,2 @@
+*.pkl filter=lfs diff=lfs merge=lfs -text
 data/china_railway.pkl filter=lfs diff=lfs merge=lfs -text
