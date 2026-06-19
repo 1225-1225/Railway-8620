@@ -2,9 +2,9 @@ import os
 import sqlite3
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langchain.agents import create_agent
-from langchain_community.chat_models import ChatTongyi
+from agent.llm import create_llm
 
-import config_data
+from settings import settings as config_data
 from agent.tools import retriever_tool, railway_drawing_tool
 
 tools = [retriever_tool, railway_drawing_tool]
@@ -16,11 +16,10 @@ class AgentService:
         # 构建数据库文件的完整路径
         db_path = os.path.join(config_data.chat_history_storage_path, config_data.history_database_name)
         # 直接创建 SQLite 连接并传入 SqliteSaver（需要设置 check_same_thread=False）
-        conn = sqlite3.connect(db_path, check_same_thread=False)
-        self.checkpointer = SqliteSaver(conn)
+        self.checkpointer = SqliteSaver.from_conn_string(db_path)
         # 启用流式输出
         self.agent = create_agent(
-            model=ChatTongyi(model=config_data.chat_model_name, streaming=True),
+            model=create_llm(streaming=True),
             tools=tools,
             system_prompt="你是一位知晓中国铁路和机车知识的专家。"
                           "请根据工具返回的资料，直接、专业地回答用户问题。"

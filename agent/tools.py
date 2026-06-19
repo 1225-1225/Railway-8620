@@ -4,7 +4,7 @@ import functools
 import time
 from langchain_core.tools import tool
 import json
-import config_data
+from settings import settings as config_data
 
 from agent.llm import LLMService
 from agent.railway_drawing import RailwayDrawingService

@@ -5,7 +5,7 @@ import time
 import folium
 import networkx as nx
 from geopy.distance import geodesic
-import config_data
+from settings import settings as config_data
 
 
 class RailwayDrawingService:

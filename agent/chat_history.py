@@ -5,7 +5,7 @@ from typing import Sequence
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.messages import BaseMessage, messages_from_dict, message_to_dict
 
-import config_data
+from settings import settings as config_data
 
 
 class ChatHistory(BaseChatMessageHistory):

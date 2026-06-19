@@ -4,10 +4,10 @@ from pathlib import Path
 
 from datetime import datetime
 from langchain_chroma import Chroma
-from langchain_community.embeddings import DashScopeEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-import config_data
+from settings import settings as config_data
 
 
 def check_md5(md5_str):
@@ -41,7 +41,12 @@ class BuildVectorStore(object):
 
         self.chroma = Chroma(   #创建数据库
             collection_name=config_data.collection_name,        #数据库表名
-            embedding_function=DashScopeEmbeddings(model="text-embedding-v4"),  #embedding模型名称
+            embedding_function=OpenAIEmbeddings(
+                model=config_data.embedding_model_name,
+                api_key=config_data.DASHSCOPE_API_KEY,
+                base_url=config_data.embedding_base_url,
+                check_embedding_ctx_length=False,
+            ),
             persist_directory=config_data.persist_directory,    #数据库目录
         )
 

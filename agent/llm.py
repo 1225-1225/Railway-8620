@@ -1,8 +1,11 @@
-from langchain_community.chat_models import ChatTongyi
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnablePassthrough, RunnableWithMessageHistory
-
-import config_data
+from settings import settings as config_data
 from agent.chat_history import ChatHistory
 from agent.vector_store import VectorStoreService
 
@@ -10,10 +13,29 @@ from agent.vector_store import VectorStoreService
 def get_session_history(session_id):
     return ChatHistory(session_id)
 
+def create_llm(**kwargs):
+    '''根据配置创建LLM实例'''
+    provider = config_data.llm_provider
+    if provider == "openai":
+        return ChatOpenAI(
+            model=config_data.llm_model_name,
+            api_key=config_data.OPENCODE_GO_API_KEY,
+            base_url=config_data.llm_base_url,
+            **kwargs
+        )
+    elif provider == "anthropic":
+        from langchain_anthropic import ChatAnthropic
+        return ChatAnthropic(
+            model=config_data.llm_model_name,
+            api_key=config_data.OPENCODE_GO_API_KEY,
+            base_url=config_data.llm_base_url,
+            **kwargs
+        )
+
 class LLMService:
     def __init__(self):
         self.retriever = VectorStoreService()
-        self.model = ChatTongyi(model=config_data.chat_model_name)
+        self.model = create_llm()
         self.prompt = ChatPromptTemplate.from_messages(
             [
                 ("system","你是一位知晓中国铁路和机车方方面面知识的专家，"
@@ -50,5 +72,5 @@ class LLMService:
 
 if __name__ == '__main__':
     chat = LLMService()
-    res = chat.get_chain().invoke({"input":"前进型蒸汽机车在其中的地位"}, config_data.session_config)
+    res = chat.get_chain().invoke({"input":"前进型蒸汽机车的参数"}, config_data.session_config)
     print(res.content)
