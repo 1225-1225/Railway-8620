@@ -3,6 +3,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnablePassthrough, RunnableWithMessageHistory
 from settings import settings as config_data
@@ -24,7 +25,6 @@ def create_llm(**kwargs):
             **kwargs
         )
     elif provider == "anthropic":
-        from langchain_anthropic import ChatAnthropic
         return ChatAnthropic(
             model=config_data.llm_model_name,
             api_key=config_data.OPENCODE_GO_API_KEY,

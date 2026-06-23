@@ -1,0 +1,30 @@
+2026-06-19 16:59:31 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试查询'}
+2026-06-19 16:59:31 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 文档1内容
+
+文档2内容
+2026-06-19 16:59:31 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在的查询'}
+2026-06-19 16:59:31 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-06-19 16:59:31 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查询'}
+2026-06-19 16:59:31 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 唯一文档
+2026-06-19 16:59:31 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-06-19 16:59:31 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-06-19 17:00:17 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试查询'}
+2026-06-19 17:00:17 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 文档1内容
+
+文档2内容
+2026-06-19 17:00:17 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在的查询'}
+2026-06-19 17:00:17 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.002秒，返回值: 未找到相关消息
+2026-06-19 17:00:17 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查询'}
+2026-06-19 17:00:17 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 唯一文档
+2026-06-19 17:00:17 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-06-19 17:00:17 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.013秒，返回值: 未找到相关消息
+2026-06-19 17:01:06 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试查询'}
+2026-06-19 17:01:06 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 文档1内容
+
+文档2内容
+2026-06-19 17:01:06 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在的查询'}
+2026-06-19 17:01:06 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-06-19 17:01:06 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查询'}
+2026-06-19 17:01:06 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-06-19 17:01:06 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-06-19 17:01:06 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息

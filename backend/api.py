@@ -22,7 +22,7 @@ app = FastAPI()
 # 添加 CORS 中间件
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vue 开发服务器地址
+    allow_origins=["http://localhost:8620"],  # Vue 开发服务器地址
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
