@@ -12,7 +12,7 @@ class TestRetrieverTool:
         ret.invoke.return_value = [doc1, doc2]
 
         vs = mock.MagicMock()
-        vs.get_retriever.return_values = ret
+        vs.get_retriever.return_value = ret
 
         with mock.patch("agent.tools.VectorStoreService", return_value=vs):
             from agent.tools import retriever_tool
@@ -26,7 +26,7 @@ class TestRetrieverTool:
         ret.invoke.return_value = []
 
         vs = mock.MagicMock()
-        vs.get_retriever.return_values = ret
+        vs.get_retriever.return_value = ret
 
         with mock.patch("agent.tools.VectorStoreService", return_value=vs):
             from agent.tools import retriever_tool

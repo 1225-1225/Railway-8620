@@ -16,7 +16,8 @@ class AgentService:
         # 构建数据库文件的完整路径
         db_path = os.path.join(config_data.chat_history_storage_path, config_data.history_database_name)
         # 直接创建 SQLite 连接并传入 SqliteSaver（需要设置 check_same_thread=False）
-        self.checkpointer = SqliteSaver.from_conn_string(db_path)
+        self.conn = sqlite3.connect(db_path, check_same_thread=False)
+        self.checkpointer = SqliteSaver(self.conn)
         # 启用流式输出
         self.agent = create_agent(
             model=create_llm(streaming=True),

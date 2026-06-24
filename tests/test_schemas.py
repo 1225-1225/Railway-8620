@@ -12,7 +12,7 @@ class TestUserCreate:
         assert user.password == "123"
 
     def test_model_dump(self):
-        user = UserCreate(username="bob", passward="secret")
+        user = UserCreate(username="bob", password="secret")
         assert user.model_dump() == {"username": "bob", "password": "secret"}
 
     def test_int_username_rejected(self):

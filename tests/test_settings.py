@@ -55,7 +55,7 @@ class TestSettingsFromEnv:
     def test_model_name_from_env(self):
         with mock.patch.dict(os.environ, {"llm_model_name":"deepseek-v4-air"}, clear=True):
             from settings import Settings
-            s = Settings
+            s = Settings()
             assert s.llm_model_name == "deepseek-v4-air"
 
     def test_api_key_from_nev(self):
