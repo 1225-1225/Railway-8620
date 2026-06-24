@@ -1,0 +1,26 @@
+services:
+  # ===== FastAPI 后端 =====
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data/vector_database:/app/data/vector_database
+      - ./chat_history:/app/chat_history
+      - ./users.db:/app/users.db
+    restart: unless-stopped
+
+  # ===== Vue 前端 + Nginx =====
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8620:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

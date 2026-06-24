@@ -28,7 +28,7 @@ class TestSettingsDefaults:
         with mock.patch.dict(os.environ, {}, clear=True):
             from settings import Settings
             s = Settings()
-            assert s.collection_name == "langchain-8620"
+            assert s.collection_name == "railway-8620"
 
     def test_default_llm_provider(self):
         with mock.patch.dict(os.environ, {}, clear=True):

@@ -1,4 +1,4 @@
-# LangChain-8620
+# Railway-8620
 
 基于 LangChain + LangGraph 的中文铁路问答与路线可视化示例，包含：
 - RAG：向量检索问答（`data/cleaned_txts` -> `data/vector_database`）。
@@ -7,7 +7,7 @@
 
 ## 目录结构（简版）
 ```
-LangChain-8620/
+railway-8620/
 ├── backend/              # FastAPI 服务入口 api.py
 ├── agent/                # LLM、RAG、绘图、工具封装
 ├── frontend/             # Vite 前端（地图静态文件输出到 public/maps）

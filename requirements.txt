@@ -8,6 +8,7 @@ langchain-anthropic
 
 # LangGraph
 langgraph
+langgraph-checkpoint-sqlite
 
 # 向量数据库
 chromadb
@@ -19,6 +20,8 @@ chromadb
 fastapi
 uvicorn
 python-multipart
+pydantic-settings
+sqlalchemy
 
 # 数据
 pandas

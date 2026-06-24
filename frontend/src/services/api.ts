@@ -26,7 +26,7 @@ function parseJwtPayload(token: string): Record<string, unknown> | null {
 }
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: '',  // 空 = 相对路径：Docker 中 nginx 代理；本地开发用 Vite proxy
   timeout: 30000,
 })
 

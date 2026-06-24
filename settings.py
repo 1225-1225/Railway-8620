@@ -7,7 +7,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 class Settings(BaseSettings):
     # 向量库和RAG
-    collection_name: str = "langchain-8620"
+    collection_name: str = "railway-8620"
     persist_directory: str = ""
     chunk_size: int = 500
     chunk_overlap: int = 77
