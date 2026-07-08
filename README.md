@@ -152,16 +152,16 @@ cp .env.example .env
 # LLM 配置（支持 OpenAI 兼容接口）
 llm_provider=openai
 llm_model_name=deepseek-v4-flash
-llm_base_url=https://opencode.ai/zen/go/v1
+llm_base_url=your-url
 llm_api_key="your-api-key-here"
 
-# Embedding 配置（阿里百炼，兼容 OpenAI 格式）
+# Embedding 配置
 embedding_provider=openai
 embedding_model_name=text-embedding-v4
-embedding_base_url=https://dashscope.aliyuncs.com/compatible-mode/v1
+embedding_base_url=your-embedding-url
 embedding_api_key="your-api-key-here"
 
-# JWT 签名密钥（生产环境务必更换为高熵随机串）
+# JWT 签名密钥（请更换为高熵随机串）
 JWT_SECRET_KEY="your-secret-key-change-in-production"
 ```
 
