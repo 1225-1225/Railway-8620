@@ -1,14 +1,26 @@
 <template>
-  <div class="chat-page">
-    <header class="chat-header">
-      <div class="header-left">
-        <div class="logo">🚂</div>
-        <div class="header-text">
-          <h2>铁路历史专家 (流式版)</h2>
-          <p class="online-status">已连接 · 实时流式输出</p>
+  <div class="app-layout">
+    <HistorySidebar
+      :collapsed="sidebarCollapsed"
+      :loading="loadingSessions"
+      :groups="sessionGroups"
+      :active-thread-id="activeThreadId"
+      @toggle="sidebarCollapsed = !sidebarCollapsed"
+      @new-chat="startNewChat"
+      @select-session="loadSession"
+    />
+    <div class="main-area">
+      <header class="chat-header">
+        <div class="header-left">
+          <div class="logo">🚂</div>
+          <div class="header-text">
+            <h2>铁路历史专家 (流式版)</h2>
+            <p class="online-status">已连接 · 实时流式输出</p>
+          </div>
         </div>
-      </div>
-      <button class="logout-btn" @click="logout">退出</button>
+        <div class="header-right">
+          <button class="logout-btn" @click="logout">退出</button>
+        </div>
     </header>
 
     <div class="chat-messages" ref="messageListRef">
@@ -21,7 +33,7 @@
       <div v-for="(msg, idx) in messages" :key="idx" class="message-wrapper">
         <div class="message" :class="[msg.role]">
           <div class="avatar">{{ msg.role === 'user' ? '👤' : '🤖' }}</div>
-          <div class="message-bubble" v-html="marked(msg.content)"></div>
+          <div class="message-bubble" v-html="renderContent(msg.content)"></div>
         </div>
       </div>
 
@@ -53,6 +65,7 @@
         <span>按 Enter 发送，Shift+Enter 换行</span>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
@@ -61,8 +74,49 @@ import { ref, onMounted, nextTick, watch } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { marked } from 'marked'
 import { useRouter } from 'vue-router'
-
+import HistorySidebar from '@/components/HistorySidebar.vue'
+import type { SessionGroup } from '@/components/HistorySidebar.vue'
 marked.setOptions({ breaks: true, gfm: true })
+
+/**
+ * 将文本中的 [MAP]url[/MAP] 标签替换为可点击打开路线图的 HTML
+ * 同时也渲染 markdown
+ */
+function renderContent(raw: string): string {
+  // 先用占位符保护 [MAP] 块，防止 marked 转义
+  const mapBlocks: string[] = []
+  const protected_ = raw.replace(/\[MAP\](.+?)\[\/MAP\]/g, (_full, url) => {
+    const idx = mapBlocks.length
+    mapBlocks.push(url.trim())
+    return `<!--MAP_${idx}-->`
+  })
+
+  // 渲染 markdown
+  let html = marked(protected_) as string
+
+  // 替换占位符为 iframe
+  html = html.replace(/<!--MAP_(\d+)-->/g, (_full, idxStr) => {
+    const idx = parseInt(idxStr, 10)
+    const url = mapBlocks[idx]
+    if (!url) return ''
+    const fullUrl = url.startsWith('http') ? url : `${import.meta.env.BASE_URL}${url}`.replace('//', '/')
+    return `
+<div class="route-map-container">
+  <div class="route-map-header">
+    <span class="route-map-title">🗺️ 列车运行路线图</span>
+    <a class="route-map-open" href="${fullUrl}" target="_blank">在新窗口打开 ↗</a>
+  </div>
+  <iframe
+    src="${fullUrl}"
+    class="route-map-iframe"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>`
+  })
+
+  return html
+}
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -71,6 +125,62 @@ const inputMessage = ref('')
 const loading = ref(false)
 const messageListRef = ref<HTMLElement | null>(null)
 const inputRef = ref<HTMLTextAreaElement | null>(null)
+// 每个页面加载生成唯一 session_id，用于隔离不同会话
+const sessionId = ref('')
+
+// 侧边栏状态
+const sidebarCollapsed = ref(false)
+const loadingSessions = ref(false)
+const sessionGroups = ref<SessionGroup[]>([])
+const activeThreadId = ref('')
+
+// 从 thread_id 中提取 session_id: user_{id}_{session_id}
+function extractSessionId(threadId: string): string {
+  const parts = threadId.split('_')
+  return parts.slice(2).join('_')
+}
+
+async function fetchSessions() {
+  loadingSessions.value = true
+  try {
+    const res = await fetch('/chat/sessions', {
+      headers: { Authorization: `Bearer ${authStore.token || ''}` },
+    })
+    if (!res.ok) return
+    const data = await res.json()
+    sessionGroups.value = data.groups || []
+  } catch (e) {
+    console.error('获取历史会话失败', e)
+  } finally {
+    loadingSessions.value = false
+  }
+}
+
+async function loadSession(threadId: string) {
+  activeThreadId.value = threadId
+  try {
+    const res = await fetch(`/chat/sessions/${encodeURIComponent(threadId)}`, {
+      headers: { Authorization: `Bearer ${authStore.token || ''}` },
+    })
+    if (!res.ok) return
+    const data = await res.json()
+    messages.value = data.messages || []
+    // 切换到该会话的 session_id，后续发送消息会复用原会话
+    sessionId.value = extractSessionId(threadId)
+    await nextTick()
+    scrollToBottom()
+  } catch (e) {
+    console.error('加载会话失败', e)
+  }
+}
+
+function startNewChat() {
+  sessionId.value = crypto.randomUUID()
+  activeThreadId.value = ''
+  messages.value = []
+  // 刷新侧边栏会话列表
+  fetchSessions()
+}
 
 const adjustTextareaHeight = () => {
   if (inputRef.value) {
@@ -107,13 +217,13 @@ async function sendMessage() {
   scrollToBottom()
 
   try {
-    const response = await fetch('http://localhost:8000/chat/stream', {
+    const response = await fetch('/chat/stream', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${authStore.token || ''}`,
       },
-      body: JSON.stringify({ message: trimmedMessage }),
+      body: JSON.stringify({ message: trimmedMessage, session_id: sessionId.value }),
     })
 
     if (!response.ok) throw new Error(`请求失败：${response.status}`)
@@ -142,6 +252,14 @@ async function sendMessage() {
               assistantMessage += parsed.content
               messages.value[lastIndex].content = assistantMessage
               scrollToBottom()
+            } else if (parsed.error) {
+              // 后端推送的错误事件（超时等），追加到当前助手消息后
+              assistantMessage += `\n\n⚠️ 服务异常：${parsed.error}`
+              messages.value[lastIndex].content = assistantMessage
+              scrollToBottom()
+              // 出错后放弃当前会话，后续发消息走新会话
+              sessionId.value = crypto.randomUUID()
+              activeThreadId.value = ''
             }
           } catch (e) {
             console.error('解析错误', e)
@@ -152,10 +270,22 @@ async function sendMessage() {
   } catch (error) {
     let errorMsg = '未知错误'
     if (error instanceof Error) errorMsg = error.message
+    if (errorMsg.includes('401')) {
+      messages.value.push({ role: 'assistant', content: '⏰ 登录已过期，正在跳转到登录页...' })
+      await new Promise(r => setTimeout(r, 1500))
+      authStore.logout()
+      router.push('/login')
+      return
+    }
     messages.value.push({ role: 'assistant', content: `⚠️ 请求失败：${errorMsg}` })
+    // 连接异常（超时等）→ 放弃当前会话，下次发消息从新会话开始
+    sessionId.value = crypto.randomUUID()
+    activeThreadId.value = ''
   } finally {
     loading.value = false
     scrollToBottom()
+    // 消息发送完成后刷新会话列表
+    fetchSessions()
   }
 }
 
@@ -169,6 +299,8 @@ onMounted(() => {
     router.push('/login')
     return
   }
+  sessionId.value = crypto.randomUUID()
+  fetchSessions()
   adjustTextareaHeight()
   scrollToBottom()
 })
@@ -176,10 +308,10 @@ onMounted(() => {
 
 <style scoped>
 /* 样式部分完全不变，此处省略（保持之前的样式代码） */
-.chat-page {
+.app-layout {
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: transparent;
   font-family:
     'Inter',
@@ -187,6 +319,13 @@ onMounted(() => {
     BlinkMacSystemFont,
     sans-serif;
   overflow: hidden;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .chat-header {
@@ -280,8 +419,10 @@ onMounted(() => {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.btn-hover {
-  background: rgba(255, 255, 255, 0.15);
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .chat-messages {
@@ -583,5 +724,54 @@ onMounted(() => {
     padding: 0.8rem;
     font-size: 0.95rem;
   }
+
+  .route-map-iframe {
+    height: 300px;
+  }
 }
-</style>
+
+/* ===== 路线图 iframe 容器 ===== */
+.route-map-container {
+  margin: 0.8rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.route-map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.route-map-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.route-map-open {
+  font-size: 0.8rem;
+  color: #a5b4fc;
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(139, 92, 246, 0.15);
+  transition: all 0.2s;
+}
+
+.route-map-open:hover {
+  background: rgba(139, 92, 246, 0.3);
+  color: white;
+}
+
+.route-map-iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  display: block;
+}</style>

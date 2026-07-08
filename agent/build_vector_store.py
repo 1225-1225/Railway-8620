@@ -43,7 +43,7 @@ class BuildVectorStore(object):
             collection_name=config_data.collection_name,        #数据库表名
             embedding_function=OpenAIEmbeddings(
                 model=config_data.embedding_model_name,
-                api_key=config_data.DASHSCOPE_API_KEY,
+                api_key=config_data.embedding_api_key,
                 base_url=config_data.embedding_base_url,
                 check_embedding_ctx_length=False,
             ),

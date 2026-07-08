@@ -10,11 +10,20 @@ import pytest
 from unittest import mock
 from fastapi.testclient import TestClient
 from langchain_core.messages import AIMessage  # 用于构造流式响应的真实消息对象
+from argon2 import PasswordHasher              # 构造合法的 argon2 密码哈希
+
+# 与后端 backend.auth.ph 行为一致的测试用哈希器
+_ph = PasswordHasher()
+
+
+def _hash_password(plain: str) -> str:
+    """对明文密码做 argon2 哈希，模拟数据库中存储的密码字段"""
+    return _ph.hash(plain)
 
 # ── 导入 app 对象 ──────────────────────────────────────────────
-# 注意: backend/api.py 在模块顶部有 agent = AgentService().agent
-# 这行导入会触发 AgentService 初始化(连 Chroma/Embedding/LLM)
-# 后续测试通过 mock.patch("backend.api.AgentService") 在 with 块内替换, 不会真正执行
+# 注意: _agent 现在是懒加载（启动时为 None，首次请求时才创建）
+# 导入 backend.api 不会触发 AgentService 初始化
+# 测试通过 mock.patch("backend.api._agent") 直接替换, 不碰真实 LLM/Embedding
 from backend.api import app
 from backend.auth import get_current_user  # 用于 dependency_overrides 的 key
 
@@ -141,10 +150,12 @@ class TestAuthEndpoints:
           200 OK + {access_token: "...", token_type: "bearer"}
         """
         mock_db = mock.MagicMock()
-        # 构造一个假用户, 其 password 字段为 "secret"
+        # 构造一个假用户, 其 password 字段存储 argon2 哈希（与生产一致）
+        # 旧测试用明文 "secret" 会触发 argon2 InvalidHashError（不属于 VerifyMismatchError）
+        # 导致 except 捕获不到, 登录接口 500 而不是 200
         fake_user = mock.MagicMock()
         fake_user.username = "Alice"
-        fake_user.password = "secret"
+        fake_user.password = _hash_password("secret")
         mock_db.query.return_value.filter.return_value.first.return_value = fake_user
 
         with mock.patch("backend.database.SessionLocal") as mock_session_factory:
@@ -154,7 +165,7 @@ class TestAuthEndpoints:
             # 因为后端用的是 OAuth2PasswordRequestForm 依赖
             response = client.post("/auth/login", data={
                 "username": "Alice",
-                "password": "secret"   # 与假用户的 password 一致 → 认证通过
+                "password": "secret"   # 与哈希前明文一致 → 认证通过
             })
 
             assert response.status_code == 200
@@ -177,7 +188,8 @@ class TestAuthEndpoints:
         mock_db = mock.MagicMock()
         fake_user = mock.MagicMock()
         fake_user.username = "Alice"
-        fake_user.password = "correct"   # 真实密码是 "correct"
+        # 数据库存的是 "correct" 的 argon2 哈希, 输入 "wrong_password" 应触发 VerifyMismatchError
+        fake_user.password = _hash_password("correct")
         mock_db.query.return_value.filter.return_value.first.return_value = fake_user
 
         with mock.patch("backend.database.SessionLocal") as mock_session_factory:
@@ -219,8 +231,8 @@ class TestAuthEndpoints:
 #  /chat 端点测试
 #
 #  需要同时 mock 两样东西:
-#    1. backend.api.agent → 模块级变量, 在导入时已由 AgentService().agent 初始化
-#       直接 mock.patch("backend.api.agent") 替换, 不碰 AgentService 类
+#    1. backend.api._agent → 懒加载, 未配置时为 None
+#       直接 mock.patch("backend.api._agent") 替换, _get_agent() 会返回 mock 对象
 #    2. get_current_user → 用 app.dependency_overrides 绕过 JWT 认证
 # ═══════════════════════════════════════════════════════════════
 
@@ -281,11 +293,11 @@ class TestChatEndpoint:
         user = fake_current_user()   # id=1, username="Alice"
 
         # ── 3. Mock ──
-        # 直接替换模块级变量 backend.api.agent（因为 agent = AgentService().agent 在导入时已执行）
+        # 直接替换模块级变量 backend.api._agent（agent 在模块加载时由 AgentService 初始化）
         # 同时用 FastAPI dependency_overrides 替代 get_current_user
         app.dependency_overrides[get_current_user] = lambda: user
 
-        with mock.patch("backend.api.agent", mock_agent):
+        with mock.patch("backend.api._agent", mock_agent):
             # ── 4. 发送请求 ──
             response = client.post("/chat", json={"message": "前进型蒸汽机车"})
 
@@ -323,7 +335,7 @@ class TestChatEndpoint:
         # 直接替换模块级 agent，绕过已初始化的 AgentService
         app.dependency_overrides[get_current_user] = lambda: user
 
-        with mock.patch("backend.api.agent", mock_agent):
+        with mock.patch("backend.api._agent", mock_agent):
             # 发送请求
             client.post("/chat", json={"message": "测试"})
 
@@ -402,7 +414,7 @@ class TestChatStreamEndpoint:
         # 直接替换模块级 agent
         app.dependency_overrides[get_current_user] = lambda: user
 
-        with mock.patch("backend.api.agent", mock_agent):
+        with mock.patch("backend.api._agent", mock_agent):
             response = client.post("/chat/stream", json={"message": "你好"})
 
         # 清理 overrides
@@ -418,4 +430,32 @@ class TestChatStreamEndpoint:
         #   data: [DONE]                ← SSE 结束标记
         body = response.text
         assert 'data: {"content": "hello"}' in body
+        assert "data: [DONE]" in body
+
+    def test_stream_pushes_error_event_on_exception(self):
+        """
+        验证：agent.stream() 抛异常时，后端应推送一条 error 事件并正常结束流
+
+        回归 Bug：旧实现 generate() 没有 try/except，stream 抛错会直接中断
+        StreamingResponse，前端一直转圈。修复后应推送 data: {"error": ...} 再 [DONE]。
+        """
+        user = fake_current_user()
+
+        mock_agent = mock.MagicMock()
+        # stream() 抛异常，模拟 LLM 调用失败 / 网络错误
+        mock_agent.stream.side_effect = RuntimeError("LLM 服务不可用")
+
+        app.dependency_overrides[get_current_user] = lambda: user
+
+        with mock.patch("backend.api._agent", mock_agent):
+            response = client.post("/chat/stream", json={"message": "你好"})
+
+        del app.dependency_overrides[get_current_user]
+
+        # 即使内部异常，HTTP 层应仍 200（SSE 已经开始），通过事件传递错误
+        assert response.status_code == 200
+        body = response.text
+        # 必须包含 error 事件 + 结束标记，避免前端永久挂起
+        assert '"error"' in body
+        assert "LLM 服务不可用" in body
         assert "data: [DONE]" in body

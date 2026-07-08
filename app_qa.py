@@ -9,7 +9,7 @@ sys.path.append(str(root_dir))
 import streamlit as st
 from langchain_core.messages import AIMessage, AIMessageChunk  # 导入消息类型
 
-import config_data
+from settings import settings as config_data
 from agent.agent import AgentService
 
 # 页面配置

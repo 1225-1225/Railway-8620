@@ -77,11 +77,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
 const authStore = useAuthStore()
 const router = useRouter()
+const route = useRoute()
 
 // 表单状态
 const form = ref({ username: '', password: '', confirmPassword: '' })
@@ -117,7 +118,8 @@ async function handleSubmit() {
       username: form.value.username,
       password: form.value.password,
     })
-    router.push('/chat')
+    const redirect = route.query.redirect as string | undefined
+    router.push(redirect || '/chat')
   } catch (err: unknown) {
     // 错误处理
     errorShake.value = true

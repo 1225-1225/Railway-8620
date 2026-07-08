@@ -3,9 +3,9 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# 安装系统依赖（chromadb 需要 C++ 运行时）
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
+# 安装系统依赖（chromadb 的 hnswlib 需要 C++ 运行时）
+RUN apt-get update && apt-get install -y --no-install-recommends --no-install-suggests \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 # 先装 Python 依赖（利用 Docker 缓存层）
@@ -15,8 +15,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 复制项目代码
 COPY . .
 
+# 确保运行时目录存在且可写（共享地图、对话历史）
+RUN mkdir -p /app/shared/maps /app/chat_history && chmod -R 777 /app/shared /app/chat_history
+
 # 挂载点声明（向量库、对话历史等持久化数据）
-VOLUME ["/app/data/vector_database", "/app/chat_history"]
+VOLUME ["/app/data/vector_database", "/app/chat_history", "/app/shared/maps"]
 
 EXPOSE 8000
 

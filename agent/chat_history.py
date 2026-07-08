@@ -1,3 +1,11 @@
+"""
+基于 JSON 文件的对话历史存储实现。
+
+说明：当前 Agent (agent/agent.py) 默认使用 LangGraph 的 SqliteSaver 作为
+Checkpointer，本类未接入主流程，仅作为可选的独立存储后端保留，便于未来
+切换为基于文件的实现或做迁移/导出。如需启用，请在 AgentService 中通过
+RunnableWithMessageHistory 之类的方式注入。
+"""
 import json
 import os.path
 from typing import Sequence

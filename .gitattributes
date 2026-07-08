@@ -1,2 +1,25 @@
+# Git LFS —— 大文件跟踪
 *.pkl filter=lfs diff=lfs merge=lfs -text
+*.gpkg filter=lfs diff=lfs merge=lfs -text
 data/china_railway.pkl filter=lfs diff=lfs merge=lfs -text
+data/city_to_node.pkl filter=lfs diff=lfs merge=lfs -text
+data/train_data.json filter=lfs diff=lfs merge=lfs -text
+data/railway_route/china_railway_filtered.gpkg filter=lfs diff=lfs merge=lfs -text
+data/railway_route/line_graph.json filter=lfs diff=lfs merge=lfs -text
+data/railway_route/timetable.json filter=lfs diff=lfs merge=lfs -text
+
+# 文本文件标准化
+*.py text eol=lf
+*.ts text eol=lf
+*.vue text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf

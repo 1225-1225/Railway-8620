@@ -19,11 +19,11 @@ venv/
 
 # 数据文件（太大，不进镜像）
 data/cleaned_txts/
+data/txts/
 data/vector_database/
 
-# 前端
-frontend/node_modules/
-frontend/dist/
+# 前端（有自己的 Dockerfile，不需要出现在后端镜像中）
+frontend/
 
 # 环境变量（通过 docker-compose 注入）
 .env
@@ -35,7 +35,17 @@ frontend/dist/
 # 其他
 *.log
 chat_history/
+maps/
 MD5
+
+# 数据采集/处理脚本（仅本地使用，不需进镜像）
+mytools/
 
 # 测试
 tests/
+
+# 文档/面试/临时文件
+resume.md
+面试提问点*
+复习顺序指南.md
+_check_size.py

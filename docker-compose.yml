@@ -8,10 +8,16 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    environment:
+      # 后端生成的铁路地图写入共享 volume，供前端 Nginx 直接读取
+      - maps_output_dir=/app/shared/maps
+      # 用户库走 named volume，避免 file bind mount 在文件不存在时被 Docker 创建成目录
+      - DATABASE_URL=sqlite:////app/data/users.db
     volumes:
       - ./data/vector_database:/app/data/vector_database
       - ./chat_history:/app/chat_history
-      - ./users.db:/app/users.db
+      - backend_data:/app/data
+      - maps_data:/app/shared/maps
     restart: unless-stopped
 
   # ===== Vue 前端 + Nginx =====
@@ -23,4 +29,11 @@ services:
       - "8620:80"
     depends_on:
       - backend
+    volumes:
+      # 后端生成的地图 HTML 通过共享 volume 暴露给 Nginx
+      - maps_data:/usr/share/nginx/maps:ro
     restart: unless-stopped
+
+volumes:
+  backend_data:
+  maps_data:

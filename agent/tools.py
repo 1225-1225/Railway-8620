@@ -3,11 +3,9 @@ import logging
 import functools
 import time
 from langchain_core.tools import tool
-import json
 from settings import settings as config_data
 
-from agent.llm import LLMService
-from agent.railway_drawing import RailwayDrawingService
+from agent.route_map_service import RouteMapService
 from agent.vector_store import VectorStoreService
 
 # ========== 日志配置 ==========
@@ -61,62 +59,127 @@ def log_tool_call(func):
     return wrapper
 
 
+# ========== 服务单例 ==========
+# VectorStoreService 与 RouteMapService 构造时需加载持久化向量库 / 全国铁路图，
+# 重复 new 会带来显著开销，因此用模块级单例懒加载。
+_vector_store_service: "VectorStoreService | None" = None
+_route_map_service: "RouteMapService | None" = None
+
+
+def get_vector_store_service() -> "VectorStoreService":
+    """返回 VectorStoreService 单例（懒加载）"""
+    global _vector_store_service
+    if _vector_store_service is None:
+        _vector_store_service = VectorStoreService()
+    return _vector_store_service
+
+
+def get_route_map_service() -> "RouteMapService":
+    """返回 RouteMapService 单例（懒加载）
+
+    RouteMapService 构造时需加载 GPKG（222MB）+ line_graph.json + timetable（56MB），
+    并预构建 way 几何和 bbox 索引，重复 new 会带来显著开销。
+    复用单例可让 per-line 图缓存和全图 A* 缓存跨请求命中。
+    """
+    global _route_map_service
+    if _route_map_service is None:
+        _route_map_service = RouteMapService()
+    return _route_map_service
+
+
+def reset_service_singletons():
+    """重置单例（仅用于测试隔离：每个测试用例mock掉底层前调用一次，确保不残留旧实例）"""
+    global _vector_store_service, _route_map_service
+    _vector_store_service = None
+    _route_map_service = None
+
+
 # ========== 工具函数（应用装饰器） ==========
 @tool(description="检索向量库, 寻找匹配的知识")
 @log_tool_call
 def retriever_tool(query: str):
-    retriever = VectorStoreService().get_retriever()
+    retriever = get_vector_store_service().get_retriever()
     docs = retriever.invoke(query)
     if not docs:
         return "未找到相关消息"
     return "\n\n".join(doc.page_content for doc in docs)
 
 
-@tool(description="根据起点和终点城市名称绘制铁路线路图，并标注至少三条实际运行的车次")
+@tool(description="根据列车车次代码绘制运行路线图。参数 train_code 为车次代码（如 G1、K4174、Z227、T109、D4 等）。使用 OSM 真实轨道几何绘制精确路线。")
 @log_tool_call
-def railway_drawing_tool(query: str) -> str:
-    # 1. 从 query 中提取起点和终点（使用 LLM）
-    try:
-        prompt = f"从以下问题中提取起点和终点城市，并以 JSON 格式返回，例如 {{\"start\": \"北京\", \"end\": \"合肥\"}}。问题：{query}"
-        response = LLMService().get_model().invoke(prompt).content
-        if response.startswith("```json"):
-            response = response.strip("```json\n").strip("```")
-        elif response.startswith("```"):
-            response = response.strip("```\n").strip("```")
-        data = json.loads(response)
-        start = data["start"]
-        end = data["end"]
-    except Exception as e:
-        logger.error(f"解析城市名失败: {e}")
-        return f"无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。"
+def route_map_drawing_tool(train_code: str) -> str:
+    # 复用单例路线图服务
+    service = get_route_map_service()
 
-    # 2. 初始化路径查找器
-    finder = RailwayDrawingService()
-
-    # 3. 查找所有经过的车次，获取实际站名
-    trains_info, actual_start, actual_end = finder.find_trains_between(start, end)
-    if not trains_info:
-        return f"未找到从 {start} 到 {end} 的列车车次。"
-
-    # 4. 限制最多三条车次（已在 find_trains_between 中完成，但这里保留注释）
-    if len(trains_info) > 3:
-        trains_info = trains_info[:3]
-        note = f"（仅展示前3个车次，共 {len(trains_info)} 个）"
-    else:
-        note = f"（共 {len(trains_info)} 个车次）"
-
-    # 5. 生成地图
+    # 绘制路线图
     output_dir = config_data.maps_output_dir
     os.makedirs(output_dir, exist_ok=True)
     try:
-        filepath, valid_trains = finder.draw_trains_map(trains_info, actual_start, actual_end, output_dir)
+        filepath, stations = service.draw_train_route(train_code, output_dir)
     except Exception as e:
-        logger.error(f"生成地图失败: {e}")
-        return f"生成地图时出错：{str(e)}"
+        logger.error(f"绘制车次 {train_code} 路线图失败: {e}")
+        return f"绘制路线图时出错：{str(e)}"
+
+    if not filepath:
+        return f"未找到车次 {train_code}，请确认车次代码是否正确。"
 
     filename = os.path.basename(filepath)
     map_url = f"/maps/{filename}"
 
-    # 构造返回消息，列出车次（使用 name 字段）
-    train_list = "\n".join([f"- {t.get('name', '未知')}" for t in valid_trains])
-    return f"地图已生成，包含以下车次：\n{train_list}\n{note}\n\n[MAP]{map_url}[/MAP]"
+    # 构造返回消息
+    route_desc = f"{stations[0]} → {stations[-1]}" if stations else "未知路线"
+    station_count = len(stations) if stations else 0
+    return (
+        f"车次 {train_code} 的运行路线图已生成：\n"
+        f"- 路线：{route_desc}\n"
+        f"- 共 {station_count} 站\n"
+        f"\n[MAP]{map_url}[/MAP]"
+    )
+
+
+@tool(description="根据起点站和终点站查找所有车次并绘制每趟车的运行路线图。参数 start_station：起点站名（如’合肥’）；参数 end_station：终点站名（如‘北京西‘）。返回按发车时间从早到晚排序的车次列表，每趟车单独一张路线图。适用于用户说‘X到Y‘、‘从X去Y‘等场景。")
+@log_tool_call
+def station_route_drawing_tool(start_station: str, end_station: str) -> str:
+    # 复用单例路线图服务
+    service = get_route_map_service()
+
+    # 1. 查找所有经过这两站的车次（已按发车时间排序）
+    trains = service.find_trains_between_stations(start_station, end_station)
+    if not trains:
+        return f"未找到从 {start_station} 到 {end_station} 的列车，请确认站名是否正确。"
+
+    total = len(trains)
+    # 限制最多 20 趟，避免响应过慢
+    max_trains = 20
+    if total > max_trains:
+        trains = trains[:max_trains]
+        note = f"（仅展示前 {max_trains} 趟，共 {total} 趟）"
+    else:
+        note = f"（共 {total} 趟）"
+
+    # 2. 一一绘制路线图
+    output_dir = config_data.maps_output_dir
+    os.makedirs(output_dir, exist_ok=True)
+
+    train_lines = []
+    map_blocks = []
+    for code, dep_time, _, _, _ in trains:
+        try:
+            filepath, stations = service.draw_train_route(code, output_dir)
+            if filepath:
+                filename = os.path.basename(filepath)
+                map_url = f"/maps/{filename}"
+                route_desc = f"{stations[0]} → {stations[-1]}" if stations else ""
+                train_lines.append(f"- {code}（{dep_time} 发车，{route_desc}）")
+                map_blocks.append(f"[MAP]{map_url}[/MAP]")
+            else:
+                train_lines.append(f"- {code}（{dep_time} 发车）：未找到时刻表数据")
+        except Exception as e:
+            logger.error(f"绘制车次 {code} 路线图失败: {e}")
+            train_lines.append(f"- {code}（{dep_time} 发车）：绘制失败 - {str(e)}")
+
+    # 3. 构造返回消息
+    header = f"从 {start_station} 到 {end_station} 的列车路线图已生成{note}：\n"
+    train_list = "\n".join(train_lines)
+    maps = "\n".join(map_blocks)
+    return f"{header}{train_list}\n\n{maps}"

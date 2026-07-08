@@ -7,7 +7,7 @@ class TestCreateLlmOpenAI:
         with mock.patch("agent.llm.config_data") as cfg:
             cfg.llm_provider = "openai"
             cfg.llm_model_name = "deepseek-v4-pro"
-            cfg.OPENCODE_GO_API_KEY = "sk-test"
+            cfg.llm_api_key = "sk-test"
             cfg.llm_base_url = "https://opencode.ai/zen/go/v1"
 
             from langchain_openai import ChatOpenAI
@@ -20,7 +20,7 @@ class TestCreateLlmOpenAI:
         with mock.patch("agent.llm.config_data") as cfg:
             cfg.llm_provider = "openai"
             cfg.llm_model_name = "my-model"
-            cfg.OPENCODE_GO_API_KEY = "sk-test"
+            cfg.llm_api_key = "sk-test"
             cfg.llm_base_url = "https://proxy.com/v1"
 
             from agent.llm import create_llm
@@ -37,7 +37,7 @@ class TestCreateLlmAnthropic:
         with mock.patch("agent.llm.config_data") as cfg:
             cfg.llm_provider = "anthropic"
             cfg.llm_model_name = "claude-sonnet-4-20250514"
-            cfg.OPENCODE_GO_API_KEY = "sk-ant-test"
+            cfg.llm_api_key = "sk-ant-test"
             cfg.llm_base_url = "https://api.anthropic.com"
 
             from agent.llm import create_llm

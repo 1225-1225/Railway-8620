@@ -5,9 +5,9 @@ from langchain.agents import create_agent
 from agent.llm import create_llm
 
 from settings import settings as config_data
-from agent.tools import retriever_tool, railway_drawing_tool
+from agent.tools import retriever_tool, route_map_drawing_tool, station_route_drawing_tool
 
-tools = [retriever_tool, railway_drawing_tool]
+tools = [retriever_tool, route_map_drawing_tool, station_route_drawing_tool]
 
 class AgentService:
     def __init__(self):
@@ -24,9 +24,23 @@ class AgentService:
             tools=tools,
             system_prompt="你是一位知晓中国铁路和机车知识的专家。"
                           "请根据工具返回的资料，直接、专业地回答用户问题。"
-                          "如果需要绘制铁路线路图，请调用 railway_drawing_tool 工具。",
+                          "绘图工具使用规则："
+                          "1. 用户明确指定车次代码（如G1、K4174等）时，调用 route_map_drawing_tool 工具；"
+                          "2. 用户给出起点和终点站名（如「合肥到北京西」、「从合肥去北京西」）时，"
+                          "调用 station_route_drawing_tool 工具，会自动查找所有车次并按发车时间排序绘制。"
+                          "【重要】当工具返回内容中包含 [MAP]...[/MAP] 标记时，"
+                          "你必须原封不动地将这些 [MAP]...[/MAP] 标记复制到你的回答中，"
+                          "不要删除、修改或省略它们，这些标记会自动渲染为路线图。",
             checkpointer=self.checkpointer
         )
+
+    def close(self):
+        """释放底层 SQLite 连接，避免 reload / 应用关闭时泄漏"""
+        try:
+            self.conn.close()
+        except Exception:
+            pass
+
 
 if __name__ == '__main__':
     agent_service = AgentService()
@@ -34,14 +48,17 @@ if __name__ == '__main__':
     thread_id = "user_001"
     config = {"configurable": {"thread_id": thread_id}}
 
-    for chunk in agent.stream(
-        {"messages": [{"role": "user", "content": "第四次呢"}]},
-        config=config,
-        stream_mode="messages"
-    ):
-        if isinstance(chunk, tuple):
-            msg = chunk[0]
-        else:
-            msg = chunk
-        if hasattr(msg, 'content') and msg.content:
-            print(msg.content, end='', flush=True)
+    try:
+        for chunk in agent.stream(
+            {"messages": [{"role": "user", "content": "第四次呢"}]},
+            config=config,
+            stream_mode="messages"
+        ):
+            if isinstance(chunk, tuple):
+                msg = chunk[0]
+            else:
+                msg = chunk
+            if hasattr(msg, 'content') and msg.content:
+                print(msg.content, end='', flush=True)
+    finally:
+        agent_service.close()

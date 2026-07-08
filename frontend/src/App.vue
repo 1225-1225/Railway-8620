@@ -6,6 +6,41 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { useAuthStore, isTokenExpired } from '@/stores/auth'
+
+const router = useRouter()
+const route = useRoute()
+const authStore = useAuthStore()
+
+let timer: ReturnType<typeof setInterval> | null = null
+
+/** 每 30 秒检测一次令牌是否过期，过期则强制跳转登录 */
+function checkTokenExpiry() {
+  const token = authStore.token
+  if (!token) return
+  if (isTokenExpired(token)) {
+    authStore.logout()
+    if (route.path !== '/login') {
+      router.push({ path: '/login', query: { redirect: route.fullPath } })
+    }
+  }
+}
+
+onMounted(() => {
+  timer = setInterval(checkTokenExpiry, 30_000)
+})
+
+onUnmounted(() => {
+  if (timer) {
+    clearInterval(timer)
+    timer = null
+  }
+})
+</script>
+
 <style>
 /* 基础重置与全局样式 */
 * {

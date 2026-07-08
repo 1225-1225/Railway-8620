@@ -1,6 +1,5 @@
 import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import AliasChoices, Field
 
 #项目根目录：settings.py所在目录
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -19,18 +18,15 @@ class Settings(BaseSettings):
     # 检索
     kwargs: int = 5
 
-    # LLM
-    chat_model_name: str = "deepseek-v4-flash"
-
     # LLM 供应商（openai / anthropic）
     llm_provider: str = "openai"
-    OPENCODE_GO_API_KEY: str = Field("", validation_alias=AliasChoices("OPENCODE_GO_API_KEY", "llm_api_key"))
-    llm_model_name: str = "qwen3-max-2025-09-23"
+    llm_api_key: str = ""
+    llm_model_name: str = "deepseek-v4-flash"
     llm_base_url: str = ""
 
     # Embedding 供应商（阿里百炼等兼容 OpenAI 格式的服务）
     embedding_provider: str = "openai"
-    DASHSCOPE_API_KEY: str = Field("", validation_alias=AliasChoices("DASHSCOPE_API_KEY", "embedding_api_key"))
+    embedding_api_key: str = ""
     embedding_model_name: str = "text-embedding-v4"
     embedding_base_url: str = ""
 
@@ -45,25 +41,80 @@ class Settings(BaseSettings):
     train_data_path: str = ""
     maps_output_dir: str = ""
 
+    # 铁路路线图（基于 OSM 真实轨道几何，按车次代码绘制运行路线）
+    route_map_gpkg_path: str = ""
+    route_map_line_graph_path: str = ""
+    route_map_timetable_path: str = ""
+
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-# 自动补全相对路径（基于PROJECT_ROOT）
-settings = Settings()
 
-# 只有没在.env里指定的路径，才使用默认的相对路径
-if not settings.persist_directory:
-    settings.persist_directory = os.path.join(PROJECT_ROOT, "data", "vector_database")
-if not settings.data_path:
-    settings.data_path = os.path.join(PROJECT_ROOT, "data", "cleaned_txts")
-if not settings.md5_path:
-    settings.md5_path = os.path.join(PROJECT_ROOT, "MD5")
-if not settings.chat_history_storage_path:
-    settings.chat_history_storage_path = os.path.join(PROJECT_ROOT, "chat_history")
-if not settings.station_geojson_path:
-    settings.station_geojson_path = os.path.join(PROJECT_ROOT, "data", "city_to_node.pkl")
-if not settings.railway_geojson_path:
-    settings.railway_geojson_path = os.path.join(PROJECT_ROOT, "data", "china_railway.pkl")
-if not settings.train_data_path:
-    settings.train_data_path = os.path.join(PROJECT_ROOT, "data", "train_data.json")
-if not settings.maps_output_dir:
-    settings.maps_output_dir = os.path.join(PROJECT_ROOT, "frontend", "public", "maps")
+def _apply_path_defaults(s: Settings):
+    """补全未在.env中指定的相对路径"""
+    if not s.persist_directory:
+        s.persist_directory = os.path.join(PROJECT_ROOT, "data", "vector_database")
+    if not s.data_path:
+        s.data_path = os.path.join(PROJECT_ROOT, "data", "cleaned_txts")
+    if not s.md5_path:
+        s.md5_path = os.path.join(PROJECT_ROOT, "MD5")
+    if not s.chat_history_storage_path:
+        s.chat_history_storage_path = os.path.join(PROJECT_ROOT, "chat_history")
+    if not s.station_geojson_path:
+        s.station_geojson_path = os.path.join(PROJECT_ROOT, "data", "city_to_node.pkl")
+    if not s.railway_geojson_path:
+        s.railway_geojson_path = os.path.join(PROJECT_ROOT, "data", "china_railway.pkl")
+    if not s.train_data_path:
+        s.train_data_path = os.path.join(PROJECT_ROOT, "data", "train_data.json")
+    if not s.maps_output_dir:
+        s.maps_output_dir = os.path.join(PROJECT_ROOT, "frontend", "public", "maps")
+    if not s.route_map_gpkg_path:
+        s.route_map_gpkg_path = os.path.join(PROJECT_ROOT, "data", "railway_route", "china_railway_filtered.gpkg")
+    if not s.route_map_line_graph_path:
+        s.route_map_line_graph_path = os.path.join(PROJECT_ROOT, "data", "railway_route", "line_graph.json")
+    if not s.route_map_timetable_path:
+        s.route_map_timetable_path = os.path.join(PROJECT_ROOT, "data", "railway_route", "timetable.json")
+
+
+def _resolve_env_var_refs(s: Settings):
+    """将 API Key 字段中的环境变量名引用替换为实际值
+
+    `.env` 中两种写法都支持：
+        llm_api_key=sk-xxx        → 直接用
+        llm_api_key=DEEPSEEK_API_KEY  → 视为环境变量名，取 os.environ["DEEPSEEK_API_KEY"]
+    """
+    for field in ("llm_api_key", "embedding_api_key"):
+        raw = getattr(s, field)
+        if raw and raw in os.environ and os.environ[raw]:
+            setattr(s, field, os.environ[raw])
+
+
+class _SettingsProxy:
+    """代理类：支持运行时从 .env 重新加载配置，无需重启进程"""
+
+    def __init__(self):
+        object.__setattr__(self, "_settings", None)
+        self._load()
+
+    def _load(self):
+        s = Settings()
+        _apply_path_defaults(s)
+        _resolve_env_var_refs(s)
+        object.__setattr__(self, "_settings", s)
+
+    def reload(self):
+        """从 .env 重新加载所有配置"""
+        self._load()
+
+    def __getattr__(self, name):
+        if name.startswith("_"):
+            raise AttributeError(name)
+        return getattr(self._settings, name)
+
+    def __setattr__(self, name, value):
+        if name.startswith("_"):
+            object.__setattr__(self, name, value)
+        else:
+            setattr(self._settings, name, value)
+
+
+settings = _SettingsProxy()

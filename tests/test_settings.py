@@ -58,17 +58,17 @@ class TestSettingsFromEnv:
             s = Settings()
             assert s.llm_model_name == "deepseek-v4-air"
 
-    def test_api_key_from_nev(self):
-        with mock.patch.dict(os.environ, {"OPENCODE_GO_API_KEY":"sk-test-114514"}, clear=True):
+    def test_api_key_from_env(self):
+        with mock.patch.dict(os.environ, {"llm_api_key":"sk-test-114514"}, clear=True):
             from settings import Settings
             s = Settings()
-            assert s.OPENCODE_GO_API_KEY == "sk-test-114514"
+            assert s.llm_api_key == "sk-test-114514"
 
-    def test_dashscope_api_key_from_env(self):
-        with mock.patch.dict(os.environ, {"DASHSCOPE_API_KEY":"sk-test-1919810"}, clear=True):
+    def test_embedding_api_key_from_env(self):
+        with mock.patch.dict(os.environ, {"embedding_api_key":"sk-test-1919810"}, clear=True):
             from settings import Settings
             s = Settings()
-            assert s.DASHSCOPE_API_KEY == "sk-test-1919810"
+            assert s.embedding_api_key == "sk-test-1919810"
 
     def test_base_url_from_env(self):
         with mock.patch.dict(os.environ, {"llm_base_url": "https://my-proxy.com/v1"}, clear=True):

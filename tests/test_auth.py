@@ -10,10 +10,19 @@ import pytest                        # pytest：断言框架
 
 # === 导入第三方库 ===
 from jose import jwt                  # JWT 库：jwt.decode 解码验证测试中生成的 token
+from argon2 import PasswordHasher     # 真实的 argon2 哈希器，用于构造合法的密码哈希
 
 # === 导入被测模块 ===
 from backend.auth import create_access_token, authenticate_user  # 被测函数
 from backend.auth import SECRET_KEY, ALGORITHM                   # 密钥和算法常量
+
+# 测试用的 argon2 哈希器（与后端 auth.py 中 ph 行为一致）
+_ph = PasswordHasher()
+
+
+def _hash_password(plain: str) -> str:
+    """对明文密码做 argon2 哈希，模拟数据库中存储的密码字段"""
+    return _ph.hash(plain)
 
 
 # ============================================================
@@ -119,9 +128,11 @@ class TestAuthenticateUser:
         # 1. 创建一个假的数据库会话对象（不连接真实数据库）
         db = mock.MagicMock()
 
-        # 2. 创建一个假的用户对象，设置密码为 "secret123"
+        # 2. 创建一个假的用户对象，password 字段存储 argon2 哈希（与生产一致）
+        #    早期版本测试用明文 fake_user.password = "secret123"，会触发 argon2
+        #    InvalidHashError（而非 VerifyMismatchError），导致 except 捕获不到而抛错
         fake_user = mock.MagicMock()
-        fake_user.password = "secret123"
+        fake_user.password = _hash_password("secret123")
 
         # 3. 配置 db 的行为：当调用 db.query(...).filter(...).first() 时，返回 fake_user
         #    SQLAlchemy 的链式调用: db.query(User).filter(User.username == "alice").first()
@@ -131,7 +142,7 @@ class TestAuthenticateUser:
         #      filter_mock.first()  → .return_value = fake_user
         db.query.return_value.filter.return_value.first.return_value = fake_user
 
-        # 4. 调用被测函数，传入伪造的 db、用户名 "alice"、密码 "secret123"
+        # 4. 调用被测函数，传入伪造的 db、用户名 "alice"、明文密码 "secret123"
         result = authenticate_user(db, "alice", "secret123")
 
         # 5. 密码匹配 → 应该返回 fake_user 对象
@@ -141,13 +152,13 @@ class TestAuthenticateUser:
         """
         验证：密码错误 → 返回 False。
         """
-        # 1. 伪造 db 和用户对象
+        # 1. 伪造 db 和用户对象，password 存储正确密码的 argon2 哈希
         db = mock.MagicMock()
         fake_user = mock.MagicMock()
-        fake_user.password = "correct_password"       # 正确密码是 "correct_password"
+        fake_user.password = _hash_password("correct_password")
         db.query.return_value.filter.return_value.first.return_value = fake_user
 
-        # 2. 用错误密码调用 authenticate_user
+        # 2. 用错误密码调用 authenticate_user，ph.verify 会抛 VerifyMismatchError 被捕获
         result = authenticate_user(db, "alice", "wrong_password")
 
         # 3. 断言返回 False（认证失败）

@@ -62,3 +62,568 @@
 2026-06-24 15:14:46 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
 2026-06-24 15:14:46 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
 2026-06-24 15:14:46 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-06-27 12:22:54 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-06-27 12:22:54 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.002秒，返回值: 文档A
+
+文档B
+2026-06-27 12:22:54 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-06-27 12:22:54 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-06-27 12:22:54 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-06-27 12:22:54 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-06-27 12:22:54 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-06-27 12:22:54 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 文档A
+
+文档B
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（仅展示前3个车次，共 5 个）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+（共 2 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（共 3 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 未找到从 北京 到 合肥 的列车车次。
+2026-06-27 12:35:07 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '乱七八糟'}
+2026-06-27 12:35:07 - tool_calls - ERROR - 解析城市名失败: Expecting value: line 1 column 1 (char 0)
+2026-06-27 12:35:07 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。
+2026-07-03 10:00:59 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-03 10:00:59 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.003秒，返回值: 文档A
+
+文档B
+2026-07-03 10:00:59 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-03 10:00:59 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-03 10:00:59 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-03 10:00:59 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-07-03 10:00:59 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-03 10:00:59 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-03 10:00:59 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 10:00:59 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（仅展示前3个车次，共 5 个）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 10:00:59 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 10:00:59 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.002秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+（共 2 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 10:00:59 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 10:00:59 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.002秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（共 3 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 10:01:00 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 10:01:00 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 未找到从 北京 到 合肥 的列车车次。
+2026-07-03 10:01:00 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '乱七八糟'}
+2026-07-03 10:01:00 - tool_calls - ERROR - 解析城市名失败: Expecting value: line 1 column 1 (char 0)
+2026-07-03 10:01:00 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。
+2026-07-03 12:13:29 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '中国铁路发展历史 历代变迁 铁路史'}
+2026-07-03 12:13:29 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.580秒，返回值: 未找到相关消息
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 文档A
+
+文档B
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（仅展示前3个车次，共 5 个）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+（共 2 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（共 3 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 未找到从 北京 到 合肥 的列车车次。
+2026-07-03 15:56:08 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '乱七八糟'}
+2026-07-03 15:56:08 - tool_calls - ERROR - 解析城市名失败: Expecting value: line 1 column 1 (char 0)
+2026-07-03 15:56:08 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 文档A
+
+文档B
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（仅展示前3个车次，共 5 个）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+（共 2 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（共 3 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 未找到从 北京 到 合肥 的列车车次。
+2026-07-03 16:14:21 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '乱七八糟'}
+2026-07-03 16:14:21 - tool_calls - ERROR - 解析城市名失败: Expecting value: line 1 column 1 (char 0)
+2026-07-03 16:14:21 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。
+2026-07-03 16:16:11 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-03 16:16:11 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 文档A
+
+文档B
+2026-07-03 16:16:11 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-03 16:16:11 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-03 16:16:11 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-03 16:16:11 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-07-03 16:16:11 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-03 16:16:11 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-03 16:16:11 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:16:11 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（仅展示前3个车次，共 5 个）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:16:11 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:16:11 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+（共 2 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:16:11 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:16:11 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（共 3 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:16:12 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:16:12 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 未找到从 北京 到 合肥 的列车车次。
+2026-07-03 16:16:12 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '乱七八糟'}
+2026-07-03 16:16:12 - tool_calls - ERROR - 解析城市名失败: Expecting value: line 1 column 1 (char 0)
+2026-07-03 16:16:12 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。
+2026-07-03 16:17:42 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '高铁动力系统 牵引系统 动车组动力原理'}
+2026-07-03 16:17:43 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 1.757秒，返回值: 未找到相关消息
+2026-07-03 16:26:28 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '蒸汽机车工作原理 动力系统 蒸汽机结构'}
+2026-07-03 16:26:29 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.570秒，返回值: 未找到相关消息
+2026-07-03 16:35:35 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-03 16:35:35 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 文档A
+
+文档B
+2026-07-03 16:35:35 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-03 16:35:35 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-03 16:35:35 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-03 16:35:35 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-07-03 16:35:35 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-03 16:35:35 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-03 16:35:35 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:35:35 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（仅展示前3个车次，共 5 个）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:35:36 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:35:36 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+（共 2 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:35:36 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:35:36 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.002秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（共 3 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:35:36 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:35:36 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 未找到从 北京 到 合肥 的列车车次。
+2026-07-03 16:35:36 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '乱七八糟'}
+2026-07-03 16:35:36 - tool_calls - ERROR - 解析城市名失败: Expecting value: line 1 column 1 (char 0)
+2026-07-03 16:35:36 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。
+2026-07-03 16:47:41 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-03 16:47:41 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 文档A
+
+文档B
+2026-07-03 16:47:41 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-03 16:47:41 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-03 16:47:41 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-03 16:47:41 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-07-03 16:47:41 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-03 16:47:41 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-03 16:47:41 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:47:41 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（仅展示前3个车次，共 5 个）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:47:41 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:47:41 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.002秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+（共 2 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:47:41 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:47:41 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（共 3 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:47:42 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:47:42 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 未找到从 北京 到 合肥 的列车车次。
+2026-07-03 16:47:42 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '乱七八糟'}
+2026-07-03 16:47:42 - tool_calls - ERROR - 解析城市名失败: Expecting value: line 1 column 1 (char 0)
+2026-07-03 16:47:42 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。
+2026-07-03 16:52:17 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '合肥到北京'}
+2026-07-03 16:52:18 - tool_calls - ERROR - 工具 railway_drawing_tool 执行失败，耗时: 1.137秒，错误: 'Settings' object has no attribute 'city_to_node_path'
+Traceback (most recent call last):
+  File "D:\PyCharm\Railway-8620\agent\tools.py", line 53, in wrapper
+    result = func(*args, **kwargs)
+  File "D:\PyCharm\Railway-8620\agent\tools.py", line 128, in railway_drawing_tool
+    finder = get_railway_service()
+  File "D:\PyCharm\Railway-8620\agent\tools.py", line 87, in get_railway_service
+    _railway_service = RailwayDrawingService()
+  File "D:\PyCharm\Railway-8620\agent\railway_drawing.py", line 13, in __init__
+    self.city_to_node_path = config_data.city_to_node_path
+  File "D:\PyCharm\Railway-8620\settings.py", line 100, in __getattr__
+    return getattr(self._settings, name)
+  File "C:\Users\1225\.conda\envs\langchain-8620\lib\site-packages\pydantic\main.py", line 1042, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Settings' object has no attribute 'city_to_node_path'
+2026-07-03 16:53:25 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-03 16:53:25 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 文档A
+
+文档B
+2026-07-03 16:53:25 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-03 16:53:25 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-03 16:53:25 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-03 16:53:25 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-07-03 16:53:25 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-03 16:53:25 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-03 16:53:25 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:53:25 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（仅展示前3个车次，共 5 个）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:53:26 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:53:26 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.000秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+（共 2 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:53:26 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:53:26 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 地图已生成，包含以下车次：
+- K1
+- K2
+- K3
+（共 3 个车次）
+
+[MAP]/maps/trains_xxx.html[/MAP]
+2026-07-03 16:53:26 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京到合肥'}
+2026-07-03 16:53:26 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.002秒，返回值: 未找到从 北京 到 合肥 的列车车次。
+2026-07-03 16:53:26 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '乱七八糟'}
+2026-07-03 16:53:26 - tool_calls - ERROR - 解析城市名失败: Expecting value: line 1 column 1 (char 0)
+2026-07-03 16:53:26 - tool_calls - INFO - 工具 railway_drawing_tool 执行成功，耗时: 0.001秒，返回值: 无法从您的描述中提取起点和终点，请明确说明例如“北京到合肥”。
+2026-07-03 16:57:59 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '北京到合肥 铁路 路线 高铁 车次'}
+2026-07-03 16:57:59 - tool_calls - INFO - 调用工具: railway_drawing_tool，参数: args=(), kwargs={'query': '北京 合肥'}
+2026-07-03 16:58:00 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.360秒，返回值: 未找到相关消息
+2026-07-03 16:58:00 - tool_calls - ERROR - 工具 railway_drawing_tool 执行失败，耗时: 1.015秒，错误: Ran out of input
+Traceback (most recent call last):
+  File "D:\PyCharm\Railway-8620\agent\tools.py", line 53, in wrapper
+    result = func(*args, **kwargs)
+  File "D:\PyCharm\Railway-8620\agent\tools.py", line 128, in railway_drawing_tool
+    finder = get_railway_service()
+  File "D:\PyCharm\Railway-8620\agent\tools.py", line 87, in get_railway_service
+    _railway_service = RailwayDrawingService()
+  File "D:\PyCharm\Railway-8620\agent\railway_drawing.py", line 19, in __init__
+    raw_city_to_node = pickle.load(f)
+EOFError: Ran out of input
+2026-07-06 19:33:25 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-06 19:33:25 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 文档A
+
+文档B
+2026-07-06 19:33:25 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-06 19:33:25 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-06 19:33:25 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-06 19:33:25 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 唯一文档
+2026-07-06 19:33:25 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-06 19:33:25 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-06 19:33:25 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'G1'}
+2026-07-06 19:33:25 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 0.001秒，返回值: 车次 G1 的运行路线图已生成：
+- 路线：北京南 → 上海虹桥
+- 共 3 站
+
+[MAP]/maps/route_G1.html[/MAP]
+2026-07-06 19:33:25 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'X99999'}
+2026-07-06 19:33:25 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 0.002秒，返回值: 未找到车次 X99999，请确认车次代码是否正确。
+2026-07-06 19:33:25 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'G1'}
+2026-07-06 19:33:25 - tool_calls - ERROR - 绘制车次 G1 路线图失败: GPKG 读取失败
+2026-07-06 19:33:25 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 0.002秒，返回值: 绘制路线图时出错：GPKG 读取失败
+2026-07-06 19:33:25 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'K4174'}
+2026-07-06 19:33:25 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 0.002秒，返回值: 车次 K4174 的运行路线图已生成：
+- 路线：合肥 → 北京西
+- 共 2 站
+
+[MAP]/maps/route_K4174.html[/MAP]
+2026-07-07 09:30:22 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-07 09:30:22 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 文档A
+
+文档B
+2026-07-07 09:30:22 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-07 09:30:22 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-07 09:30:22 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-07 09:30:22 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 唯一文档
+2026-07-07 09:30:22 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-07 09:30:22 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-07 09:30:22 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'G1'}
+2026-07-07 09:30:22 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 0.002秒，返回值: 车次 G1 的运行路线图已生成：
+- 路线：北京南 → 上海虹桥
+- 共 3 站
+
+[MAP]/maps/route_G1.html[/MAP]
+2026-07-07 09:30:22 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'X99999'}
+2026-07-07 09:30:22 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 0.001秒，返回值: 未找到车次 X99999，请确认车次代码是否正确。
+2026-07-07 09:30:22 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'G1'}
+2026-07-07 09:30:22 - tool_calls - ERROR - 绘制车次 G1 路线图失败: GPKG 读取失败
+2026-07-07 09:30:22 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 0.002秒，返回值: 绘制路线图时出错：GPKG 读取失败
+2026-07-07 09:30:23 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'K4174'}
+2026-07-07 09:30:23 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 0.003秒，返回值: 车次 K4174 的运行路线图已生成：
+- 路线：合肥 → 北京西
+- 共 2 站
+
+[MAP]/maps/route_K4174.html[/MAP]
+2026-07-07 09:30:23 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '北京南', 'end_station': '上海虹桥'}
+2026-07-07 09:30:23 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 0.002秒，返回值: 从 北京南 到 上海虹桥 的列车路线图已生成（共 2 趟）：
+- G1（07:00 发车，北京南 → 上海虹桥）
+- G13（10:00 发车，北京南 → 上海虹桥）
+
+[MAP]/maps/route_G1.html[/MAP]
+[MAP]/maps/route_G13.html[/MAP]
+2026-07-07 09:30:23 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '火星', 'end_station': '月球'}
+2026-07-07 09:30:23 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 0.001秒，返回值: 未找到从 火星 到 月球 的列车，请确认站名是否正确。
+2026-07-07 09:30:23 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '北京南', 'end_station': '上海虹桥'}
+2026-07-07 09:30:23 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 0.001秒，返回值: 从 北京南 到 上海虹桥 的列车路线图已生成（共 2 趟）：
+- G1（07:00 发车，北京南 → 上海虹桥）
+- G99（12:00 发车）：未找到时刻表数据
+
+[MAP]/maps/route_G1.html[/MAP]
+2026-07-07 09:30:23 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '北京南', 'end_station': '上海虹桥'}
+2026-07-07 09:30:23 - tool_calls - ERROR - 绘制车次 G13 路线图失败: GPKG 数据损坏
+2026-07-07 09:30:23 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 0.003秒，返回值: 从 北京南 到 上海虹桥 的列车路线图已生成（共 2 趟）：
+- G1（07:00 发车，北京南 → 上海虹桥）
+- G13（10:00 发车）：绘制失败 - GPKG 数据损坏
+
+[MAP]/maps/route_G1.html[/MAP]
+2026-07-07 09:30:24 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '合肥', 'end_station': '北京西'}
+2026-07-07 09:30:24 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 0.003秒，返回值: 从 合肥 到 北京西 的列车路线图已生成（共 1 趟）：
+- K4174（13:40 发车，合肥 → 北京西）
+
+[MAP]/maps/route_K4174.html[/MAP]
+2026-07-07 09:30:24 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '北京南', 'end_station': '上海虹桥'}
+2026-07-07 09:30:24 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 0.003秒，返回值: 从 北京南 到 上海虹桥 的列车路线图已生成（仅展示前 20 趟，共 30 趟）：
+- G0（06:00 发车，北京南 → 上海虹桥）
+- G1（06:01 发车，北京南 → 上海虹桥）
+- G2（06:02 发车，北京南 → 上海虹桥）
+- G3（06:03 发车，北京南 → 上海虹桥）
+- G4（06:04 发车，北京南 → 上海虹桥）
+- G5（06:05 发车，北京南 → 上海虹桥）
+- G6（06:06 发车，北京南 → 上海虹桥）
+- G7（06:07 发车，北京南 → 上海虹桥）
+- G8（06:08 发车，北京南 → 上海虹桥）
+- G9（06:09 发车，北京南 → 上海虹桥）
+- G10（06:10 发车，北京南 → 上海虹桥）
+- G11（06:11 发车，北京南 → 上海虹桥）
+- G12（06:12 发车，北京南 → 上海虹桥）
+- G13（06:13 发车，北京南 → 上海虹桥）
+- G14（06:14 发车，北京南 → 上海虹桥）
+- G15（06:15 发车，北京南 → 上海虹桥）
+- G16（06:16 发车，北京南 → 上海虹桥）
+- G17（06:17 发车，北京南 → 上海虹桥）
+- G18（06:18 发车，北京南 → 上海虹桥）
+- G19（06:19 发车，北京南 → 上海虹桥）
+
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+[MAP]/maps/route_G0.html[/MAP]
+2026-07-07 10:30:06 - tool_calls - INFO - 调用工具: route_map_drawing_tool，参数: args=(), kwargs={'train_code': 'G1578'}
+2026-07-07 10:30:40 - tool_calls - INFO - 工具 route_map_drawing_tool 执行成功，耗时: 34.207秒，返回值: 车次 G1578 的运行路线图已生成：
+- 路线：阜阳西 → 北京西
+- 共 13 站
+
+[MAP]/maps/route_G1578.html[/MAP]
+2026-07-07 19:39:20 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '北京', 'end_station': '阜阳西'}
+2026-07-07 19:44:04 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 284.213秒，返回值: 未找到从 北京 到 阜阳西 的列车，请确认站名是否正确。
+2026-07-07 22:48:42 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '合肥', 'end_station': '北京丰台'}
+2026-07-07 22:54:14 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 332.243秒，返回值: 从 合肥 到 北京丰台 的列车路线图已生成（共 7 趟）：
+- K1276（14:33 发车，温州 → 包头）
+- K1277（14:33 发车，温州 → 包头）
+- T36（18:12 发车，合肥 → 北京丰台）
+- K1072（21:20 发车，宿松 → 北京丰台）
+- Z226（21:32 发车，合肥 → 北京丰台）
+- Z227（21:32 发车，合肥 → 北京丰台）
+- K1110（23:09 发车，杭州 → 北京丰台）
+
+[MAP]/maps/route_K1276.html[/MAP]
+[MAP]/maps/route_K1277.html[/MAP]
+[MAP]/maps/route_T36.html[/MAP]
+[MAP]/maps/route_K1072.html[/MAP]
+[MAP]/maps/route_Z226.html[/MAP]
+[MAP]/maps/route_Z227.html[/MAP]
+[MAP]/maps/route_K1110.html[/MAP]
+2026-07-07 22:56:37 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '合肥', 'end_station': '北京丰台'}
+2026-07-07 23:01:10 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 273.878秒，返回值: 从 合肥 到 北京丰台 的列车路线图已生成（共 7 趟）：
+- K1276（14:33 发车，温州 → 包头）
+- K1277（14:33 发车，温州 → 包头）
+- T36（18:12 发车，合肥 → 北京丰台）
+- K1072（21:20 发车，宿松 → 北京丰台）
+- Z226（21:32 发车，合肥 → 北京丰台）
+- Z227（21:32 发车，合肥 → 北京丰台）
+- K1110（23:09 发车，杭州 → 北京丰台）
+
+[MAP]/maps/route_K1276.html[/MAP]
+[MAP]/maps/route_K1277.html[/MAP]
+[MAP]/maps/route_T36.html[/MAP]
+[MAP]/maps/route_K1072.html[/MAP]
+[MAP]/maps/route_Z226.html[/MAP]
+[MAP]/maps/route_Z227.html[/MAP]
+[MAP]/maps/route_K1110.html[/MAP]
+2026-07-08 09:36:04 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '合肥', 'end_station': '北京丰台'}
+2026-07-08 09:38:24 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 140.408秒，返回值: 从 合肥 到 北京丰台 的列车路线图已生成（共 7 趟）：
+- K1276（14:33 发车，温州 → 包头）
+- K1277（14:33 发车，温州 → 包头）
+- T36（18:12 发车，合肥 → 北京丰台）
+- K1072（21:20 发车，宿松 → 北京丰台）
+- Z226（21:32 发车，合肥 → 北京丰台）
+- Z227（21:32 发车，合肥 → 北京丰台）
+- K1110（23:09 发车，杭州 → 北京丰台）
+
+[MAP]/maps/route_K1276.html[/MAP]
+[MAP]/maps/route_K1277.html[/MAP]
+[MAP]/maps/route_T36.html[/MAP]
+[MAP]/maps/route_K1072.html[/MAP]
+[MAP]/maps/route_Z226.html[/MAP]
+[MAP]/maps/route_Z227.html[/MAP]
+[MAP]/maps/route_K1110.html[/MAP]
+2026-07-08 10:00:17 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '合肥', 'end_station': '北京丰台'}
+2026-07-08 10:05:15 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 297.740秒，返回值: 从 合肥 到 北京丰台 的列车路线图已生成（共 7 趟）：
+- K1276（14:33 发车，温州 → 包头）
+- K1277（14:33 发车，温州 → 包头）
+- T36（18:12 发车，合肥 → 北京丰台）
+- K1072（21:20 发车，宿松 → 北京丰台）
+- Z226（21:32 发车，合肥 → 北京丰台）
+- Z227（21:32 发车，合肥 → 北京丰台）
+- K1110（23:09 发车，杭州 → 北京丰台）
+
+[MAP]/maps/route_K1276.html[/MAP]
+[MAP]/maps/route_K1277.html[/MAP]
+[MAP]/maps/route_T36.html[/MAP]
+[MAP]/maps/route_K1072.html[/MAP]
+[MAP]/maps/route_Z226.html[/MAP]
+[MAP]/maps/route_Z227.html[/MAP]
+[MAP]/maps/route_K1110.html[/MAP]
+2026-07-08 11:04:52 - tool_calls - INFO - 调用工具: station_route_drawing_tool，参数: args=(), kwargs={'start_station': '北京', 'end_station': '南京'}
+2026-07-08 11:08:12 - tool_calls - INFO - 工具 station_route_drawing_tool 执行成功，耗时: 200.653秒，返回值: 从 北京 到 南京 的列车路线图已生成（共 6 趟）：
+- 1461（11:59 发车，北京 → 上海）
+- D17（19:10 发车，北京 → 杭州）
+- D7（19:18 发车，北京 → 上海）
+- T109（20:04 发车，北京 → 上海）
+- D11（21:15 发车，北京 → 杭州）
+- D5（21:21 发车，北京 → 上海）
+
+[MAP]/maps/route_1461.html[/MAP]
+[MAP]/maps/route_D17.html[/MAP]
+[MAP]/maps/route_D7.html[/MAP]
+[MAP]/maps/route_T109.html[/MAP]
+[MAP]/maps/route_D11.html[/MAP]
+[MAP]/maps/route_D5.html[/MAP]

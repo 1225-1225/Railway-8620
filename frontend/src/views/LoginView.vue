@@ -68,11 +68,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
 const authStore = useAuthStore()
 const router = useRouter()
+const route = useRoute()
 
 // 修复ESLint：添加transition所需的显式切换变量
 const showLogin = ref(true)
@@ -92,7 +93,9 @@ async function handleSubmit() {
 
   try {
     await authStore.login(form.value)
-    router.push('/chat')
+    // 如果有重定向参数，跳回原页面；否则去聊天页
+    const redirect = route.query.redirect as string | undefined
+    router.push(redirect || '/chat')
   } catch (err: unknown) {
     // 错误处理
     errorShake.value = true

@@ -1,7 +1,10 @@
 from langchain_chroma import Chroma
 from langchain_community.embeddings import DashScopeEmbeddings
 
-import config_data
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from settings import settings as config_data
 
 vectordb = Chroma(
     collection_name=config_data.collection_name,

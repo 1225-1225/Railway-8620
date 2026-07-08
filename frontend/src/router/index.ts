@@ -46,18 +46,33 @@ const router = createRouter({
   ],
 })
 
-// 路由守卫：处理登录状态与权限
-router.beforeEach((to, from, next) => {
-  const authStore = useAuthStore()
-  const isLoggedIn = authStore.isLoggedIn
+// 路由守卫：只要令牌过期或不存在，无论什么路径都跳转到登录页
+// 白名单：无需登录即可访问的路径
+const WHITELIST = ['/login', '/register']
 
-  if (to.meta.requiresAuth && !isLoggedIn) {
-    next('/login')
-  } else if (to.meta.requiresGuest && isLoggedIn) {
-    next('/chat')
-  } else {
+router.beforeEach((to, _from, next) => {
+  const authStore = useAuthStore()
+
+  // 白名单路径直接放行（登录/注册页）
+  if (WHITELIST.includes(to.path)) {
+    // 已登录用户访问登录/注册页 → 跳转到聊天页
+    if (authStore.isLoggedIn) {
+      next('/chat')
+      return
+    }
     next()
+    return
   }
+
+  // 非白名单路径：检查令牌是否有效
+  if (!authStore.isLoggedIn) {
+    // 令牌不存在或已过期 → 强制跳转登录页
+    authStore.logout()
+    next({ path: '/login', query: { redirect: to.fullPath } })
+    return
+  }
+
+  next()
 })
 
 export default router
