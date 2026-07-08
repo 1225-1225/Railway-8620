@@ -1,0 +1,242 @@
+ND5型内燃机车是由美国通用电气公司运输系统商业分公司于1984年至1986年制造的干线货运用内燃机车，共生产421台，[中国国家铁路集团有限公司](https://baike.baidu.com/item/中国国家铁路集团有限公司/23192991?fromModule=lemma_inlink)为主要用户 [3] [5]。该车型分两批引进：第一批220台（编号0001-0220）于1984年交付，第二批201台（编号0221-0422）于1985-1986年完成制造，II型机车改进了司机室布局及排障器设计 [4-5]。机车搭载7FDL-16型柴油机及交—直流电传动系统，配备电子恒功率励磁控制（CHEC）和“警哨”粘着控制系统 [8-9]，最高运行速度达118公里/小时 [13] [17]。
+
+1980年代为解决铁路运力紧张问题，中国通过“技贸结合”方式引进该车型 [1]。机车曾配属上海、济南等铁路局，在京沪、沈大等干线承担货运任务，牵引定数较国产机车提升25%-40%，燃油消耗降低20% [7]。2024年[国家铁路局](https://baike.baidu.com/item/国家铁路局/7650254?fromModule=lemma_inlink)颁布《[老旧型铁路内燃机车淘汰更新监督管理办法](https://baike.baidu.com/item/老旧型铁路内燃机车淘汰更新监督管理办法/64960260?fromModule=lemma_inlink)》，明确ND5型机车于当年底全部退役 [14] [16]。
+
+
+
+
+
+## 目录
+
+1. 1[发展历史](https://baike.baidu.com/item/ND5型内燃机车/4101334#1)
+2. ▪[背景](https://baike.baidu.com/item/ND5型内燃机车/4101334#1-1)
+3. ▪[引进](https://baike.baidu.com/item/ND5型内燃机车/4101334#1-2)
+4. ▪[运用](https://baike.baidu.com/item/ND5型内燃机车/4101334#1-3)
+5. ▪[技术转让](https://baike.baidu.com/item/ND5型内燃机车/4101334#1-4)
+6. ▪[逐渐隐退](https://baike.baidu.com/item/ND5型内燃机车/4101334#1-5)
+
+1. 2[技术特点](https://baike.baidu.com/item/ND5型内燃机车/4101334#2)
+2. ▪[总体结构](https://baike.baidu.com/item/ND5型内燃机车/4101334#2-1)
+3. ▪[动力系统](https://baike.baidu.com/item/ND5型内燃机车/4101334#2-2)
+4. ▪[转向架](https://baike.baidu.com/item/ND5型内燃机车/4101334#2-3)
+5. 3[事故](https://baike.baidu.com/item/ND5型内燃机车/4101334#3)
+
+1. 4[车辆保存](https://baike.baidu.com/item/ND5型内燃机车/4101334#4)
+2. 5[技术数据](https://baike.baidu.com/item/ND5型内燃机车/4101334#5)
+3. 6[淘汰](https://baike.baidu.com/item/ND5型内燃机车/4101334#6)
+
+## 发展历史
+
+### 背景
+
+1980年代初，中国实施改革开放以后，[国民经济](https://baike.baidu.com/item/国民经济/6135834?fromModule=lemma_inlink)快速发展，铁路客货运量猛增，[铁路运输能力](https://baike.baidu.com/item/铁路运输能力/3847166?fromModule=lemma_inlink)全面紧张，货运能力不足导致各地待运货物、物资大量积压，而大功率[柴油机](https://baike.baidu.com/item/柴油机/475904?fromModule=lemma_inlink)车数量不足是其中一个重要原因。当时已经投入批量生产的东风4型[柴油机车](https://baike.baidu.com/item/柴油机车/2411413?fromModule=lemma_inlink)，不仅产能不足、无法满足需求，而且在柴油机、[传动系统](https://baike.baidu.com/item/传动系统/7759232?fromModule=lemma_inlink)以及[制造工艺](https://baike.baidu.com/item/制造工艺/7476927?fromModule=lemma_inlink)等方面也存在较多问题，机车可靠性和生产质量有待改进。[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/273691?fromModule=lemma_inlink)经研究后决定，按“[技贸结合](https://baike.baidu.com/item/技贸结合/9053590?fromModule=lemma_inlink)”原则从国外进口一批大功率柴油机车，缓和机车运用紧张的局面。自1983年1月下旬起，铁道部先后派出人员对[苏联](https://baike.baidu.com/item/苏联/199168?fromModule=lemma_inlink)、[加拿大](https://baike.baidu.com/item/加拿大/0?fromModule=lemma_inlink)和美国的[内燃机车](https://baike.baidu.com/item/内燃机车/2309513?fromModule=lemma_inlink)制造工厂进行考察。 [1]
+
+与此同时，美国对华技术[出口管制](https://baike.baidu.com/item/出口管制/2690296?fromModule=lemma_inlink)从1980年代起也开始逐步放松。1981年，里根总统入主[白宫](https://baike.baidu.com/item/白宫/24068?fromModule=lemma_inlink)，出于政治、经济及其[全球战略](https://baike.baidu.com/item/全球战略/827662?fromModule=lemma_inlink)需要，放松了对华出口管制并对政策进行重大调整。1983年6月，[美国政府](https://baike.baidu.com/item/美国政府/1157605?fromModule=lemma_inlink)宣布将中国提升为“友好的[非盟](https://baike.baidu.com/item/非盟/600708?fromModule=lemma_inlink)国”待遇（Friendly but nonaligned），列入同其他大部分[西方国家](https://baike.baidu.com/item/西方国家/1107117?fromModule=lemma_inlink)和[发展中国家](https://baike.baidu.com/item/发展中国家/652451?fromModule=lemma_inlink)并列的V组。这一政策变化大大提高了美国企业可向中国出口的技术和产品的技术水平，促进了美国对华技术与产品的出口。 [2]
+
+### 引进
+
+在这样的背景之下，中国经反复比较后选定[美国通用电气](https://baike.baidu.com/item/美国通用电气/12759693?fromModule=lemma_inlink)[运输系统](https://baike.baidu.com/item/运输系统/8356359?fromModule=lemma_inlink)商业分公司的C36-7型柴油机车。C36-7型机车是[通用电气公司](https://baike.baidu.com/item/通用电气公司/1552803?fromModule=lemma_inlink)于1978年推出的大功率柴油机车，也是“Dash-7”[系列产品](https://baike.baidu.com/item/系列产品/60635987?fromModule=lemma_inlink)中最后一种车型。1983年10月31日，中国向美国通用电气公司订购首批220台柴油机车的[销售合同](https://baike.baidu.com/item/销售合同/8613567?fromModule=lemma_inlink)和[技术转让合同](https://baike.baidu.com/item/技术转让合同/4493987?fromModule=lemma_inlink)在北京签订，进口价格为每台98万美元。这对当时处于不景气状态的[通用电气](https://baike.baidu.com/item/通用电气/520575?fromModule=lemma_inlink)机车部门无疑是一笔重要的大订单，通用电气发言人曾表示这是该公司收到“单一生产批次的单笔最大订单”（*single biggest order for a single production run*），并可为伊利工厂创造数百个就业职位。 [3]
+
+这批[机车](https://baike.baidu.com/item/机车/206759?fromModule=lemma_inlink)按中国铁路机车命名规范定型为ND5型，其中“N”代表内燃机车，“D”代表[电力传动](https://baike.baidu.com/item/电力传动/12605715?fromModule=lemma_inlink)，“5”代表中国第五种进口[电传动内燃机车](https://baike.baidu.com/item/电传动内燃机车/11009004?fromModule=lemma_inlink)。根据合同，ND5型机车将由[通用电气公司](https://baike.baidu.com/item/通用电气公司/1552803?fromModule=lemma_inlink)位于[宾夕法尼亚州](https://baike.baidu.com/item/宾夕法尼亚州/5148?fromModule=lemma_inlink)的伊利工厂（Erie plant）生产，并于1984年开始交付 [4]。此外，[通用电气](https://baike.baidu.com/item/通用电气/520575?fromModule=lemma_inlink)并为ND5型机车负责三年或60万公里的保证期，期间派员来华进行售后[技术服务](https://baike.baidu.com/item/技术服务/1120224?fromModule=lemma_inlink)，发生的一切质量技术问题由其赔偿。
+
+首批共74台ND5型机车于1984年9月运抵中国[天津港](https://baike.baidu.com/item/天津港/1377597?fromModule=lemma_inlink)，其中0002号机车于天津港卸[船时](https://baike.baidu.com/item/船时/23126634?fromModule=lemma_inlink)由于起吊重心错误而落水，打捞上岸经过修复后[恢复正常](https://baike.baidu.com/item/恢复正常/4467199?fromModule=lemma_inlink)使用；0003号机车为首台投入运用的ND5型机车，到达配属段南京东[机务段](https://baike.baidu.com/item/机务段/496883?fromModule=lemma_inlink)后安装了[中国铁路](https://baike.baidu.com/item/中国铁路/49652?fromModule=lemma_inlink)标准的[机车信号](https://baike.baidu.com/item/机车信号/11057592?fromModule=lemma_inlink)、[自动停车装置](https://baike.baidu.com/item/自动停车装置/4979771?fromModule=lemma_inlink)、[列车无线调度电话](https://baike.baidu.com/item/列车无线调度电话/22503103?fromModule=lemma_inlink)等设备后，于1985年10月15日在[沪宁铁路](https://baike.baidu.com/item/沪宁铁路/84500?fromModule=lemma_inlink)首次牵引[货物列车](https://baike.baidu.com/item/货物列车/5604461?fromModule=lemma_inlink)投入正常服务。另一批共104台ND5型机车于1984年11月运抵中国[上海港](https://baike.baidu.com/item/上海港/2296018?fromModule=lemma_inlink)，其中0111号机车当卸船时因吊车[钢缆](https://baike.baidu.com/item/钢缆/10508145?fromModule=lemma_inlink)折断而落水报废。第一批共220台ND5型机车于1984年内交付完毕。
+
+第一批ND5型（又称I型）机车投入运用之后，鉴于机车性能表现良好，中国于1985年再次向[通用电气公司](https://baike.baidu.com/item/通用电气公司/1552803?fromModule=lemma_inlink)增加订购第二批200台ND5型机车（又称II型），1987年内交付完毕。第二批机车根据在中国的实际运用情况和第一批机车存在的缺陷，对机车的多项设备和零部件作出了改进。两批机车[总体结构](https://baike.baidu.com/item/总体结构/22722599?fromModule=lemma_inlink)上基本相同，在外观上第二批机车[司机室](https://baike.baidu.com/item/司机室/1209485?fromModule=lemma_inlink)较宽敞，加大了[前窗](https://baike.baidu.com/item/前窗/53342553?fromModule=lemma_inlink)瞭望玻璃；安挂了外凸式排障器，两个[总风缸](https://baike.baidu.com/item/总风缸/56625397?fromModule=lemma_inlink)都放在油箱之后。I型机车车号为0001～0220，共计220台，[车身涂装](https://baike.baidu.com/item/车身涂装/17642242?fromModule=lemma_inlink)为翠绿色；II型机车车号为0221～0422，共计202台，车身涂装为墨绿色 [5]。其中0421、0422号机车是为了替补于1984年卸船时落水的0002、0111号机车，由通用电气公司新造的ND5型机车。
+
+### 运用
+
+自1984年起，ND5型柴油机车开始大量配属[上海铁路局](https://baike.baidu.com/item/上海铁路局/6504136?fromModule=lemma_inlink)南京东机务段（上局宁东段）、[济南铁路局](https://baike.baidu.com/item/济南铁路局/6503716?fromModule=lemma_inlink)[济南西机务段](https://baike.baidu.com/item/济南西机务段/742309?fromModule=lemma_inlink)（济局西段）、[北京铁路局](https://baike.baidu.com/item/北京铁路局/6504298?fromModule=lemma_inlink)[丰台机务段](https://baike.baidu.com/item/丰台机务段/9298551?fromModule=lemma_inlink)（京局丰段）、[沈阳铁路局](https://baike.baidu.com/item/沈阳铁路局/6503224?fromModule=lemma_inlink)[大连](https://baike.baidu.com/item/大连/152852?fromModule=lemma_inlink)机务段。其中南京东机务段配属数量最多，高峰时配属ND5型机车近200台，并由蚌埠、南京东、南翔机务段共同支配运用，担当[津浦铁路](https://baike.baidu.com/item/津浦铁路/10557238?fromModule=lemma_inlink)南段（[徐州](https://baike.baidu.com/item/徐州/6250?fromModule=lemma_inlink)—[蚌埠](https://baike.baidu.com/item/蚌埠/193105?fromModule=lemma_inlink)—南京东）、[沪宁铁路](https://baike.baidu.com/item/沪宁铁路/84500?fromModule=lemma_inlink)、[沪杭铁路](https://baike.baidu.com/item/沪杭铁路/3940397?fromModule=lemma_inlink)的重载货物列车牵引任务；而济南西机务段也和南京东机务段同期配属ND5型机车，高峰时数量超过120台，投入津浦铁路[济南](https://baike.baidu.com/item/济南/135066?fromModule=lemma_inlink)西至徐州（[徐州](https://baike.baidu.com/item/徐州/6250?fromModule=lemma_inlink)北）区间使用，用于替换[前进型蒸汽机车](https://baike.baidu.com/item/前进型蒸汽机车/8740081?fromModule=lemma_inlink)。丰台机务段于1984年起配属ND5型机车，担当丰沙大铁路（[丰沙铁路](https://baike.baidu.com/item/丰沙铁路/4974349?fromModule=lemma_inlink)、[京包铁路](https://baike.baidu.com/item/京包铁路/1702531?fromModule=lemma_inlink)大同至[沙城](https://baike.baidu.com/item/沙城/2647633?fromModule=lemma_inlink)段的合称）、[京秦铁路](https://baike.baidu.com/item/京秦铁路/6379268?fromModule=lemma_inlink)、[京原铁路](https://baike.baidu.com/item/京原铁路/4975376?fromModule=lemma_inlink)的重载货物列车及煤炭[组合列车](https://baike.baidu.com/item/组合列车/56630549?fromModule=lemma_inlink)牵引任务，其中丰沙大铁路、京秦铁路的组合列车编组重量达到7400吨，由两台ND5型[机车牵引](https://baike.baidu.com/item/机车牵引/96269?fromModule=lemma_inlink)，实行三个机务段跨段轮乘（大同至[张家口](https://baike.baidu.com/item/张家口/522386?fromModule=lemma_inlink)段由张家口机务段担当，张家口至双桥段由丰台机务段担当，双桥至[秦皇岛](https://baike.baidu.com/item/秦皇岛/180698?fromModule=lemma_inlink)区段由[南口](https://baike.baidu.com/item/南口/2207035?fromModule=lemma_inlink)机务段担当）的乘务制度，大幅增加晋煤外运能力；而[京原线](https://baike.baidu.com/item/京原线/11010972?fromModule=lemma_inlink)货物列车上行[牵引定数](https://baike.baidu.com/item/牵引定数/54277101?fromModule=lemma_inlink)由3500吨提高到4000吨，实行[丰台](https://baike.baidu.com/item/丰台/7606507?fromModule=lemma_inlink)西至[原平](https://baike.baidu.com/item/原平/0?fromModule=lemma_inlink)的[长交路](https://baike.baidu.com/item/长交路/56510722?fromModule=lemma_inlink) [6]。大连机务段从1986年起配属ND5型机车，主要是为疏通[大连港](https://baike.baidu.com/item/大连港/2471297?fromModule=lemma_inlink)、减少积压货物和提高[海铁联运](https://baike.baidu.com/item/海铁联运/1610119?fromModule=lemma_inlink)能力，担当[沈大铁路](https://baike.baidu.com/item/沈大铁路/4975637?fromModule=lemma_inlink)的货物列车从牵引任务。
+
+ND5型机车在中国铁路主要干线投入运用后，其[经济效益](https://baike.baidu.com/item/经济效益/3405062?fromModule=lemma_inlink)十分突出，并加速了[中国铁路干线](https://baike.baidu.com/item/中国铁路干线/9281805?fromModule=lemma_inlink)牵引机车的内燃化；至1980年代末，ND5型机车通过近5年的使用期，已经收回了当初的投资。根据运用部门实际使用经验，普遍认为ND5型机车耗油低但[牵引力](https://baike.baidu.com/item/牵引力/480403?fromModule=lemma_inlink)大，[牵引电动机](https://baike.baidu.com/item/牵引电动机/12713471?fromModule=lemma_inlink)性能好，电气部件[绝缘性能](https://baike.baidu.com/item/绝缘性能/56110751?fromModule=lemma_inlink)优异，[增压器](https://baike.baidu.com/item/增压器/3905976?fromModule=lemma_inlink)[故障率](https://baike.baidu.com/item/故障率/9850187?fromModule=lemma_inlink)低，维护方便，设计合理，可靠性高 [7]。一台ND5型机车的万吨公里燃油消耗量比东风4型、东风4B型机车低大约20%，但牵引能力相当于1.25～1.4台东风4型机车，有效提高了主要干线运用区段的牵引定数，运量有较大增长，缓解了运输紧张的情况；配合长交路轮乘制度的实施，大大提高了[机车运用效率](https://baike.baidu.com/item/机车运用效率/15569014?fromModule=lemma_inlink)。例如ND5型投入沪宁铁路使用后，上下行货物列车牵引定数分别由原来的3000吨、3400吨，提高到3400吨、3800吨。此外，ND5型机车也加速了中国铁路[重载运输](https://baike.baidu.com/item/重载运输/10818466?fromModule=lemma_inlink)的发展。1985年，铁道部选择了丰沙大铁路、京秦铁路为试点，开始组合[重载列车](https://baike.baidu.com/item/重载列车/6658107?fromModule=lemma_inlink)，将两列3700吨的煤炭列车组合成一组，由两台ND5型机车（其中一台位于列车中部）[牵引总重](https://baike.baidu.com/item/牵引总重/55987713?fromModule=lemma_inlink)7400吨的组合重载列车由大同直达秦皇岛；而[京沪铁路](https://baike.baidu.com/item/京沪铁路/0?fromModule=lemma_inlink)徐州北至南京东区段也从1992年起开行由ND5型[机车重联](https://baike.baidu.com/item/机车重联/15666750?fromModule=lemma_inlink)牵引5300吨、单机牵引4000吨的重载货物列车。
+
+### 技术转让
+
+主条目：[东风6型内燃机车](https://baike.baidu.com/item/东风6型内燃机车/8377904?fromModule=lemma_inlink)
+
+在进口ND5型机车同时，中国还与[通用电气公司](https://baike.baidu.com/item/通用电气公司/1552803?fromModule=lemma_inlink)签订了机车[关键部件](https://baike.baidu.com/item/关键部件/7209462?fromModule=lemma_inlink)制造[技术转让合同](https://baike.baidu.com/item/技术转让合同/4493987?fromModule=lemma_inlink)，由通用电气公司向中方[无偿转让](https://baike.baidu.com/item/无偿转让/22823983?fromModule=lemma_inlink)该型机车12项关键部件制造技术，[引进项目](https://baike.baidu.com/item/引进项目/7209038?fromModule=lemma_inlink)包括GTA24A3型[牵引发电机](https://baike.baidu.com/item/牵引发电机/15705014?fromModule=lemma_inlink)、[GE](https://baike.baidu.com/item/GE/8511912?fromModule=lemma_inlink)752AF8型牵引电动机、辅助电机、[电子控制](https://baike.baidu.com/item/电子控制/55530652?fromModule=lemma_inlink)产品、恒功[励磁装置](https://baike.baidu.com/item/励磁装置/11030968?fromModule=lemma_inlink)、[轮对](https://baike.baidu.com/item/轮对/4162437?fromModule=lemma_inlink)防空转装置、废气涡轮增压装置、7FDL-16型柴油机主要部件如[气缸套](https://baike.baidu.com/item/气缸套/6262778?fromModule=lemma_inlink)、活塞等。引进的主体为[通用电气](https://baike.baidu.com/item/通用电气/520575?fromModule=lemma_inlink)的机车电传动系统，而其他机械部件产品也各具特色，ND5型机车上这些产品的优点恰恰就是当时中国国产柴油机车技术的[薄弱环节](https://baike.baidu.com/item/薄弱环节/5183615?fromModule=lemma_inlink)。 [7]
+
+根据合同规定，大连[机车](https://baike.baidu.com/item/机车/206759?fromModule=lemma_inlink)[车辆厂](https://baike.baidu.com/item/车辆厂/7861529?fromModule=lemma_inlink)与通用电气公司合作，用4年时间完成具有和通用电气公司相同质量的样机试制验证，以考验消化吸收和掌握技术的程度 [7]。从1985年开始，大连厂和通用电气公司开始在[东风4B型柴油机车](https://baike.baidu.com/item/东风4B型柴油机车/8981297?fromModule=lemma_inlink)基础上，研制东风6型柴油机车。机车总体结构、机械部分由大连厂设计制造，电气传动系统和控制系统由通用电气公司设计制造，机车性能达到同期通用电气公司“Dash-8”系列标准。首两台东风6型机车于1989年4月落成并投入试验。
+
+### 逐渐隐退
+
+随着中国[铁路电气化率](https://baike.baidu.com/item/铁路电气化率/59909139?fromModule=lemma_inlink)的提高，原先由ND5担当的干线货运任务大多由[电力机车](https://baike.baidu.com/item/电力机车/2309796?fromModule=lemma_inlink)（如[SS4G](https://baike.baidu.com/item/SS4G/828346?fromModule=lemma_inlink)和HXD2B）取代，ND5型则转而用于小运转及调车任务，仅在春运等运用需求大的时期担任[临客](https://baike.baidu.com/item/临客/4325261?fromModule=lemma_inlink)牵引等任务。另外，部分ND5型机车已经达到使用年限，已有不少较早期生产的ND5型内燃机车报废并被拆解。有5台ND5被保存展示，包括三台I型（0001号、0016号、0049号）和两台II型（0001号（原0242号）、0422号）。
+
+截至2014年，ND5型内燃机车只有[中国铁路上海局集团有限公司南京东机辆段](https://baike.baidu.com/item/中国铁路上海局集团有限公司南京东机辆段/63305559?fromModule=lemma_inlink)和沈阳局集团有限公司大连机务段配属。
+
+截至2020年，南京东机辆段仅剩43台ND5型内燃机车，并已全部退居二线。 [15]
+
+截至2024年底，南京东机辆段的ND5型内燃机车已全部退役。 [16]
+
+## 技术特点
+
+### 总体结构
+
+ND5型柴油机车采用由钢板和[型钢](https://baike.baidu.com/item/型钢/10246718?fromModule=lemma_inlink)焊接而成的外走廊罩式[车体结构](https://baike.baidu.com/item/车体结构/10845203?fromModule=lemma_inlink)，设有单司机室，司机室前后分别为短端和长端。机车从前到后分别为[砂箱](https://baike.baidu.com/item/砂箱/743637?fromModule=lemma_inlink)、司机室和电气控制室、动力室、[冷却室](https://baike.baidu.com/item/冷却室/15884803?fromModule=lemma_inlink)。司机室内有前后两个[操纵台](https://baike.baidu.com/item/操纵台/53948481?fromModule=lemma_inlink)，为兼顾嘹望和操纵的方便，I型机车的[司机操纵台](https://baike.baidu.com/item/司机操纵台/53649345?fromModule=lemma_inlink)以45°方式斜置；而II型机车改为中国国产机车传统的横向正面布置，增加了司机室的空间；司机室内壁并设有[防撞梁](https://baike.baidu.com/item/防撞梁/7247075?fromModule=lemma_inlink)和[玻璃纤维](https://baike.baidu.com/item/玻璃纤维/1667820?fromModule=lemma_inlink)[隔音材料](https://baike.baidu.com/item/隔音材料/9234432?fromModule=lemma_inlink)。司机室前后各有四扇和两扇玻璃窗；II型机车为方便嘹望加大了前方玻璃窗，前部砂箱短罩相应降低高度，并以[电热丝](https://baike.baidu.com/item/电热丝/6761228?fromModule=lemma_inlink)防霜玻璃取代I型机车的[热风](https://baike.baidu.com/item/热风/9204328?fromModule=lemma_inlink)防霜 [5]。机车动力室内设有[柴油发动机](https://baike.baidu.com/item/柴油发动机/6308737?fromModule=lemma_inlink)组、[硅整流装置](https://baike.baidu.com/item/硅整流装置/53434294?fromModule=lemma_inlink)、[励磁机](https://baike.baidu.com/item/励磁机/7337202?fromModule=lemma_inlink)和[辅助发电机](https://baike.baidu.com/item/辅助发电机/14463617?fromModule=lemma_inlink)等设备。位于机车后部的冷却室内设有[冷却水系统](https://baike.baidu.com/item/冷却水系统/4976924?fromModule=lemma_inlink)和[散热风扇](https://baike.baidu.com/item/散热风扇/2709881?fromModule=lemma_inlink)，冷却室顶部为干式散热器，两侧并设有[制动电阻](https://baike.baidu.com/item/制动电阻/4896024?fromModule=lemma_inlink)。[车底](https://baike.baidu.com/item/车底/6491637?fromModule=lemma_inlink)两台[转向架](https://baike.baidu.com/item/转向架/2593395?fromModule=lemma_inlink)之间设有[燃油箱](https://baike.baidu.com/item/燃油箱/1430900?fromModule=lemma_inlink)和总风缸，油箱容量为9900升。机车并设有[重联](https://baike.baidu.com/item/重联/0?fromModule=lemma_inlink)装置。[空气制动机](https://baike.baidu.com/item/空气制动机/287577?fromModule=lemma_inlink)为26-L型制动机，具有阶段缓解作用，[紧急制动](https://baike.baidu.com/item/紧急制动/6839887?fromModule=lemma_inlink)时能自动[撒砂](https://baike.baidu.com/item/撒砂/12724190?fromModule=lemma_inlink)和切除功率。
+
+### 动力系统
+
+ND5型机车装用一台[通用电气](https://baike.baidu.com/item/通用电气/520575?fromModule=lemma_inlink)的7FDL-16型[柴油机](https://baike.baidu.com/item/柴油机/0?fromModule=lemma_inlink)，这是一款16气缸、[四冲程](https://baike.baidu.com/item/四冲程/4169365?fromModule=lemma_inlink)、带[废气涡轮增压](https://baike.baidu.com/item/废气涡轮增压/5627590?fromModule=lemma_inlink)的V型柴油机，有较高的[强化系数](https://baike.baidu.com/item/强化系数/9372973?fromModule=lemma_inlink)，单缸功率达到250马力，柴油机装车功率可达4000马力（2940千瓦）。ND5型机车采用交—[直流电](https://baike.baidu.com/item/直流电/1023266?fromModule=lemma_inlink)传动，柴油机通过[法兰盘](https://baike.baidu.com/item/法兰盘/8293868?fromModule=lemma_inlink)[直接驱动](https://baike.baidu.com/item/直接驱动/56544839?fromModule=lemma_inlink)一台三相交流同步[牵引发电机](https://baike.baidu.com/item/牵引发电机/15705014?fromModule=lemma_inlink)，通过硅整流装置把牵引发电机发出的三相交流电整流为直流电，再经过一套控制系统将电能输送给两台[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)上的六台直流串励[牵引电动机](https://baike.baidu.com/item/牵引电动机/0?fromModule=lemma_inlink)，通过传动齿轮[驱动车轮](https://baike.baidu.com/item/驱动车轮/209721?fromModule=lemma_inlink)。牵引电动机采用固定全并联、全磁场方式，用提高牵引发电机调[压比](https://baike.baidu.com/item/压比/5174240?fromModule=lemma_inlink)而非牵引电动机磁场削弱的方法，来满足机车恒功率速度范围的要求，使机车可在较宽的[运行速度](https://baike.baidu.com/item/运行速度/7917106?fromModule=lemma_inlink)范围内实现恒[功率控制](https://baike.baidu.com/item/功率控制/5934304?fromModule=lemma_inlink)。 [5]
+
+ND5型机车并设有较完善的电子恒功率励磁控制系统（CHEC）、“警哨”粘着控制系统（Sentry）和[保护系统](https://baike.baidu.com/item/保护系统/53293638?fromModule=lemma_inlink)，其电气控制方式已采用电子[控制技术](https://baike.baidu.com/item/控制技术/8530708?fromModule=lemma_inlink)，由30块电子插件构成了机车恒功控制和粘着控制两大系统。恒功励磁控制系统（Constant Horsepower Excitation Control）依靠电子控制快速、准确地实现[牵引发电机](https://baike.baidu.com/item/牵引发电机/15705014?fromModule=lemma_inlink)的恒功率，从而达到柴油机的恒功率控制，并引入多种修正和反馈信号，使系统对复杂多变的工作情况[快速反应](https://baike.baidu.com/item/快速反应/6242854?fromModule=lemma_inlink)，使机车能够充分发挥功率和牵引力 [8]。ND5型机车电子控制系统的另一核心为“警哨”粘着控制系统，通过检测牵引电动机的转速来实现机车[速度控制](https://baike.baidu.com/item/速度控制/56265662?fromModule=lemma_inlink)和空转保护，由于它能像哨兵一样监控和改善轮轨粘着状况而得名。 [9]
+
+### 转向架
+
+[机车走行部](https://baike.baidu.com/item/机车走行部/22500703?fromModule=lemma_inlink)为两台三轴[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)，轴式Co-Co。ND5型机车采用了[轴箱](https://baike.baidu.com/item/轴箱/56582542?fromModule=lemma_inlink)导框式定位、摇枕式、有心盘、整体[铸钢](https://baike.baidu.com/item/铸钢/1994490?fromModule=lemma_inlink)结构的转向架，结构简单可靠。[一系悬挂](https://baike.baidu.com/item/一系悬挂/53739488?fromModule=lemma_inlink)为轴箱和[转向架构架](https://baike.baidu.com/item/转向架构架/56597164?fromModule=lemma_inlink)之间的圆弹簧，二系悬挂为车体和构架之间的四个橡胶旁承。机车的牵引力、[制动力](https://baike.baidu.com/item/制动力/4338121?fromModule=lemma_inlink)、纵横向[冲击力](https://baike.baidu.com/item/冲击力/8990747?fromModule=lemma_inlink)通过心盘传递。牵引电动机采用抱轴式悬挂、单边[齿轮传动](https://baike.baidu.com/item/齿轮传动/63511?fromModule=lemma_inlink)。 [5]
+
+## 事故
+
+1990年10月4日凌晨1时，北京铁路局丰台机务段的ND5型0158号机车，担当内湖云16次货物列车，在[大秦线](https://baike.baidu.com/item/大秦线/8405206?fromModule=lemma_inlink)K7+500处与内湖云14次发生追尾冲突，造成内湖云16次货物列车机车及机后1~3位车辆颠覆，第4、9、14、15、18、19、20位车辆脱轨；内湖云14次尾前第1、2位车辆颠覆，第8、12、16、18、24、25位车辆脱轨；两名司机受[轻伤](https://baike.baidu.com/item/轻伤/274501?fromModule=lemma_inlink)，ND5-0158机车报废，货车报废24辆、大破16辆、中破3辆、小破4辆。构成列车追尾[重大事故](https://baike.baidu.com/item/重大事故/55832087?fromModule=lemma_inlink)。[事故原因](https://baike.baidu.com/item/事故原因/53206441?fromModule=lemma_inlink)是[车站值班员](https://baike.baidu.com/item/车站值班员/22069078?fromModule=lemma_inlink)打盹睡觉，违规使用故障按钮所致
+
+1993年4月30日清晨，沈阳铁路局大连[铁路分局](https://baike.baidu.com/item/铁路分局/2408445?fromModule=lemma_inlink)大连机务段的ND5型0301号机车，牵引044次货物列车运行至[沈大铁路](https://baike.baidu.com/item/沈大铁路/0?fromModule=lemma_inlink)分水至大石桥间K243+350M处一个无人看守道口，以65公里/小时的速度运行至该道口前鸣笛示警，因当时大雾，列车至距道口20米左右时，司机才发现公路上有一辆依卡路斯大客车突然驶上道口，机车立即采取紧急制动，但制动不及与客车直接相撞，造成车内75人当场死亡29人，抢救无效死亡6人，重伤7人，轻伤29人。 [10]
+
+2002年8月3日下午，在上海铁路局蚌埠铁路分局京沪铁路乌衣至担子间，41098次货物列车于下午1时06分到达[担子站](https://baike.baidu.com/item/担子站/6497598?fromModule=lemma_inlink)四道（下坡道）停车后，由于其中19辆停留车未采取防溜措施，导致在进行[调车作业](https://baike.baidu.com/item/调车作业/8320741?fromModule=lemma_inlink)时停留车列向后溜逸，挤坏道岔并进入上行线南京方向区间，在下午1时27分与在区间停车的30010次列车正面相撞，造成30010次列车本务机车南京东机务段的ND5型0032号机车小破，列车机后3辆敞车脱轨，中断京沪铁路行车3小时33分。 [11]
+
+2012年2月21日下午，上海铁路局合肥机务段[阜阳](https://baike.baidu.com/item/阜阳/439805?fromModule=lemma_inlink)运用车间[DF4C](https://baike.baidu.com/item/DF4C/6268646?fromModule=lemma_inlink)-5155机车司机王某、学习司机赵某机班计划担当41091次货物列车牵引任务。14时44分在辅修库[整备线](https://baike.baidu.com/item/整备线/56523099?fromModule=lemma_inlink)接车，开始进行整备作业。14时52分司机在Ⅱ室进行甩车作业。15时03分，学习司机在做电器动作试验， 15时06分，司机一人在Ⅱ室起机。15时07分学习司机在启机状态下做柴油机升、降速电器动作试验，此时，司机在Ⅱ室缓解机车自阀，准备做制动机试验时，机车发生移动与前方停留的ND5-0332机车发生冲撞。构成调车冲突一般D1类事故 [12]。ND5-0332机车主梁严重变形，机车接近报废。事故发生时，地沟内有一[电焊工](https://baike.baidu.com/item/电焊工/24617714?fromModule=lemma_inlink)在焊接抱轴油盒，车上有数人正在处理检修尾活，电焊工被撞倒，车上一人因撞击未站稳摔伤。
+
+## 车辆保存
+
+ND5型0001号机车，曾配属于上海铁路局南京东机务段，2013年退役后，保存于上海铁路局[南翔](https://baike.baidu.com/item/南翔/32590?fromModule=lemma_inlink)大功率[机车检修](https://baike.baidu.com/item/机车检修/5619989?fromModule=lemma_inlink)基地。
+
+ND5型0044号机车，曾配属于沈阳铁路局，退役后，保存于[沈阳铁路机车陈列馆](https://baike.baidu.com/item/沈阳铁路机车陈列馆/1160087?fromModule=lemma_inlink)，编号改为ND5-0016。
+
+ND5型0049号机车，曾配属于沈阳铁路局，2012年退役后，保存于[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/4388121?fromModule=lemma_inlink)。
+
+ND5型0058号机车（128号），曾配属于上海铁路局南京东机务段，2019年退役后，保存于南京东机辆段内
+
+ND5型0258号机车（227号），曾配属于上海铁路局南京东机务段，2019年退役后，保存于徐州机务段内
+
+ND5型0100号机车，曾配属于上海铁路局合肥机务段，2014年年底退役，封存于机务段内。
+
+ND5型0242号机车，曾配属于济南铁路局[济南西机务段](https://baike.baidu.com/item/济南西机务段/742309?fromModule=lemma_inlink)，退役后，保存于济南铁路局济南西机务段，编号改为ND5-0001。
+
+ND5型0422号机车，曾配属于沈阳铁路局，2012年退役后，保存于[中国铁道博物馆](https://baike.baidu.com/item/中国铁道博物馆/0?fromModule=lemma_inlink)。（改号车，原编号不详，但可肯定曾配属过[济南西机务段](https://baike.baidu.com/item/济南西机务段/742309?fromModule=lemma_inlink)）
+
+## 技术数据
+
+| **UIC轴式**                                                  | Co'Co'                                 |
+| ------------------------------------------------------------ | -------------------------------------- |
+| **[轨距](https://baike.baidu.com/item/轨距/0?fromModule=lemma_inlink)** | 1,435毫米                              |
+| **轮径**                                                     | 1,050毫米                              |
+| **轴重**                                                     | 23吨                                   |
+| **通过****[最小曲线半径](https://baike.baidu.com/item/最小曲线半径/0?fromModule=lemma_inlink)** | 85米                                   |
+| **机车长度**                                                 | 18,753毫米                             |
+| **机车宽度**                                                 | 3,276.6毫米                            |
+| **机车高度**                                                 | 4,707毫米（第一批）4,713毫米（第二批） |
+| **整备重量**                                                 | 138吨                                  |
+| **燃料**                                                     | 柴油                                   |
+| **燃料储备量**                                               | 9,900升                                |
+| **水储备量**                                                 | 1,360公斤                              |
+| **传动方式**                                                 | 交—直流电                              |
+| **发动机**                                                   | 7FDL-16型柴油机                        |
+| **发动机功率**                                               | 2,940千瓦                              |
+| **牵引发电机**                                               | 5GTA24A3（2466 kW）                    |
+| **牵引电动机**                                               | 5GE752AF8 × 6                          |
+| **汽缸数量**                                                 | 16                                     |
+| **最高速度**                                                 | 118公里/小时                           |
+| **牵引功率**                                                 | 2,550千瓦                              |
+| **牵引力**                                                   | 534 kN（最大）360 kN（持续）           |
+| **制动方式**                                                 | 踏面制动、电阻制动                     |
+
+## 淘汰
+
+2024年9月26日，国家铁路局颁布了《老旧型铁路内燃机车淘汰更新监督管理办法》（以下简称《办法》），鼓励和引导铁路行业新一轮大规模设备更新换代。《办法》明确，老旧型铁路内燃机车的报废运用年限为30年。**至2027年底，重点区域的老旧型铁路内燃机车应当全部退出铁路运输市场**；至2035年底，老旧型铁路内燃机车应当基本退出铁路运输市场。自颁布之日起，禁止生产淘汰目录内的各型铁路内燃机车；禁止销售达到报废运用年限的老旧型铁路内燃机车。其中，ND5型内燃机车位于老旧型铁路内燃机车淘汰车型目录中。 [14]
+
+截至2024年底，南京东机辆段的ND5型内燃机车已全部退役，代表中国所有ND5型内燃机车已全部退役。 [16]
+
+[词条图册更多图册](https://baike.baidu.com/pic/ND5型内燃机车/4101334?fr=lemma)
+
+参考资料
+
+- 1
+
+  
+
+  顾秉刚．我国将进口的ND5型内燃机车.《铁道知识》．北京．中国铁道出版社．1984年
+
+  
+
+- 2
+
+  
+
+  CHINA PLANS TO SPEND 1 BILLION ON TECHNOLOGY FROM WEST
+
+  ．The New York Times
+
+  ．1984年1月29日
+
+   [引用日期2015-11-13]
+
+  
+
+- 3
+
+  
+
+  Chinese Buy 220 Locomotives. Gettysburg Times (Times and News Publishing)
+
+  
+
+- 4
+
+  
+
+  G.E. Locomotives Ordered by China
+
+  ．The New York Times
+
+  ．1983年11月2日
+
+   [引用日期2015-11-13]
+
+  
+
+- 5
+
+  
+
+  夏寅荪、王长荣、张鑫等．ND5型内燃机车(上册)．北京．中国铁道出版社．1988年
+
+  
+
+- 6
+
+  
+
+  《北京铁路局年鉴》编辑委员会．《北京铁路局年鉴 1987年》．北京．中国铁道出版社．1987年
+
+  
+
+- 7
+
+  
+
+  徐绍雨．对引进美国GE公司C36—7型机车关键部件制造技术的评述.《内燃机车》．大连．大连内燃机车研究所．1989年7月．13-15
+
+  
+
+- 8
+
+  
+
+  谢维达．ND5机车的恒功率励磁控制系统.《机车电传动》．株洲．株洲电力机车研究所．1992年6月．15-22
+
+  
+
+- 9
+
+  
+
+  白殿增．ND5型内燃机车的SENTRY警哨粘着控制系统及其故障损坏.《机车电传动》．株洲．株洲电力机车研究所．1989年2月．42-52
+
+  
+
+- 10
+
+  
+
+  辽宁省大石桥市“4．30”重大道口撞车
+
+  ．国音安全网
+
+   [引用日期2015-11-13]

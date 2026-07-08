@@ -1,0 +1,148 @@
+[HXD3C型电力机车](https://baike.baidu.com/item/HXD3C型电力机车/12789327?fromModule=lemma_inlink) [11]是在HXD3 型和HXD3B 型电力机车基础上研制的交流传动六轴7200kW 干线客货通用电力机车，该机车通过更换增加供电[绕组](https://baike.baidu.com/item/绕组/6416058?fromModule=lemma_inlink)的变压器，增加列车供电柜、[供电插座](https://baike.baidu.com/item/供电插座/60808333?fromModule=lemma_inlink)、客货转换开关、双管供风装置等，使机车具有牵引旅客列车的功能，并可以向旅客列车提供风源及稳定的DC600V 电源，该车具有适应能力强，可靠性较高，启动加速快，牵引力大，恒功范围宽的优点，能够大幅提高旅客列车的旅行速度，与[25G](https://baike.baidu.com/item/25G/4109127?fromModule=lemma_inlink) [25T](https://baike.baidu.com/item/25T/4108819?fromModule=lemma_inlink)型客车良好匹配。
+
+机车采用[PWM](https://baike.baidu.com/item/PWM/3034961?fromModule=lemma_inlink)（[脉冲宽度调制](https://baike.baidu.com/item/脉冲宽度调制/10813756?fromModule=lemma_inlink)）[矢量控制](https://baike.baidu.com/item/矢量控制/1074169?fromModule=lemma_inlink)技术等最新技术的同时，尽量考虑对环境的保护，减少维修工作量。另外，以能够在中国全境范围内运行为前提，在满足环境温度在-40℃～+40℃，海拔高度在2500m 以下的条件的同时，最大考虑到3组机车重联控制运行。
+
+这款机车是“和谐型”交流传动电力机车系列中，首款适用于客运的车型，由[中车大连机车车辆有限公司](https://baike.baidu.com/item/中车大连机车车辆有限公司/19980638?fromModule=lemma_inlink)进行研发及生产，其产品技术借鉴了先前制造的HXD3型（日本东芝）和HXD3B型（加拿大庞巴迪）机车。
+
+首台HXD3C型电力机车在2010年7月初出厂。2013年，HXD3C型机车衍生出取消列车供电系统的HXD3CA型电力机车。
+
+中文名和谐3C型电力机车
+外文名HXD3C type electric locomotive
+动力来源电力
+类    型电力机车
+生产国中国
+生产厂商1中车大连机车车辆有限公司
+生产厂商2中车北京二七机车有限公司
+生产厂商3中车大同电力机车有限公司
+传动类型交-直-交电传动
+最高运行速度120km/h
+生产型号HXD3C、HXD3CA
+生产年份2010年—2014年，2020年
+主要用户中国国家铁路集团有限公司
+昵    称电狒狒、抖三次
+
+## 发展历史
+
+### 背景
+
+2004年，[中华人民共和国国务院常务会议](https://baike.baidu.com/item/中华人民共和国国务院常务会议/0?fromModule=lemma_inlink)通过了《[中长期铁路网规划](https://baike.baidu.com/item/中长期铁路网规划/62609349?fromModule=lemma_inlink)》，并对研究通过的铁路机车车辆装备现代化实施方案明确指出，“加快我国[铁路运输](https://baike.baidu.com/item/铁路运输/645180?fromModule=lemma_inlink)装备现代化，要按照引进先进技术、联合设计生产、打造中国品牌的总体要求”。根据国务院确立的上述方针，国家发改委与[中华人民共和国铁道部](https://baike.baidu.com/item/中华人民共和国铁道部/273691?fromModule=lemma_inlink)于2004年7月联合下达了《大功率交流传动电力机车技术引进与国产化实施方案》，正式开始了新型交流传动电力机车的采购过程。2004年，[中国北车集团](https://baike.baidu.com/item/中国北车集团/10747682?fromModule=lemma_inlink)大连机车车辆厂与[日本](https://baike.baidu.com/item/日本/111617?fromModule=lemma_inlink)[东芝公司](https://baike.baidu.com/item/东芝公司/5296383?fromModule=lemma_inlink)合作，引进了HXD3型7200千瓦交流传动电力机车；2007年，大连机辆公司又与[加拿大](https://baike.baidu.com/item/加拿大/145973?fromModule=lemma_inlink)[庞巴迪公司](https://baike.baidu.com/item/庞巴迪公司/5485962?fromModule=lemma_inlink)合作，研制了HXD3B型9600千瓦交流传动电力机车。通过技术引进，大连机辆公司掌握了机车总成、车体、转向架、主变压器、[牵引变流器](https://baike.baidu.com/item/牵引变流器/7125693?fromModule=lemma_inlink)、网络控制系统、牵引电动机、驱动装置和制动系统九大核心技术。
+
+### 研制
+
+随着中国铁路大规模普及采用600伏[直流电](https://baike.baidu.com/item/直流电/1023266?fromModule=lemma_inlink)供电制式的[25G](https://baike.baidu.com/item/25G/0?fromModule=lemma_inlink)型直供电客车，为缓解普速客运机车运用紧张局面，中国铁道部于2009年向大连机车车辆公司下达了六轴7200千瓦交流传动客货运通用电力机车的研制任务。新机车被定型为HXD3C型，其中“HX”是“和谐”的汉语拼音首字母缩写、“D”代表电力机车、“3”代表大连机辆公司的生产厂商代号，通称为和谐电3C型电力机车。
+
+[HXD3C型电力机车](https://baike.baidu.com/item/HXD3C型电力机车/12789327?fromModule=lemma_inlink)是在[HXD3型电力机车](https://baike.baidu.com/item/HXD3型电力机车/4125187?fromModule=lemma_inlink)设计制造技术平台的基础上，借鉴了HXD3B型电力机车的成熟技术，开发研制而成的交流传动客货运通用电力机车。机车牵引系统采用交—直—交流电传动、水冷[IGBT](https://baike.baidu.com/item/IGBT/0?fromModule=lemma_inlink)牵引逆变器及轴控系统、变频异步牵引电动机、分布式网络控制系统，单轴最大电机功率1250kW，额定总功率为7200kW，启动牵引力（客运 23t轴重）为520kN,最高运行速度为120km/h，牵引1120t的20节长编客车加速到120km/h仅需2分钟；为满足牵引直供电旅客列车的需要，[HXD3C型电力机车](https://baike.baidu.com/item/HXD3C型电力机车/12789327?fromModule=lemma_inlink)采用了增加供电绕组的[主变压器](https://baike.baidu.com/item/主变压器/5195197?fromModule=lemma_inlink)，并设置了列车供电柜、供电插座、客货转换开关、双管供风装置等，使机车具有向旅客列车提供风源及600V直流电电源的功能。 [1]
+
+2010年6月，铁道部向大连机辆公司采购390台7200千瓦电力机车，总值58.5亿元人民币 [2]；其中200台为HXD3C型电力机车，后追加150台共计350台。2010年6月30日，大连机辆公司完成首台HXD3C型电力机车的组装生产和座轮工序。2010年7月初，首两台HXD3C型机车在大连相继下线，其中0001号机车采用23吨轴重，0002号机车采用25吨轴重（试验结束后恢复23吨轴重）；机车完成厂内调试和列车供电试验后，于7月24日在[沈大铁路](https://baike.baidu.com/item/沈大铁路/4975637?fromModule=lemma_inlink)进行了首次试运行。2010年8月初至10月底，两台机车在[中国铁道科学研究院](https://baike.baidu.com/item/中国铁道科学研究院/6332480?fromModule=lemma_inlink)[北京](https://baike.baidu.com/item/北京/128981?fromModule=lemma_inlink)[环形铁道](https://baike.baidu.com/item/环形铁道/16521626?fromModule=lemma_inlink)试验基地进行[型式试验](https://baike.baidu.com/item/型式试验/9711371?fromModule=lemma_inlink)和综合性能试验。
+
+### 运用
+
+**中国国铁**
+
+2010年9月，HXD3C型电力机车开始投入批量生产，同年10月开始率先配属于[沈阳铁路局](https://baike.baidu.com/item/沈阳铁路局/0?fromModule=lemma_inlink)[苏家屯机务段](https://baike.baidu.com/item/苏家屯机务段/15262349?fromModule=lemma_inlink)、[武汉铁路局](https://baike.baidu.com/item/武汉铁路局/0?fromModule=lemma_inlink)[江岸机务段](https://baike.baidu.com/item/江岸机务段/1426268?fromModule=lemma_inlink)、[济南铁路局](https://baike.baidu.com/item/济南铁路局/0?fromModule=lemma_inlink)济南机务段、[上海铁路局](https://baike.baidu.com/item/上海铁路局/0?fromModule=lemma_inlink)南京东机务段、[南昌铁路局](https://baike.baidu.com/item/南昌铁路局/0?fromModule=lemma_inlink)[向塘机务段](https://baike.baidu.com/item/向塘机务段/3272104?fromModule=lemma_inlink)、[郑州铁路局](https://baike.baidu.com/item/郑州铁路局/0?fromModule=lemma_inlink)郑州机务段，此后[成都铁路局](https://baike.baidu.com/item/成都铁路局/0?fromModule=lemma_inlink)[重庆机务段](https://baike.baidu.com/item/重庆机务段/1970163?fromModule=lemma_inlink)、[广州铁路集团](https://baike.baidu.com/item/广州铁路集团/0?fromModule=lemma_inlink)[株洲机务段](https://baike.baidu.com/item/株洲机务段/14800778?fromModule=lemma_inlink)等也相继配属；至2010年底已有200台机车交付使用。2011年9月，铁道部再次向大连机辆公司采购100台HXD3C型机车，后另外追加30台 [3]。2012年4月，大连机辆公司又再获得230台HXD3C型电力机车的订单，并要求于同年9月底前交付完毕 [4]。截至2012年6月，HXD3C型电力机车已经配属到10个铁路局，共17个机务段使用，在京哈、京沪、京九、京广、成昆、陇海、沪昆、襄渝、宜万、焦柳、南昆等几乎中国国内所有主要铁路干线担当直供电客运列车的牵引任务。
+
+和谐电3C型电力机车（带列车供电）截至2014年2月停产时累计生产了1080台。
+
+2012年，北京二七轨道交通装备制造了首批15台不带列车供电设备的HXD3C型电力机车（6001～6015）并配属济南铁路局[济南西机务段](https://baike.baidu.com/item/济南西机务段/742309?fromModule=lemma_inlink)；2013年，又制造了第二批10台不带列车供电设备的HXD3C型电力机车（6016～6025）并配属郑州铁路局新乡机务段。2014年1月，为了便于区分带有列车供电的客运型和不带列车供电的货运型机车，无列车供电的货运型机车改称为**HXD3CA型电力机车**。同月，[大连机车车辆有限公司](https://baike.baidu.com/item/大连机车车辆有限公司/7455852?fromModule=lemma_inlink)与大同地方铁路公司签订了约3.26亿元人民币的HXD3C型电力机车销售合同，其中15台机车是带列车供电设备的客运型机车（7001～7015），其余15台机车是不带列车供电设备的货运型机车（7501～7515），并有偿配属太原铁路局太原机务段，担当[韩原铁路](https://baike.baidu.com/item/韩原铁路/0?fromModule=lemma_inlink)的客货运任务。2014年2月，大连机车车辆有限公司生产的50台HXD3CA型电力机车（8001～8050）配属郑州铁路局新乡机务段。
+
+| 机车型号         | 时间   | 配属单位                                                     |
+| ---------------- | ------ | ------------------------------------------------------------ |
+| HXD3C型电力机车  | 2010年 | [沈阳铁路局](https://baike.baidu.com/item/沈阳铁路局/6503224?fromModule=lemma_inlink)[苏家屯机务段](https://baike.baidu.com/item/苏家屯机务段/15262349?fromModule=lemma_inlink)、[武汉铁路局](https://baike.baidu.com/item/武汉铁路局/6504450?fromModule=lemma_inlink)[江岸机务段](https://baike.baidu.com/item/江岸机务段/1426268?fromModule=lemma_inlink)、[济南铁路局](https://baike.baidu.com/item/济南铁路局/6503716?fromModule=lemma_inlink)济南机务段、[上海铁路局](https://baike.baidu.com/item/上海铁路局/6504136?fromModule=lemma_inlink)南京东机务段、[南昌铁路局](https://baike.baidu.com/item/南昌铁路局/6503681?fromModule=lemma_inlink)[向塘机务段](https://baike.baidu.com/item/向塘机务段/3272104?fromModule=lemma_inlink)、[郑州铁路局](https://baike.baidu.com/item/郑州铁路局/2310052?fromModule=lemma_inlink)郑州机务段，此后[成都铁路局](https://baike.baidu.com/item/成都铁路局/6504066?fromModule=lemma_inlink)[重庆机务段](https://baike.baidu.com/item/重庆机务段/1970163?fromModule=lemma_inlink)、[广州铁路集团](https://baike.baidu.com/item/广州铁路集团/10530353?fromModule=lemma_inlink)[株洲机务段](https://baike.baidu.com/item/株洲机务段/14800778?fromModule=lemma_inlink) |
+| HXD3C型电力机车  | 2011年 | 铁道部                                                       |
+| HXD3C型电力机车  | 2012年 | 铁道部                                                       |
+| HXD3C型电力机车  | 2012年 | 济南铁路局[济南西机务段](https://baike.baidu.com/item/济南西机务段/742309?fromModule=lemma_inlink) |
+| HXD3C型电力机车  | 2013年 | [太原铁路局](https://baike.baidu.com/item/太原铁路局/7535864?fromModule=lemma_inlink)太原机务段 |
+| HXD3CA型电力机车 | 2013年 | 郑州铁路局新乡机务段                                         |
+| HXD3CA型电力机车 | 2014年 | 郑州铁路局新乡机务段                                         |
+
+**瓮马铁路公司**
+
+2020年4月23日，在贵州省黔南州牛场车站，中车大连公司与瓮马铁路有限公司举行交车仪式。此次交付的机车为3台HXD3CA(无机供)型货运电力机车，这次也是中车大连公司首次销往国内西南地区路外市场的和谐系列货运电力机车 [5]。
+
+**乌兹别克斯坦国铁**
+
+2011年，乌兹别克铁路向大连机车订购11辆和谐电3C型电力机车，并另命名为O'ZEL型电力机车。2013年，大连机车向乌兹别克斯坦交付了11台O'ZEL型电力机车 [6]。
+
+2015年，大连机车向乌兹别克斯坦出口了11台改进型O'ZELR型电力机车。此型以及改进版机车轨距皆为1,520 mm、增强抗冻性能及改用独联体GOST设计标准，而部分硬件改用俄制产品。且这次是大连机车首次出口电力机车。O'ZEL型电力机车及其改进型在乌兹别克斯坦国铁线路上担当客货运牵引任务。
+
+## 机车编号
+
+| **机车型号** | **机车编号**                                  | **产量** | **制造厂**                                                   |
+| ------------ | --------------------------------------------- | -------- | ------------------------------------------------------------ |
+| HXD3C        | 0001-10687001-7015                            | 1083     | [大连机车车辆有限公司](https://baike.baidu.com/item/大连机车车辆有限公司/7455852?fromModule=lemma_inlink) |
+| HXD3CA       | 6001-60656101-62097501-75218001-88507519-7520 | 1045     | 北京二七轨道交通装备大连机车车辆有限公司中车大同机车有限公司 |
+
+## 技术特点
+
+### 总体布置
+
+HXD3C型电力机车是六轴大功率干线客货运通用电力机车,以HXD3型机车为技术平台，充分考虑客运机车的运用条件，充分发挥优势能力，平台共享，结合铁路需求研制而成。同时通过技术引进，大连厂消化吸收了HXD3B型机车的各种技术，包括机车总成、车体、转向架、主变压器、牵引变流器、网络控制系统、牵引电动机、驱动装置和制动系统九大核心技术。
+
+车体采用框架式整体承载结构及模块化设计，两端各设有一个司机室，司机可在任何一端司机室对机车进行控制；车内设备布置以两侧屏柜化、平面斜对称布置，并设宽620mm的中央通道，通道左右两侧设有主变流装置、通风机、[空气压缩机](https://baike.baidu.com/item/空气压缩机/0?fromModule=lemma_inlink)等设备，车上并为司机提供了[冰箱](https://baike.baidu.com/item/冰箱/28303?fromModule=lemma_inlink)、[微波炉](https://baike.baidu.com/item/微波炉/84186?fromModule=lemma_inlink)、[卫生间](https://baike.baidu.com/item/卫生间/648494?fromModule=lemma_inlink)等生活设施。每台机车车顶设有两台DSA-200型单臂式[受电弓](https://baike.baidu.com/item/受电弓/4041611?fromModule=lemma_inlink)和[避雷器](https://baike.baidu.com/item/避雷器/0?fromModule=lemma_inlink)，而[真空断路器](https://baike.baidu.com/item/真空断路器/0?fromModule=lemma_inlink)、[接地](https://baike.baidu.com/item/接地/0?fromModule=lemma_inlink)开关、[高压隔离开关](https://baike.baidu.com/item/高压隔离开关/10629621?fromModule=lemma_inlink)、高压电压互感器、高压[电流传感器](https://baike.baidu.com/item/电流传感器/10894884?fromModule=lemma_inlink)等高压电器集成在机械间内的高压柜中，提高机车雨雾等天气抗污闪能力；在中央顶盖上设有检修升降口，由此上车顶进行检修和维修作业。[牵引变压器](https://baike.baidu.com/item/牵引变压器/10810296?fromModule=lemma_inlink)采用卧式悬挂结构，吊装于车底中部。 [7]
+
+机车冷却系统主要包括主[变压器](https://baike.baidu.com/item/变压器/565082?fromModule=lemma_inlink)系统冷却、主变流装置系统冷却、牵引电动机冷却、辅助电源装置冷却、空气压缩机的冷却及包括卫生间通风及车内换气等，机车采用车体独立通风方式，从侧墙上部进风[百叶窗](https://baike.baidu.com/item/百叶窗/155581?fromModule=lemma_inlink)吸入冷风，通过独立冷却风道向发热部件冷却后从车底排出，并维持机械间呈微正压，改善机车防尘效果及防寒性能。[机车轴式](https://baike.baidu.com/item/机车轴式/0?fromModule=lemma_inlink)为Co-Co，持续功率为7200kW，向列车供电时为6400kW；机车标准[轴重](https://baike.baidu.com/item/轴重/0?fromModule=lemma_inlink)为23吨，并可以通过增加压铁提高到25吨。空气制动系统采用克诺尔公司的“CCB II”微机控制电空制动系统；机车单机以120km/h的速度在平直道上施行紧急空气制动时，最大制动距离小于800m（23吨[轴重](https://baike.baidu.com/item/轴重/8063544?fromModule=lemma_inlink)）或900m（25吨[轴重](https://baike.baidu.com/item/轴重/8063544?fromModule=lemma_inlink)）。
+
+### 电气系统
+
+**主电路**
+
+HXD3C型电力机车是交—直—交流电传动的单相工频交流电力机车，机车主电路由[主变压器](https://baike.baidu.com/item/主变压器/0?fromModule=lemma_inlink)、牵引变流器、[牵引电动机](https://baike.baidu.com/item/牵引电动机/0?fromModule=lemma_inlink)三大部分构成。每台机车设有6套完全独立而又相同的牵引变流单元，分别安装在2个牵引变流柜内，分别为2台转向架上的6台牵引电动机供电。接触网导线上的25kV工频[单相交流电](https://baike.baidu.com/item/单相交流电/0?fromModule=lemma_inlink)电流，经受电弓、主断路器进入机车后再输入主变压器，交流电经过主变压器的6个牵引[绕组](https://baike.baidu.com/item/绕组/0?fromModule=lemma_inlink)降压后向牵引变流单元供电；单相交流电经过6组四象限脉冲整流器[整流](https://baike.baidu.com/item/整流/0?fromModule=lemma_inlink)为[直流电](https://baike.baidu.com/item/直流电/1023266?fromModule=lemma_inlink)，然后向电压为2800V的中间直流回路供电，再由6组牵引[逆变器](https://baike.baidu.com/item/逆变器/0?fromModule=lemma_inlink)转换成[三相交流电](https://baike.baidu.com/item/三相交流电/0?fromModule=lemma_inlink)输出，每组逆变器向一台异步牵引电动机供电，实现机车的轴控驱动，将[电能](https://baike.baidu.com/item/电能/0?fromModule=lemma_inlink)转变为[机械能](https://baike.baidu.com/item/机械能/537228?fromModule=lemma_inlink)，使牵引电动机产生[电磁转矩](https://baike.baidu.com/item/电磁转矩/5556828?fromModule=lemma_inlink)，经过[齿轮](https://baike.baidu.com/item/齿轮/81352?fromModule=lemma_inlink)的传递驱动[轮对](https://baike.baidu.com/item/轮对/4162437?fromModule=lemma_inlink)。如果其中一组牵引变流单元发生故障，机车可自动切除故障单元，其余单元仍正常工作，机车仍可保持六分之五的牵引动力。 [7]
+
+机车主变压器为一体化多绕组（全去耦）变压器，具有高[阻抗](https://baike.baidu.com/item/阻抗/332224?fromModule=lemma_inlink)、重量轻等特点，并增设了列车供电绕组，变压器采用下悬式安装、强迫导向油循环风冷却。每台机车装有两台牵引变流柜，每台牵引变流柜内含有三组牵引变流器单元和一组辅助变流器；每组变流器单元由一个四象限脉冲整流器、一个中间直流环节、一个两点式电压型PWM逆变器组成；功率控制模块采用水冷[IGBT](https://baike.baidu.com/item/IGBT/0?fromModule=lemma_inlink)变流模块（4500V/900A），中间直流电压为2800V。主变流器采用亚乙基二醇[纯水](https://baike.baidu.com/item/纯水/0?fromModule=lemma_inlink)[溶液](https://baike.baidu.com/item/溶液/0?fromModule=lemma_inlink)作为冷却液。HXD3C型机车采用YJ85A1（SEA-107）型牵引电动机，该型电动机为四极鼠笼式三相异步牵引电动机，牵引电动机采用全叠片结构，额定功率为1250kW，额定电压为2150V，额定电流为390A,额定频率为46Hz,额定效率为0.95，额定转速为1365r/min,最高运用转速为2662r/min,重量为2600kg,接线方式为Y [8].[冷却方式](https://baike.baidu.com/item/冷却方式/6119588?fromModule=lemma_inlink)为强迫通风，采用矢量控制方式，来实现电动机转矩的控制。
+
+**供电电路**
+
+HXD3C型电力机车装载了两台由[株洲南车时代电气股份有限公司](https://baike.baidu.com/item/株洲南车时代电气股份有限公司/0?fromModule=lemma_inlink)开发的TGF60型列车供电柜，由主变压器的列车供电绕组供电，通过相控整流电路整流为600V直流电，可向列车提供空调、采暖、照明等电源，[额定输出功率](https://baike.baidu.com/item/额定输出功率/2989990?fromModule=lemma_inlink)为2×400kW。当其中一组机组发生故障时，另一台机组可继续正常供电。 [7]
+
+**辅助电路**
+
+HXD3C型机车设有两个IGBT辅助变流器（APU），辅助供电电路由主变压器二次侧辅助绕组供电。辅助变流器通过使用[PWM整流器](https://baike.baidu.com/item/PWM整流器/10514878?fromModule=lemma_inlink)单元把从主变压器供电的单相交流电转换为恒定电压的直流电，再供通过逆变器单元转换为三相交流电。 正常情况下两个变流器基本上以50%的额定容量工作，其中一个为恒频恒压变流器（CVCF），为机车辅助电动机供电；另一个为变频变压变流器（[VVVF](https://baike.baidu.com/item/VVVF/0?fromModule=lemma_inlink)），向两台复合冷却器风机和六台牵引通风机电动机等设备供电。当某一套辅助变流器发生故障时，另一套辅助变流器可以承担机车全部的辅助电动机负载，此时该辅助变流器按照CVCF方式工作，确保机车辅助供电系统的可靠性。 [7]
+
+### 控制系统
+
+HXD3型电力机车采用机车控制监视系统（TCMS），该网络控制系统以日本成熟的列车通信网络技术为基础，结合国际标准的列车通信网络（TCN）开发研制而成。网络控制系统为分布式计算机体系，按功能可划分为列车控制级、车辆控制级和传动控制级。机车控制系统以TCMS为核心，采用[32位](https://baike.baidu.com/item/32位/75230?fromModule=lemma_inlink)[微处理器](https://baike.baidu.com/item/微处理器/0?fromModule=lemma_inlink)，分别与显示单元、主变流器、辅变流器通过[RS-485](https://baike.baidu.com/item/RS-485/0?fromModule=lemma_inlink)[串行总线](https://baike.baidu.com/item/串行总线/0?fromModule=lemma_inlink)进行通信，机车与机车之间的[重联](https://baike.baidu.com/item/重联/1073526?fromModule=lemma_inlink)通信采用[半双工](https://baike.baidu.com/item/半双工/0?fromModule=lemma_inlink)总线式10Mbps[以太网](https://baike.baidu.com/item/以太网/0?fromModule=lemma_inlink)进行传输。TCMS具有机车顺序逻辑综合控制、机车牵引力和制动力控制、机车空电联合制动控制、机车主辅电路保护控制、机车防空转防滑行保护控制、机车重联控制、列车供电控制、机车轴重转移补偿控制、机车定速控制、系统实时监测诊断、故障信息记录和显示等众多功能。系统采用冗余设计，设有两套控制环节，一套为主控制环节（Master），一套为热备控制环节（Slave）。
+
+### 转向架
+
+机车走行部为两台完全相同的三轴[转向架](https://baike.baidu.com/item/转向架/0?fromModule=lemma_inlink)，转向架构架采用钢板焊成箱形结构的“目”字型构架，轮对轴箱采用单拉杆定位，车轮为[德国](https://baike.baidu.com/item/德国/147953?fromModule=lemma_inlink)进口整体辗钢车轮。一系悬挂采用螺旋弹簧及橡胶垫，配合轴箱拉杆及垂向[油压减震器](https://baike.baidu.com/item/油压减震器/15787274?fromModule=lemma_inlink)；二系悬挂为高圆螺旋弹簧，配合垂向油压减震器和抗蛇行油压减振器。[牵引力](https://baike.baidu.com/item/牵引力/0?fromModule=lemma_inlink)或制动力通过低位推挽式水平牵引拉杆传递。驱动装置由德国福伊特公司设计、大连机车车辆公司实现国产化生产，驱动装置主要包括铸造齿轮箱、抱轴箱体、主从动齿轮等部件，牵引电动机采用[滚动轴承](https://baike.baidu.com/item/滚动轴承/53483?fromModule=lemma_inlink)抱轴式半悬挂、单边单级刚性斜齿轮传动，齿轮传动比为 4.81。基础制动装置为轮盘制动，车轮安装有克诺尔公司的铸铁摩擦盘，每个车轮安装一套独立的单元制动器，其中每个转向架有两套单元制动器具有弹簧停车储能停放制动功能。转向架并设有轮缘润滑装置和踏面清扫装置。 [7]
+
+## 问题
+
+有机车乘务员发表论文指：HXD3C型机车是在2009年DC600V机车直供电[25G型客车](https://baike.baidu.com/item/25G型客车/0?fromModule=lemma_inlink)大面积生产应用的背景下应急设计的电力机车，由于时间仓促直接采用了HXD3B型电力机车的车体和[HXD3型电力机车](https://baike.baidu.com/item/HXD3型电力机车/4125187?fromModule=lemma_inlink)的内部系统元件和转向架，再添加了DC600V机车供电设备而设计完成的。而HXD3型机车和HXD3B型机车都是货运型机车，再加上HXD3C型机车调级手柄只有7级以及牵引功率大，[牵引电机](https://baike.baidu.com/item/牵引电机/4040190?fromModule=lemma_inlink)启动转矩较大，齿轮比也较大，启动牵引力较大等原因，因此牵引旅客列车启动、制动和调速时容易产生过大的冲动 [9]，具体表现为突然的顿挫感和较大的震动，对旅客的乘车舒适性有较大影响，特别是影响夜间旅客的休息,在特殊情况下可能导致乘客因打翻开水、摔倒而受伤。
+
+不过亦有机务相关业内人士对于上述说法进行反驳，认为7级提速并不是导致机车冲动的根本原因。根本原因在于司机的操作习惯，以及是否遵守操作规程。该人士举例，部分韶山型机车采用的是无级调速直接由功率手柄进行控制，但是在运行过程也没有出现抖动现象。而且，操作HXD3C的司机很多都是从HXD1B、HXD3B等大功率[货运机车](https://baike.baidu.com/item/货运机车/8737853?fromModule=lemma_inlink)的司乘人员中抽调而来，很多时候在操作客机的时候仍保留货机的习惯（比如急推功率手柄进行加速以及调速器调整过快等），却忽视客机和货机之间的差距，导致运行不平稳。
+
+## 事故
+
+2014年1月13日，配属[南宁铁路局](https://baike.baidu.com/item/南宁铁路局/0?fromModule=lemma_inlink)[柳州机务段](https://baike.baidu.com/item/柳州机务段/3301615?fromModule=lemma_inlink)HXD3C型0860号机车，担当运行于[衡柳铁路](https://baike.baidu.com/item/衡柳铁路/0?fromModule=lemma_inlink)的[K150次列车](https://baike.baidu.com/item/K150次列车/19241927?fromModule=lemma_inlink)牵引任务，HXD3C型0880号机车附挂机次[无火回送](https://baike.baidu.com/item/无火回送/24525337?fromModule=lemma_inlink)。附挂机车在柳州站第一次无火回送操作完成后，错误将停放制动控制塞门B40.06再次开通、隔离操作，但没有再次下车将1、6轮停放制动环拉出，机械缓解停放制动。造成6时57分柳州站开车后机车第1、5轮抱轮运行。8时39分列车以114km/h的速度运行至[二塘站](https://baike.baidu.com/item/二塘站/6513415?fromModule=lemma_inlink)II道进站道岔处时，附挂司机听见走行部异音，机车上下剧烈跳动，立即采取紧急制动措施。8时41分停于二塘站II道354km636m处，附挂的HXD3C型0880号机车第三轮对脱线，构成旅客列车一般A类事故。 [10]
+
+## 技术数据
+
+| **华氏轮式**                                                 | 0-6-6-0                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **UIC轴式**                                                  | Co' Co'                                                      |
+| **[轨距](https://baike.baidu.com/item/轨距/10615249?fromModule=lemma_inlink)** | 1,435mm                                                      |
+| **轮径**                                                     | 1,250mm（新轮）                                              |
+| **[轴重](https://baike.baidu.com/item/轴重/8063544?fromModule=lemma_inlink)** | 23（25）吨                                                   |
+| **[轴距](https://baike.baidu.com/item/轴距/430059?fromModule=lemma_inlink)** | 2,250+2,000mm                                                |
+| **机车长度**                                                 | 20,846mm（车钩中心距）                                       |
+| **机车宽度**                                                 | 3,100mm                                                      |
+| **机车高度**                                                 | 4,100mm                                                      |
+| **整备质量**                                                 | 138（150）t                                                  |
+| **受流电压**                                                 | AC 25 kV 50 Hz                                               |
+| **传动方式**                                                 | 交—直—交流电传动 轴控[IGBT](https://baike.baidu.com/item/IGBT/2078902?fromModule=lemma_inlink)-[VVVF](https://baike.baidu.com/item/VVVF/8603411?fromModule=lemma_inlink) |
+| **[牵引电动机](https://baike.baidu.com/item/牵引电动机/12713471?fromModule=lemma_inlink)** | YJ85A1 × 6                                                   |
+| **牵引电机悬挂方式**                                         | 抱轴式半轴半架式悬挂                                         |
+| **电机额定功率**                                             | 1250kW                                                       |
+| **电机恒功转速范围**                                         | 1365r/min-2662r/min                                          |
+| **电机最高运用转速**                                         | 2662r/min                                                    |
+| **最高运用速度**                                             | 120km/h                                                      |
+| **最高试验速度**                                             | 160km/h                                                      |
+| **[持续速度](https://baike.baidu.com/item/持续速度/10269791?fromModule=lemma_inlink)** | 65km/h（25吨轴重）62km/h（23吨轴重，客运）70km/h（23吨轴重，客货运） |
+| **牵引功率**                                                 | 7,200kW（持续）7,500kW（最大）6,400kW（列车供电，持续）      |
+| **齿轮传动方式**                                             | 单侧单级刚性斜齿轮传动                                       |
+| **[齿轮比](https://baike.baidu.com/item/齿轮比/9761156?fromModule=lemma_inlink)** | 4.81                                                         |
+| **牵引力**                                                   | 520kN（23t轴重 起动）570kN（25t轴重 起动）370kN（23t轴重 持续）400kN（25t轴重 持续） |
+| **制动方式**                                                 | 轮盘制动、[再生制动](https://baike.baidu.com/item/再生制动/2366478?fromModule=lemma_inlink)、空气制动 |
+| **制动功率**                                                 | 6400kW（电制动）（客运 23t轴重 62-120km/h ）                 |
+| **最大电制动力**                                             | 370kN (客运 23t轴重 15-62km/h)                               |

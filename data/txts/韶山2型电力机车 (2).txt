@@ -1,0 +1,101 @@
+**韶山2型电力机车**（SS2），是[中国铁路](https://www.qiuwenbaike.cn/wiki/中国铁路)使用的一种[电力机车](https://www.qiuwenbaike.cn/wiki/电力机车)，属于实验性车型，由原[田心机车车辆工厂](https://www.qiuwenbaike.cn/wiki/中车株洲电力机车)在吸取了法国[6Y2型机车](https://www.qiuwenbaike.cn/wiki/6Y2型电力机车)大量先进技术基础上，于1969年设计制造，仅试制了一台。
+韶山2型机车采用高压侧调压开关、32级调压、大功率硅整流器和弹性齿轮传动等，技术上达到1960年代国际先进水平；此后又在1971年和1974年先后两次进行实验性技术改造，应用新型大功率[可控硅](https://www.qiuwenbaike.cn/wiki/可控硅)元件实现无级调速、换装[他励牵引电动机](https://www.qiuwenbaike.cn/wiki/直流电动机)等，大大改善机车牵引性能，并获得1978年全国科学大会奖。受制于当时中国的工业技术水平，机车部分部件尚未具备批量生产的条件。但这台机车的试验和改进经验，为后来[韶山1型电力机车](https://www.qiuwenbaike.cn/wiki/韶山1型电力机车)的改进，以及[韶山3型](https://www.qiuwenbaike.cn/wiki/韶山3型电力机车)和其他型号电力机车的设计生产积累了经验。
+
+## 目录
+
+
+
+- 1 发展历史
+  - [1.1 研制](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#研制)
+  - [1.2 改造](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#改造)
+  - [1.3 报废](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#报废)
+- [2 技术特性](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#技术特性)
+- [3 参看](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#参看)
+- [4 注释](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#注释)
+- [5 参考文献](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#参考文献)
+
+## 发展历史
+
+### 研制
+
+1960年代初，由于中国国产第一代干线电力机车——[6Y1型](https://www.qiuwenbaike.cn/wiki/韶山1型电力机车)质量不过关，未能批量生产，为了应付电力机车短缺的情况，[中华人民共和国铁道部](https://www.qiuwenbaike.cn/wiki/中华人民共和国铁道部)决定从[法国](https://www.qiuwenbaike.cn/wiki/法国)进口一批由[阿尔斯通公司](https://www.qiuwenbaike.cn/wiki/阿尔斯通公司)生产的[6Y2型电力机车](https://www.qiuwenbaike.cn/index.php?title=中国铁路6Y2型电力机车&action=edit&redlink=1)作为过渡。6Y2型机车采用[引燃管](https://www.qiuwenbaike.cn/wiki/引燃管)整流、高压侧调压且带有[再生制动](https://www.qiuwenbaike.cn/wiki/再生制动)[[注 1\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-1)，于1961年8月15日正式投入[宝成铁路](https://www.qiuwenbaike.cn/wiki/宝成铁路)运行。
+
+随着6Y2型机车的引进，[田心机车车辆工厂](https://www.qiuwenbaike.cn/wiki/南车株洲电力机车)、[株洲电力机车研究所](https://www.qiuwenbaike.cn/wiki/株洲电力机车研究所)一方面借鉴其先进技术对6Y1型机车开始持续改进，同时也开始尝试仿照6Y2型机车，研制新型电力机车。田心机厂于1966年由开始设计工作，1969年试制出一台机车，定型为韶山2型。机车出厂后，于1969年10月至1970年1月在宝成铁路宝鸡至凤州、广元至马角坝的[电气化](https://www.qiuwenbaike.cn/wiki/电气化铁路)区段试验运行。试验结果表明，机车牵引和[电阻制动](https://www.qiuwenbaike.cn/wiki/电阻制动)[功率](https://www.qiuwenbaike.cn/wiki/功率)均可充分发挥，运行性能达到了设计要求[[1\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-jcdcd1972-2)。
+
+### 改造
+
+随着中国[半导体](https://www.qiuwenbaike.cn/wiki/半导体)工业的发展，株洲电力机车研究所于1970年成功试制200安／800伏的可控硅元件（[晶闸管](https://www.qiuwenbaike.cn/wiki/晶闸管)），1971年田心机厂应用这种新元件对韶山2型机车进行技术改造，将原牵引电路中的桥式硅整流机组改装成为采用可控硅的半控桥式整流机组，从而取消了原来的有级调压的高压调压开关系统，成为中国第一台实现相控无级调压、无级调速的电力机车[[2\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-jcdcd1973-3)。机车完成改造后，于1972年初在田心机厂厂线、[北京环形铁道试验基地](https://www.qiuwenbaike.cn/wiki/中国国家铁道试验中心（东郊分院）)试验成功，同年5月赴宝成铁路试验，7月正式配属[西安铁路局](https://www.qiuwenbaike.cn/wiki/西安铁路局)宝鸡电力机务段投入运营。
+
+1973年9月，韶山2型机车回厂进行第二次技术改造，在原有的一段半控桥可控硅无级调速的基础上，改为两段半控桥可控硅无级调速，并改用[他励](https://www.qiuwenbaike.cn/wiki/直流电动机)[牵引电动机](https://www.qiuwenbaike.cn/wiki/牵引电动机)和电子控制等新技术，从而提高机车粘着利用，更充分地发挥机车的功率[[3\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-jcdcd1976-4)。改造工作于1974年底完成，1975年7月于北京环形铁道进行试验，随后于宝成铁路投入运行。
+
+### 报废
+
+韶山2型机车于1982年停用并封存于宝鸡电力机务段凤州折返段，1994年报废拆解。 位于[北京市](https://www.qiuwenbaike.cn/wiki/北京市)[延庆县](https://www.qiuwenbaike.cn/wiki/延慶縣)[八达岭镇](https://www.qiuwenbaike.cn/wiki/八达岭镇)的[詹天佑纪念馆](https://www.qiuwenbaike.cn/wiki/詹天佑纪念馆)目前仍然保存了一台韶山2型机车的[比例模型](https://www.qiuwenbaike.cn/wiki/比例模型)。
+
+## 技术特性
+
+韶山2型电力机车为单相工频半导体整流电力机车，小时功率4800[千瓦](https://www.qiuwenbaike.cn/wiki/千瓦)，持续功率4440千瓦，机车单位功率重量28.75公斤/千瓦，最高运行速度100公里/小时。初期采用用高压侧调压[开关](https://www.qiuwenbaike.cn/wiki/開關)、有触点分级调压（32级）、硅半导体桥式整流电路，装用西安整流器厂生产的6台硅整流机组，共计576只硅元件。1971年返厂改造后，取消调压开关，改整流桥为半控桥，实现相控无级调压；机车仍然装用6台可控硅整流机组，共用360只可控硅元件、288只整流元件，向6台牵引电动机[并联](https://www.qiuwenbaike.cn/wiki/並聯)供电[[4\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-jcdcd197301-5)。
+
+韶山2型[机车轴式](https://www.qiuwenbaike.cn/wiki/机车轴式)[Co-Co](https://www.qiuwenbaike.cn/wiki/Co-Co)，走行部为两台三轴[转向架](https://www.qiuwenbaike.cn/wiki/转向架)，转向架结构基本仿制自6Y2型机车，但其机车全轴距比6Y2型、[6G型](https://www.qiuwenbaike.cn/index.php?title=中国铁路6G型电力机车&action=edit&redlink=1)短，因此[通过曲线能力](https://www.qiuwenbaike.cn/wiki/最小曲线半径)较好[[2\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-jcdcd1973-3)。所采用的ZQ-800型牵引电动机，亦全盘仿制自6Y2型机车的TAO649B2型电机[[注 2\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-6)，两者结构与性能基本相同，均为六极、H／H级绝缘、无补偿绕组的[直流电动机](https://www.qiuwenbaike.cn/wiki/直流电动机)，额定[电压](https://www.qiuwenbaike.cn/wiki/电压)为750伏，单台电机小时功率800千瓦[[5\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-7)。韶山2型机车早期采用以串励方式励磁的牵引电动机，1973年返厂进行第二次技术改造后改成他励，试验结果显示他励电机有效提高防空转性能，但同时也发现产生电机换向性能变差的副作用[[3\]](https://www.qiuwenbaike.cn/wiki/韶山2型电力机车#cite_note-jcdcd1976-4)。牵引电动机在转向架上采用抱轴式悬挂、单侧弹性直齿轮传动，与6Y2型相同。
+
+韶山2型机车采用低合金钢制成的框架式整体承载结构，总体布置为双边内走廊，设两端司机室；以机车最重设备[主变压器](https://www.qiuwenbaike.cn/wiki/变压器)为中央，分室斜对称布置，有利于重量平衡；两端司机室之后车顶各有一台[受电弓](https://www.qiuwenbaike.cn/wiki/受电弓)；采用车体两侧通风方式。基础制动为独立式配[合成塑料](https://www.qiuwenbaike.cn/wiki/塑料)[闸瓦](https://www.qiuwenbaike.cn/index.php?title=闸瓦&action=edit&redlink=1)，取代了过去使用的组合式制动装置，采用EL-14型[空气制动机](https://www.qiuwenbaike.cn/wiki/空氣制動)；并设有[电阻制动](https://www.qiuwenbaike.cn/wiki/电阻制动)，电制动功率3100千瓦。
+
+## 参看
+
+- [6Y2型电力机车](https://www.qiuwenbaike.cn/index.php?title=中国铁路6Y2型电力机车&action=edit&redlink=1)
+- [6G型电力机车](https://www.qiuwenbaike.cn/index.php?title=中国铁路6G型电力机车&action=edit&redlink=1)
+- [6G1型电力机车](https://www.qiuwenbaike.cn/index.php?title=中国铁路6G1型电力机车&action=edit&redlink=1)
+- [韶山1型电力机车](https://www.qiuwenbaike.cn/wiki/韶山1型电力机车)
+- [韶山3型电力机车](https://www.qiuwenbaike.cn/wiki/韶山3型电力机车)
+
+## 注释
+
+1.  1971年起，部分6Y2型机车改造为硅半导体整流带电阻制动。
+2.  法国阿尔斯通公司的TAO649系列牵引电机曾经三次随进口机车引进中国，除了6Y2型机车使用的TAO649B2型，还有TAO649C1（[6G型](https://www.qiuwenbaike.cn/index.php?title=中国铁路6G型电力机车&action=edit&redlink=1)）、TAO649D（[8K型](https://www.qiuwenbaike.cn/wiki/中国铁路8K型电力机车)），三种电机除功率等级不同，结构上基本相同。
+
+## 参考文献
+
+1.  《机车电传动》编辑部. 实现无级调速的韶山II型电力机车. 《机车电传动》 (株洲: 株洲电力机车研究所). 1972年1月: 30–36. [ISSN 1000-128X](https://www.worldcat.org/issn/1000-128X).
+2.  黄宅舒. 韶山2型干線交流電力機車簡介. 《机车电传动》 (株洲: 株洲电力机车研究所). 1973年1月: 1–10. [ISSN 1000-128X](https://www.worldcat.org/issn/1000-128X).
+3.  《机车电传动》编辑部. 韶山2型干线电力机车改他励情况报导. 《机车电传动》 (株洲: 株洲电力机车研究所). 1976年1月: 63. [ISSN 1000-128X](https://www.worldcat.org/issn/1000-128X).
+4.  严树钢. 韶山2型电力机车的可控硅整流机组. 《机车电传动》 (株洲: 株洲电力机车研究所). 1973年1月: 26–40. [ISSN 1000-128X](https://www.worldcat.org/issn/1000-128X).
+5.  胡礼元. TAO649D牽引電動機的參數分析. 《机车电传动》 (株洲: 株洲电力机车研究所). 1990年3月: 18–27. [ISSN 1000-128X](https://www.worldcat.org/issn/1000-128X).
+
+|                           韶山2型                            |                                                              |
+| :----------------------------------------------------------: | ------------------------------------------------------------ |
+| [![img](https://tu.zhongwen.wiki/images/qiuwenbaike/zh/thumb/0/09/China_Railway_SS2_Electric_locomotive.jpg/290px-China_Railway_SS2_Electric_locomotive.jpg)](https://www.qiuwenbaike.cn/wiki/File:China_Railway_SS2_Electric_locomotive.jpg)机车侧面电脑模拟图 |                                                              |
+|                             概览                             |                                                              |
+|       [类型](https://www.qiuwenbaike.cn/wiki/铁路机车)       | [电力机车](https://www.qiuwenbaike.cn/wiki/电力机车)         |
+|                            原产国                            | ![img](https://tu.zhongwen.wiki/images/qiuwenbaike/zh/thumb/0/08/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E6%97%97.png/22px-%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E6%97%97.png) [中国](https://www.qiuwenbaike.cn/wiki/中华人民共和国) |
+|                             设计                             | [田心机车车辆工厂](https://www.qiuwenbaike.cn/wiki/中车株洲电力机车) [株洲电力机车研究所](https://www.qiuwenbaike.cn/wiki/中车株洲电力机车研究所) |
+|                            生产商                            | [田心机车车辆工厂](https://www.qiuwenbaike.cn/wiki/中车株洲电力机车) |
+|                           生产型号                           | 韶山2（SS2）                                                 |
+|                           序列编号                           | 001                                                          |
+|                           生产年份                           | 1969年                                                       |
+|                             产量                             | 1台                                                          |
+|                           主要用户                           | [![中国国家铁路集团](https://tu.zhongwen.wiki/images/qiuwenbaike/zh/thumb/f/f3/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E9%93%81%E9%81%93%E8%B7%AF%E5%BE%BD.svg/14px-%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E9%93%81%E9%81%93%E8%B7%AF%E5%BE%BD.svg.png)](https://www.qiuwenbaike.cn/wiki/中国国家铁路集团)[中华人民共和国铁道部](https://www.qiuwenbaike.cn/wiki/中华人民共和国铁道部) |
+|                           首次运行                           | 1969年                                                       |
+|                           退役日期                           | 1982年                                                       |
+|                           报废日期                           | 1994年                                                       |
+|                           技术数据                           |                                                              |
+|     [华氏轮式](https://www.qiuwenbaike.cn/wiki/華氏式別)     | 0-6-6-0                                                      |
+| [UIC轴式](https://www.qiuwenbaike.cn/wiki/UIC铁路机车轴式分类) | [Co'Co'](https://www.qiuwenbaike.cn/wiki/Co'Co')             |
+|         [轨距](https://www.qiuwenbaike.cn/wiki/轨距)         | 1,435毫米                                                    |
+|                             轮径                             | 1,250毫米（新轮）                                            |
+|                             轴重                             | 23吨                                                         |
+|                             轴距                             | 15,279毫米                                                   |
+| [通过最小曲线半径](https://www.qiuwenbaike.cn/wiki/最小曲线半径) | 125米                                                        |
+|                           机车长度                           | 22,322毫米（车钩中心距）                                     |
+|                           机车宽度                           | 3,107毫米                                                    |
+|                           机车高度                           | 4,750毫米（落弓状态） 4,662毫米（车顶平面至轨面）            |
+|                           整备重量                           | 138吨                                                        |
+|                           受流电压                           | 单相交流 25 kV/50 Hz                                         |
+|                           传动方式                           | 交—直流电                                                    |
+|                          牵引电动机                          | ZQ-800 × 6                                                   |
+|                           最高速度                           | 100公里/小时                                                 |
+|                           持续速度                           | 49公里/小时                                                  |
+|                           牵引功率                           | 4,440千瓦                                                    |
+|                            牵引力                            | 530 kN（起动） 303.4 kN（持续）                              |
+|                          设计加速度                          | 0.306km/h/s                                                  |
+|     [制动方式](https://www.qiuwenbaike.cn/wiki/铁路制动)     | [踏面制动](https://www.qiuwenbaike.cn/wiki/踏面制动)、[电阻制动](https://www.qiuwenbaike.cn/wiki/电阻制动) |
+|                           列车制动                           | [空气制动](https://www.qiuwenbaike.cn/wiki/空氣制動)         |
