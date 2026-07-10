@@ -1,0 +1,10310 @@
+{
+  "total_adjacent_pairs": 1688,
+  "total_route_edges": 1732,
+  "adjacency": {
+    "上海|笕桥": [
+      {
+        "route_name": "(原)沪杭线",
+        "direction": 1
+      }
+    ],
+    "笕桥|株洲": [
+      {
+        "route_name": "(原)浙赣线",
+        "direction": 1
+      }
+    ],
+    "株洲|贵阳": [
+      {
+        "route_name": "(原)湘黔线",
+        "direction": 1
+      }
+    ],
+    "贵阳|昆明": [
+      {
+        "route_name": "(原)贵昆线",
+        "direction": 1
+      }
+    ],
+    "燕岗|普雄": [
+      {
+        "route_name": "5619列车[5619]",
+        "direction": 1
+      }
+    ],
+    "普雄|燕岗": [
+      {
+        "route_name": "5620列车[5620]",
+        "direction": 1
+      }
+    ],
+    "济西|董家庄": [
+      {
+        "route_name": "B1线[1505]",
+        "direction": 1
+      },
+      {
+        "route_name": "B2线[1506]",
+        "direction": 1
+      }
+    ],
+    "甘谷|兰州": [
+      {
+        "route_name": "T6607 甘谷-兰州[T6607]",
+        "direction": 1
+      }
+    ],
+    "Владивосток|Москва": [
+      {
+        "route_name": "Транссибирская магистраль (нечётное направление)",
+        "direction": 1
+      }
+    ],
+    "Москва|Владивосток": [
+      {
+        "route_name": "Транссибирская магистраль (чётное направление)",
+        "direction": 1
+      }
+    ],
+    "Харанор|Приаргунск": [
+      {
+        "route_name": "Харанор - Приаргунск[94-009]",
+        "direction": 1
+      }
+    ],
+    "西道口线路所|一零一": [
+      {
+        "route_name": "一零一线[0342]",
+        "direction": 1
+      }
+    ],
+    "一零一|廖公庄": [
+      {
+        "route_name": "一零一线[0342]",
+        "direction": 1
+      }
+    ],
+    "廖公庄|田村": [
+      {
+        "route_name": "一零一线[0342]",
+        "direction": 1
+      }
+    ],
+    "七道桥4#岔尖|七道桥2#岔尖": [
+      {
+        "route_name": "七丰线[1390]",
+        "direction": 1
+      }
+    ],
+    "七道桥2#岔尖|七道桥": [
+      {
+        "route_name": "七丰线[1390]",
+        "direction": 1
+      }
+    ],
+    "上海虹桥|七宝线路所": [
+      {
+        "route_name": "七宝北线[2622]",
+        "direction": 1
+      }
+    ],
+    "七宝线路所|虹桥2号航站楼": [
+      {
+        "route_name": "七宝北线[2622]",
+        "direction": 1
+      }
+    ],
+    "虹桥2号航站楼|虹桥火车站": [
+      {
+        "route_name": "七宝北线[2622]",
+        "direction": 1
+      }
+    ],
+    "虹桥火车站|七宝": [
+      {
+        "route_name": "七宝北线[2622]",
+        "direction": 1
+      }
+    ],
+    "七宝|中春路": [
+      {
+        "route_name": "七宝北线[2622]",
+        "direction": 1
+      },
+      {
+        "route_name": "七宝所联络线",
+        "direction": 1
+      },
+      {
+        "route_name": "七宝站联络线",
+        "direction": 1
+      }
+    ],
+    "七宝线路所|七宝南线路所": [
+      {
+        "route_name": "七宝所联络线",
+        "direction": 1
+      }
+    ],
+    "七宝南线路所|七宝": [
+      {
+        "route_name": "七宝所联络线",
+        "direction": 1
+      },
+      {
+        "route_name": "七宝站联络线",
+        "direction": 1
+      }
+    ],
+    "七道桥|滦县": [
+      {
+        "route_name": "七滦线[0330]",
+        "direction": 1
+      }
+    ],
+    "滦县|唐山南": [
+      {
+        "route_name": "七滦线[0330]",
+        "direction": 1
+      }
+    ],
+    "唐山南|卑家店": [
+      {
+        "route_name": "七滦线[0330]",
+        "direction": 1
+      }
+    ],
+    "卑家店|开平": [
+      {
+        "route_name": "七滦线[0330]",
+        "direction": 1
+      }
+    ],
+    "开平|胥各庄": [
+      {
+        "route_name": "七滦线[0330]",
+        "direction": 1
+      }
+    ],
+    "万州|凉雾": [
+      {
+        "route_name": "万凉线",
+        "direction": 1
+      }
+    ],
+    "凉雾|五桥": [
+      {
+        "route_name": "万凉线",
+        "direction": 1
+      }
+    ],
+    "五桥|鱼背山": [
+      {
+        "route_name": "万凉线",
+        "direction": 1
+      }
+    ],
+    "万水泉南|包头": [
+      {
+        "route_name": "万包联络线[1407]",
+        "direction": 1
+      }
+    ],
+    "农乐线路所|三汇镇": [
+      {
+        "route_name": "三农联络线[三农联络线]",
+        "direction": 1
+      }
+    ],
+    "汾河|上兰村": [
+      {
+        "route_name": "上兰村线[0307]",
+        "direction": 1
+      }
+    ],
+    "上兰村|土堂站": [
+      {
+        "route_name": "上兰村线[0307]",
+        "direction": 1
+      }
+    ],
+    "土堂站|向阳店": [
+      {
+        "route_name": "上兰村线[0307]",
+        "direction": 1
+      }
+    ],
+    "上高南|新余": [
+      {
+        "route_name": "上新线[0671]",
+        "direction": 1
+      }
+    ],
+    "新余|花鼓山": [
+      {
+        "route_name": "上新线[0671]",
+        "direction": 1
+      }
+    ],
+    "花鼓山|新花": [
+      {
+        "route_name": "上新线[0671]",
+        "direction": 1
+      }
+    ],
+    "新花|鹄山": [
+      {
+        "route_name": "上新线[0671]",
+        "direction": 1
+      }
+    ],
+    "上海南|春申线路所": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "春申线路所|漕宝路": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "漕宝路|莲花路": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "莲花路|锦江乐园": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "锦江乐园|外环路": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "外环路|顾戴路": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "顾戴路|东兰路": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "东兰路|虹梅路": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "虹梅路|虹漕路": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "虹漕路|桂林公园": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "桂林公园|新龙华": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "新龙华|春申": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "春申|莘庄": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "莘庄|李家塘": [
+      {
+        "route_name": "上海南联络线",
+        "direction": 1
+      }
+    ],
+    "虹桥2号航站楼|水乡客厅": [
+      {
+        "route_name": "上海示范区线",
+        "direction": 1
+      }
+    ],
+    "水乡客厅|虹桥火车站": [
+      {
+        "route_name": "上海示范区线",
+        "direction": 1
+      }
+    ],
+    "虹桥火车站|上海虹桥": [
+      {
+        "route_name": "上海示范区线",
+        "direction": 1
+      }
+    ],
+    "牛王北线路所|上郭关线路所": [
+      {
+        "route_name": "上牛联络线",
+        "direction": 1
+      }
+    ],
+    "上郭关线路所|长冲沟": [
+      {
+        "route_name": "上牛联络线",
+        "direction": 1
+      }
+    ],
+    "长冲沟|双龙南": [
+      {
+        "route_name": "上牛联络线",
+        "direction": 1
+      }
+    ],
+    "双龙南|谷立": [
+      {
+        "route_name": "上牛联络线",
+        "direction": 1
+      }
+    ],
+    "谷立|大土": [
+      {
+        "route_name": "上牛联络线",
+        "direction": 1
+      }
+    ],
+    "上水村线路所|都拉营": [
+      {
+        "route_name": "上都联络线[6809]",
+        "direction": 1
+      }
+    ],
+    "京福线路所|上饶": [
+      {
+        "route_name": "上饶东南联络线[2680]",
+        "direction": 1
+      }
+    ],
+    "K385线路所|铅山西": [
+      {
+        "route_name": "上饶联络线[0641]",
+        "direction": 1
+      }
+    ],
+    "铅山西|茶亭": [
+      {
+        "route_name": "上饶联络线[0641]",
+        "direction": 1
+      }
+    ],
+    "上饶|上饶线路所": [
+      {
+        "route_name": "上饶西南联络线[2681]",
+        "direction": 1
+      }
+    ],
+    "海勒斯壕|公乌素": [
+      {
+        "route_name": "东乌铁路",
+        "direction": 1
+      }
+    ],
+    "重庆东|光国村线路所": [
+      {
+        "route_name": "东光联络线",
+        "direction": 1
+      }
+    ],
+    "光国村线路所|重庆东站": [
+      {
+        "route_name": "东光联络线",
+        "direction": 1
+      }
+    ],
+    "黄土店|二拨子线路所": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "二拨子线路所|龙泽西": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "龙泽西|回龙观西大街": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "回龙观西大街|龙泽": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "龙泽|回龙观": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "回龙观|文华路": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "文华路|生命科学园": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "生命科学园|霍营": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "霍营|回龙观东大街": [
+      {
+        "route_name": "东北环疏解线[1305]",
+        "direction": 1
+      }
+    ],
+    "七间房线路所|北京朝阳": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "北京朝阳|龙泽西": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "龙泽西|龙泽": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "龙泽|回龙观西大街": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "回龙观西大街|生命科学园": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "生命科学园|文华路": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "文华路|霍营": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "霍营|黄土店": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "黄土店|回龙观东大街": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "回龙观东大街|立水桥南": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "立水桥南|立水桥": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "立水桥|驼房营": [
+      {
+        "route_name": "东北环线[0336]",
+        "direction": 1
+      }
+    ],
+    "莆田|东吴": [
+      {
+        "route_name": "东吴线[0696]",
+        "direction": 1
+      }
+    ],
+    "东都|平邑": [
+      {
+        "route_name": "东平铁路[0515]",
+        "direction": 1
+      }
+    ],
+    "东门|新香坊/路北线路所": [
+      {
+        "route_name": "东新联络线[1120]",
+        "direction": 1
+      }
+    ],
+    "新香坊/路北线路所|东北农业大学": [
+      {
+        "route_name": "东新联络线[1120]",
+        "direction": 1
+      }
+    ],
+    "东北农业大学|南直路": [
+      {
+        "route_name": "东新联络线[1120]",
+        "direction": 1
+      }
+    ],
+    "南直路|气象台": [
+      {
+        "route_name": "东新联络线[1120]",
+        "direction": 1
+      }
+    ],
+    "气象台|新香坊": [
+      {
+        "route_name": "东新联络线[1120]",
+        "direction": 1
+      }
+    ],
+    "北京东|小井村1#线路所": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      }
+    ],
+    "小井村1#线路所|高碑店": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      }
+    ],
+    "高碑店|四惠东": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      },
+      {
+        "route_name": "丰双线[0337]",
+        "direction": 1
+      }
+    ],
+    "四惠东|青年路": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      }
+    ],
+    "青年路|十里堡": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      },
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "十里堡|四惠": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      }
+    ],
+    "四惠|北京朝阳": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      }
+    ],
+    "北京朝阳|石佛营": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      }
+    ],
+    "石佛营|朝阳站": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      },
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "朝阳站|大郊亭": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      }
+    ],
+    "大郊亭|百子湾": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      },
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "百子湾|九龙山": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      }
+    ],
+    "九龙山|大望路": [
+      {
+        "route_name": "东星线[1312]",
+        "direction": 1
+      },
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "襄阳东|东津线路所": [
+      {
+        "route_name": "东津联络线[6467]",
+        "direction": 1
+      }
+    ],
+    "湛江西|东简": [
+      {
+        "route_name": "东海岛线[0719]",
+        "direction": 1
+      }
+    ],
+    "东简|东海岛": [
+      {
+        "route_name": "东海岛线[0719]",
+        "direction": 1
+      }
+    ],
+    "皂角树线路所|果园港线路所": [
+      {
+        "route_name": "东渝联络线",
+        "direction": 1
+      }
+    ],
+    "果园港线路所|雁坪": [
+      {
+        "route_name": "东渝联络线",
+        "direction": 1
+      }
+    ],
+    "滦南|东港": [
+      {
+        "route_name": "东港线[1995]",
+        "direction": 1
+      }
+    ],
+    "东港|聂庄": [
+      {
+        "route_name": "东港线[1995]",
+        "direction": 1
+      }
+    ],
+    "聂庄|乐亭": [
+      {
+        "route_name": "东港线[1995]",
+        "direction": 1
+      }
+    ],
+    "大东章|东滩": [
+      {
+        "route_name": "东滩专用线",
+        "direction": 1
+      }
+    ],
+    "渠黎|东罗": [
+      {
+        "route_name": "东罗铁路",
+        "direction": 1
+      }
+    ],
+    "东莞东|常平": [
+      {
+        "route_name": "东莞联络线[1728]",
+        "direction": 1
+      }
+    ],
+    "常平|常平南": [
+      {
+        "route_name": "东莞联络线[1728]",
+        "direction": 1
+      }
+    ],
+    "常平南|常平东": [
+      {
+        "route_name": "东莞联络线[1728]",
+        "direction": 1
+      }
+    ],
+    "常平东|土塘": [
+      {
+        "route_name": "东莞联络线[1728]",
+        "direction": 1
+      }
+    ],
+    "东都|莱芜东": [
+      {
+        "route_name": "东莱线[0526]",
+        "direction": 1
+      }
+    ],
+    "莱芜东|新泰": [
+      {
+        "route_name": "东莱线[0526]",
+        "direction": 1
+      }
+    ],
+    "新泰|北师店": [
+      {
+        "route_name": "东莱线[0526]",
+        "direction": 1
+      }
+    ],
+    "北师店|颜庄": [
+      {
+        "route_name": "东莱线[0526]",
+        "direction": 1
+      }
+    ],
+    "利津|东营港": [
+      {
+        "route_name": "东营港疏港铁路",
+        "direction": 1
+      }
+    ],
+    "东营港|明集": [
+      {
+        "route_name": "东营港疏港铁路",
+        "direction": 1
+      }
+    ],
+    "明集|陈庄镇": [
+      {
+        "route_name": "东营港疏港铁路",
+        "direction": 1
+      }
+    ],
+    "荣山村线路所|西秀镇线路所": [
+      {
+        "route_name": "东西环联络线[2741]",
+        "direction": 1
+      }
+    ],
+    "东风|铁石": [
+      {
+        "route_name": "东铁线[0512]",
+        "direction": 1
+      }
+    ],
+    "东胜西|铜匠川": [
+      {
+        "route_name": "东铜铁路[8405]",
+        "direction": 1
+      }
+    ],
+    "英达线路所|东陵": [
+      {
+        "route_name": "东陵联络线[1294]",
+        "direction": 1
+      }
+    ],
+    "佩枯错|色琼": [
+      {
+        "route_name": "中尼铁路",
+        "direction": 1
+      }
+    ],
+    "石岗线路所|柳泉线路所": [
+      {
+        "route_name": "中川城际联络线",
+        "direction": 1
+      }
+    ],
+    "兰州新区|史喇口线路所": [
+      {
+        "route_name": "中川机场环线",
+        "direction": 1
+      }
+    ],
+    "史喇口线路所|中川机场东": [
+      {
+        "route_name": "中川机场环线",
+        "direction": 1
+      }
+    ],
+    "中川机场东|中川机场": [
+      {
+        "route_name": "中川机场环线",
+        "direction": 1
+      }
+    ],
+    "兰州西|中川机场": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      }
+    ],
+    "中川机场|马滩": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      }
+    ],
+    "马滩|土门墩": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      }
+    ],
+    "土门墩|柳家营": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      }
+    ],
+    "柳家营|兰州新区": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      }
+    ],
+    "兰州新区|福利区": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      }
+    ],
+    "福利区|石岗": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      }
+    ],
+    "石岗|西固": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      }
+    ],
+    "西固|西固城": [
+      {
+        "route_name": "中川线[0918]",
+        "direction": 1
+      },
+      {
+        "route_name": "兰州北环线[0917]",
+        "direction": 1
+      }
+    ],
+    "中小线路所|海城西": [
+      {
+        "route_name": "中海联络线[1266]",
+        "direction": 1
+      }
+    ],
+    "丰台西|双桥": [
+      {
+        "route_name": "丰双线[0337]",
+        "direction": 1
+      }
+    ],
+    "双桥|垡头": [
+      {
+        "route_name": "丰双线[0337]",
+        "direction": 1
+      }
+    ],
+    "垡头|十八里店": [
+      {
+        "route_name": "丰双线[0337]",
+        "direction": 1
+      }
+    ],
+    "十八里店|高碑店": [
+      {
+        "route_name": "丰双线[0337]",
+        "direction": 1
+      }
+    ],
+    "四惠东|化工": [
+      {
+        "route_name": "丰双线[0337]",
+        "direction": 1
+      }
+    ],
+    "石景山南|丰台西": [
+      {
+        "route_name": "丰沙上行二线[0347]",
+        "direction": 1
+      }
+    ],
+    "丰台西|洪泰庄": [
+      {
+        "route_name": "丰沙上行二线[0347]",
+        "direction": 1
+      }
+    ],
+    "洪泰庄|宛平城": [
+      {
+        "route_name": "丰沙上行二线[0347]",
+        "direction": 1
+      },
+      {
+        "route_name": "丰沙下行二线[0358]",
+        "direction": 1
+      }
+    ],
+    "宛平城|大瓦窑": [
+      {
+        "route_name": "丰沙上行二线[0347]",
+        "direction": 1
+      },
+      {
+        "route_name": "丰沙下行二线[0358]",
+        "direction": 1
+      },
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "大瓦窑|郭庄子": [
+      {
+        "route_name": "丰沙上行二线[0347]",
+        "direction": 1
+      },
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "丰台西|石景山南": [
+      {
+        "route_name": "丰沙下行二线[0358]",
+        "direction": 1
+      }
+    ],
+    "石景山南|洪泰庄": [
+      {
+        "route_name": "丰沙下行二线[0358]",
+        "direction": 1
+      }
+    ],
+    "大瓦窑|园博园": [
+      {
+        "route_name": "丰沙下行二线[0358]",
+        "direction": 1
+      }
+    ],
+    "北京丰台|沙城": [
+      {
+        "route_name": "丰沙线[0332]",
+        "direction": 1
+      }
+    ],
+    "沙城|官厅": [
+      {
+        "route_name": "丰沙线[0332]",
+        "direction": 1
+      }
+    ],
+    "官厅|官厅西": [
+      {
+        "route_name": "丰沙线[0332]",
+        "direction": 1
+      }
+    ],
+    "官厅西|丁家滩": [
+      {
+        "route_name": "丰沙线[0332]",
+        "direction": 1
+      }
+    ],
+    "丁家滩|色树坟": [
+      {
+        "route_name": "丰沙线[0332]",
+        "direction": 1
+      }
+    ],
+    "色树坟|落坡岭": [
+      {
+        "route_name": "丰沙线[0332]",
+        "direction": 1
+      }
+    ],
+    "落坡岭|雁翅": [
+      {
+        "route_name": "丰沙线[0332]",
+        "direction": 1
+      }
+    ],
+    "丰城|洛市": [
+      {
+        "route_name": "丰洛线[8651]",
+        "direction": 1
+      }
+    ],
+    "洛市|桥东": [
+      {
+        "route_name": "丰洛线[8651]",
+        "direction": 1
+      }
+    ],
+    "唐山北|丰润南": [
+      {
+        "route_name": "丰润唐遵线[1301]",
+        "direction": 1
+      }
+    ],
+    "丰南|胥各庄": [
+      {
+        "route_name": "丰胥线[1391]",
+        "direction": 1
+      }
+    ],
+    "丰台西|西道口线路所": [
+      {
+        "route_name": "丰西京广上联线[1314]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪京广下联线[1315]",
+        "direction": 1
+      }
+    ],
+    "临河|哈密东": [
+      {
+        "route_name": "临哈线[0094]",
+        "direction": 1
+      }
+    ],
+    "哈密东|呼和温都尔": [
+      {
+        "route_name": "临哈线[0094]",
+        "direction": 1
+      }
+    ],
+    "沭埠岭|临沂东": [
+      {
+        "route_name": "临沭大北联络线[1582]",
+        "direction": 1
+      }
+    ],
+    "湾李线路所|临潼东": [
+      {
+        "route_name": "临潼东联络线[2495]",
+        "direction": 1
+      }
+    ],
+    "丹东|前阳": [
+      {
+        "route_name": "丹前线[0239]",
+        "direction": 1
+      }
+    ],
+    "前阳|南丹东": [
+      {
+        "route_name": "丹前线[0239]",
+        "direction": 1
+      }
+    ],
+    "南丹东|三道沟": [
+      {
+        "route_name": "丹前线[0239]",
+        "direction": 1
+      }
+    ],
+    "三道沟|강안": [
+      {
+        "route_name": "丹前线[0239]",
+        "direction": 1
+      }
+    ],
+    "丹东|大连北": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "大连北|金马": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "金马|金州": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "金州|东山路": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "东山路|金马路": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "金马路|丹东西": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "丹东西|南关岭": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "南关岭|大连北站": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "大连北站|姚家": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "姚家|华北路": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "华北路|泉水": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "泉水|庄河北": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "庄河北|东港北": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      }
+    ],
+    "东港北|前阳": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      },
+      {
+        "route_name": "前阳南出港线[0282]",
+        "direction": 1
+      },
+      {
+        "route_name": "前阳南进港线[0281]",
+        "direction": 1
+      }
+    ],
+    "前阳|前阳南": [
+      {
+        "route_name": "丹大线[3054]",
+        "direction": 1
+      },
+      {
+        "route_name": "前阳联络线[1243]",
+        "direction": 1
+      }
+    ],
+    "丹水池|谌家矶线路所/滠口线路所": [
+      {
+        "route_name": "丹水池联络线[2452]",
+        "direction": 1
+      }
+    ],
+    "谌家矶线路所/滠口线路所|谌家矶": [
+      {
+        "route_name": "丹水池联络线[2452]",
+        "direction": 1
+      }
+    ],
+    "谌家矶|朱家河": [
+      {
+        "route_name": "丹水池联络线[2452]",
+        "direction": 1
+      },
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "朱家河|幸福湾": [
+      {
+        "route_name": "丹水池联络线[2452]",
+        "direction": 1
+      }
+    ],
+    "幸福湾|滠口新城": [
+      {
+        "route_name": "丹水池联络线[2452]",
+        "direction": 1
+      }
+    ],
+    "滠口新城|滕子岗": [
+      {
+        "route_name": "丹水池联络线[2452]",
+        "direction": 1
+      }
+    ],
+    "滕子岗|新荣": [
+      {
+        "route_name": "丹水池联络线[2452]",
+        "direction": 1
+      }
+    ],
+    "新荣|堤角": [
+      {
+        "route_name": "丹水池联络线[2452]",
+        "direction": 1
+      }
+    ],
+    "义棠|四公里线路所": [
+      {
+        "route_name": "义万疏解线[2365]",
+        "direction": 1
+      }
+    ],
+    "义棠|万安": [
+      {
+        "route_name": "义万联络线[1360]",
+        "direction": 1
+      }
+    ],
+    "乌海西|吉兰泰": [
+      {
+        "route_name": "乌吉线[0407]",
+        "direction": 1
+      }
+    ],
+    "吉兰泰|黑沙土": [
+      {
+        "route_name": "乌吉线[0407]",
+        "direction": 1
+      }
+    ],
+    "黑沙土|本井": [
+      {
+        "route_name": "乌吉线[0407]",
+        "direction": 1
+      }
+    ],
+    "乌兰察布|大同南": [
+      {
+        "route_name": "乌大高速线[3133]",
+        "direction": 1
+      }
+    ],
+    "大同南|解家庄": [
+      {
+        "route_name": "乌大高速线[3133]",
+        "direction": 1
+      }
+    ],
+    "解家庄|孤山": [
+      {
+        "route_name": "乌大高速线[3133]",
+        "direction": 1
+      }
+    ],
+    "乌审旗|乌审旗南": [
+      {
+        "route_name": "乌审旗南联络线[6493]",
+        "direction": 1
+      }
+    ],
+    "哈尼乎热|乌尼特": [
+      {
+        "route_name": "乌尼特线[0273]",
+        "direction": 1
+      }
+    ],
+    "乌山|长沙西": [
+      {
+        "route_name": "乌山联络线[1726]",
+        "direction": 1
+      }
+    ],
+    "乌拉山|联光": [
+      {
+        "route_name": "乌联联络线[2407]",
+        "direction": 1
+      }
+    ],
+    "公庙子|锡尼": [
+      {
+        "route_name": "乌锡线[2405]",
+        "direction": 1
+      }
+    ],
+    "昌北机场|乐化": [
+      {
+        "route_name": "乐化城际联络线",
+        "direction": 1
+      }
+    ],
+    "乐平市|香屯": [
+      {
+        "route_name": "乐德线[0642]",
+        "direction": 1
+      }
+    ],
+    "香屯|接渡": [
+      {
+        "route_name": "乐德线[0642]",
+        "direction": 1
+      }
+    ],
+    "乐清|杜岙线路所": [
+      {
+        "route_name": "乐清联络线",
+        "direction": 1
+      }
+    ],
+    "九站|新九站": [
+      {
+        "route_name": "九棋联络线[1203]",
+        "direction": 1
+      }
+    ],
+    "新九站|江密峰": [
+      {
+        "route_name": "九江线[1201]",
+        "direction": 1
+      }
+    ],
+    "江密峰|棋盘": [
+      {
+        "route_name": "九江线[1201]",
+        "direction": 1
+      }
+    ],
+    "棋盘|一零二厂（吉化）": [
+      {
+        "route_name": "九江线[1201]",
+        "direction": 1
+      }
+    ],
+    "柴桑|洪家山线路所": [
+      {
+        "route_name": "九江联络线[2688]",
+        "direction": 1
+      }
+    ],
+    "洪家山线路所|九江西": [
+      {
+        "route_name": "九江联络线[2688]",
+        "direction": 1
+      }
+    ],
+    "于洪|揽军屯": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "揽军屯|于洪广场": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "于洪广场|开发大道": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "开发大道|迎宾路": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "迎宾路|重工街": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "重工街|吉力湖街": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "吉力湖街|滑翔": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "滑翔|沈辽路": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "沈辽路|南李官": [
+      {
+        "route_name": "于揽三线[1208]",
+        "direction": 1
+      }
+    ],
+    "于洪|虎石台": [
+      {
+        "route_name": "于虎线[0234]",
+        "direction": 1
+      }
+    ],
+    "虎石台|丁香湖": [
+      {
+        "route_name": "于虎线[0234]",
+        "direction": 1
+      }
+    ],
+    "丁香湖|转弯桥": [
+      {
+        "route_name": "于虎线[0234]",
+        "direction": 1
+      }
+    ],
+    "于洪|裕国": [
+      {
+        "route_name": "于西进场线[1234]",
+        "direction": 1
+      }
+    ],
+    "于洪|马三家": [
+      {
+        "route_name": "于马三线[1205]",
+        "direction": 1
+      }
+    ],
+    "马三家|裕国": [
+      {
+        "route_name": "于马三线[1205]",
+        "direction": 1
+      },
+      {
+        "route_name": "马西直通线[1207]",
+        "direction": 1
+      }
+    ],
+    "马辛庄|小站线路所": [
+      {
+        "route_name": "云岗大秦上行联络线[1381]",
+        "direction": 1
+      }
+    ],
+    "小站线路所|平旺": [
+      {
+        "route_name": "云岗大秦上行联络线[1381]",
+        "direction": 1
+      }
+    ],
+    "平旺|房子村": [
+      {
+        "route_name": "云岗大秦上行联络线[1381]",
+        "direction": 1
+      }
+    ],
+    "小站线路所|马辛庄": [
+      {
+        "route_name": "云岗大秦下行联络线[1382]",
+        "direction": 1
+      }
+    ],
+    "马辛庄|房子村": [
+      {
+        "route_name": "云岗大秦下行联络线[1382]",
+        "direction": 1
+      }
+    ],
+    "房子村|平旺": [
+      {
+        "route_name": "云岗大秦下行联络线[1382]",
+        "direction": 1
+      }
+    ],
+    "大同西|新高山": [
+      {
+        "route_name": "云岗铁路[4361]",
+        "direction": 1
+      }
+    ],
+    "腰古|大降坪": [
+      {
+        "route_name": "云浮支线[0709]",
+        "direction": 1
+      }
+    ],
+    "大降坪|云浮": [
+      {
+        "route_name": "云浮支线[0709]",
+        "direction": 1
+      }
+    ],
+    "云浮|初城": [
+      {
+        "route_name": "云浮支线[0709]",
+        "direction": 1
+      }
+    ],
+    "长沙南|龙峰大道线路所": [
+      {
+        "route_name": "云贵厦联络线",
+        "direction": 1
+      }
+    ],
+    "井亭|洪洼": [
+      {
+        "route_name": "井亭疏解线[1531]",
+        "direction": 1
+      },
+      {
+        "route_name": "井洪联络线[1525]",
+        "direction": 1
+      }
+    ],
+    "井口|重庆西": [
+      {
+        "route_name": "井西线[2839]",
+        "direction": 1
+      }
+    ],
+    "重庆西|高滩岩": [
+      {
+        "route_name": "井西线[2839]",
+        "direction": 1
+      }
+    ],
+    "高滩岩|上桥": [
+      {
+        "route_name": "井西线[2839]",
+        "direction": 1
+      }
+    ],
+    "上桥|凤鸣山": [
+      {
+        "route_name": "井西线[2839]",
+        "direction": 1
+      }
+    ],
+    "黄土坡线路所|东莞东": [
+      {
+        "route_name": "京九线[0005]",
+        "direction": 1
+      }
+    ],
+    "东莞东|大葛村": [
+      {
+        "route_name": "京九线[0005]",
+        "direction": 1
+      }
+    ],
+    "大葛村|赣县北": [
+      {
+        "route_name": "京九线[0005]",
+        "direction": 1
+      }
+    ],
+    "赣县北|信丰": [
+      {
+        "route_name": "京九线[0005]",
+        "direction": 1
+      }
+    ],
+    "信丰|小江": [
+      {
+        "route_name": "京九线[0005]",
+        "direction": 1
+      }
+    ],
+    "小江|关西镇": [
+      {
+        "route_name": "京九线[0005]",
+        "direction": 1
+      }
+    ],
+    "关西镇|和平": [
+      {
+        "route_name": "京九线[0005]",
+        "direction": 1
+      }
+    ],
+    "和平|蓝口": [
+      {
+        "route_name": "京九线[0005]",
+        "direction": 1
+      }
+    ],
+    "昌平|七间房线路所": [
+      {
+        "route_name": "京包客专京通联络线[7325]",
+        "direction": 1
+      }
+    ],
+    "北京北|包头": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "包头|蓟门桥": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "蓟门桥|西土城": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "西土城|大钟寺": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "大钟寺|知春里": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "知春里|知春路": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "知春路|学院桥": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "学院桥|六道口": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "六道口|五道口": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "五道口|清华东路西口": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "清华东路西口|学知园": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "学知园|朱房北": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "朱房北|清河站": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "清河站|清河": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "清河|上地": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "上地|附属医院": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "附属医院|新华广场": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "新华广场|人民会堂": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "人民会堂|将军衙署": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "将军衙署|呼和浩特站": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "呼和浩特站|公主府": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "公主府|呼和浩特": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "呼和浩特|新街口": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "新街口|平安里": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "平安里|车公庄西": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "车公庄西|动物园": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "动物园|西直门": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "西直门|车公庄": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "车公庄|西二旗": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "西二旗|东北旺": [
+      {
+        "route_name": "京包客专线[3066]",
+        "direction": 1
+      }
+    ],
+    "昌平|台阁牧": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "台阁牧|天镇": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "天镇|八达岭": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "八达岭|八达岭长城": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "八达岭长城|罗文皂": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "罗文皂|西湾堡": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "西湾堡|辛庄子": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "辛庄子|新保安": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "新保安|青龙桥西": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "青龙桥西|青龙桥": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "青龙桥|南口": [
+      {
+        "route_name": "京包线[0028]",
+        "direction": 1
+      }
+    ],
+    "武昌南|大花岭": [
+      {
+        "route_name": "京南联络线[1452]",
+        "direction": 1
+      }
+    ],
+    "大花岭|新路村": [
+      {
+        "route_name": "京南联络线[1452]",
+        "direction": 1
+      }
+    ],
+    "新路村|马湖": [
+      {
+        "route_name": "京南联络线[1452]",
+        "direction": 1
+      }
+    ],
+    "马湖|野芷湖": [
+      {
+        "route_name": "京南联络线[1452]",
+        "direction": 1
+      },
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "野芷湖|板桥": [
+      {
+        "route_name": "京南联络线[1452]",
+        "direction": 1
+      }
+    ],
+    "板桥|黄家湖地铁小镇": [
+      {
+        "route_name": "京南联络线[1452]",
+        "direction": 1
+      }
+    ],
+    "黄家湖地铁小镇|军运村": [
+      {
+        "route_name": "京南联络线[1452]",
+        "direction": 1
+      }
+    ],
+    "石景山南|薛孤": [
+      {
+        "route_name": "京原线[0302]",
+        "direction": 1
+      }
+    ],
+    "薛孤|良各庄": [
+      {
+        "route_name": "京原线[0302]",
+        "direction": 1
+      }
+    ],
+    "良各庄|燕山": [
+      {
+        "route_name": "京原线[0302]",
+        "direction": 1
+      }
+    ],
+    "燕山|南观村": [
+      {
+        "route_name": "京原线[0302]",
+        "direction": 1
+      }
+    ],
+    "丰润西|唐山北": [
+      {
+        "route_name": "京哈唐包联络线[2353]",
+        "direction": 1
+      }
+    ],
+    "蓟州|蓟州北": [
+      {
+        "route_name": "京哈津蓟联络线[1339]",
+        "direction": 1
+      }
+    ],
+    "北京|哈尔滨": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨|广渠门外": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "广渠门外|广渠门内": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "广渠门内|永安里": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "永安里|北京站": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "北京站|建国门": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "建国门|布海": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "布海|大郊亭": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "百子湾|北京东": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      },
+      {
+        "route_name": "百东线[1311]",
+        "direction": 1
+      }
+    ],
+    "北京东|九龙山": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "大望路|四惠": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "四惠|双桥": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "双桥|传媒大学": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "传媒大学|管庄": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "管庄|八里桥": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "八里桥|北运河西": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "北运河西|乔庄东": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      },
+      {
+        "route_name": "京唐城际线[3112]",
+        "direction": 1
+      }
+    ],
+    "乔庄东|北京通州": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "北京通州|五家": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "五家|昌图": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "昌图|陵东街": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "陵东街|中医药大学": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "中医药大学|长江街": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "长江街|市府大路": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "市府大路|皇寺路": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "皇寺路|沈阳北站": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "沈阳北站|人民广场": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "人民广场|金融中心": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "金融中心|岐山路": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "岐山路|沈阳北": [
+      {
+        "route_name": "京哈线[0007]",
+        "direction": 1
+      }
+    ],
+    "前丁香西线路所|后丁香东线路所": [
+      {
+        "route_name": "京哈联络线",
+        "direction": 1
+      }
+    ],
+    "后丁香东线路所|大成": [
+      {
+        "route_name": "京哈联络线",
+        "direction": 1
+      }
+    ],
+    "大成|于洪": [
+      {
+        "route_name": "京哈联络线",
+        "direction": 1
+      },
+      {
+        "route_name": "京沈联络线",
+        "direction": 1
+      }
+    ],
+    "于洪|元江街": [
+      {
+        "route_name": "京哈联络线",
+        "direction": 1
+      }
+    ],
+    "北京朝阳|哈尔滨": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨|新台子": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "新台子|新城子": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "新城子|铁岭西": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "铁岭西|石佛营": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "朝阳站|青年路": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "十里堡|文官屯": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "文官屯|观泉路": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "观泉路|望花": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "望花|文官街": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "文官街|正新路": [
+      {
+        "route_name": "京哈高速线[3007]",
+        "direction": 1
+      }
+    ],
+    "北京通州|唐山": [
+      {
+        "route_name": "京唐城际线[3112]",
+        "direction": 1
+      }
+    ],
+    "唐山|郝家府": [
+      {
+        "route_name": "京唐城际线[3112]",
+        "direction": 1
+      }
+    ],
+    "郝家府|北运河西": [
+      {
+        "route_name": "京唐城际线[3112]",
+        "direction": 1
+      }
+    ],
+    "乔庄东|北运河东": [
+      {
+        "route_name": "京唐城际线[3112]",
+        "direction": 1
+      }
+    ],
+    "北运河东|玉田南": [
+      {
+        "route_name": "京唐城际线[3112]",
+        "direction": 1
+      }
+    ],
+    "玉田南|宝坻": [
+      {
+        "route_name": "京唐城际线[3112]",
+        "direction": 1
+      }
+    ],
+    "宝坻|香河": [
+      {
+        "route_name": "京唐城际线[3112]",
+        "direction": 1
+      }
+    ],
+    "聂庄|京唐港": [
+      {
+        "route_name": "京唐港线[2002]",
+        "direction": 1
+      }
+    ],
+    "丹水池|汉口": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "汉口|新荣": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "新荣|徐州新村": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "徐州新村|堤角": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "堤角|兴业路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "兴业路|后湖大道": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "后湖大道|二七路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "二七路|罗家庄": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "罗家庄|二七小路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "二七小路|范湖": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "范湖|长港路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "长港路|汉口火车站": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "汉口火车站|石桥": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "石桥|唐家墩": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "唐家墩|云飞路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "云飞路|塔子湖": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "塔子湖|中一路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "中一路|竹叶山": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "竹叶山|赵家条": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "赵家条|后湖": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "后湖|头道街": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "头道街|香港路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "香港路|黄浦路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "黄浦路|杨汊湖": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "杨汊湖|三眼桥": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "三眼桥|惠濟二路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "惠濟二路|百步亭花园路": [
+      {
+        "route_name": "京广汉口联络线[2470]",
+        "direction": 1
+      }
+    ],
+    "石家庄|北降壁线路所": [
+      {
+        "route_name": "京广石太高速联络线[2340]",
+        "direction": 1
+      }
+    ],
+    "北降壁线路所|塔谈": [
+      {
+        "route_name": "京广石太高速联络线[2340]",
+        "direction": 1
+      }
+    ],
+    "塔谈|仓丰路留村": [
+      {
+        "route_name": "京广石太高速联络线[2340]",
+        "direction": 1
+      }
+    ],
+    "仓丰路留村|南位": [
+      {
+        "route_name": "京广石太高速联络线[2340]",
+        "direction": 1
+      }
+    ],
+    "南位|石家庄站": [
+      {
+        "route_name": "京广石太高速联络线[2340]",
+        "direction": 1
+      }
+    ],
+    "北京丰台|广州": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "广州|临洺关": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "临洺关|长辛店": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "长辛店|园博园": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "园博园|宛平城": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "大瓦窑|洪泰庄": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "洪泰庄|五里墩": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "五里墩|七里庙": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "七里庙|十里铺": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "十里铺|太平洋": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "太平洋|宗关": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "宗关|汉西一路": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "汉西一路|雙墩": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "雙墩|谌家矶": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "朱家河|株洲": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "株洲|岳阳北": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "岳阳北|岳阳": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "岳阳|黄家湖地铁小镇": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "黄家湖地铁小镇|白沙六路": [
+      {
+        "route_name": "京广线[0001]",
+        "direction": 1
+      }
+    ],
+    "林家湾线路所|滠口": [
+      {
+        "route_name": "京广货线联络线[2449]",
+        "direction": 1
+      }
+    ],
+    "滠口|横店": [
+      {
+        "route_name": "京广货线联络线[2449]",
+        "direction": 1
+      }
+    ],
+    "横店|横店西": [
+      {
+        "route_name": "京广货线联络线[2449]",
+        "direction": 1
+      }
+    ],
+    "横店西|武汉北": [
+      {
+        "route_name": "京广货线联络线[2449]",
+        "direction": 1
+      }
+    ],
+    "北京西|杜家坎线路所": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "杜家坎线路所|万寿路": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "万寿路|五棵松": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "五棵松|北京西站": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "北京西站|莲花桥": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "莲花桥|公主坟": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "公主坟|军事博物馆": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "军事博物馆|六里桥东": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "六里桥东|六里桥": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "六里桥|湾子": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "湾子|园博园": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "园博园|科怡路": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "科怡路|古城": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "古城|八角游乐园（封闭改造中）": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "八角游乐园（封闭改造中）|八宝山": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "八宝山|玉泉路": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "玉泉路|石景山南": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "石景山南|衙门口东": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "衙门口东|大井": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "大井|大瓦窑": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "郭庄子|七里庄": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "七里庄|宛平城": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "宛平城|榆树庄": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "榆树庄|富丰桥": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "富丰桥|衙门口": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "衙门口|看丹": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "看丹|丰台西": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "丰台西|长辛店": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "长辛店|丰台南路": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "丰台南路|南信号": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "南信号|丰台科技园": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "丰台科技园|丰台东大街": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "丰台东大街|洪泰庄": [
+      {
+        "route_name": "京广高速京西联络线[2339]",
+        "direction": 1
+      }
+    ],
+    "北京丰台|广州南": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "广州南|长沙南": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "长沙南|光达": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "光达|磁浮高铁站": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "磁浮高铁站|长沙火车南站": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "长沙火车南站|粟塘": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "粟塘|平阳": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "平阳|湘龙": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "湘龙|星沙": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "星沙|土桥": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "土桥|白茅铺": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "白茅铺|隆平水稻博物馆": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "隆平水稻博物馆|农科院农大": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "农科院农大|花桥": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "花桥|汨罗东": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "汨罗东|银盏坳": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "银盏坳|湖蝶湾": [
+      {
+        "route_name": "京广高速线[3001]",
+        "direction": 1
+      }
+    ],
+    "双桥|承德": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "承德|通州北关": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "通州北关|物资学院路": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "物资学院路|通州西": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "通州西|八里桥": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "八里桥|通州北苑": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "通州北苑|管庄": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "管庄|怀柔": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "怀柔|上板城": [
+      {
+        "route_name": "京承线[0327]",
+        "direction": 1
+      }
+    ],
+    "前丁香东线路所|后丁香西线路所": [
+      {
+        "route_name": "京沈联络线",
+        "direction": 1
+      }
+    ],
+    "后丁香西线路所|大成": [
+      {
+        "route_name": "京沈联络线",
+        "direction": 1
+      }
+    ],
+    "南仓|南仓南信号所": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      }
+    ],
+    "南仓南信号所|外院附中": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      }
+    ],
+    "外院附中|天泰路": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "天泰路|北站": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      }
+    ],
+    "北站|新开河": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "新开河|中山路": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "中山路|铁东路": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "铁东路|天津北": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      },
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "天津北|北运河": [
+      {
+        "route_name": "京沪上行进站线[1342]",
+        "direction": 1
+      }
+    ],
+    "南信号 南18#岔尖|西信号 西7#岔尖": [
+      {
+        "route_name": "京沪京广联络线[1317]",
+        "direction": 1
+      }
+    ],
+    "西信号 西7#岔尖|富丰桥": [
+      {
+        "route_name": "京沪京广联络线[1317]",
+        "direction": 1
+      }
+    ],
+    "富丰桥|南信号": [
+      {
+        "route_name": "京沪京广联络线[1317]",
+        "direction": 1
+      }
+    ],
+    "南信号|看丹": [
+      {
+        "route_name": "京沪京广联络线[1317]",
+        "direction": 1
+      }
+    ],
+    "天津北|南仓南信号所": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "南仓南信号所|北站": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "铁东路|金狮桥": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "金狮桥|外院附中": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "天泰路|志成路": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "志成路|北运河": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "北运河|西沽公园": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "西沽公园|白庙": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "白庙|北竹林": [
+      {
+        "route_name": "京沪津山联络线[1306]",
+        "direction": 1
+      }
+    ],
+    "北京|上海": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "上海|王府井": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "王府井|桥湾": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "桥湾|广渠门内": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "广渠门内|磁器口": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "磁器口|北京站": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "北京站|金鱼胡同": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "金鱼胡同|崇文门": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "崇文门|东单": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "东单|建国门": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "建国门|广渠门外": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "广渠门外|永安里": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "永安里|外院附中": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "天泰路|西沽公园": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "西沽公园|北站": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "新开河|南仓": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "南仓|中山路": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "天津北|北竹林": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "北竹林|北运河": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "北运河|宜兴埠北": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "宜兴埠北|人民医院": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "人民医院|广阳": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "广阳|廊坊": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "廊坊|晏城": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "晏城|十二里阁": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "十二里阁|北辰科技园北": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "北辰科技园北|北仓": [
+      {
+        "route_name": "京沪线[0002]",
+        "direction": 1
+      }
+    ],
+    "北京南|上海虹桥": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "上海虹桥|马家堡": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "马家堡|景风门": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      },
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "景风门|陶然桥(在建)": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "陶然桥(在建)|北京南站": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "北京南站|陶然亭": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "陶然亭|天桥": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "天桥|永定门外": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "永定门外|木樨园": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      },
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "木樨园|角门西": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "角门西|西铁营": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "西铁营|草桥": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "草桥|党家庄": [
+      {
+        "route_name": "京沪高铁[3002]",
+        "direction": 1
+      }
+    ],
+    "北京南|滨海": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "滨海|永乐": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "永乐|落垡": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "落垡|刘家窑": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "刘家窑|天坛东门": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "天坛东门|天桥": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "天桥|景泰": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "景泰|蒲黄榆": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "蒲黄榆|永定门外": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "木樨园|亦庄火车站": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "亦庄火车站|亦庄": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "亦庄|嘉会湖": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "嘉会湖|武清": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "武清|方庄": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "方庄|陶然桥(在建)": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "陶然桥(在建)|马家堡": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "景风门|北京南站": [
+      {
+        "route_name": "京津城际线[3010]",
+        "direction": 1
+      }
+    ],
+    "京津线路所|天津西": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "天津西|人民医院": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "人民医院|同城商务区西于庄": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "同城商务区西于庄|西北角": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "西北角|复兴路": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "复兴路|西站": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "西站|曹庄": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "曹庄|卞兴": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "卞兴|芥园西道": [
+      {
+        "route_name": "京津联络线[2319]",
+        "direction": 1
+      }
+    ],
+    "济南西|白马山线路所": [
+      {
+        "route_name": "京济联络线[1528]",
+        "direction": 1
+      }
+    ],
+    "白马山线路所|腊山南": [
+      {
+        "route_name": "京济联络线[1528]",
+        "direction": 1
+      }
+    ],
+    "腊山南|济南南": [
+      {
+        "route_name": "京济联络线[1528]",
+        "direction": 1
+      }
+    ],
+    "济南南|王府庄": [
+      {
+        "route_name": "京济联络线[1528]",
+        "direction": 1
+      }
+    ],
+    "王府庄|方特": [
+      {
+        "route_name": "京济联络线[1528]",
+        "direction": 1
+      }
+    ],
+    "北京丰台|西丽": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "西丽|科学大道": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "科学大道|西七里塘": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "西七里塘|十里庙": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "十里庙|天柱路": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "天柱路|南新庄": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "南新庄|柳树塘": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "柳树塘|天鹅湖": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "天鹅湖|金桂": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "金桂|蜀山东": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "蜀山东|图书馆": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "图书馆|省博物馆": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "省博物馆|合肥大剧院": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "合肥大剧院|市政务中心": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "市政务中心|洪岗": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "洪岗|国防科技大学": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "国防科技大学|松荫桥": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "松荫桥|梦城": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "梦城|合肥西站": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "合肥西站|五里墩": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "五里墩|合肥西": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "合肥西|翡翠公园": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "翡翠公园|安医一附院南区": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "安医一附院南区|幸福坝": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "幸福坝|安大磬苑校区": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "安大磬苑校区|工大翡翠湖校区": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "工大翡翠湖校区|大学城北": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "大学城北|安医大二附院": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "安医大二附院|繁华大道": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "繁华大道|竹溪": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "竹溪|大蜀山": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "大蜀山|寿县": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "寿县|凤台南": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "凤台南|兴国西": [
+      {
+        "route_name": "京港高速线[3003]",
+        "direction": 1
+      }
+    ],
+    "宝坻|北辰": [
+      {
+        "route_name": "京滨城际线[3113]",
+        "direction": 1
+      }
+    ],
+    "北辰|宝坻南": [
+      {
+        "route_name": "京滨城际线[3113]",
+        "direction": 1
+      }
+    ],
+    "宝坻南|大口屯": [
+      {
+        "route_name": "京滨城际线[3113]",
+        "direction": 1
+      }
+    ],
+    "北园|大明湖": [
+      {
+        "route_name": "京胶联络线[1504]",
+        "direction": 1
+      }
+    ],
+    "大明湖|济泺路": [
+      {
+        "route_name": "京胶联络线[1504]",
+        "direction": 1
+      }
+    ],
+    "济泺路|济南站（在建）": [
+      {
+        "route_name": "京胶联络线[1504]",
+        "direction": 1
+      }
+    ],
+    "济南站（在建）|济南": [
+      {
+        "route_name": "京胶联络线[1504]",
+        "direction": 1
+      }
+    ],
+    "济南|生产路": [
+      {
+        "route_name": "京胶联络线[1504]",
+        "direction": 1
+      }
+    ],
+    "生产路|大明湖(在建)": [
+      {
+        "route_name": "京胶联络线[1504]",
+        "direction": 1
+      }
+    ],
+    "大明湖(在建)|大明湖东（在建）": [
+      {
+        "route_name": "京胶联络线[1504]",
+        "direction": 1
+      }
+    ],
+    "大明湖东（在建）|历山路": [
+      {
+        "route_name": "京胶联络线[1504]",
+        "direction": 1
+      }
+    ],
+    "七间房线路所|通辽": [
+      {
+        "route_name": "京通线[0021]",
+        "direction": 1
+      }
+    ],
+    "通辽|怀柔北": [
+      {
+        "route_name": "京通线[0021]",
+        "direction": 1
+      }
+    ],
+    "怀柔北|十三陵景区": [
+      {
+        "route_name": "京通线[0021]",
+        "direction": 1
+      }
+    ],
+    "十三陵景区|青龙峡": [
+      {
+        "route_name": "京通线[0021]",
+        "direction": 1
+      }
+    ],
+    "青龙峡|小水峪": [
+      {
+        "route_name": "京通线[0021]",
+        "direction": 1
+      }
+    ],
+    "徐州北|徐州西": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "徐州西|徐州": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "徐州|奔腾大道": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "奔腾大道|白云山": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "白云山|子房山": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "子房山|下淀": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "下淀|民主北路": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "民主北路|徐州火车站": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "徐州火车站|庆云桥": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "庆云桥|九龙湖": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "九龙湖|彭城广场": [
+      {
+        "route_name": "京陇联络线[1510]",
+        "direction": 1
+      }
+    ],
+    "北京西|雄安": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "雄安|红莲南路": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "红莲南路|丽泽商务区": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "丽泽商务区|菜户营": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "菜户营|西铁营": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "西铁营|广安门": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "广安门|纪家庙": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "纪家庙|草桥": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "草桥|达官营": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "达官营|北京西站": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "北京西站|木樨地": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "木樨地|复兴门": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "复兴门|军事博物馆": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "军事博物馆|湾子": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "湾子|南礼士路": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "南礼士路|西红门": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "西红门|白盆窑": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "白盆窑|花乡东桥": [
+      {
+        "route_name": "京雄城际线[3085]",
+        "direction": 1
+      }
+    ],
+    "介休|阳泉曲": [
+      {
+        "route_name": "介西铁路[0310]",
+        "direction": 1
+      }
+    ],
+    "仙林|南京南": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "南京南|钟灵街": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "钟灵街|沧波门": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "沧波门|麒麟生态公园": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "麒麟生态公园|光华路": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "光华路|水街坊": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "水街坊|高桥门": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "高桥门|石杨路": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "石杨路|杨庄": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "杨庄|尧化门": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "尧化门|仙新路": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "仙新路|南京东": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "南京东|紫金山东": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "紫金山东|金马路": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "金马路|紫金山": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "紫金山|徐庄·苏宁总部": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "徐庄·苏宁总部|仙鹤门": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "仙鹤门|尧化新村": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "尧化新村|花神庙": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "花神庙|南京南站": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "南京南站|双龙大道": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "双龙大道|大明路": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "大明路|明发广场": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "明发广场|宏运大道": [
+      {
+        "route_name": "仙宁线[2646]",
+        "direction": 1
+      }
+    ],
+    "大福|仙桃": [
+      {
+        "route_name": "仙桃城际线[3103]",
+        "direction": 1
+      }
+    ],
+    "伊图里河|加格达奇": [
+      {
+        "route_name": "伊加线[0106]",
+        "direction": 1
+      }
+    ],
+    "加格达奇|甘河": [
+      {
+        "route_name": "伊加线[0106]",
+        "direction": 1
+      }
+    ],
+    "甘河|阿里河": [
+      {
+        "route_name": "伊加线[0106]",
+        "direction": 1
+      }
+    ],
+    "海拉尔东|伊敏": [
+      {
+        "route_name": "伊敏线[0111]",
+        "direction": 1
+      }
+    ],
+    "伊敏|孟根": [
+      {
+        "route_name": "伊敏线[0111]",
+        "direction": 1
+      }
+    ],
+    "孟根|继承": [
+      {
+        "route_name": "伊敏线[0111]",
+        "direction": 1
+      }
+    ],
+    "继承|西索木": [
+      {
+        "route_name": "伊敏线[0111]",
+        "direction": 1
+      }
+    ],
+    "伊敏|伊尔施南线路所": [
+      {
+        "route_name": "伊阿线[0181]",
+        "direction": 1
+      }
+    ],
+    "伊尔施南线路所|伊尔施": [
+      {
+        "route_name": "伊阿线[0181]",
+        "direction": 1
+      }
+    ],
+    "伊尔施|温根托海": [
+      {
+        "route_name": "伊阿线[0181]",
+        "direction": 1
+      }
+    ],
+    "温根托海|巴日图": [
+      {
+        "route_name": "伊阿线[0181]",
+        "direction": 1
+      }
+    ],
+    "伊宁|阿克苏": [
+      {
+        "route_name": "伊阿铁路",
+        "direction": 1
+      }
+    ],
+    "何寨|临潼东": [
+      {
+        "route_name": "何临联络线[2492]",
+        "direction": 1
+      }
+    ],
+    "临潼东|新丰镇": [
+      {
+        "route_name": "何临联络线[2492]",
+        "direction": 1
+      }
+    ],
+    "何刘|武钢": [
+      {
+        "route_name": "何刘武钢上行联络线[1458]",
+        "direction": 1
+      }
+    ],
+    "武钢|花山河": [
+      {
+        "route_name": "何刘武钢上行联络线[1458]",
+        "direction": 1
+      }
+    ],
+    "花山河|花山南": [
+      {
+        "route_name": "何刘武钢上行联络线[1458]",
+        "direction": 1
+      }
+    ],
+    "南昌南|何家线路所": [
+      {
+        "route_name": "何家联络线[2696]",
+        "direction": 1
+      }
+    ],
+    "何家线路所|向塘": [
+      {
+        "route_name": "何家联络线[2696]",
+        "direction": 1
+      }
+    ],
+    "向塘|梁家渡": [
+      {
+        "route_name": "何家联络线[2696]",
+        "direction": 1
+      }
+    ],
+    "何家湾|杨浦": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "杨浦|殷行": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "殷行|市光路": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "市光路|延吉中路": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "延吉中路|黄兴公园": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "黄兴公园|翔殷路": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "翔殷路|新江湾城": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "新江湾城|爱国路": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "爱国路|复兴岛": [
+      {
+        "route_name": "何杨线[0624]",
+        "direction": 1
+      }
+    ],
+    "何寨|零口": [
+      {
+        "route_name": "何零联络线",
+        "direction": 1
+      }
+    ],
+    "余家湾|花山线路所": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "花山线路所|省农科院": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "省农科院|汤逊湖": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "汤逊湖|南湖": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "南湖|南湖东": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "南湖东|马湖": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "野芷湖|何刘": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "何刘|烽火村": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "烽火村|八铺街": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "八铺街|瑞安街": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "瑞安街|建安街": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "建安街|湖工大": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "湖工大|江安路": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "江安路|张家湾": [
+      {
+        "route_name": "余花联络线[6448]",
+        "direction": 1
+      }
+    ],
+    "佳木斯|东佳木斯": [
+      {
+        "route_name": "佳同线[1158]",
+        "direction": 1
+      }
+    ],
+    "东佳木斯|双鸭山": [
+      {
+        "route_name": "佳富线[0127]",
+        "direction": 1
+      }
+    ],
+    "双鸭山|福利屯": [
+      {
+        "route_name": "佳富线[0127]",
+        "direction": 1
+      }
+    ],
+    "福利屯|丰乐镇": [
+      {
+        "route_name": "佳富线[0127]",
+        "direction": 1
+      }
+    ],
+    "丰乐镇|太平镇": [
+      {
+        "route_name": "佳富线[0127]",
+        "direction": 1
+      }
+    ],
+    "太平镇|双鸭山西": [
+      {
+        "route_name": "佳富线[0127]",
+        "direction": 1
+      }
+    ],
+    "沁阳|月山": [
+      {
+        "route_name": "侯月上行疏解线[2423]",
+        "direction": 1
+      }
+    ],
+    "月山|焦作西": [
+      {
+        "route_name": "侯月上行疏解线[2423]",
+        "direction": 1
+      }
+    ],
+    "侯马北|水运村线路所": [
+      {
+        "route_name": "侯月线[0035]",
+        "direction": 1
+      }
+    ],
+    "水运村线路所|曲沃": [
+      {
+        "route_name": "侯月线[0035]",
+        "direction": 1
+      }
+    ],
+    "曲沃|高显": [
+      {
+        "route_name": "侯月线[0035]",
+        "direction": 1
+      }
+    ],
+    "高显|翼城": [
+      {
+        "route_name": "侯月线[0035]",
+        "direction": 1
+      }
+    ],
+    "翼城|南常": [
+      {
+        "route_name": "侯月线[0035]",
+        "direction": 1
+      }
+    ],
+    "侯马北|阎良": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "阎良|坞坭": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "坞坭|醍醐": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "醍醐|韦庄": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "韦庄|苏家": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "苏家|关山": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "关山|张桥": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "张桥|惠刘": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "惠刘|蒲石": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "蒲石|南永宁": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "南永宁|合阳": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "合阳|王村": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "王村|合阳北": [
+      {
+        "route_name": "侯阎线[0034]",
+        "direction": 1
+      }
+    ],
+    "竞秀|满城": [
+      {
+        "route_name": "保满线[0345]",
+        "direction": 1
+      }
+    ],
+    "满城|保定工业": [
+      {
+        "route_name": "保满线[0345]",
+        "direction": 1
+      }
+    ],
+    "保定工业|小车乡": [
+      {
+        "route_name": "保满线[0345]",
+        "direction": 1
+      }
+    ],
+    "白家店|南陶洛": [
+      {
+        "route_name": "兖南联络线[1508]",
+        "direction": 1
+      }
+    ],
+    "南陶洛|姚村": [
+      {
+        "route_name": "兖南联络线[1508]",
+        "direction": 1
+      }
+    ],
+    "程家庄|白马厂线路所": [
+      {
+        "route_name": "兖石疏解线[1509]",
+        "direction": 1
+      }
+    ],
+    "白马厂线路所|东滩": [
+      {
+        "route_name": "兖石疏解线[1509]",
+        "direction": 1
+      }
+    ],
+    "东滩|跃进河": [
+      {
+        "route_name": "兖石疏解线[1509]",
+        "direction": 1
+      }
+    ],
+    "程家庄|日照": [
+      {
+        "route_name": "兖石线[0528]",
+        "direction": 1
+      }
+    ],
+    "日照|日照西": [
+      {
+        "route_name": "兖石线[0528]",
+        "direction": 1
+      }
+    ],
+    "日照西|张郭": [
+      {
+        "route_name": "兖石线[0528]",
+        "direction": 1
+      }
+    ],
+    "张郭|临沂": [
+      {
+        "route_name": "兖石线[0528]",
+        "direction": 1
+      }
+    ],
+    "临沂|跃进河": [
+      {
+        "route_name": "兖石线[0528]",
+        "direction": 1
+      }
+    ],
+    "公利线路所|集贤线路所": [
+      {
+        "route_name": "公集联络线[1122]",
+        "direction": 1
+      }
+    ],
+    "六安|安庆西": [
+      {
+        "route_name": "六庆高速线",
+        "direction": 1
+      }
+    ],
+    "双水|马嘎": [
+      {
+        "route_name": "六盘水南环线",
+        "direction": 1
+      }
+    ],
+    "马嘎|水城": [
+      {
+        "route_name": "六盘水南环线",
+        "direction": 1
+      }
+    ],
+    "柳泉线路所|唐尕昂": [
+      {
+        "route_name": "兰合铁路",
+        "direction": 1
+      }
+    ],
+    "桑园子|柳泉线路所": [
+      {
+        "route_name": "兰州北环线[0917]",
+        "direction": 1
+      }
+    ],
+    "柳泉线路所|西固": [
+      {
+        "route_name": "兰州北环线[0917]",
+        "direction": 1
+      }
+    ],
+    "西固城|石岗": [
+      {
+        "route_name": "兰州北环线[0917]",
+        "direction": 1
+      }
+    ],
+    "石岗|大沙坪": [
+      {
+        "route_name": "兰州北环线[0917]",
+        "direction": 1
+      }
+    ],
+    "定家沟线路所|兰州新区": [
+      {
+        "route_name": "兰州新区联络线[2918]",
+        "direction": 1
+      }
+    ],
+    "中川机场|张掖西": [
+      {
+        "route_name": "兰张高速线[3127]",
+        "direction": 1
+      }
+    ],
+    "张掖西|永登": [
+      {
+        "route_name": "兰张高速线[3127]",
+        "direction": 1
+      }
+    ],
+    "永登|永登北": [
+      {
+        "route_name": "兰张高速线[3127]",
+        "direction": 1
+      }
+    ],
+    "永登北|中堡": [
+      {
+        "route_name": "兰张高速线[3127]",
+        "direction": 1
+      }
+    ],
+    "中堡|富强堡": [
+      {
+        "route_name": "兰张高速线[3127]",
+        "direction": 1
+      }
+    ],
+    "兰州西|乌鲁木齐": [
+      {
+        "route_name": "兰新客专线[3032]",
+        "direction": 1
+      }
+    ],
+    "乌鲁木齐|照东": [
+      {
+        "route_name": "兰新客专线[3032]",
+        "direction": 1
+      }
+    ],
+    "照东|清泉南": [
+      {
+        "route_name": "兰新客专线[3032]",
+        "direction": 1
+      }
+    ],
+    "清泉南|哈密 قۇمۇل": [
+      {
+        "route_name": "兰新客专线[3032]",
+        "direction": 1
+      }
+    ],
+    "兰州西|阿拉山口": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "阿拉山口|呼图壁": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "呼图壁|奥体中心": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "奥体中心|红层南": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "红层南|红台": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "红台|大步": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "大步|红山口": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "红山口|鄯善 پىچان": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "鄯善 پىچان|吐哈": [
+      {
+        "route_name": "兰新线[0086]",
+        "direction": 1
+      }
+    ],
+    "兰州东|渭沱": [
+      {
+        "route_name": "兰渝线[3062]",
+        "direction": 1
+      }
+    ],
+    "渭沱|渭源": [
+      {
+        "route_name": "兰渝线[3062]",
+        "direction": 1
+      }
+    ],
+    "渭源|岷县": [
+      {
+        "route_name": "兰渝线[3062]",
+        "direction": 1
+      }
+    ],
+    "打拉亥|包头北": [
+      {
+        "route_name": "兰白联络线[1405]",
+        "direction": 1
+      }
+    ],
+    "包头北|包头西": [
+      {
+        "route_name": "兰白联络线[1405]",
+        "direction": 1
+      }
+    ],
+    "河口南|西宁西": [
+      {
+        "route_name": "兰青线",
+        "direction": 1
+      }
+    ],
+    "西宁西|曹家堡": [
+      {
+        "route_name": "兰青线",
+        "direction": 1
+      }
+    ],
+    "曹家堡|海东西": [
+      {
+        "route_name": "兰青线",
+        "direction": 1
+      }
+    ],
+    "海东西|西宁东": [
+      {
+        "route_name": "兰青线",
+        "direction": 1
+      }
+    ],
+    "西宁东|小桥": [
+      {
+        "route_name": "兰青线",
+        "direction": 1
+      }
+    ],
+    "小桥|大峡": [
+      {
+        "route_name": "兰青线",
+        "direction": 1
+      }
+    ],
+    "关山|苏家": [
+      {
+        "route_name": "关惠联络线[1467]",
+        "direction": 1
+      }
+    ],
+    "瓦塘|冯家川": [
+      {
+        "route_name": "兴保铁路",
+        "direction": 1
+      }
+    ],
+    "兴国|兴国南线路所": [
+      {
+        "route_name": "兴国疏解线[6656]",
+        "direction": 1
+      }
+    ],
+    "兴国|泉州": [
+      {
+        "route_name": "兴泉线[4656]",
+        "direction": 1
+      }
+    ],
+    "泉州|邮村": [
+      {
+        "route_name": "兴泉线[4656]",
+        "direction": 1
+      }
+    ],
+    "邮村|石城东": [
+      {
+        "route_name": "兴泉线[4656]",
+        "direction": 1
+      }
+    ],
+    "兴隆场|珞璜": [
+      {
+        "route_name": "兴珞线[1881]",
+        "direction": 1
+      }
+    ],
+    "珞璜|团结村": [
+      {
+        "route_name": "兴珞线[1881]",
+        "direction": 1
+      }
+    ],
+    "团结村|白市驿": [
+      {
+        "route_name": "兴珞线[1881]",
+        "direction": 1
+      }
+    ],
+    "兴隆场|胡豆堡线路所": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "胡豆堡线路所|康庄": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "康庄|礼嘉": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "礼嘉|井口": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "井口|九曲河": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "九曲河|团结村": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "团结村|唐家沱": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "唐家沱|铁山坪": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "铁山坪|大竹林": [
+      {
+        "route_name": "兴胡线[1870]",
+        "direction": 1
+      }
+    ],
+    "兴莲|莲北线路所": [
+      {
+        "route_name": "兴莲联络线[1121]",
+        "direction": 1
+      }
+    ],
+    "莲北线路所|莲江口": [
+      {
+        "route_name": "兴莲联络线[1121]",
+        "direction": 1
+      }
+    ],
+    "内江北|赛峨线路所": [
+      {
+        "route_name": "内江北联络线[6825]",
+        "direction": 1
+      }
+    ],
+    "南信号|小葆台": [
+      {
+        "route_name": "军供联络线[1320]",
+        "direction": 1
+      }
+    ],
+    "小葆台|看丹": [
+      {
+        "route_name": "军供联络线[1320]",
+        "direction": 1
+      }
+    ],
+    "看丹|大葆台": [
+      {
+        "route_name": "军供联络线[1320]",
+        "direction": 1
+      }
+    ],
+    "大葆台|丰台科技园": [
+      {
+        "route_name": "军供联络线[1320]",
+        "direction": 1
+      }
+    ],
+    "丰台科技园|科怡路": [
+      {
+        "route_name": "军供联络线[1320]",
+        "direction": 1
+      }
+    ],
+    "科怡路|富丰桥": [
+      {
+        "route_name": "军供联络线[1320]",
+        "direction": 1
+      }
+    ],
+    "富丰桥|白盆窑": [
+      {
+        "route_name": "军供联络线[1320]",
+        "direction": 1
+      }
+    ],
+    "白盆窑|郭公庄": [
+      {
+        "route_name": "军供联络线[1320]",
+        "direction": 1
+      }
+    ],
+    "军粮城|民生村": [
+      {
+        "route_name": "军民联络线[2324]",
+        "direction": 1
+      }
+    ],
+    "店坪南|红进塔": [
+      {
+        "route_name": "准朔线[0318]",
+        "direction": 1
+      }
+    ],
+    "红进塔|平鲁西": [
+      {
+        "route_name": "准朔线[0318]",
+        "direction": 1
+      }
+    ],
+    "平鲁西|峙峪": [
+      {
+        "route_name": "准朔线[0318]",
+        "direction": 1
+      }
+    ],
+    "峙峪|老营镇": [
+      {
+        "route_name": "准朔线[0318]",
+        "direction": 1
+      }
+    ],
+    "红进塔|店塔线路所": [
+      {
+        "route_name": "准神铁路[4031]",
+        "direction": 1
+      }
+    ],
+    "凤凰城|上河口": [
+      {
+        "route_name": "凤上线[0241]",
+        "direction": 1
+      }
+    ],
+    "上河口|官家": [
+      {
+        "route_name": "凤上线[0241]",
+        "direction": 1
+      }
+    ],
+    "官家|大堡": [
+      {
+        "route_name": "凤上线[0241]",
+        "direction": 1
+      }
+    ],
+    "大堡|凤城东": [
+      {
+        "route_name": "凤上线[0241]",
+        "direction": 1
+      }
+    ],
+    "凤城东|叆河": [
+      {
+        "route_name": "凤上线[0241]",
+        "direction": 1
+      }
+    ],
+    "凤凰西线路所|凤凰机场": [
+      {
+        "route_name": "凤凰联络线",
+        "direction": 1
+      }
+    ],
+    "凤岭北线路所|厢竹线路所": [
+      {
+        "route_name": "凤厢联络线",
+        "direction": 1
+      }
+    ],
+    "厢竹线路所|金桥客运站": [
+      {
+        "route_name": "凤厢联络线",
+        "direction": 1
+      }
+    ],
+    "金桥客运站|滨湖路": [
+      {
+        "route_name": "凤厢联络线",
+        "direction": 1
+      }
+    ],
+    "南张村|凤山": [
+      {
+        "route_name": "凤山线[0375]",
+        "direction": 1
+      }
+    ],
+    "分宜|茶陵西": [
+      {
+        "route_name": "分茶线[0672]",
+        "direction": 1
+      }
+    ],
+    "茶陵西|文竹": [
+      {
+        "route_name": "分茶线[0672]",
+        "direction": 1
+      }
+    ],
+    "文竹|永新": [
+      {
+        "route_name": "分茶线[0672]",
+        "direction": 1
+      }
+    ],
+    "永新|莲花": [
+      {
+        "route_name": "分茶线[0672]",
+        "direction": 1
+      }
+    ],
+    "莲花|金田": [
+      {
+        "route_name": "分茶线[0672]",
+        "direction": 1
+      }
+    ],
+    "刘家线路所|石家村线路所": [
+      {
+        "route_name": "刘家村联络线[1561]",
+        "direction": 1
+      }
+    ],
+    "石家村线路所|娄山": [
+      {
+        "route_name": "刘家村联络线[1561]",
+        "direction": 1
+      }
+    ],
+    "娄山|仙家寨": [
+      {
+        "route_name": "刘家村联络线[1561]",
+        "direction": 1
+      }
+    ],
+    "仙家寨|遵义路": [
+      {
+        "route_name": "刘家村联络线[1561]",
+        "direction": 1
+      }
+    ],
+    "遵义路|瑞金路": [
+      {
+        "route_name": "刘家村联络线[1561]",
+        "direction": 1
+      }
+    ],
+    "襄阳东|前岗线路所": [
+      {
+        "route_name": "前岗联络线[6455]",
+        "direction": 1
+      }
+    ],
+    "前进镇|抚远": [
+      {
+        "route_name": "前抚线[0182]",
+        "direction": 1
+      }
+    ],
+    "黄岛|前湾港": [
+      {
+        "route_name": "前湾港联络线[33510]",
+        "direction": 1
+      }
+    ],
+    "前卫|绥中港": [
+      {
+        "route_name": "前绥线[0288]",
+        "direction": 1
+      }
+    ],
+    "前亭|贾汪": [
+      {
+        "route_name": "前贾铁路[0530]",
+        "direction": 1
+      }
+    ],
+    "前阳南|东港": [
+      {
+        "route_name": "前阳南出港线[0282]",
+        "direction": 1
+      },
+      {
+        "route_name": "前阳南进港线[0281]",
+        "direction": 1
+      }
+    ],
+    "东港|东港北": [
+      {
+        "route_name": "前阳南出港线[0282]",
+        "direction": 1
+      },
+      {
+        "route_name": "前阳南进港线[0281]",
+        "direction": 1
+      }
+    ],
+    "勃利|七台河": [
+      {
+        "route_name": "勃七线[0130]",
+        "direction": 1
+      }
+    ],
+    "七台河|缸窑沟": [
+      {
+        "route_name": "勃七线[0130]",
+        "direction": 1
+      }
+    ],
+    "缸窑沟|水库": [
+      {
+        "route_name": "勃七线[0130]",
+        "direction": 1
+      }
+    ],
+    "水库|东岗": [
+      {
+        "route_name": "勃七线[0130]",
+        "direction": 1
+      }
+    ],
+    "包头|兰州东": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "兰州东|万水泉": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "万水泉|孟家湾": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "孟家湾|分守岭": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "分守岭|广武堡": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "广武堡|渠口堡": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "渠口堡|赵家水": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "赵家水|黄崖": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "黄崖|干塘": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "干塘|小红山": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "小红山|邵家堂": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "邵家堂|土龙川": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "土龙川|丰水村": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "丰水村|皋兰": [
+      {
+        "route_name": "包兰线[0039]",
+        "direction": 1
+      }
+    ],
+    "包头|包头西": [
+      {
+        "route_name": "包包联络线[2418]",
+        "direction": 1
+      }
+    ],
+    "包庄|海州": [
+      {
+        "route_name": "包庄联络线",
+        "direction": 1
+      }
+    ],
+    "白云鄂博南|满都拉": [
+      {
+        "route_name": "包满铁路[0414]",
+        "direction": 1
+      }
+    ],
+    "包头东|昆都仑召": [
+      {
+        "route_name": "包环线[0403]",
+        "direction": 1
+      }
+    ],
+    "昆都仑召|新贤城": [
+      {
+        "route_name": "包环线[0403]",
+        "direction": 1
+      }
+    ],
+    "新贤城|二道沙河": [
+      {
+        "route_name": "包环线[0403]",
+        "direction": 1
+      }
+    ],
+    "二道沙河|四道沙河": [
+      {
+        "route_name": "包环线[0403]",
+        "direction": 1
+      }
+    ],
+    "包头西|白云鄂博": [
+      {
+        "route_name": "包白线[0405]",
+        "direction": 1
+      }
+    ],
+    "万水泉|大柳塔": [
+      {
+        "route_name": "包神线[0408]",
+        "direction": 1
+      }
+    ],
+    "包头西|包头南": [
+      {
+        "route_name": "包西疏解线[1410]",
+        "direction": 1
+      }
+    ],
+    "包头|新丰镇": [
+      {
+        "route_name": "包西铁路[0095]",
+        "direction": 1
+      }
+    ],
+    "包头|西安东": [
+      {
+        "route_name": "包西高速线[3142]",
+        "direction": 1
+      }
+    ],
+    "包头|银川": [
+      {
+        "route_name": "包银高铁[3131]",
+        "direction": 1
+      }
+    ],
+    "北京|北京西": [
+      {
+        "route_name": "北京直通线[2344]",
+        "direction": 1
+      }
+    ],
+    "邱隘|北仑": [
+      {
+        "route_name": "北仑线[0638]",
+        "direction": 1
+      }
+    ],
+    "宁波东|邱隘": [
+      {
+        "route_name": "北仑联络线[1660]",
+        "direction": 1
+      }
+    ],
+    "骆驼营|保国": [
+      {
+        "route_name": "北保线",
+        "direction": 1
+      }
+    ],
+    "大同|皇后园": [
+      {
+        "route_name": "北同蒲线[0301]",
+        "direction": 1
+      }
+    ],
+    "北郊|杨行": [
+      {
+        "route_name": "北杨线[0684]",
+        "direction": 1
+      }
+    ],
+    "北塘西|新港北": [
+      {
+        "route_name": "北环进港线[2360]",
+        "direction": 1
+      }
+    ],
+    "郜营|襄阳北": [
+      {
+        "route_name": "北联线[1484]",
+        "direction": 1
+      }
+    ],
+    "北塬|芝阳": [
+      {
+        "route_name": "北芝线[0481]",
+        "direction": 1
+      }
+    ],
+    "北安|黑河": [
+      {
+        "route_name": "北黑线[0122]",
+        "direction": 1
+      }
+    ],
+    "卑家店|刘官营": [
+      {
+        "route_name": "卑水线[2005]",
+        "direction": 1
+      }
+    ],
+    "南京|南京西": [
+      {
+        "route_name": "南京客线[0683]",
+        "direction": 1
+      },
+      {
+        "route_name": "南京货线[0686]",
+        "direction": 1
+      }
+    ],
+    "林场|高里": [
+      {
+        "route_name": "南京枢纽京沪货线",
+        "direction": 1
+      }
+    ],
+    "南宁|凭祥东": [
+      {
+        "route_name": "南凭高速线[311X]",
+        "direction": 1
+      }
+    ],
+    "榆次|孟塬": [
+      {
+        "route_name": "南同蒲线[0033]",
+        "direction": 1
+      }
+    ],
+    "汉沽|南堡": [
+      {
+        "route_name": "南堡线[0321]",
+        "direction": 1
+      }
+    ],
+    "吴圩机场|玉洞": [
+      {
+        "route_name": "南宁市市郊铁路机场线",
+        "direction": 1
+      }
+    ],
+    "南宁|广州南": [
+      {
+        "route_name": "南广铁路[3029]",
+        "direction": 1
+      }
+    ],
+    "南坡底|庄儿上": [
+      {
+        "route_name": "南庄线[0355]",
+        "direction": 1
+      }
+    ],
+    "南三道|新九站": [
+      {
+        "route_name": "南新联络线[1236]",
+        "direction": 1
+      }
+    ],
+    "南宁|昆明南": [
+      {
+        "route_name": "南昆客专线[3056]",
+        "direction": 1
+      }
+    ],
+    "江西村|昆明东": [
+      {
+        "route_name": "南昆线[0082]",
+        "direction": 1
+      }
+    ],
+    "乐化|向塘": [
+      {
+        "route_name": "南昌枢纽西环线[0692]",
+        "direction": 1
+      }
+    ],
+    "南仓|曹庄": [
+      {
+        "route_name": "南曹线[1324]",
+        "direction": 1
+      }
+    ],
+    "沭埠岭|临沂南": [
+      {
+        "route_name": "南沭联络线[1585]",
+        "direction": 1
+      }
+    ],
+    "南湖|大花岭": [
+      {
+        "route_name": "南湖大花岭联络线[2469]",
+        "direction": 1
+      }
+    ],
+    "南关岭|甘井子": [
+      {
+        "route_name": "南甘线[0246]",
+        "direction": 1
+      }
+    ],
+    "女儿河|南票": [
+      {
+        "route_name": "南票线[0266]",
+        "direction": 1
+      }
+    ],
+    "南定|罗家庄": [
+      {
+        "route_name": "南罗线[0510]",
+        "direction": 1
+      }
+    ],
+    "衡阳东|南宁东": [
+      {
+        "route_name": "南衡高速铁路",
+        "direction": 1
+      }
+    ],
+    "南宁南|防城港北": [
+      {
+        "route_name": "南防线[2751]",
+        "direction": 1
+      }
+    ],
+    "延平|龙岩": [
+      {
+        "route_name": "南龙线[3074]",
+        "direction": 1
+      }
+    ],
+    "博山|八陡": [
+      {
+        "route_name": "博八线[0509]",
+        "direction": 1
+      }
+    ],
+    "博兴|小营": [
+      {
+        "route_name": "博小铁路[0507]",
+        "direction": 1
+      }
+    ],
+    "沟口|塔尔气": [
+      {
+        "route_name": "博林线[0109]",
+        "direction": 1
+      }
+    ],
+    "厦门北|杏林": [
+      {
+        "route_name": "厦门北联络线[2656]",
+        "direction": 1
+      }
+    ],
+    "叉河|石碌": [
+      {
+        "route_name": "叉石支线[0723]",
+        "direction": 1
+      }
+    ],
+    "双子河|乌锦": [
+      {
+        "route_name": "双乌线[0185]",
+        "direction": 1
+      }
+    ],
+    "双辽|山场屯": [
+      {
+        "route_name": "双山线[0286]",
+        "direction": 1
+      }
+    ],
+    "双阳|白泉": [
+      {
+        "route_name": "双白线[0224]",
+        "direction": 1
+      }
+    ],
+    "双墩集|雷麻店": [
+      {
+        "route_name": "双雷线[6648]",
+        "direction": 1
+      }
+    ],
+    "九江西|九里垄": [
+      {
+        "route_name": "发西线[0676]",
+        "direction": 1
+      }
+    ],
+    "叙永北|毕节东": [
+      {
+        "route_name": "叙毕线",
+        "direction": 1
+      }
+    ],
+    "平旺|乔村": [
+      {
+        "route_name": "口泉铁路[0304]",
+        "direction": 1
+      }
+    ],
+    "古店|大同东": [
+      {
+        "route_name": "古大联络线[2362]",
+        "direction": 1
+      }
+    ],
+    "透堡|可门": [
+      {
+        "route_name": "可门支线[0698]",
+        "direction": 1
+      }
+    ],
+    "台前北|台前": [
+      {
+        "route_name": "台前北联络线[1541]",
+        "direction": 1
+      }
+    ],
+    "叶柏寿|赤峰南": [
+      {
+        "route_name": "叶赤线[0265]",
+        "direction": 1
+      }
+    ],
+    "柏庄村|司家营": [
+      {
+        "route_name": "司曹线[8363]",
+        "direction": 1
+      }
+    ],
+    "大官塘|南岗": [
+      {
+        "route_name": "合九联络线[6649]",
+        "direction": 1
+      }
+    ],
+    "肥东|三十里铺": [
+      {
+        "route_name": "合宁绕行线[6612]",
+        "direction": 1
+      }
+    ],
+    "合肥西|安庆西": [
+      {
+        "route_name": "合安客运专线",
+        "direction": 1
+      }
+    ],
+    "合肥西|新沂南": [
+      {
+        "route_name": "合新高速线",
+        "direction": 1
+      }
+    ],
+    "肥东|桐庐东": [
+      {
+        "route_name": "合杭高速线[3096]",
+        "direction": 1
+      }
+    ],
+    "合肥|长安集": [
+      {
+        "route_name": "合武绕行线[2604]",
+        "direction": 1
+      }
+    ],
+    "合肥北城|福州": [
+      {
+        "route_name": "合福高速线[3047]",
+        "direction": 1
+      }
+    ],
+    "桃花店|合肥北": [
+      {
+        "route_name": "合肥北联络线[1653]",
+        "direction": 1
+      }
+    ],
+    "合肥|三十里铺": [
+      {
+        "route_name": "合肥新客线[1685]",
+        "direction": 1
+      }
+    ],
+    "撮镇|钟油坊": [
+      {
+        "route_name": "合肥绕行线[1684]",
+        "direction": 1
+      }
+    ],
+    "合肥|蚌埠南": [
+      {
+        "route_name": "合蚌高速线[3024]",
+        "direction": 1
+      }
+    ],
+    "凤凰古城|大宗坪": [
+      {
+        "route_name": "吉玉线[3069]",
+        "direction": 1
+      }
+    ],
+    "江北|舒兰": [
+      {
+        "route_name": "吉舒铁路[0210]",
+        "direction": 1
+      }
+    ],
+    "向阳川|同江北": [
+      {
+        "route_name": "同江线[0186]",
+        "direction": 1
+      }
+    ],
+    "同兴|金山湾": [
+      {
+        "route_name": "同金联络线[1221]",
+        "direction": 1
+      }
+    ],
+    "梁家渡|向塘西": [
+      {
+        "route_name": "向东D2线;向东E2线[1666;1667]",
+        "direction": 1
+      }
+    ],
+    "向塘西|潭岗": [
+      {
+        "route_name": "向西A3线;向西B3线[1670;1679]",
+        "direction": 1
+      }
+    ],
+    "吴四圪堵|高头窑": [
+      {
+        "route_name": "吴高线[8420]",
+        "direction": 1
+      }
+    ],
+    "琉璃河|周口店": [
+      {
+        "route_name": "周支铁路[0344]",
+        "direction": 1
+      }
+    ],
+    "周口店|良各庄": [
+      {
+        "route_name": "周良联络线[1327]",
+        "direction": 1
+      }
+    ],
+    "呼和浩特南|前朱堡": [
+      {
+        "route_name": "呼前联络线[2409]",
+        "direction": 1
+      }
+    ],
+    "呼和浩特南|王气": [
+      {
+        "route_name": "呼王联络线[1419]",
+        "direction": 1
+      }
+    ],
+    "呼和浩特南|甲兰营": [
+      {
+        "route_name": "呼甲联络线[1414]",
+        "direction": 1
+      }
+    ],
+    "台阁牧|鄂尔多斯": [
+      {
+        "route_name": "呼鄂线[4403]",
+        "direction": 1
+      }
+    ],
+    "和龙|南坪镇": [
+      {
+        "route_name": "和坪线[0222]",
+        "direction": 1
+      }
+    ],
+    "和龙|龙井": [
+      {
+        "route_name": "和龙线[0209]",
+        "direction": 1
+      }
+    ],
+    "咸阳|铜川东": [
+      {
+        "route_name": "咸铜线[0455]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨北|伊春": [
+      {
+        "route_name": "哈伊高速线",
+        "direction": 1
+      }
+    ],
+    "哈尔滨|佳木斯": [
+      {
+        "route_name": "哈佳线[3070]",
+        "direction": 1
+      }
+    ],
+    "北戴河|南大寺": [
+      {
+        "route_name": "哈港联线[2338]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨|牡丹江": [
+      {
+        "route_name": "哈牡客专线[3073]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨|齐齐哈尔": [
+      {
+        "route_name": "哈齐客专线[3046]",
+        "direction": 1
+      }
+    ],
+    "响沙湾|四眼井": [
+      {
+        "route_name": "响四线[4402]",
+        "direction": 1
+      }
+    ],
+    "响沙湾|大院东": [
+      {
+        "route_name": "响大线[4407]",
+        "direction": 1
+      }
+    ],
+    "哲里木|通辽": [
+      {
+        "route_name": "哲通联络线[1418]",
+        "direction": 1
+      }
+    ],
+    "滦平东|张百湾": [
+      {
+        "route_name": "唐包京通联线[2357]",
+        "direction": 1
+      }
+    ],
+    "曹妃甸北|包头": [
+      {
+        "route_name": "唐包线[0349]",
+        "direction": 1
+      }
+    ],
+    "唐山北|杨家口": [
+      {
+        "route_name": "唐山北联络线[2352]",
+        "direction": 1
+      }
+    ],
+    "七道桥|曹妃甸东": [
+      {
+        "route_name": "唐曹线[7359]",
+        "direction": 1
+      }
+    ],
+    "唐山南|石人沟": [
+      {
+        "route_name": "唐遵线[0352]",
+        "direction": 1
+      }
+    ],
+    "商丘南|商丘": [
+      {
+        "route_name": "商丘南西联络线[1498]",
+        "direction": 1
+      }
+    ],
+    "喀左|赤峰": [
+      {
+        "route_name": "喀赤客专线[3095]",
+        "direction": 1
+      }
+    ],
+    "嘉峪关南|嘉峪关": [
+      {
+        "route_name": "嘉峪关南联络线",
+        "direction": 1
+      }
+    ],
+    "嘉峪关|镜铁山": [
+      {
+        "route_name": "嘉镜铁路",
+        "direction": 1
+      }
+    ],
+    "四平|梅河口": [
+      {
+        "route_name": "四梅线[0205]",
+        "direction": 1
+      }
+    ],
+    "团林|杉松岗": [
+      {
+        "route_name": "团杉线[0213]",
+        "direction": 1
+      }
+    ],
+    "东埔|度下": [
+      {
+        "route_name": "国投支线[4652]",
+        "direction": 1
+      }
+    ],
+    "图们|佳木斯": [
+      {
+        "route_name": "图佳线[0011]",
+        "direction": 1
+      }
+    ],
+    "东莞东|土塘": [
+      {
+        "route_name": "土塘联络线[1730]",
+        "direction": 1
+      }
+    ],
+    "潍坊|坊子": [
+      {
+        "route_name": "坊子线[0505]",
+        "direction": 1
+      }
+    ],
+    "坪石|木冲": [
+      {
+        "route_name": "坪木线",
+        "direction": 1
+      }
+    ],
+    "城子坦东|庄河": [
+      {
+        "route_name": "城庄线[0297]",
+        "direction": 1
+      }
+    ],
+    "上高南|七宝山": [
+      {
+        "route_name": "塔七线[0674]",
+        "direction": 1
+      }
+    ],
+    "塔黄旗东|多伦": [
+      {
+        "route_name": "塔多线",
+        "direction": 1
+      }
+    ],
+    "塔黄旗东|锡林浩特": [
+      {
+        "route_name": "塔锡线[4028]",
+        "direction": 1
+      }
+    ],
+    "塔然高勒|韩家村": [
+      {
+        "route_name": "塔韩线",
+        "direction": 1
+      }
+    ],
+    "塔河|韩家园": [
+      {
+        "route_name": "塔韩线[0110]",
+        "direction": 1
+      }
+    ],
+    "塘口|湛江西": [
+      {
+        "route_name": "塘口南疏解线[6712]",
+        "direction": 1
+      }
+    ],
+    "黄略|塘口": [
+      {
+        "route_name": "塘口深湛联络线[2731]",
+        "direction": 1
+      }
+    ],
+    "外洋|延平东": [
+      {
+        "route_name": "外南线[1629]",
+        "direction": 1
+      }
+    ],
+    "大丰西|大丰港": [
+      {
+        "route_name": "大丰港铁路",
+        "direction": 1
+      }
+    ],
+    "大理洱海|攀枝花南": [
+      {
+        "route_name": "大丽攀铁路",
+        "direction": 1
+      }
+    ],
+    "铁山|大箕铺": [
+      {
+        "route_name": "大冶附属线[2401]",
+        "direction": 1
+      }
+    ],
+    "五路|木城涧": [
+      {
+        "route_name": "大台线[0333]",
+        "direction": 1
+      }
+    ],
+    "大安|大安北": [
+      {
+        "route_name": "大安联络线[1258]",
+        "direction": 1
+      }
+    ],
+    "大安北|大安西": [
+      {
+        "route_name": "大安西联络线[1259]",
+        "direction": 1
+      }
+    ],
+    "大岭铺|旬阳": [
+      {
+        "route_name": "大旬联络线",
+        "direction": 1
+      }
+    ],
+    "大红门|黄村": [
+      {
+        "route_name": "大李线[1340]",
+        "direction": 1
+      }
+    ],
+    "段甲岭|大石庄": [
+      {
+        "route_name": "大段上联线[1385]",
+        "direction": 1
+      }
+    ],
+    "大石庄|段甲岭": [
+      {
+        "route_name": "大段下联线[1386]",
+        "direction": 1
+      }
+    ],
+    "大理|大理洱海": [
+      {
+        "route_name": "大理北线[1871]",
+        "direction": 1
+      }
+    ],
+    "柳村|柳村南": [
+      {
+        "route_name": "大秦三期煤码头线[1387]",
+        "direction": 1
+      },
+      {
+        "route_name": "大秦四期煤码头线[1331]",
+        "direction": 1
+      }
+    ],
+    "韩家岭|柳村": [
+      {
+        "route_name": "大秦线[0313]",
+        "direction": 1
+      }
+    ],
+    "大花岭|大花岭南": [
+      {
+        "route_name": "大花岭货场疏解线[6465]",
+        "direction": 1
+      },
+      {
+        "route_name": "大花岭货场联络线[7451]",
+        "direction": 1
+      }
+    ],
+    "大家洼|龙口": [
+      {
+        "route_name": "大莱龙铁路",
+        "direction": 1
+      }
+    ],
+    "怀仁东|西安北": [
+      {
+        "route_name": "大西高速线[3027]",
+        "direction": 1
+      }
+    ],
+    "大虎山|双辽": [
+      {
+        "route_name": "大郑铁路[0261]",
+        "direction": 1
+      }
+    ],
+    "天门北|仙桃东": [
+      {
+        "route_name": "天仙线[0439]",
+        "direction": 1
+      }
+    ],
+    "天水|安口南": [
+      {
+        "route_name": "天华线[0098]",
+        "direction": 1
+      }
+    ],
+    "南仓|北塘": [
+      {
+        "route_name": "天津北环线[0325]",
+        "direction": 1
+      }
+    ],
+    "汉沟镇|山岭子": [
+      {
+        "route_name": "天津大北环线[7319]",
+        "direction": 1
+      }
+    ],
+    "周李庄|咸水沽": [
+      {
+        "route_name": "天津西南环线[7322]",
+        "direction": 1
+      }
+    ],
+    "长基|下洋": [
+      {
+        "route_name": "天湖山线[0690]",
+        "direction": 1
+      }
+    ],
+    "天门东|潜江北": [
+      {
+        "route_name": "天潜线[0440]",
+        "direction": 1
+      }
+    ],
+    "天府|朝阳湖": [
+      {
+        "route_name": "天蒲铁路",
+        "direction": 1
+      }
+    ],
+    "杨家碾|陇南西": [
+      {
+        "route_name": "天陇铁路",
+        "direction": 1
+      }
+    ],
+    "太原南|黄羊湾": [
+      {
+        "route_name": "太中线[0096]",
+        "direction": 1
+      }
+    ],
+    "汾河|白文": [
+      {
+        "route_name": "太兴铁路[0316]",
+        "direction": 1
+      }
+    ],
+    "太原北|汾河": [
+      {
+        "route_name": "太北Ⅰ-Ⅵ场联络线[0308]",
+        "direction": 1
+      }
+    ],
+    "汾河|中鼎物流园": [
+      {
+        "route_name": "太原西南环线[太原西南环线]",
+        "direction": 1
+      }
+    ],
+    "修文|月山": [
+      {
+        "route_name": "太焦线[0032]",
+        "direction": 1
+      }
+    ],
+    "太子城|锡林浩特": [
+      {
+        "route_name": "太锡铁路",
+        "direction": 1
+      }
+    ],
+    "临海东|头门港": [
+      {
+        "route_name": "头门港支线",
+        "direction": 1
+      }
+    ],
+    "夹河寨|徐州北": [
+      {
+        "route_name": "夹北铁路[0531]",
+        "direction": 1
+      }
+    ],
+    "如东|长兴": [
+      {
+        "route_name": "如通苏湖城际铁路",
+        "direction": 1
+      }
+    ],
+    "威舍|红果": [
+      {
+        "route_name": "威红铁路",
+        "direction": 1
+      }
+    ],
+    "嫩江|古莲": [
+      {
+        "route_name": "嫩林线[0104]",
+        "direction": 1
+      }
+    ],
+    "孙家|新香坊": [
+      {
+        "route_name": "孙新线[1126]",
+        "direction": 1
+      }
+    ],
+    "孝西|穆村": [
+      {
+        "route_name": "孝柳铁路[0389]",
+        "direction": 1
+      }
+    ],
+    "孟庙|宝丰": [
+      {
+        "route_name": "孟宝线[0426]",
+        "direction": 1
+      }
+    ],
+    "孟庙|漯河": [
+      {
+        "route_name": "孟漯联络线[6461]",
+        "direction": 1
+      }
+    ],
+    "烟台西|大季家北": [
+      {
+        "route_name": "季港线[1549]",
+        "direction": 1
+      }
+    ],
+    "南京南|安庆": [
+      {
+        "route_name": "宁安客运专线[3053]",
+        "direction": 1
+      }
+    ],
+    "南京|宣城": [
+      {
+        "route_name": "宁宣城际铁路",
+        "direction": 1
+      }
+    ],
+    "宁武|岢岚": [
+      {
+        "route_name": "宁岢铁路[0305]",
+        "direction": 1
+      }
+    ],
+    "漳湾|宁德北": [
+      {
+        "route_name": "宁德北联络线",
+        "direction": 1
+      }
+    ],
+    "漳湾|宁德": [
+      {
+        "route_name": "宁德疏解线",
+        "direction": 1
+      }
+    ],
+    "南京南|杭州东": [
+      {
+        "route_name": "宁杭高速线[3026]",
+        "direction": 1
+      }
+    ],
+    "宁波北|云龙": [
+      {
+        "route_name": "宁波北环线[0650]",
+        "direction": 1
+      }
+    ],
+    "南京|淮安东": [
+      {
+        "route_name": "宁淮城际铁路",
+        "direction": 1
+      }
+    ],
+    "兴卫村|火龙岗": [
+      {
+        "route_name": "宁芜线[0618]",
+        "direction": 1
+      }
+    ],
+    "新丰镇|长安集": [
+      {
+        "route_name": "宁西线[0006]",
+        "direction": 1
+      }
+    ],
+    "宁武|静乐": [
+      {
+        "route_name": "宁静铁路",
+        "direction": 1
+      }
+    ],
+    "靖宇|长白山西": [
+      {
+        "route_name": "宇松线[0223]",
+        "direction": 1
+      }
+    ],
+    "靖宇|辉南": [
+      {
+        "route_name": "宇辉铁路[0218]",
+        "direction": 1
+      }
+    ],
+    "安顺西|水城": [
+      {
+        "route_name": "安六客专线[3093]",
+        "direction": 1
+      }
+    ],
+    "安靖|天回镇": [
+      {
+        "route_name": "安天联络线[1819]",
+        "direction": 1
+      }
+    ],
+    "怀宁|安庆": [
+      {
+        "route_name": "安庆线[0645]",
+        "direction": 1
+      }
+    ],
+    "安庆西|安庆": [
+      {
+        "route_name": "安庆联络线[6646]",
+        "direction": 1
+      }
+    ],
+    "安康东|安康": [
+      {
+        "route_name": "安康枢纽联络线[6481]",
+        "direction": 1
+      }
+    ],
+    "安阳|李珍": [
+      {
+        "route_name": "安李铁路[0421]",
+        "direction": 1
+      }
+    ],
+    "定边|银川南": [
+      {
+        "route_name": "定银线[0916]",
+        "direction": 1
+      }
+    ],
+    "宜昌北|兴山": [
+      {
+        "route_name": "宜兴高速铁路[3138]",
+        "direction": 1
+      }
+    ],
+    "宜宾|宜宾西": [
+      {
+        "route_name": "宜宾西联络线",
+        "direction": 1
+      }
+    ],
+    "宜昌北|常德": [
+      {
+        "route_name": "宜常高速线",
+        "direction": 1
+      }
+    ],
+    "虢镇|千河": [
+      {
+        "route_name": "宝中疏解线[1493]",
+        "direction": 1
+      }
+    ],
+    "卧龙寺|千河": [
+      {
+        "route_name": "宝中联络线[1492]",
+        "direction": 1
+      }
+    ],
+    "虢镇|柳家庄": [
+      {
+        "route_name": "宝中铁路[0061]",
+        "direction": 1
+      }
+    ],
+    "宝鸡|成都": [
+      {
+        "route_name": "宝成线[0057]",
+        "direction": 1
+      }
+    ],
+    "聊城东|聊城": [
+      {
+        "route_name": "客车联络线[1000]",
+        "direction": 1
+      }
+    ],
+    "宣化|赵川": [
+      {
+        "route_name": "宣庞线[0334]",
+        "direction": 1
+      }
+    ],
+    "宣城|乔司": [
+      {
+        "route_name": "宣杭线[0634]",
+        "direction": 1
+      }
+    ],
+    "宣城|绩溪北": [
+      {
+        "route_name": "宣绩高速线",
+        "direction": 1
+      }
+    ],
+    "符离集|袁北": [
+      {
+        "route_name": "宿淮铁路[0649]",
+        "direction": 1
+      }
+    ],
+    "密山|东方红": [
+      {
+        "route_name": "密东线[0132]",
+        "direction": 1
+      }
+    ],
+    "富裕|嫩江": [
+      {
+        "route_name": "富嫩线[0103]",
+        "direction": 1
+      }
+    ],
+    "将军庙|白石湖南": [
+      {
+        "route_name": "将淖线",
+        "direction": 1
+      }
+    ],
+    "小林|厉山": [
+      {
+        "route_name": "小厉铁路[0433]",
+        "direction": 1
+      }
+    ],
+    "小梁庄|颍泉": [
+      {
+        "route_name": "小梁庄联络线[6453]",
+        "direction": 1
+      }
+    ],
+    "小营|沾化": [
+      {
+        "route_name": "小沾铁路[8501]",
+        "direction": 1
+      }
+    ],
+    "小南海|重庆西": [
+      {
+        "route_name": "小西线[0809]",
+        "direction": 1
+      }
+    ],
+    "栖霞山北|兴卫村": [
+      {
+        "route_name": "尧兴支线[1632]",
+        "direction": 1
+      }
+    ],
+    "岢岚|瓦塘": [
+      {
+        "route_name": "岢瓦线[8362]",
+        "direction": 1
+      }
+    ],
+    "燕岗|广通北": [
+      {
+        "route_name": "峨广线[0084]",
+        "direction": 1
+      }
+    ],
+    "乐山|峨眉山": [
+      {
+        "route_name": "峨眉山线[3042]",
+        "direction": 1
+      }
+    ],
+    "横峰|杜坞": [
+      {
+        "route_name": "峰福线[0652]",
+        "direction": 1
+      }
+    ],
+    "鹤立|大陆": [
+      {
+        "route_name": "峻德线[0136]",
+        "direction": 1
+      }
+    ],
+    "下花园北|崇礼": [
+      {
+        "route_name": "崇礼线[3087]",
+        "direction": 1
+      }
+    ],
+    "唐山东|崔马庄": [
+      {
+        "route_name": "崔联线[1393]",
+        "direction": 1
+      }
+    ],
+    "崖州|崖州湾": [
+      {
+        "route_name": "崖州联络线",
+        "direction": 1
+      }
+    ],
+    "天府|协荣": [
+      {
+        "route_name": "川藏铁路",
+        "direction": 1
+      }
+    ],
+    "协荣|林芝": [
+      {
+        "route_name": "川藏铁路拉林段",
+        "direction": 1
+      }
+    ],
+    "青白江|海东西": [
+      {
+        "route_name": "川青铁路",
+        "direction": 1
+      }
+    ],
+    "巢湖东|马鞍山南": [
+      {
+        "route_name": "巢马城际铁路",
+        "direction": 1
+      }
+    ],
+    "巴图塔|点岱沟": [
+      {
+        "route_name": "巴准铁路",
+        "direction": 1
+      }
+    ],
+    "巴中东|南充北": [
+      {
+        "route_name": "巴南高速线",
+        "direction": 1
+      }
+    ],
+    "大板北|新邱": [
+      {
+        "route_name": "巴新铁路[10577]",
+        "direction": 1
+      }
+    ],
+    "扎布其尔|东乌旗": [
+      {
+        "route_name": "巴珠线[4405]",
+        "direction": 1
+      }
+    ],
+    "虹桥2号航站楼|上海东": [
+      {
+        "route_name": "市域铁机场联络线",
+        "direction": 1
+      }
+    ],
+    "常德|长沙西": [
+      {
+        "route_name": "常益长高速铁路",
+        "direction": 1
+      }
+    ],
+    "干塘|武威南": [
+      {
+        "route_name": "干武线[0903]",
+        "direction": 1
+      }
+    ],
+    "平凉南|庆阳": [
+      {
+        "route_name": "平庆铁路",
+        "direction": 1
+      }
+    ],
+    "平罗|汝箕沟": [
+      {
+        "route_name": "平汝铁路",
+        "direction": 1
+      }
+    ],
+    "平顶山西|周口东": [
+      {
+        "route_name": "平漯周高速铁路",
+        "direction": 1
+      }
+    ],
+    "平湖南|盐田": [
+      {
+        "route_name": "平盐铁路",
+        "direction": 1
+      }
+    ],
+    "四平|齐齐哈尔": [
+      {
+        "route_name": "平齐线[0015]",
+        "direction": 1
+      }
+    ],
+    "番禺|佛山西": [
+      {
+        "route_name": "广佛南环城际线",
+        "direction": 1
+      }
+    ],
+    "花都|佛山西": [
+      {
+        "route_name": "广佛西环城际线",
+        "direction": 1
+      }
+    ],
+    "花都|番禺": [
+      {
+        "route_name": "广州东环城际线",
+        "direction": 1
+      }
+    ],
+    "番禺|惠州北": [
+      {
+        "route_name": "广惠城际线[3052]",
+        "direction": 1
+      }
+    ],
+    "广通北|昆明": [
+      {
+        "route_name": "广昆线[0827]",
+        "direction": 1
+      }
+    ],
+    "新塘|汕尾": [
+      {
+        "route_name": "广汕高速铁路",
+        "direction": 1
+      }
+    ],
+    "广州|深圳": [
+      {
+        "route_name": "广深线[0706]",
+        "direction": 1
+      }
+    ],
+    "广州白云|飞霞": [
+      {
+        "route_name": "广清城际铁路",
+        "direction": 1
+      }
+    ],
+    "广州|湛江北": [
+      {
+        "route_name": "广湛高速线",
+        "direction": 1
+      }
+    ],
+    "广州南|珠海": [
+      {
+        "route_name": "广珠城际铁路[3016]",
+        "direction": 1
+      }
+    ],
+    "江村|高栏港": [
+      {
+        "route_name": "广珠线[0710]",
+        "direction": 1
+      }
+    ],
+    "番禺|肇庆": [
+      {
+        "route_name": "广肇城际线[3060]",
+        "direction": 1
+      }
+    ],
+    "茂名|茂名东": [
+      {
+        "route_name": "广茂疏解线[1721]",
+        "direction": 1
+      }
+    ],
+    "街边|茂名西": [
+      {
+        "route_name": "广茂线[0708]",
+        "direction": 1
+      }
+    ],
+    "柯坦|钟鸣": [
+      {
+        "route_name": "庐铜铁路[0611]",
+        "direction": 1
+      }
+    ],
+    "泸定|火夹仲": [
+      {
+        "route_name": "康定展线",
+        "direction": 1
+      }
+    ],
+    "康庄|延庆": [
+      {
+        "route_name": "康延线[2315]",
+        "direction": 1
+      }
+    ],
+    "建宁县北|宁化": [
+      {
+        "route_name": "建化线[4654]",
+        "direction": 1
+      }
+    ],
+    "弋阳|樟树墩": [
+      {
+        "route_name": "弋樟线[0640]",
+        "direction": 1
+      }
+    ],
+    "淄博|东营": [
+      {
+        "route_name": "张东线[0506]",
+        "direction": 1
+      }
+    ],
+    "淄博|博山": [
+      {
+        "route_name": "张博线[0508]",
+        "direction": 1
+      }
+    ],
+    "张家界西|怀化南": [
+      {
+        "route_name": "张吉怀高速线",
+        "direction": 1
+      }
+    ],
+    "张家山|上塘": [
+      {
+        "route_name": "张塘线[0668]",
+        "direction": 1
+      }
+    ],
+    "怀安|怀仁东": [
+      {
+        "route_name": "张大客专线[3092]",
+        "direction": 1
+      }
+    ],
+    "待王|北朱村": [
+      {
+        "route_name": "待焦联络线[1447]",
+        "direction": 1
+      }
+    ],
+    "徐州东|兰州西": [
+      {
+        "route_name": "徐兰高速线[3013]",
+        "direction": 1
+      }
+    ],
+    "郑州西|中原": [
+      {
+        "route_name": "徐兰高速郑州联络线[2421]",
+        "direction": 1
+      }
+    ],
+    "云台山|徐圩": [
+      {
+        "route_name": "徐圩支线",
+        "direction": 1
+      }
+    ],
+    "徐州|徐州北": [
+      {
+        "route_name": "徐州小运转线[2610]",
+        "direction": 1
+      }
+    ],
+    "徐州东|大湖": [
+      {
+        "route_name": "徐州联络线[6609]",
+        "direction": 1
+      }
+    ],
+    "徐州东|盐城": [
+      {
+        "route_name": "徐盐客专线[3083]",
+        "direction": 1
+      }
+    ],
+    "徐州东|连云港": [
+      {
+        "route_name": "徐连高速线[3086]",
+        "direction": 1
+      }
+    ],
+    "忻州|河边": [
+      {
+        "route_name": "忻河线[0306]",
+        "direction": 1
+      }
+    ],
+    "廊坊北|大兴机场": [
+      {
+        "route_name": "怀兴城际线",
+        "direction": 1
+      }
+    ],
+    "怀柔|雁栖湖": [
+      {
+        "route_name": "怀联线[1337]",
+        "direction": 1
+      }
+    ],
+    "鸡西|恒山": [
+      {
+        "route_name": "恒山线[0133]",
+        "direction": 1
+      }
+    ],
+    "三堆子|倮果": [
+      {
+        "route_name": "成昆渡口联络线[1812]",
+        "direction": 1
+      }
+    ],
+    "成都|昆明": [
+      {
+        "route_name": "成昆线[0085]",
+        "direction": 1
+      },
+      {
+        "route_name": "蓉昆高速铁路",
+        "direction": 1
+      }
+    ],
+    "成都|重庆北": [
+      {
+        "route_name": "成渝中线",
+        "direction": 1
+      }
+    ],
+    "成都东|沙坪坝": [
+      {
+        "route_name": "成渝高速线[3051]",
+        "direction": 1
+      }
+    ],
+    "成都|青城山": [
+      {
+        "route_name": "成灌铁路[3014]",
+        "direction": 1
+      }
+    ],
+    "成都东|贵阳东": [
+      {
+        "route_name": "成贵客运专线[3041]",
+        "direction": 1
+      }
+    ],
+    "资阳西|万州北": [
+      {
+        "route_name": "成达万高速铁路",
+        "direction": 1
+      }
+    ],
+    "成都|成都南": [
+      {
+        "route_name": "成都东环线[1834]",
+        "direction": 1
+      }
+    ],
+    "安靖|成都南": [
+      {
+        "route_name": "成都西环线[1818]",
+        "direction": 1
+      }
+    ],
+    "成都西|朝阳湖": [
+      {
+        "route_name": "成雅线[3076]",
+        "direction": 1
+      }
+    ],
+    "石楼|房山": [
+      {
+        "route_name": "房山线[0354]",
+        "direction": 1
+      }
+    ],
+    "扎兰屯|阿荣旗": [
+      {
+        "route_name": "扎阿线[0184]",
+        "direction": 1
+      }
+    ],
+    "扬州东|泰安镇": [
+      {
+        "route_name": "扬州东北东联络线",
+        "direction": 1
+      }
+    ],
+    "承德|隆化": [
+      {
+        "route_name": "承隆铁路",
+        "direction": 1
+      }
+    ],
+    "抚州北|江边村": [
+      {
+        "route_name": "抚江线[0667]",
+        "direction": 1
+      }
+    ],
+    "拉萨|日喀则西": [
+      {
+        "route_name": "拉日线",
+        "direction": 1
+      }
+    ],
+    "捞刀河|长沙北": [
+      {
+        "route_name": "捞霞联络线[1714]",
+        "direction": 1
+      }
+    ],
+    "揭阳|惠来": [
+      {
+        "route_name": "揭惠铁路",
+        "direction": 1
+      }
+    ],
+    "攀枝花|花棚子": [
+      {
+        "route_name": "攀花铁路",
+        "direction": 1
+      }
+    ],
+    "柳沟|饮马峡": [
+      {
+        "route_name": "敦煌线[0902]",
+        "direction": 1
+      }
+    ],
+    "文山|蒙自": [
+      {
+        "route_name": "文蒙铁路",
+        "direction": 1
+      }
+    ],
+    "肖厝|斗尾": [
+      {
+        "route_name": "斗尾线[0699]",
+        "direction": 1
+      }
+    ],
+    "斜河涧线路所|军庄": [
+      {
+        "route_name": "斜军线[1371]",
+        "direction": 1
+      }
+    ],
+    "新街|敖高图日": [
+      {
+        "route_name": "新上线[0418]",
+        "direction": 1
+      }
+    ],
+    "新立屯|义县": [
+      {
+        "route_name": "新义线[0263]",
+        "direction": 1
+      }
+    ],
+    "井陉|新井": [
+      {
+        "route_name": "新井线[0374]",
+        "direction": 1
+      }
+    ],
+    "新乡|兖州北": [
+      {
+        "route_name": "新兖铁路[0041]",
+        "direction": 1
+      }
+    ],
+    "广州新塘|新塘南": [
+      {
+        "route_name": "新塘联络线[6715]",
+        "direction": 1
+      }
+    ],
+    "新郑|新密": [
+      {
+        "route_name": "新密铁路[0425]",
+        "direction": 1
+      }
+    ],
+    "牛王村|兖州": [
+      {
+        "route_name": "新日联络线[1554]",
+        "direction": 1
+      }
+    ],
+    "武汉北|滠口": [
+      {
+        "route_name": "新港线[0438]",
+        "direction": 1
+      }
+    ],
+    "新乡|月山": [
+      {
+        "route_name": "新焦线[0424]",
+        "direction": 1
+      }
+    ],
+    "新泉|么荒": [
+      {
+        "route_name": "新立屯联络线[1232]",
+        "direction": 1
+      }
+    ],
+    "新民北|通辽": [
+      {
+        "route_name": "新通客运专线[3072]",
+        "direction": 1
+      }
+    ],
+    "新沂|长兴南": [
+      {
+        "route_name": "新长线[0647]",
+        "direction": 1
+      }
+    ],
+    "车墩|闵行": [
+      {
+        "route_name": "新闵线[0629]",
+        "direction": 1
+      }
+    ],
+    "上海南|新龙华": [
+      {
+        "route_name": "新龙华联络线[1697]",
+        "direction": 1
+      }
+    ],
+    "周水子|旅顺": [
+      {
+        "route_name": "旅顺线[0247]",
+        "direction": 1
+      }
+    ],
+    "张郭|兰考南": [
+      {
+        "route_name": "日兰高速线[3090]",
+        "direction": 1
+      }
+    ],
+    "旬阳北|旬阳": [
+      {
+        "route_name": "旬阳联络线[6476]",
+        "direction": 1
+      }
+    ],
+    "昆明南|昆明": [
+      {
+        "route_name": "昆明南联络线",
+        "direction": 1
+      }
+    ],
+    "南昌西|九江": [
+      {
+        "route_name": "昌九城际线[3017]",
+        "direction": 1
+      }
+    ],
+    "昌感|八所": [
+      {
+        "route_name": "昌八支线[0722]",
+        "direction": 1
+      }
+    ],
+    "乐化|南昌北": [
+      {
+        "route_name": "昌北联络线[2664]",
+        "direction": 1
+      }
+    ],
+    "南昌东|南昌南": [
+      {
+        "route_name": "昌景黄横岗联络线",
+        "direction": 1
+      }
+    ],
+    "南昌西|福州": [
+      {
+        "route_name": "昌福线[0694]",
+        "direction": 1
+      }
+    ],
+    "北京朝阳|双桥": [
+      {
+        "route_name": "星双线[1367]",
+        "direction": 1
+      }
+    ],
+    "春湾|罗定": [
+      {
+        "route_name": "春罗线",
+        "direction": 1
+      }
+    ],
+    "攀枝花|普达": [
+      {
+        "route_name": "普达联络线[6838]",
+        "direction": 1
+      }
+    ],
+    "唐海南|曹妃甸港": [
+      {
+        "route_name": "曹妃甸港线[7360]",
+        "direction": 1
+      }
+    ],
+    "曹妃甸北|曹妃甸西": [
+      {
+        "route_name": "曹西线[2377]",
+        "direction": 1
+      }
+    ],
+    "神池南|黄骅港": [
+      {
+        "route_name": "朔黄线[2302]",
+        "direction": 1
+      }
+    ],
+    "朝中|莫尔道嘎": [
+      {
+        "route_name": "朝乌线[0108]",
+        "direction": 1
+      }
+    ],
+    "辽宁朝阳|凌海南": [
+      {
+        "route_name": "朝凌高速线[3097]",
+        "direction": 1
+      }
+    ],
+    "朝阳南|马山": [
+      {
+        "route_name": "朝马线[0269]",
+        "direction": 1
+      }
+    ],
+    "本溪|花博山": [
+      {
+        "route_name": "本桓线[0237]",
+        "direction": 1
+      }
+    ],
+    "李家塘|莘庄": [
+      {
+        "route_name": "李莘联络线[1648]",
+        "direction": 1
+      }
+    ],
+    "来舟|外洋": [
+      {
+        "route_name": "来外Ⅱ线[1614]",
+        "direction": 1
+      }
+    ],
+    "杨屯|万寨": [
+      {
+        "route_name": "杨万线[1524]",
+        "direction": 1
+      }
+    ],
+    "杭州西|绩溪北": [
+      {
+        "route_name": "杭临绩高速铁路",
+        "direction": 1
+      }
+    ],
+    "杭州北|沈家塘": [
+      {
+        "route_name": "杭北联络线[1662]",
+        "direction": 1
+      }
+    ],
+    "桐乡|玉环": [
+      {
+        "route_name": "杭台高速线[3108]",
+        "direction": 1
+      }
+    ],
+    "黄山北|南昌东": [
+      {
+        "route_name": "杭昌高速线昌景黄段",
+        "direction": 1
+      }
+    ],
+    "杭州南|黄山北": [
+      {
+        "route_name": "杭昌高速线杭黄段",
+        "direction": 1
+      }
+    ],
+    "杭州东|深圳北": [
+      {
+        "route_name": "杭深铁路[3009]",
+        "direction": 1
+      }
+    ],
+    "桐庐东|温州北": [
+      {
+        "route_name": "杭温高速线",
+        "direction": 1
+      }
+    ],
+    "松原|团山": [
+      {
+        "route_name": "松团线[0278]",
+        "direction": 1
+      }
+    ],
+    "林口|密山": [
+      {
+        "route_name": "林密线[0131]",
+        "direction": 1
+      }
+    ],
+    "林歹南|新店镇": [
+      {
+        "route_name": "林新线",
+        "direction": 1
+      }
+    ],
+    "林歹南|林歹": [
+      {
+        "route_name": "林歹支线",
+        "direction": 1
+      }
+    ],
+    "林场|浦镇": [
+      {
+        "route_name": "林浦三线[1658]",
+        "direction": 1
+      }
+    ],
+    "林场|南京北": [
+      {
+        "route_name": "林浦铁路[0608]",
+        "direction": 1
+      }
+    ],
+    "枣庄西|朱保": [
+      {
+        "route_name": "枣临铁路[0516]",
+        "direction": 1
+      }
+    ],
+    "柳州|南宁": [
+      {
+        "route_name": "柳南客专线[3028]",
+        "direction": 1
+      }
+    ],
+    "柳沟南|双塔": [
+      {
+        "route_name": "柳沟南联络线[2907]",
+        "direction": 1
+      }
+    ],
+    "南京东|栖霞山北": [
+      {
+        "route_name": "栖霞山北线[0622]",
+        "direction": 1
+      }
+    ],
+    "株洲|株洲北": [
+      {
+        "route_name": "株洲北东到达线[1710]",
+        "direction": 1
+      },
+      {
+        "route_name": "株洲北南到达线[1722]",
+        "direction": 1
+      }
+    ],
+    "株洲北|田心": [
+      {
+        "route_name": "株洲北出发西线[1707]",
+        "direction": 1
+      }
+    ],
+    "田心|株洲北": [
+      {
+        "route_name": "株洲北南环线[1724]",
+        "direction": 1
+      }
+    ],
+    "株洲北|株洲": [
+      {
+        "route_name": "株洲北株出联络线[1709]",
+        "direction": 1
+      }
+    ],
+    "十里冲|白马垅": [
+      {
+        "route_name": "株洲西北联络线[2708]",
+        "direction": 1
+      }
+    ],
+    "桂林西|桂林北": [
+      {
+        "route_name": "桂西桂北联络线[2781]",
+        "direction": 1
+      }
+    ],
+    "桃花店|合肥东": [
+      {
+        "route_name": "桃东线[2608]",
+        "direction": 1
+      }
+    ],
+    "桃村|威海": [
+      {
+        "route_name": "桃威铁路[1999]",
+        "direction": 1
+      }
+    ],
+    "桐庐东|桐庐": [
+      {
+        "route_name": "桐庐联络线",
+        "direction": 1
+      }
+    ],
+    "桑根达来北|桑根达来东": [
+      {
+        "route_name": "桑东联络线[1411]",
+        "direction": 1
+      }
+    ],
+    "桑根达来|桑根达来北": [
+      {
+        "route_name": "桑北联络线[2417]",
+        "direction": 1
+      }
+    ],
+    "桑根达来北|多伦": [
+      {
+        "route_name": "桑多线",
+        "direction": 1
+      }
+    ],
+    "桑根达来北|锡林浩特": [
+      {
+        "route_name": "桑锡线",
+        "direction": 1
+      }
+    ],
+    "梅家坪|前河镇": [
+      {
+        "route_name": "梅前线[0459]",
+        "direction": 1
+      }
+    ],
+    "梅州西|汕头": [
+      {
+        "route_name": "梅汕线[3080]",
+        "direction": 1
+      }
+    ],
+    "梅河口|集安": [
+      {
+        "route_name": "梅集线[0214]",
+        "direction": 1
+      }
+    ],
+    "桑梓店|权庄": [
+      {
+        "route_name": "梓权线[0523]",
+        "direction": 1
+      }
+    ],
+    "广通北|大理": [
+      {
+        "route_name": "楚大线[3075]",
+        "direction": 1
+      }
+    ],
+    "榆树屯|红旗营": [
+      {
+        "route_name": "榆红线[1102]",
+        "direction": 1
+      }
+    ],
+    "武昌东|庐山": [
+      {
+        "route_name": "武九线[0046]",
+        "direction": 1
+      }
+    ],
+    "武昌|武昌南": [
+      {
+        "route_name": "武余联络线[6462]",
+        "direction": 1
+      }
+    ],
+    "南湖东|咸宁南": [
+      {
+        "route_name": "武咸城际铁路[3034]",
+        "direction": 1
+      }
+    ],
+    "汉口|云梦东": [
+      {
+        "route_name": "武孝城际铁路[3035]",
+        "direction": 1
+      }
+    ],
+    "武昌南|何刘": [
+      {
+        "route_name": "武昌南环线[0453]",
+        "direction": 1
+      }
+    ],
+    "云梦东|南湖东": [
+      {
+        "route_name": "武汉枢纽直通线",
+        "direction": 1
+      }
+    ],
+    "滠口|黄州": [
+      {
+        "route_name": "武黄线",
+        "direction": 1
+      }
+    ],
+    "水乡客厅|八坼": [
+      {
+        "route_name": "水乡旅游线城际铁路",
+        "direction": 1
+      }
+    ],
+    "六盘水|大湾": [
+      {
+        "route_name": "水大线",
+        "direction": 1
+      }
+    ],
+    "水屯|济南南": [
+      {
+        "route_name": "水白线[0522]",
+        "direction": 1
+      }
+    ],
+    "六盘水|红果": [
+      {
+        "route_name": "水红铁路",
+        "direction": 1
+      }
+    ],
+    "水家湖|蚌埠东": [
+      {
+        "route_name": "水蚌铁路[0602]",
+        "direction": 1
+      }
+    ],
+    "益口|加福": [
+      {
+        "route_name": "永嘉线[0655]",
+        "direction": 1
+      }
+    ],
+    "永泰|莆田": [
+      {
+        "route_name": "永莆线[0695]",
+        "direction": 1
+      }
+    ],
+    "汉口|丹江": [
+      {
+        "route_name": "汉丹铁路[0430]",
+        "direction": 1
+      }
+    ],
+    "汉西|新墩": [
+      {
+        "route_name": "汉西联络线[2464]",
+        "direction": 1
+      }
+    ],
+    "汕尾|汕头": [
+      {
+        "route_name": "汕汕高速铁路",
+        "direction": 1
+      }
+    ],
+    "江村|大田": [
+      {
+        "route_name": "江大联络线",
+        "direction": 1
+      }
+    ],
+    "小榄|江门": [
+      {
+        "route_name": "江门线[3016]",
+        "direction": 1
+      }
+    ],
+    "渔溪|江阴港": [
+      {
+        "route_name": "江阴港支线[0697]",
+        "direction": 1
+      }
+    ],
+    "池州|黟县东": [
+      {
+        "route_name": "池黄高速线",
+        "direction": 1
+      }
+    ],
+    "汤阴|台前": [
+      {
+        "route_name": "汤台铁路",
+        "direction": 1
+      }
+    ],
+    "南岔|乌伊岭": [
+      {
+        "route_name": "汤林线[0128]",
+        "direction": 1
+      }
+    ],
+    "汤阴|汤阴东": [
+      {
+        "route_name": "汤阴东联络线",
+        "direction": 1
+      }
+    ],
+    "汤阴|鹤壁北": [
+      {
+        "route_name": "汤鹤铁路[0423]",
+        "direction": 1
+      }
+    ],
+    "汾河|太原北": [
+      {
+        "route_name": "汾太联络线[1362]",
+        "direction": 1
+      }
+    ],
+    "汾河|皇后园": [
+      {
+        "route_name": "汾皇联络线[1383]",
+        "direction": 1
+      }
+    ],
+    "梅家埠|临沭": [
+      {
+        "route_name": "沂沭铁路[0541]",
+        "direction": 1
+      }
+    ],
+    "沈阳南|丹东": [
+      {
+        "route_name": "沈丹客运专线[3045]",
+        "direction": 1
+      }
+    ],
+    "苏家屯|丹东": [
+      {
+        "route_name": "沈丹线[0238]",
+        "direction": 1
+      }
+    ],
+    "沈阳|于洪": [
+      {
+        "route_name": "沈于线[0225]",
+        "direction": 1
+      }
+    ],
+    "沈阳北|佳木斯": [
+      {
+        "route_name": "沈佳高速线[3105]",
+        "direction": 1
+      }
+    ],
+    "沈阳东|哈达湾": [
+      {
+        "route_name": "沈吉线[0201]",
+        "direction": 1
+      }
+    ],
+    "沈阳北|大连": [
+      {
+        "route_name": "沈大线[0231]",
+        "direction": 1
+      }
+    ],
+    "沈阳北|大连北": [
+      {
+        "route_name": "沈大高速线[3019]",
+        "direction": 1
+      }
+    ],
+    "万家屯|山海关": [
+      {
+        "route_name": "沈山B线[1244]",
+        "direction": 1
+      }
+    ],
+    "沈阳|山海关": [
+      {
+        "route_name": "沈山线[0206]",
+        "direction": 1
+      }
+    ],
+    "三台|金帛湾": [
+      {
+        "route_name": "沈金线[0220]",
+        "direction": 1
+      }
+    ],
+    "沙河市|午汲": [
+      {
+        "route_name": "沙午铁路[0381]",
+        "direction": 1
+      }
+    ],
+    "沙岭子|张家口南": [
+      {
+        "route_name": "沙岭子联络线[1359]",
+        "direction": 1
+      }
+    ],
+    "沙岭子|张家口": [
+      {
+        "route_name": "沙张联络线[7324]",
+        "direction": 1
+      }
+    ],
+    "马柳|沙河驿镇": [
+      {
+        "route_name": "沙河驿北线[1302]",
+        "direction": 1
+      }
+    ],
+    "九江西|九江北": [
+      {
+        "route_name": "沙浔线[0666]",
+        "direction": 1
+      }
+    ],
+    "沙岗|鲅鱼圈北": [
+      {
+        "route_name": "沙鲅线[0299]",
+        "direction": 1
+      }
+    ],
+    "沟帮子|唐王山": [
+      {
+        "route_name": "沟海线[0207]",
+        "direction": 1
+      }
+    ],
+    "上海|南京": [
+      {
+        "route_name": "沪宁城际线[3015]",
+        "direction": 1
+      }
+    ],
+    "南京南|太仓": [
+      {
+        "route_name": "沪宁沿江高速线",
+        "direction": 1
+      }
+    ],
+    "公坪|怀化西": [
+      {
+        "route_name": "沪昆怀化西联络线",
+        "direction": 1
+      }
+    ],
+    "上海|昆明": [
+      {
+        "route_name": "沪昆线[0008]",
+        "direction": 1
+      }
+    ],
+    "杭州|萧山": [
+      {
+        "route_name": "沪昆绕行线[1643]",
+        "direction": 1
+      }
+    ],
+    "上海虹桥|昆明南": [
+      {
+        "route_name": "沪昆高速线[3008]",
+        "direction": 1
+      }
+    ],
+    "上海东|杭州西": [
+      {
+        "route_name": "沪杭高速线",
+        "direction": 1
+      }
+    ],
+    "上海虹桥|杭州东": [
+      {
+        "route_name": "沪杭高速铁路",
+        "direction": 1
+      }
+    ],
+    "上海虹桥|湖州": [
+      {
+        "route_name": "沪苏湖高速铁路[0660]",
+        "direction": 1
+      }
+    ],
+    "黄渡|赵甸": [
+      {
+        "route_name": "沪苏通铁路[3098]",
+        "direction": 1
+      }
+    ],
+    "河唇|茂名西": [
+      {
+        "route_name": "河茂线[0753]",
+        "direction": 1
+      }
+    ],
+    "泊头镇|滨州港": [
+      {
+        "route_name": "泊港铁路[8502]",
+        "direction": 1
+      }
+    ],
+    "泰山|湖屯": [
+      {
+        "route_name": "泰肥线[0524]",
+        "direction": 1
+      }
+    ],
+    "塘沽|泰达": [
+      {
+        "route_name": "泰达线[1388]",
+        "direction": 1
+      }
+    ],
+    "北渔|吕四": [
+      {
+        "route_name": "洋吕铁路",
+        "direction": 1
+      }
+    ],
+    "新余|洋坊": [
+      {
+        "route_name": "洋坊线[0670]",
+        "direction": 1
+      }
+    ],
+    "关林|宜阳": [
+      {
+        "route_name": "洛宜线[0427]",
+        "direction": 1
+      }
+    ],
+    "洛阳东|洛阳北": [
+      {
+        "route_name": "洛阳东西北联络线[1441]",
+        "direction": 1
+      }
+    ],
+    "大兴机场|胜芳": [
+      {
+        "route_name": "津兴城际线[31xx]",
+        "direction": 1
+      }
+    ],
+    "南仓|山海关": [
+      {
+        "route_name": "津山线[0023]",
+        "direction": 1
+      }
+    ],
+    "南仓|北仓": [
+      {
+        "route_name": "津山联络线[1395]",
+        "direction": 1
+      }
+    ],
+    "滨海|潍坊北": [
+      {
+        "route_name": "津潍高速线",
+        "direction": 1
+      }
+    ],
+    "汉沟镇|蓟州北": [
+      {
+        "route_name": "津蓟铁路[0324]",
+        "direction": 1
+      }
+    ],
+    "天津西|霸州西": [
+      {
+        "route_name": "津霸客专线[3022]",
+        "direction": 1
+      }
+    ],
+    "北仓|霸州西": [
+      {
+        "route_name": "津霸线[0320]",
+        "direction": 1
+      }
+    ],
+    "宁波北|庄桥": [
+      {
+        "route_name": "洪庄联络线[1639]",
+        "direction": 1
+      }
+    ],
+    "镇海西|镇海": [
+      {
+        "route_name": "洪镇支线[1664]",
+        "direction": 1
+      }
+    ],
+    "历城|台儿庄": [
+      {
+        "route_name": "济枣高速线",
+        "direction": 1
+      }
+    ],
+    "济南东|滨州": [
+      {
+        "route_name": "济滨高速线",
+        "direction": 1
+      }
+    ],
+    "济南东|钢城": [
+      {
+        "route_name": "济莱高速铁路[3114]",
+        "direction": 1
+      }
+    ],
+    "济南西|郑州东": [
+      {
+        "route_name": "济郑高速线[3109]",
+        "direction": 1
+      }
+    ],
+    "济南东|红岛": [
+      {
+        "route_name": "济青高速铁路[3077]",
+        "direction": 1
+      }
+    ],
+    "白山市|长白山": [
+      {
+        "route_name": "浑白线[0217]",
+        "direction": 1
+      }
+    ],
+    "金山园区|四团": [
+      {
+        "route_name": "浦东线[0682]",
+        "direction": 1
+      }
+    ],
+    "浩勒报吉|浩勒报吉南": [
+      {
+        "route_name": "浩勒报吉南联络线[6492]",
+        "direction": 1
+      }
+    ],
+    "浩勒报吉南|吉安": [
+      {
+        "route_name": "浩吉线[0099]",
+        "direction": 1
+      }
+    ],
+    "海口|三亚": [
+      {
+        "route_name": "海南东环高速线[3018]",
+        "direction": 1
+      },
+      {
+        "route_name": "海南西环高速线[3059]",
+        "direction": 1
+      }
+    ],
+    "海口|天涯": [
+      {
+        "route_name": "海南西环货线[0721]",
+        "direction": 1
+      }
+    ],
+    "海城|兰店": [
+      {
+        "route_name": "海庄线[0289]",
+        "direction": 1
+      }
+    ],
+    "乌海东|拉僧庙": [
+      {
+        "route_name": "海拉线[0406]",
+        "direction": 1
+      }
+    ],
+    "东孚|海沧": [
+      {
+        "route_name": "海沧支线[1650]",
+        "direction": 1
+      }
+    ],
+    "海安|北渔": [
+      {
+        "route_name": "海洋铁路[0648]",
+        "direction": 1
+      }
+    ],
+    "海天|芝兰庄": [
+      {
+        "route_name": "海青铁路[0540]",
+        "direction": 1
+      }
+    ],
+    "淮南|芜湖东": [
+      {
+        "route_name": "淮南线[0604]",
+        "direction": 1
+      }
+    ],
+    "淮北北|蚌埠南": [
+      {
+        "route_name": "淮宿蚌城际铁路",
+        "direction": 1
+      }
+    ],
+    "双堆集|阜阳西": [
+      {
+        "route_name": "淮宿阜城际铁路",
+        "direction": 1
+      }
+    ],
+    "大通|田家庵": [
+      {
+        "route_name": "淮田线[0606]",
+        "direction": 1
+      }
+    ],
+    "岱河|萧县北": [
+      {
+        "route_name": "淮萧联络线[1655]",
+        "direction": 1
+      }
+    ],
+    "机场北|大亚湾": [
+      {
+        "route_name": "深大城际线",
+        "direction": 1
+      }
+    ],
+    "西丽|深汕": [
+      {
+        "route_name": "深汕高速线",
+        "direction": 1
+      }
+    ],
+    "西丽|湛江西": [
+      {
+        "route_name": "深湛线[3071]",
+        "direction": 1
+      }
+    ],
+    "清流|冠豸山南": [
+      {
+        "route_name": "清冠线[4655]",
+        "direction": 1
+      }
+    ],
+    "重庆北|万州北": [
+      {
+        "route_name": "渝万高铁[3063]",
+        "direction": 1
+      }
+    ],
+    "重庆|厦门北": [
+      {
+        "route_name": "渝厦高速线[3091]",
+        "direction": 1
+      }
+    ],
+    "井口|怀化": [
+      {
+        "route_name": "渝怀线[0058]",
+        "direction": 1
+      }
+    ],
+    "黄金坳|同田湾": [
+      {
+        "route_name": "渝怀联络线[1719]",
+        "direction": 1
+      }
+    ],
+    "重庆西|昆明南": [
+      {
+        "route_name": "渝昆高速铁路",
+        "direction": 1
+      }
+    ],
+    "牛坪子|格里坪": [
+      {
+        "route_name": "渡口铁路[0834]",
+        "direction": 1
+      }
+    ],
+    "温州东|福州南": [
+      {
+        "route_name": "温福高速铁路",
+        "direction": 1
+      }
+    ],
+    "湖东|大同东": [
+      {
+        "route_name": "湖大线[0338]",
+        "direction": 1
+      }
+    ],
+    "湖潮|纳雍西": [
+      {
+        "route_name": "湖雍铁路[湖雍线]",
+        "direction": 1
+      }
+    ],
+    "衡阳|凭祥": [
+      {
+        "route_name": "湘桂线[0071]",
+        "direction": 1
+      }
+    ],
+    "暮云|湘潭": [
+      {
+        "route_name": "湘潭城际线[3065]",
+        "direction": 1
+      }
+    ],
+    "塘口|海安南": [
+      {
+        "route_name": "湛海线[0718]",
+        "direction": 1
+      }
+    ],
+    "大理|波密": [
+      {
+        "route_name": "滇藏铁路",
+        "direction": 1
+      }
+    ],
+    "滠口|武昌东": [
+      {
+        "route_name": "滠武线[2453]",
+        "direction": 1
+      }
+    ],
+    "满城|神星": [
+      {
+        "route_name": "满神线[0346]",
+        "direction": 1
+      }
+    ],
+    "滦县|菱角山": [
+      {
+        "route_name": "滦菱线[2003]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨东|北安": [
+      {
+        "route_name": "滨北线[0121]",
+        "direction": 1
+      }
+    ],
+    "滨州|滨州北": [
+      {
+        "route_name": "滨小联络线[1538]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨东|滨江": [
+      {
+        "route_name": "滨江线[1114]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨|满洲里": [
+      {
+        "route_name": "滨洲线[0102]",
+        "direction": 1
+      }
+    ],
+    "哈尔滨|绥芬河": [
+      {
+        "route_name": "滨绥线[0151]",
+        "direction": 1
+      }
+    ],
+    "漯河东|梁八台": [
+      {
+        "route_name": "漯舞铁路[0437]",
+        "direction": 1
+      }
+    ],
+    "漯河|阜阳北": [
+      {
+        "route_name": "漯阜线[2603]",
+        "direction": 1
+      }
+    ],
+    "漳州东|漳州北": [
+      {
+        "route_name": "漳州支线[0659]",
+        "direction": 1
+      }
+    ],
+    "漳州|汕头": [
+      {
+        "route_name": "漳汕高速铁路",
+        "direction": 1
+      }
+    ],
+    "梅水坑|安溪东": [
+      {
+        "route_name": "漳泉线[0658]",
+        "direction": 1
+      }
+    ],
+    "漳平|龙川": [
+      {
+        "route_name": "漳龙线[0067]",
+        "direction": 1
+      }
+    ],
+    "昌邑|芝罘": [
+      {
+        "route_name": "潍烟高速线[3134]",
+        "direction": 1
+      }
+    ],
+    "潍坊北|荣成": [
+      {
+        "route_name": "潍荣高速线[3102]",
+        "direction": 1
+      }
+    ],
+    "敖头|长汀镇": [
+      {
+        "route_name": "火龙沟线[0153]",
+        "direction": 1
+      }
+    ],
+    "芝罘|烟台南": [
+      {
+        "route_name": "烟荣联络线[1540]",
+        "direction": 1
+      }
+    ],
+    "襄阳|襄阳北": [
+      {
+        "route_name": "焦柳上行直通线[2463]",
+        "direction": 1
+      }
+    ],
+    "月山|柳州南": [
+      {
+        "route_name": "焦柳线[0004]",
+        "direction": 1
+      }
+    ],
+    "燕庄|大同东": [
+      {
+        "route_name": "燕大上行联络线[2361]",
+        "direction": 1
+      }
+    ],
+    "牙克石|满归": [
+      {
+        "route_name": "牙林线[0107]",
+        "direction": 1
+      }
+    ],
+    "牡丹江|佳木斯": [
+      {
+        "route_name": "牡佳客专线[3105]",
+        "direction": 1
+      }
+    ],
+    "独流|张家窝": [
+      {
+        "route_name": "独流联络线[7321]",
+        "direction": 1
+      }
+    ],
+    "玉林|铁山港": [
+      {
+        "route_name": "玉铁线",
+        "direction": 1
+      }
+    ],
+    "太原西|玉门沟": [
+      {
+        "route_name": "玉门沟线[4362]",
+        "direction": 1
+      }
+    ],
+    "珠海|珠海机场": [
+      {
+        "route_name": "珠机城际铁路[0711]",
+        "direction": 1
+      }
+    ],
+    "珠斯花|珠恩嘎达布其": [
+      {
+        "route_name": "珠珠线[0272]",
+        "direction": 1
+      }
+    ],
+    "高明|肇庆东": [
+      {
+        "route_name": "珠肇高速铁路",
+        "direction": 1
+      }
+    ],
+    "琶洲|广州莲花山": [
+      {
+        "route_name": "琶莲城际线",
+        "direction": 1
+      }
+    ],
+    "瑞金|梅州": [
+      {
+        "route_name": "瑞梅铁路",
+        "direction": 1
+      }
+    ],
+    "台阁牧|瓜房子": [
+      {
+        "route_name": "瓜房子联络线[1415]",
+        "direction": 1
+      }
+    ],
+    "瓦塘|日照南": [
+      {
+        "route_name": "瓦日铁路[0097]",
+        "direction": 1
+      }
+    ],
+    "瓦房店|长兴岛港": [
+      {
+        "route_name": "瓦长线[0243]",
+        "direction": 1
+      }
+    ],
+    "瓮安|马场坪": [
+      {
+        "route_name": "瓮马铁路",
+        "direction": 1
+      }
+    ],
+    "温州南|瓯海": [
+      {
+        "route_name": "瓯海联络线[2616]",
+        "direction": 1
+      }
+    ],
+    "甘旗卡|库伦": [
+      {
+        "route_name": "甘库线[0276]",
+        "direction": 1
+      }
+    ],
+    "甘泉北|钟家村": [
+      {
+        "route_name": "甘钟线[2475]",
+        "direction": 1
+      }
+    ],
+    "田义屯|东陵": [
+      {
+        "route_name": "田东线[0284]",
+        "direction": 1
+      }
+    ],
+    "田王|灞桥": [
+      {
+        "route_name": "田灞联络线[1444]",
+        "direction": 1
+      }
+    ],
+    "田东|靖西": [
+      {
+        "route_name": "田靖线",
+        "direction": 1
+      }
+    ],
+    "白家店|兖州": [
+      {
+        "route_name": "白兖联络线[1520]",
+        "direction": 1
+      }
+    ],
+    "长白山|和龙": [
+      {
+        "route_name": "白和线[0296]",
+        "direction": 1
+      }
+    ],
+    "白音库伦|制气厂": [
+      {
+        "route_name": "白浩线[0419]",
+        "direction": 1
+      }
+    ],
+    "白水井|老虎屯": [
+      {
+        "route_name": "白老线[0244]",
+        "direction": 1
+      }
+    ],
+    "白羊墅|荫营": [
+      {
+        "route_name": "白荫线[0376]",
+        "direction": 1
+      }
+    ],
+    "白蜡坪|覃家坝": [
+      {
+        "route_name": "白覃联络线",
+        "direction": 1
+      }
+    ],
+    "白城|伊尔施": [
+      {
+        "route_name": "白阿铁路[0204]",
+        "direction": 1
+      }
+    ],
+    "白云北|龙里北": [
+      {
+        "route_name": "白龙联络线",
+        "direction": 1
+      }
+    ],
+    "皇后园|太原北": [
+      {
+        "route_name": "皇太联络线[1361]",
+        "direction": 1
+      }
+    ],
+    "火龙岗|贵溪": [
+      {
+        "route_name": "皖赣线[0621]",
+        "direction": 1
+      }
+    ],
+    "益阳东|茂名东": [
+      {
+        "route_name": "益湛线[0072]",
+        "direction": 1
+      }
+    ],
+    "青州市南|大家洼": [
+      {
+        "route_name": "益羊线[33516]",
+        "direction": 1
+      }
+    ],
+    "盐城|宜兴": [
+      {
+        "route_name": "盐宜高速线",
+        "direction": 1
+      }
+    ],
+    "盐城|南通西": [
+      {
+        "route_name": "盐通高速线",
+        "direction": 1
+      }
+    ],
+    "盘锦北|五七": [
+      {
+        "route_name": "盘五联络线[1260]",
+        "direction": 1
+      }
+    ],
+    "盘州|兴义南": [
+      {
+        "route_name": "盘兴高速铁路",
+        "direction": 1
+      }
+    ],
+    "沾益|红果": [
+      {
+        "route_name": "盘西铁路",
+        "direction": 1
+      }
+    ],
+    "石家庄|太原南": [
+      {
+        "route_name": "石太客专线[3012]",
+        "direction": 1
+      }
+    ],
+    "石家庄西|石家庄南": [
+      {
+        "route_name": "石太引入线[0372]",
+        "direction": 1
+      }
+    ],
+    "石家庄东|良村": [
+      {
+        "route_name": "石家庄东联络线[1351]",
+        "direction": 1
+      }
+    ],
+    "石家庄北|石工": [
+      {
+        "route_name": "石家庄直通线[0371]",
+        "direction": 1
+      }
+    ],
+    "柳辛庄|石家庄北": [
+      {
+        "route_name": "石家庄西北环线[1333]",
+        "direction": 1
+      }
+    ],
+    "正定|平南": [
+      {
+        "route_name": "石家庄西环线[2308]",
+        "direction": 1
+      }
+    ],
+    "石工|德州": [
+      {
+        "route_name": "石德铁路[0373]",
+        "direction": 1
+      }
+    ],
+    "石家庄|济南东": [
+      {
+        "route_name": "石济客专线[3067]",
+        "direction": 1
+      }
+    ],
+    "石门县北|捞刀河": [
+      {
+        "route_name": "石长线[0717]",
+        "direction": 1
+      }
+    ],
+    "沙河口|大连东": [
+      {
+        "route_name": "码头线[0248]",
+        "direction": 1
+      }
+    ],
+    "磁窑|莱芜东": [
+      {
+        "route_name": "磁莱铁路",
+        "direction": 1
+      }
+    ],
+    "神木北|大保当": [
+      {
+        "route_name": "神大线[0480]",
+        "direction": 1
+      }
+    ],
+    "大柳塔|朔州": [
+      {
+        "route_name": "神朔铁路[2304]",
+        "direction": 1
+      }
+    ],
+    "福利屯|前进镇": [
+      {
+        "route_name": "福前线[0135]",
+        "direction": 1
+      }
+    ],
+    "福州南|漳州": [
+      {
+        "route_name": "福厦高速铁路",
+        "direction": 1
+      }
+    ],
+    "福州|平潭": [
+      {
+        "route_name": "福平线[3088]",
+        "direction": 1
+      }
+    ],
+    "福州|马尾": [
+      {
+        "route_name": "福马线[0654]",
+        "direction": 1
+      }
+    ],
+    "穆棱|下城子": [
+      {
+        "route_name": "穆城联络线[1140]",
+        "direction": 1
+      }
+    ],
+    "穆家店|白城": [
+      {
+        "route_name": "穆白联络线[1292]",
+        "direction": 1
+      }
+    ],
+    "竹料|皇岗口岸": [
+      {
+        "route_name": "穗深城际铁路 Guangzhou-Shenzhen Intercity Railway[0702]",
+        "direction": 1
+      }
+    ],
+    "大碶|中宅": [
+      {
+        "route_name": "穿山港线[0637]",
+        "direction": 1
+      }
+    ],
+    "笕桥|杭州": [
+      {
+        "route_name": "笕杭线[0617]",
+        "direction": 1
+      }
+    ],
+    "符离集|夹河寨": [
+      {
+        "route_name": "符夹铁路[0063]",
+        "direction": 1
+      }
+    ],
+    "白银西|红会": [
+      {
+        "route_name": "红会线[0904]",
+        "direction": 1
+      }
+    ],
+    "绥阳南|东宁": [
+      {
+        "route_name": "绥东线",
+        "direction": 1
+      }
+    ],
+    "绥化|佳木斯": [
+      {
+        "route_name": "绥佳线[0123]",
+        "direction": 1
+      }
+    ],
+    "绥阳|绥阳南": [
+      {
+        "route_name": "绥阳南联络线[1117]",
+        "direction": 1
+      }
+    ],
+    "绵阳南|泸州": [
+      {
+        "route_name": "绵泸高速线[3104]",
+        "direction": 1
+      }
+    ],
+    "罗中|米兰": [
+      {
+        "route_name": "罗若铁路",
+        "direction": 1
+      }
+    ],
+    "肥东|合肥": [
+      {
+        "route_name": "肥东合肥联络线",
+        "direction": 1
+      }
+    ],
+    "胶州|胶西": [
+      {
+        "route_name": "胶新疏解线[1581]",
+        "direction": 1
+      }
+    ],
+    "胶州|新沂西": [
+      {
+        "route_name": "胶新铁路[0539]",
+        "direction": 1
+      }
+    ],
+    "青岛|大明湖": [
+      {
+        "route_name": "胶济客专线[3011]",
+        "direction": 1
+      }
+    ],
+    "四方|济南": [
+      {
+        "route_name": "胶济线[0501]",
+        "direction": 1
+      }
+    ],
+    "胶州|黄岛": [
+      {
+        "route_name": "胶黄铁路[0514]",
+        "direction": 1
+      }
+    ],
+    "良乡|白草洼": [
+      {
+        "route_name": "良陈线[0348]",
+        "direction": 1
+      }
+    ],
+    "八里湾|铜陵西": [
+      {
+        "route_name": "芜铜线[0620]",
+        "direction": 1
+      }
+    ],
+    "四团|芦潮港": [
+      {
+        "route_name": "芦潮港线[1665]",
+        "direction": 1
+      }
+    ],
+    "广州北|广州白云": [
+      {
+        "route_name": "花广联络线",
+        "direction": 1
+      }
+    ],
+    "芳山镇|八道壕": [
+      {
+        "route_name": "芳八线[0280]",
+        "direction": 1
+      }
+    ],
+    "苇河|亚布力南": [
+      {
+        "route_name": "苇亚线[0150]",
+        "direction": 1
+      }
+    ],
+    "苏家屯|抚顺": [
+      {
+        "route_name": "苏抚线[0235]",
+        "direction": 1
+      }
+    ],
+    "茅村|周宅子": [
+      {
+        "route_name": "茅周联络线[1515]",
+        "direction": 1
+      }
+    ],
+    "茶坞|高各庄": [
+      {
+        "route_name": "茶高线[1384]",
+        "direction": 1
+      }
+    ],
+    "荆门|荆门东": [
+      {
+        "route_name": "荆东支线[0452]",
+        "direction": 1
+      }
+    ],
+    "荆门西|荆州": [
+      {
+        "route_name": "荆荆高速线[3128]",
+        "direction": 1
+      }
+    ],
+    "大石桥|营口": [
+      {
+        "route_name": "营口线[0242]",
+        "direction": 1
+      }
+    ],
+    "萧山|夏家桥": [
+      {
+        "route_name": "萧浙联络线[1638]",
+        "direction": 1
+      }
+    ],
+    "杭州南|宁波": [
+      {
+        "route_name": "萧甬线[0636]",
+        "direction": 1
+      }
+    ],
+    "萧山西|杭州南": [
+      {
+        "route_name": "萧萧联络线[1640]",
+        "direction": 1
+      }
+    ],
+    "董家口|董家口南": [
+      {
+        "route_name": "董家口线[0542]",
+        "direction": 1
+      }
+    ],
+    "董屯|田家": [
+      {
+        "route_name": "董田联络线[1251]",
+        "direction": 1
+      }
+    ],
+    "葫芦岛|龙港": [
+      {
+        "route_name": "葫支线[0267]",
+        "direction": 1
+      }
+    ],
+    "葫芦峪|西柳": [
+      {
+        "route_name": "葫西联络线[1217]",
+        "direction": 1
+      }
+    ],
+    "点石沟|蒙元装车": [
+      {
+        "route_name": "蒙元铁路专用线[9420]",
+        "direction": 1
+      }
+    ],
+    "蓝村|烟台": [
+      {
+        "route_name": "蓝烟线[0502]",
+        "direction": 1
+      }
+    ],
+    "蓝村|蓝村西": [
+      {
+        "route_name": "蓝烟线联络线[1501]",
+        "direction": 1
+      }
+    ],
+    "薛孤|梅家庄": [
+      {
+        "route_name": "薛梅联络线[1375]",
+        "direction": 1
+      }
+    ],
+    "虎什哈|塔黄旗": [
+      {
+        "route_name": "虎丰线[2416]",
+        "direction": 1
+      }
+    ],
+    "虎石台|辉山": [
+      {
+        "route_name": "虎辉联络线[1282]",
+        "direction": 1
+      }
+    ],
+    "上海虹桥|七宝": [
+      {
+        "route_name": "虹七线[2627]",
+        "direction": 1
+      }
+    ],
+    "蚌埠|蚌埠南": [
+      {
+        "route_name": "蚌南联络线[6608]",
+        "direction": 1
+      }
+    ],
+    "蚌埠|蚌埠东": [
+      {
+        "route_name": "蚌埠东联络线[1602]",
+        "direction": 1
+      }
+    ],
+    "衡阳东|柳州": [
+      {
+        "route_name": "衡柳铁路[0073]",
+        "direction": 1
+      }
+    ],
+    "衢江|丽水": [
+      {
+        "route_name": "衢丽铁路",
+        "direction": 1
+      }
+    ],
+    "衢州|九江": [
+      {
+        "route_name": "衢九线[0091]",
+        "direction": 1
+      }
+    ],
+    "衢州|全旺": [
+      {
+        "route_name": "衢全联络线[7654]",
+        "direction": 1
+      }
+    ],
+    "衢州|宁德": [
+      {
+        "route_name": "衢宁线[0092]",
+        "direction": 1
+      }
+    ],
+    "裕溪口|裕溪口东": [
+      {
+        "route_name": "裕溪口联络线[1686]",
+        "direction": 1
+      }
+    ],
+    "老河口东|兴隆场": [
+      {
+        "route_name": "襄渝线[0056]",
+        "direction": 1
+      }
+    ],
+    "襄阳东|荆门西": [
+      {
+        "route_name": "襄荆高速线[3137]",
+        "direction": 1
+      }
+    ],
+    "襄阳北|襄州": [
+      {
+        "route_name": "襄阳北东发车线[1482]",
+        "direction": 1
+      }
+    ],
+    "襄阳北|襄阳": [
+      {
+        "route_name": "襄阳北南发车线[2450]",
+        "direction": 1
+      }
+    ],
+    "襄阳|襄州": [
+      {
+        "route_name": "襄阳汉丹客车联络线[2462]",
+        "direction": 1
+      }
+    ],
+    "九里垄|九江西": [
+      {
+        "route_name": "西到线[0677]",
+        "direction": 1
+      }
+    ],
+    "三家店|沙河": [
+      {
+        "route_name": "西北环线[0350]",
+        "direction": 1
+      }
+    ],
+    "新北大港|东大沽": [
+      {
+        "route_name": "西南环进港线[7320]",
+        "direction": 1
+      }
+    ],
+    "新丰镇|茂陵": [
+      {
+        "route_name": "西安北环线[2006]",
+        "direction": 1
+      }
+    ],
+    "茂陵|平凉南": [
+      {
+        "route_name": "西平铁路[0062]",
+        "direction": 1
+      }
+    ],
+    "安康东|大岭铺": [
+      {
+        "route_name": "西康直通线[0482]",
+        "direction": 1
+      }
+    ],
+    "新丰镇|安康东": [
+      {
+        "route_name": "西康铁路[0428]",
+        "direction": 1
+      }
+    ],
+    "淮南西|毕家岗": [
+      {
+        "route_name": "西张线[0603]",
+        "direction": 1
+      }
+    ],
+    "西安北|成都东": [
+      {
+        "route_name": "西成客专线[3040]",
+        "direction": 1
+      }
+    ],
+    "三民村|余下": [
+      {
+        "route_name": "西户线[0454]",
+        "direction": 1
+      }
+    ],
+    "樊哙|万州北": [
+      {
+        "route_name": "西渝高速线（东线）",
+        "direction": 1
+      }
+    ],
+    "西安东|重庆西": [
+      {
+        "route_name": "西渝高铁[3146]",
+        "direction": 1
+      }
+    ],
+    "金泉南|金泉": [
+      {
+        "route_name": "西甘联络线[1409]",
+        "direction": 1
+      }
+    ],
+    "西阳苑|郭二庄": [
+      {
+        "route_name": "西矿线[0382]",
+        "direction": 1
+      }
+    ],
+    "裕国|转弯桥": [
+      {
+        "route_name": "西转出发线[1238]",
+        "direction": 1
+      }
+    ],
+    "西小召|金泉南": [
+      {
+        "route_name": "西金线[0416]",
+        "direction": 1
+      }
+    ],
+    "北京西|良乡": [
+      {
+        "route_name": "西长线[0314]",
+        "direction": 1
+      }
+    ],
+    "裕国|马三家": [
+      {
+        "route_name": "西马出发线[1237]",
+        "direction": 1
+      }
+    ],
+    "解宋营|大季家北": [
+      {
+        "route_name": "解港线[1548]",
+        "direction": 1
+      }
+    ],
+    "榆次|中鼎物流园": [
+      {
+        "route_name": "货联线[2364]",
+        "direction": 1
+      }
+    ],
+    "龙里北|南宁东": [
+      {
+        "route_name": "贵南高速线",
+        "direction": 1
+      }
+    ],
+    "贵阳东|广州南": [
+      {
+        "route_name": "贵广客运专线[3044]",
+        "direction": 1
+      }
+    ],
+    "贵阳北|开阳": [
+      {
+        "route_name": "贵开线",
+        "direction": 1
+      }
+    ],
+    "贵溪北|贵溪": [
+      {
+        "route_name": "贵溪疏解线",
+        "direction": 1
+      }
+    ],
+    "贵阳南|贵阳": [
+      {
+        "route_name": "贵阳南贵阳客联络线[1846]",
+        "direction": 1
+      }
+    ],
+    "唐山东|贾庵子": [
+      {
+        "route_name": "贾联线[1392]",
+        "direction": 1
+      }
+    ],
+    "许家洞|三都": [
+      {
+        "route_name": "资许铁路[0705]",
+        "direction": 1
+      }
+    ],
+    "赣县|龙岩": [
+      {
+        "route_name": "赣瑞龙线[3055]",
+        "direction": 1
+      }
+    ],
+    "赣州国际港|韶关东": [
+      {
+        "route_name": "赣韶线[0069]",
+        "direction": 1
+      }
+    ],
+    "赣州东|龙岩": [
+      {
+        "route_name": "赣龙线[0661]",
+        "direction": 1
+      }
+    ],
+    "赤峰|白音华": [
+      {
+        "route_name": "赤大白线[0042]",
+        "direction": 1
+      }
+    ],
+    "转弯桥|裕国": [
+      {
+        "route_name": "转西直通线[1206]",
+        "direction": 1
+      }
+    ],
+    "裕溪口|二坝": [
+      {
+        "route_name": "轮北线[0607]",
+        "direction": 1
+      }
+    ],
+    "临淄|泰山": [
+      {
+        "route_name": "辛泰铁路[0503]",
+        "direction": 1
+      }
+    ],
+    "老边|边海": [
+      {
+        "route_name": "边海线[0279]",
+        "direction": 1
+      }
+    ],
+    "辽源|开原": [
+      {
+        "route_name": "辽开线[0232]",
+        "direction": 1
+      }
+    ],
+    "辽阳|本溪": [
+      {
+        "route_name": "辽溪线[0236]",
+        "direction": 1
+      }
+    ],
+    "达州|万州": [
+      {
+        "route_name": "达万铁路[达万线]",
+        "direction": 1
+      }
+    ],
+    "达州|三汇镇": [
+      {
+        "route_name": "达三线[达三线]",
+        "direction": 1
+      }
+    ],
+    "三汇镇|龙潭寺": [
+      {
+        "route_name": "达成线[0816]",
+        "direction": 1
+      }
+    ],
+    "迁安北|曹妃甸南": [
+      {
+        "route_name": "迁曹线[2001]",
+        "direction": 1
+      }
+    ],
+    "塘沽|新港": [
+      {
+        "route_name": "进港二线[0326]",
+        "direction": 1
+      }
+    ],
+    "董集|丹徒": [
+      {
+        "route_name": "连镇线[3089]",
+        "direction": 1
+      }
+    ],
+    "通化|灌水": [
+      {
+        "route_name": "通灌线[0221]",
+        "direction": 1
+      }
+    ],
+    "宝木吐|大板东": [
+      {
+        "route_name": "通白联络线[1413]",
+        "direction": 1
+      }
+    ],
+    "南通西|宁波": [
+      {
+        "route_name": "通苏嘉甬高速铁路",
+        "direction": 1
+      }
+    ],
+    "通辽|大庆西": [
+      {
+        "route_name": "通让线[0014]",
+        "direction": 1
+      }
+    ],
+    "通辽北|通辽西": [
+      {
+        "route_name": "通辽北西联络线[1269]",
+        "direction": 1
+      }
+    ],
+    "通辽|霍林河": [
+      {
+        "route_name": "通霍线[0270]",
+        "direction": 1
+      }
+    ],
+    "南宁东|北海": [
+      {
+        "route_name": "邕北线[3030]",
+        "direction": 1
+      }
+    ],
+    "邕宁|南宁南": [
+      {
+        "route_name": "邕南铁路",
+        "direction": 1
+      }
+    ],
+    "小康庄|和顺县": [
+      {
+        "route_name": "邢和线[7355]",
+        "direction": 1
+      }
+    ],
+    "邢家村|贡家台": [
+      {
+        "route_name": "邢贡联络线[1352]",
+        "direction": 1
+      }
+    ],
+    "邯郸南|北园": [
+      {
+        "route_name": "邯济线[0535]",
+        "direction": 1
+      }
+    ],
+    "肥乡|鸡泽": [
+      {
+        "route_name": "邯济邯黄联络线[2350]",
+        "direction": 1
+      }
+    ],
+    "邯郸|邯郸南": [
+      {
+        "route_name": "邯郸京广III线[0386]",
+        "direction": 1
+      }
+    ],
+    "邯郸南|长治北": [
+      {
+        "route_name": "邯长线[0031]",
+        "direction": 1
+      }
+    ],
+    "衡水东|清凉店": [
+      {
+        "route_name": "邯黄石德联络线[2331]",
+        "direction": 1
+      }
+    ],
+    "小康庄|渤海东": [
+      {
+        "route_name": "邯黄线[2348]",
+        "direction": 1
+      }
+    ],
+    "邵阳|永州": [
+      {
+        "route_name": "邵永高速线",
+        "direction": 1
+      }
+    ],
+    "邹城|南屯矿": [
+      {
+        "route_name": "邹南线",
+        "direction": 1
+      }
+    ],
+    "郑州东|万州北": [
+      {
+        "route_name": "郑万高速铁路[3063]",
+        "direction": 1
+      }
+    ],
+    "郑州东|开封": [
+      {
+        "route_name": "郑开城际线[3050]",
+        "direction": 1
+      }
+    ],
+    "郑州东|郑州航空港": [
+      {
+        "route_name": "郑机城际铁路[3057]",
+        "direction": 1
+      }
+    ],
+    "郑州东|重庆北": [
+      {
+        "route_name": "郑渝高铁[3063]",
+        "direction": 1
+      }
+    ],
+    "临潼东|窑村": [
+      {
+        "route_name": "郑西客专西安联络线[2489]",
+        "direction": 1
+      }
+    ],
+    "郫县西|彭州": [
+      {
+        "route_name": "郫彭线[3037]",
+        "direction": 1
+      }
+    ],
+    "郭王村|西安北": [
+      {
+        "route_name": "郭北联络线[7490]",
+        "direction": 1
+      }
+    ],
+    "郭尔奔敖包|查干诺尔": [
+      {
+        "route_name": "郭查铁路[0402]",
+        "direction": 1
+      }
+    ],
+    "乌日根塔拉|白音芒来": [
+      {
+        "route_name": "郭白铁路[0417]",
+        "direction": 1
+      }
+    ],
+    "都江堰|四姑娘山": [
+      {
+        "route_name": "都四铁路",
+        "direction": 1
+      }
+    ],
+    "醴陵|茶陵西": [
+      {
+        "route_name": "醴茶线[0703]",
+        "direction": 1
+      }
+    ],
+    "珞璜南|磨心坡": [
+      {
+        "route_name": "重庆东环线",
+        "direction": 1
+      }
+    ],
+    "金华|千岛湖南": [
+      {
+        "route_name": "金千铁路[0639]",
+        "direction": 1
+      }
+    ],
+    "永康南|台州南": [
+      {
+        "route_name": "金台线[0628]",
+        "direction": 1
+      }
+    ],
+    "金华|建德": [
+      {
+        "route_name": "金建高速线",
+        "direction": 1
+      }
+    ],
+    "金岭镇|杜科": [
+      {
+        "route_name": "金杜联络线[1503]",
+        "direction": 1
+      }
+    ],
+    "金家堡|桥头": [
+      {
+        "route_name": "金桥联络线[1225]",
+        "direction": 1
+      }
+    ],
+    "金珠|棋盘": [
+      {
+        "route_name": "金棋联络线[1264]",
+        "direction": 1
+      }
+    ],
+    "金山湾|沙河镇": [
+      {
+        "route_name": "金沙线[0287]",
+        "direction": 1
+      }
+    ],
+    "金华南|温州": [
+      {
+        "route_name": "金温货线[0613]",
+        "direction": 1
+      }
+    ],
+    "金沙湾|筠连": [
+      {
+        "route_name": "金筠线",
+        "direction": 1
+      }
+    ],
+    "金昌|红二矿": [
+      {
+        "route_name": "金阿线",
+        "direction": 1
+      }
+    ],
+    "钦州|钦州东": [
+      {
+        "route_name": "钦东联络线",
+        "direction": 1
+      }
+    ],
+    "钦州东|合浦": [
+      {
+        "route_name": "钦北线",
+        "direction": 1
+      }
+    ],
+    "钦州港|钦州港东": [
+      {
+        "route_name": "钦州港东线",
+        "direction": 1
+      }
+    ],
+    "钦州北|防城港": [
+      {
+        "route_name": "钦防铁路[3031]",
+        "direction": 1
+      }
+    ],
+    "铁石|南仇": [
+      {
+        "route_name": "铁南线[0513]",
+        "direction": 1
+      }
+    ],
+    "铁岭|大青": [
+      {
+        "route_name": "铁法线[0233]",
+        "direction": 1
+      }
+    ],
+    "铁山|灵乡": [
+      {
+        "route_name": "铁灵线[0435]",
+        "direction": 1
+      }
+    ],
+    "狮子山|湖口": [
+      {
+        "route_name": "铜九线[0680]",
+        "direction": 1
+      }
+    ],
+    "铜川东|蒲城": [
+      {
+        "route_name": "铜蒲线",
+        "direction": 1
+      }
+    ],
+    "银川|树屏": [
+      {
+        "route_name": "银兰高速线[3081]",
+        "direction": 1
+      }
+    ],
+    "唐山东|银城铺": [
+      {
+        "route_name": "银联线[1394]",
+        "direction": 1
+      }
+    ],
+    "吴忠|西安北": [
+      {
+        "route_name": "银西高铁[3100]",
+        "direction": 1
+      }
+    ],
+    "锡林浩特北|锡林浩特东": [
+      {
+        "route_name": "锡东联络线[1412]",
+        "direction": 1
+      }
+    ],
+    "锡林浩特|忙罕屯": [
+      {
+        "route_name": "锡乌线[0420]",
+        "direction": 1
+      }
+    ],
+    "海彦呼都格|西里": [
+      {
+        "route_name": "锡二线[4404]",
+        "direction": 1
+      }
+    ],
+    "道布音呼都格|敖日格勒": [
+      {
+        "route_name": "锡白联络线[2406]",
+        "direction": 1
+      }
+    ],
+    "锦州|上板城": [
+      {
+        "route_name": "锦承线[0022]",
+        "direction": 1
+      }
+    ],
+    "西港口|大木头沟": [
+      {
+        "route_name": "锦赤线",
+        "direction": 1
+      }
+    ],
+    "镇江东|瑞山": [
+      {
+        "route_name": "镇瑞线[0633]",
+        "direction": 1
+      }
+    ],
+    "龙泉北|烟筒山": [
+      {
+        "route_name": "长双烟线[0219]",
+        "direction": 1
+      }
+    ],
+    "长春|图们": [
+      {
+        "route_name": "长图线[0202]",
+        "direction": 1
+      }
+    ],
+    "长沙|株洲南": [
+      {
+        "route_name": "长株城际线[3064]",
+        "direction": 1
+      }
+    ],
+    "下辛店|隔蒲": [
+      {
+        "route_name": "长江埠附属线[2403]",
+        "direction": 1
+      }
+    ],
+    "长沙|长沙西": [
+      {
+        "route_name": "长沙西城际线[3068]",
+        "direction": 1
+      }
+    ],
+    "长兴南|煤山": [
+      {
+        "route_name": "长牛线[0635]",
+        "direction": 1
+      }
+    ],
+    "长春北|白城": [
+      {
+        "route_name": "长白线[0203]",
+        "direction": 1
+      }
+    ],
+    "长江埠|荆门": [
+      {
+        "route_name": "长荆线[0450]",
+        "direction": 1
+      }
+    ],
+    "长春西|长春": [
+      {
+        "route_name": "长西联络线[1283]",
+        "direction": 1
+      }
+    ],
+    "阜阳北|分路口": [
+      {
+        "route_name": "阜六铁路[0687]",
+        "direction": 1
+      }
+    ],
+    "阜阳|淮南": [
+      {
+        "route_name": "阜淮铁路[0605]",
+        "direction": 1
+      }
+    ],
+    "阜新南|李金": [
+      {
+        "route_name": "阜金线[0292]",
+        "direction": 1
+      }
+    ],
+    "阜阳|阜阳北": [
+      {
+        "route_name": "阜阳上行联络线[1680]",
+        "direction": 1
+      },
+      {
+        "route_name": "阜阳西联络线[6452]",
+        "direction": 1
+      }
+    ],
+    "阜阳北|阜阳": [
+      {
+        "route_name": "阜阳下行联络线[2602]",
+        "direction": 1
+      }
+    ],
+    "阜阳北|颍泉": [
+      {
+        "route_name": "阜阳西北联络线[1683]",
+        "direction": 1
+      }
+    ],
+    "阜阳西|黄梅东": [
+      {
+        "route_name": "阜黄高速线[3107]",
+        "direction": 1
+      }
+    ],
+    "防城港北|东兴市": [
+      {
+        "route_name": "防东铁路",
+        "direction": 1
+      }
+    ],
+    "阳平关|安康": [
+      {
+        "route_name": "阳安线[0456]",
+        "direction": 1
+      }
+    ],
+    "阳泉北|阳泉东": [
+      {
+        "route_name": "阳泉东线[8325]",
+        "direction": 1
+      }
+    ],
+    "白羊墅|悬钟": [
+      {
+        "route_name": "阳涉铁路[2306]",
+        "direction": 1
+      }
+    ],
+    "阳泉|简子沟": [
+      {
+        "route_name": "阳简线[0356]",
+        "direction": 1
+      }
+    ],
+    "阳春|阳江港": [
+      {
+        "route_name": "阳阳线",
+        "direction": 1
+      }
+    ],
+    "连云|兰州西": [
+      {
+        "route_name": "陇海线[0003]",
+        "direction": 1
+      }
+    ],
+    "三桥|西安西": [
+      {
+        "route_name": "陇海西成联络线[7476]",
+        "direction": 1
+      }
+    ],
+    "沙塘|新河": [
+      {
+        "route_name": "陇符联络线[1514]",
+        "direction": 1
+      }
+    ],
+    "青林|陈家沟": [
+      {
+        "route_name": "陈家沟煤矿专用线",
+        "direction": 1
+      }
+    ],
+    "陶利庙|陶利庙南": [
+      {
+        "route_name": "陶利庙南联络线[6494]",
+        "direction": 1
+      }
+    ],
+    "陶赖昭|舒兰": [
+      {
+        "route_name": "陶舒线[0154]",
+        "direction": 1
+      }
+    ],
+    "扶余西|陶赖昭": [
+      {
+        "route_name": "陶赖昭联络线[1275]",
+        "direction": 1
+      }
+    ],
+    "隆昌|叙永北": [
+      {
+        "route_name": "隆泸叙铁路",
+        "direction": 1
+      }
+    ],
+    "雄安|忻州西": [
+      {
+        "route_name": "雄忻高速线",
+        "direction": 1
+      }
+    ],
+    "集宁南|二连": [
+      {
+        "route_name": "集二铁路[0401]",
+        "direction": 1
+      }
+    ],
+    "集宁|葫芦": [
+      {
+        "route_name": "集葫联络线[1401]",
+        "direction": 1
+      }
+    ],
+    "贲红|通辽北": [
+      {
+        "route_name": "集通线[0411]",
+        "direction": 1
+      }
+    ],
+    "霍林河|白音华东": [
+      {
+        "route_name": "霍白线[0271]",
+        "direction": 1
+      }
+    ],
+    "白洋淀|徐水东": [
+      {
+        "route_name": "霸徐京广高速联络线[2354]",
+        "direction": 1
+      }
+    ],
+    "霸州西|徐水": [
+      {
+        "route_name": "霸徐线[0359]",
+        "direction": 1
+      }
+    ],
+    "青白江东|三星堆": [
+      {
+        "route_name": "青三联络线",
+        "direction": 1
+      }
+    ],
+    "徐楼|濉溪": [
+      {
+        "route_name": "青符联络线[1696]",
+        "direction": 1
+      }
+    ],
+    "青岛北|荣成": [
+      {
+        "route_name": "青荣城际铁路[3038]",
+        "direction": 1
+      }
+    ],
+    "西宁西|拉萨": [
+      {
+        "route_name": "青藏线[0907]",
+        "direction": 1
+      }
+    ],
+    "青岛北|连云港": [
+      {
+        "route_name": "青连铁路[3079]",
+        "direction": 1
+      }
+    ],
+    "青龙山|阜阳北": [
+      {
+        "route_name": "青阜铁路[0601]",
+        "direction": 1
+      }
+    ],
+    "杨桥畔|靖边东": [
+      {
+        "route_name": "靖边东联络线[6495]",
+        "direction": 1
+      }
+    ],
+    "静乐|静游": [
+      {
+        "route_name": "静静铁路[静静线]",
+        "direction": 1
+      }
+    ],
+    "韩家岭|原平": [
+      {
+        "route_name": "韩原线[0315]",
+        "direction": 1
+      }
+    ],
+    "向韶|韶山": [
+      {
+        "route_name": "韶山线[0701]",
+        "direction": 1
+      }
+    ],
+    "乌珠穆沁|额吉淖尔": [
+      {
+        "route_name": "额吉淖尔线[0274]",
+        "direction": 1
+      }
+    ],
+    "饮马峡北|饮马峡西": [
+      {
+        "route_name": "饮马峡西联络线",
+        "direction": 1
+      }
+    ],
+    "香坊|东门": [
+      {
+        "route_name": "香东线[1119]",
+        "direction": 1
+      }
+    ],
+    "香坊|孙家": [
+      {
+        "route_name": "香孙线[1118]",
+        "direction": 1
+      }
+    ],
+    "马相屯|吉林西": [
+      {
+        "route_name": "马吉铁路[0277]",
+        "direction": 1
+      }
+    ],
+    "马铺营|沙河驿镇": [
+      {
+        "route_name": "马沙联线[1325]",
+        "direction": 1
+      }
+    ],
+    "马路圩|玉林": [
+      {
+        "route_name": "马玉线",
+        "direction": 1
+      }
+    ],
+    "马头|磁山": [
+      {
+        "route_name": "马磁铁路[0384]",
+        "direction": 1
+      }
+    ],
+    "马鞍山南|马鞍山东": [
+      {
+        "route_name": "马鞍山东联络线",
+        "direction": 1
+      }
+    ],
+    "高桥镇|天桥": [
+      {
+        "route_name": "高天线[0285]",
+        "direction": 1
+      }
+    ],
+    "高台山|新立屯": [
+      {
+        "route_name": "高新线[0262]",
+        "direction": 1
+      }
+    ],
+    "高显|曲沃": [
+      {
+        "route_name": "高曲联络线[2000]",
+        "direction": 1
+      }
+    ],
+    "魏杖子|塔山": [
+      {
+        "route_name": "魏塔线[0268]",
+        "direction": 1
+      }
+    ],
+    "鸦雀岭|晓溪塔": [
+      {
+        "route_name": "鸦宜线[0451]",
+        "direction": 1
+      }
+    ],
+    "鸭园|临江": [
+      {
+        "route_name": "鸭大线[0216]",
+        "direction": 1
+      }
+    ],
+    "鹤岗|鹤北": [
+      {
+        "route_name": "鹤北线[0126]",
+        "direction": 1
+      }
+    ],
+    "莲江口|鹤岗": [
+      {
+        "route_name": "鹤岗线[0125]",
+        "direction": 1
+      }
+    ],
+    "鹧鸪江|柳州西": [
+      {
+        "route_name": "鹧柳环线",
+        "direction": 1
+      }
+    ],
+    "鹰潭|厦门": [
+      {
+        "route_name": "鹰厦线[0651]",
+        "direction": 1
+      }
+    ],
+    "鹰潭南|鹰潭": [
+      {
+        "route_name": "鹰潭环到线[1674]",
+        "direction": 1
+      }
+    ],
+    "麻城|武汉北": [
+      {
+        "route_name": "麻武铁路[0047]",
+        "direction": 1
+      }
+    ],
+    "咸塘|颜家垄": [
+      {
+        "route_name": "麻颜联络线[6709]",
+        "direction": 1
+      }
+    ],
+    "黄骅南|万家码头": [
+      {
+        "route_name": "黄万线[2303]",
+        "direction": 1
+      }
+    ],
+    "黄台|济南东": [
+      {
+        "route_name": "黄东联络线[1521]",
+        "direction": 1
+      }
+    ],
+    "黄白茨|公乌素": [
+      {
+        "route_name": "黄公线[0410]",
+        "direction": 1
+      }
+    ],
+    "天河东|黄埔": [
+      {
+        "route_name": "黄埔线[0707]",
+        "direction": 1
+      }
+    ],
+    "黄骅南|大家洼": [
+      {
+        "route_name": "黄大线",
+        "direction": 1
+      }
+    ],
+    "黄渡|封浜": [
+      {
+        "route_name": "黄封联络线[2601]",
+        "direction": 1
+      }
+    ],
+    "黄桶|百色": [
+      {
+        "route_name": "黄百铁路",
+        "direction": 1
+      }
+    ],
+    "黄村|良乡": [
+      {
+        "route_name": "黄良线[0343]",
+        "direction": 1
+      }
+    ],
+    "高田|龙田面": [
+      {
+        "route_name": "黎河联络线[1752]",
+        "direction": 1
+      }
+    ],
+    "黎塘|湛江": [
+      {
+        "route_name": "黎湛线[0752]",
+        "direction": 1
+      }
+    ],
+    "沙江|钦州东": [
+      {
+        "route_name": "黎钦铁路[2752]",
+        "direction": 1
+      }
+    ],
+    "黔江|常德": [
+      {
+        "route_name": "黔常线",
+        "direction": 1
+      }
+    ],
+    "龙里|柳州": [
+      {
+        "route_name": "黔桂铁路[0081]",
+        "direction": 1
+      }
+    ],
+    "齐齐哈尔|北安": [
+      {
+        "route_name": "齐北线[0101]",
+        "direction": 1
+      }
+    ],
+    "齐河|济南西": [
+      {
+        "route_name": "齐河联络线[1544]",
+        "direction": 1
+      }
+    ],
+    "龙泉北|长春北": [
+      {
+        "route_name": "龙北联络线[1255]",
+        "direction": 1
+      }
+    ],
+    "龙里|谷立": [
+      {
+        "route_name": "龙南线",
+        "direction": 1
+      }
+    ],
+    "龙家营|山海关": [
+      {
+        "route_name": "龙山联络线[2332]",
+        "direction": 1
+      }
+    ],
+    "铁山洋|龙岩东": [
+      {
+        "route_name": "龙岩东支线[0657]",
+        "direction": 1
+      }
+    ],
+    "龙泉|龙泉北": [
+      {
+        "route_name": "龙泉联络线[1228]",
+        "direction": 1
+      }
+    ],
+    "龙口西|珠玑": [
+      {
+        "route_name": "龙烟铁路[0519]",
+        "direction": 1
+      }
+    ],
+    "龙家营|秦皇岛东": [
+      {
+        "route_name": "龙联线[1370]",
+        "direction": 1
+      }
+    ],
+    "古田会址|龙川西": [
+      {
+        "route_name": "龙龙高速铁路",
+        "direction": 1
+      }
+    ]
+  }
+}

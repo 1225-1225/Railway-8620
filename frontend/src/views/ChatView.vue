@@ -79,43 +79,10 @@ import type { SessionGroup } from '@/components/HistorySidebar.vue'
 marked.setOptions({ breaks: true, gfm: true })
 
 /**
- * 将文本中的 [MAP]url[/MAP] 标签替换为可点击打开路线图的 HTML
- * 同时也渲染 markdown
+ * 渲染 markdown 内容
  */
 function renderContent(raw: string): string {
-  // 先用占位符保护 [MAP] 块，防止 marked 转义
-  const mapBlocks: string[] = []
-  const protected_ = raw.replace(/\[MAP\](.+?)\[\/MAP\]/g, (_full, url) => {
-    const idx = mapBlocks.length
-    mapBlocks.push(url.trim())
-    return `<!--MAP_${idx}-->`
-  })
-
-  // 渲染 markdown
-  let html = marked(protected_) as string
-
-  // 替换占位符为 iframe
-  html = html.replace(/<!--MAP_(\d+)-->/g, (_full, idxStr) => {
-    const idx = parseInt(idxStr, 10)
-    const url = mapBlocks[idx]
-    if (!url) return ''
-    const fullUrl = url.startsWith('http') ? url : `${import.meta.env.BASE_URL}${url}`.replace('//', '/')
-    return `
-<div class="route-map-container">
-  <div class="route-map-header">
-    <span class="route-map-title">🗺️ 列车运行路线图</span>
-    <a class="route-map-open" href="${fullUrl}" target="_blank">在新窗口打开 ↗</a>
-  </div>
-  <iframe
-    src="${fullUrl}"
-    class="route-map-iframe"
-    loading="lazy"
-    allowfullscreen
-  ></iframe>
-</div>`
-  })
-
-  return html
+  return marked(raw) as string
 }
 
 const authStore = useAuthStore()
@@ -725,53 +692,4 @@ onMounted(() => {
     font-size: 0.95rem;
   }
 
-  .route-map-iframe {
-    height: 300px;
-  }
-}
-
-/* ===== 路线图 iframe 容器 ===== */
-.route-map-container {
-  margin: 0.8rem 0;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.route-map-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.6rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.route-map-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.route-map-open {
-  font-size: 0.8rem;
-  color: #a5b4fc;
-  text-decoration: none;
-  padding: 0.25rem 0.6rem;
-  border-radius: 8px;
-  background: rgba(139, 92, 246, 0.15);
-  transition: all 0.2s;
-}
-
-.route-map-open:hover {
-  background: rgba(139, 92, 246, 0.3);
-  color: white;
-}
-
-.route-map-iframe {
-  width: 100%;
-  height: 500px;
-  border: none;
-  display: block;
 }</style>

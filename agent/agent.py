@@ -5,9 +5,9 @@ from langchain.agents import create_agent
 from agent.llm import create_llm
 
 from settings import settings as config_data
-from agent.tools import retriever_tool, route_map_drawing_tool, station_route_drawing_tool
+from agent.tools import retriever_tool, query_train_info, query_trains_by_route, generate_route_map
 
-tools = [retriever_tool, route_map_drawing_tool, station_route_drawing_tool]
+tools = [retriever_tool, query_train_info, query_trains_by_route, generate_route_map]
 
 class AgentService:
     def __init__(self):
@@ -23,14 +23,13 @@ class AgentService:
             model=create_llm(streaming=True),
             tools=tools,
             system_prompt="你是一位知晓中国铁路和机车知识的专家。"
-                          "请根据工具返回的资料，直接、专业地回答用户问题。"
-                          "绘图工具使用规则："
-                          "1. 用户明确指定车次代码（如G1、K4174等）时，调用 route_map_drawing_tool 工具；"
-                          "2. 用户给出起点和终点站名（如「合肥到北京西」、「从合肥去北京西」）时，"
-                          "调用 station_route_drawing_tool 工具，会自动查找所有车次并按发车时间排序绘制。"
-                          "【重要】当工具返回内容中包含 [MAP]...[/MAP] 标记时，"
-                          "你必须原封不动地将这些 [MAP]...[/MAP] 标记复制到你的回答中，"
-                          "不要删除、修改或省略它们，这些标记会自动渲染为路线图。",
+                          "请根据工具返回的资料，直接、专业地回答用户问题。\n\n"
+                          "工具使用指南：\n"
+                          "1. 当用户询问具体车次的信息时（如'Z227的信息'），请调用 query_train_info 工具，传入车次列表。\n"
+                          "2. 当用户询问两地之间的车次时（如'北京到合肥的车'），请调用 query_trains_by_route 工具，传入起讫站和数量。\n"
+                          "3. 当用户需要查看车次运行路线地图时，请调用 generate_route_map 工具，传入车次列表。\n"
+                          "4. 如果用户同时要求查车次信息和画路线图，先调用 query_train_info 查信息，再调用 generate_route_map 画图。\n"
+                          "5. 回答中请直接展示车次详细信息，包括发车/到达时间和经停站。",
             checkpointer=self.checkpointer
         )
 

@@ -22,7 +22,6 @@ from backend.auth import get_current_user
 from fastapi.responses import StreamingResponse
 from langchain_core.messages import AIMessage, AIMessageChunk
 import msgpack
-import re
 
 # CORS 允许的前端来源，逗号分隔；默认仅放行 Vite 开发服务器
 # 生产环境下前端走 Nginx 反代到后端，同源不需要 CORS
@@ -62,6 +61,13 @@ app.add_middleware(
 
 # 注册认证路由
 app.include_router(auth.router)
+
+# 静态文件：提供地图文件访问
+from fastapi.staticfiles import StaticFiles
+import os
+_maps_dir = os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'maps'))
+os.makedirs(_maps_dir, exist_ok=True)
+app.mount("/maps", StaticFiles(directory=_maps_dir), name="maps")
 
 
 def _get_agent():
@@ -333,32 +339,6 @@ def _repair_incomplete_tool_calls(agent, config: dict):
             pass
 
 
-def _ensure_map_tags(answer: str, messages: list) -> str:
-    """检查最终回答中是否包含 [MAP] 标签，如果没有则从本轮工具输出中提取并追加"""
-    # 如果回答中已有 [MAP] 标签，无需处理
-    if '[MAP]' in answer:
-        return answer
-
-    # 只从本轮的消息中提取 ToolMessage 里的 [MAP] 标签
-    map_blocks = []
-    for msg in messages:
-        if hasattr(msg, 'type') and msg.type == 'tool' and hasattr(msg, 'content'):
-            found = re.findall(r'\[MAP\](.+?)\[/MAP\]', str(msg.content), re.DOTALL)
-            for url in found:
-                url = url.strip()
-                if url:
-                    map_blocks.append(f'[MAP]{url}[/MAP]')
-
-    if not map_blocks:
-        return answer
-
-    # 去重（保留顺序）
-    unique_blocks = list(dict.fromkeys(map_blocks))
-    map_section = '\n\n' + '\n'.join(unique_blocks)
-
-    return answer + map_section
-
-
 @app.post("/chat")
 def chat(
     request: ChatRequest,
@@ -370,23 +350,11 @@ def chat(
     agent = _get_agent()
     _repair_incomplete_tool_calls(agent, config)
     
-    # 记录调用前的消息数，用于识别本轮新增消息
-    try:
-        prev_state = agent.get_state(config)
-        prev_count = len(prev_state.values.get('messages', [])) if (prev_state and prev_state.values) else 0
-    except Exception:
-        prev_count = 0
-    
     input_data = {"messages": [{"role": "user", "content": request.message}]}
     result = agent.invoke(input=input_data, config=config)
     all_messages = result["messages"]
     
-    # 仅取本轮新增的消息（只取 prev_count 之后的 ToolMessage）
-    round_messages = all_messages[prev_count:] if prev_count < len(all_messages) else all_messages
-    
     answer = all_messages[-1].content
-    # 自动补上可能被 LLM 遗漏的 [MAP] 标签（仅从本轮消息中提取）
-    answer = _ensure_map_tags(answer, round_messages)
     return {"answer": answer}
 
 @app.post("/chat/stream")
@@ -406,11 +374,8 @@ async def chat_stream(
 
     async def generate():
         loop = asyncio.get_event_loop()
-        full_content = ""  # 累积流式输出的完整文本
-        tool_messages_for_map = []  # 收集本轮的工具消息
         try:
             # 在独立线程中运行同步的 agent.stream()，避免阻塞事件循环
-            # 每次迭代超时 300 秒（5 分钟），工具执行（绘地图）可能较慢
             stream_iter = iter(
                 await asyncio.wait_for(
                     loop.run_in_executor(
@@ -443,19 +408,7 @@ async def chat_stream(
                 else:
                     msg = chunk
                 if isinstance(msg, (AIMessage, AIMessageChunk)) and msg.content:
-                    full_content += msg.content
                     yield f"data: {json.dumps({'content': msg.content}, ensure_ascii=False)}\n\n"
-                # 收集工具消息（用于事后补 [MAP] 标签）
-                if hasattr(msg, 'type') and msg.type == 'tool':
-                    tool_messages_for_map.append(msg)
-
-            # 流式输出结束后，检查是否遗漏了 [MAP] 标签
-            map_extra = _ensure_map_tags(full_content, tool_messages_for_map)
-            if map_extra != full_content:
-                # 提取多出来的部分，推送给前端追加显示
-                extra_part = map_extra[len(full_content):]
-                if extra_part:
-                    yield f"data: {json.dumps({'content': extra_part}, ensure_ascii=False)}\n\n"
 
         except asyncio.TimeoutError:
             yield f"data: {json.dumps({'error': '操作超时（工具执行耗时较长，请稍后重试）'}, ensure_ascii=False)}\n\n"

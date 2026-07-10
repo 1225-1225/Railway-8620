@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_847f320ed5395520a53206faf08d29dd {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); 
+                z-index: 1000; background: white; padding: 10px 20px; 
+                border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                font-size: 16px; font-weight: bold;">
+        🚄 多车次运行路线对比 | T35, Z227
+    </div>
+    
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);"><b>图例</b><br><span style="color:#FF4444;">─</span> T35<br><span style="color:#4466FF;">─</span> Z227<br></div>
+    
+            <div class="folium-map" id="map_847f320ed5395520a53206faf08d29dd" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_847f320ed5395520a53206faf08d29dd = L.map(
+                "map_847f320ed5395520a53206faf08d29dd",
+                {
+                    center: [116.35817750000001, 39.875556],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_09e5304e70a4442ee77d69e806adf79f = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_09e5304e70a4442ee77d69e806adf79f.addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            var poly_line_e038eb008f078e280f6c6858f7bc0bc5 = L.polyline(
+                [[39.901117, 116.421013], [38.308946, 116.872441]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_e038eb008f078e280f6c6858f7bc0bc5.bindTooltip(
+                `<div>
+                     T35: 北京 → 沧州
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_29c205b599dfdf48261eee049fd6200c = L.polyline(
+                [[38.308946, 116.872441], [34.266395, 117.201762]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_29c205b599dfdf48261eee049fd6200c.bindTooltip(
+                `<div>
+                     T35: 沧州 → 徐州
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f3cc7a82041d237d722a96ce14a059f2 = L.polyline(
+                [[34.266395, 117.201762], [33.640943, 116.989735]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_f3cc7a82041d237d722a96ce14a059f2.bindTooltip(
+                `<div>
+                     T35: 徐州 → 宿州
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1a91e4908ec92e71eaa1f2602ee61baf = L.polyline(
+                [[33.640943, 116.989735], [32.944828, 117.371815]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_1a91e4908ec92e71eaa1f2602ee61baf.bindTooltip(
+                `<div>
+                     T35: 宿州 → 蚌埠
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_498e8d813872e5ab18be70e0cee93466 = L.polyline(
+                [[32.944828, 117.371815], [31.887866, 117.311886]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_498e8d813872e5ab18be70e0cee93466.bindTooltip(
+                `<div>
+                     T35: 蚌埠 → 合肥
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_af0ebb3752fc897157f61f83c247c42c = L.polyline(
+                [[31.887866, 117.311886], [31.716997, 116.494464]],
+                {"bubblingMouseEvents": true, "color": "#4466FF", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4466FF", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_af0ebb3752fc897157f61f83c247c42c.bindTooltip(
+                `<div>
+                     Z227: 合肥 → 六安
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_87b0a4de6e418c081d9dfff93b3c5cae = L.polyline(
+                [[31.716997, 116.494464], [32.056188, 116.137521]],
+                {"bubblingMouseEvents": true, "color": "#4466FF", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4466FF", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_87b0a4de6e418c081d9dfff93b3c5cae.bindTooltip(
+                `<div>
+                     Z227: 六安 → 霍邱
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fc1dd1b60359053dc32bce9a7734ca82 = L.polyline(
+                [[32.056188, 116.137521], [32.91667, 115.863962]],
+                {"bubblingMouseEvents": true, "color": "#4466FF", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4466FF", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_fc1dd1b60359053dc32bce9a7734ca82.bindTooltip(
+                `<div>
+                     Z227: 霍邱 → 阜阳
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e6d4b53e67e35dc566fd03606caf7786 = L.polyline(
+                [[32.91667, 115.863962], [37.743493, 115.685057]],
+                {"bubblingMouseEvents": true, "color": "#4466FF", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4466FF", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_e6d4b53e67e35dc566fd03606caf7786.bindTooltip(
+                `<div>
+                     Z227: 阜阳 → 衡水
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f443bcbe4752e9f0e90c745ca3cf7e51 = L.polyline(
+                [[37.743493, 115.685057], [39.849995, 116.295342]],
+                {"bubblingMouseEvents": true, "color": "#4466FF", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4466FF", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+            poly_line_f443bcbe4752e9f0e90c745ca3cf7e51.bindTooltip(
+                `<div>
+                     Z227: 衡水 → 北京丰台
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b05415bcede8aa4eefc4b1c1a4b2b6d = L.circleMarker(
+                [38.308946, 116.872441],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_f8d38ff0a3fdea982b35daa0059fa1bc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17f1870112416a0b76ca68c6d607efbd = $(`<div id="html_17f1870112416a0b76ca68c6d607efbd" style="width: 100.0%; height: 100.0%;">🚉 沧州</div>`)[0];
+                popup_f8d38ff0a3fdea982b35daa0059fa1bc.setContent(html_17f1870112416a0b76ca68c6d607efbd);
+            
+        
+
+        circle_marker_0b05415bcede8aa4eefc4b1c1a4b2b6d.bindPopup(popup_f8d38ff0a3fdea982b35daa0059fa1bc)
+        ;
+
+        
+    
+    
+            circle_marker_0b05415bcede8aa4eefc4b1c1a4b2b6d.bindTooltip(
+                `<div>
+                     沧州
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ee213ab5996c7ea30f45c76a80ba79b = L.circleMarker(
+                [32.056188, 116.137521],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_b3e8b384357cd9d8a99d22f1af357386 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e47aa48e85b1bf080f27d6a6a62d39fa = $(`<div id="html_e47aa48e85b1bf080f27d6a6a62d39fa" style="width: 100.0%; height: 100.0%;">🚉 霍邱</div>`)[0];
+                popup_b3e8b384357cd9d8a99d22f1af357386.setContent(html_e47aa48e85b1bf080f27d6a6a62d39fa);
+            
+        
+
+        circle_marker_7ee213ab5996c7ea30f45c76a80ba79b.bindPopup(popup_b3e8b384357cd9d8a99d22f1af357386)
+        ;
+
+        
+    
+    
+            circle_marker_7ee213ab5996c7ea30f45c76a80ba79b.bindTooltip(
+                `<div>
+                     霍邱
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_effc93900e4504a6739fba9156835444 = L.circleMarker(
+                [32.944828, 117.371815],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_fd830b7d02b5cd84ed2477a365293cf1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_557199d7d61042227a4c49a9d7f1a8f6 = $(`<div id="html_557199d7d61042227a4c49a9d7f1a8f6" style="width: 100.0%; height: 100.0%;">🚉 蚌埠</div>`)[0];
+                popup_fd830b7d02b5cd84ed2477a365293cf1.setContent(html_557199d7d61042227a4c49a9d7f1a8f6);
+            
+        
+
+        circle_marker_effc93900e4504a6739fba9156835444.bindPopup(popup_fd830b7d02b5cd84ed2477a365293cf1)
+        ;
+
+        
+    
+    
+            circle_marker_effc93900e4504a6739fba9156835444.bindTooltip(
+                `<div>
+                     蚌埠
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8963862ad9020ba986b0bb305b349361 = L.circleMarker(
+                [33.640943, 116.989735],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_b640a3ddebac84c89c72addbb961d845 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1820791b1efa495ad3a9ffab35e9197 = $(`<div id="html_d1820791b1efa495ad3a9ffab35e9197" style="width: 100.0%; height: 100.0%;">🚉 宿州</div>`)[0];
+                popup_b640a3ddebac84c89c72addbb961d845.setContent(html_d1820791b1efa495ad3a9ffab35e9197);
+            
+        
+
+        circle_marker_8963862ad9020ba986b0bb305b349361.bindPopup(popup_b640a3ddebac84c89c72addbb961d845)
+        ;
+
+        
+    
+    
+            circle_marker_8963862ad9020ba986b0bb305b349361.bindTooltip(
+                `<div>
+                     宿州
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e12f0808bd1505a8839e14a0f678603b = L.circleMarker(
+                [39.901117, 116.421013],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_8be4c423c77b6f18d781e43fa9a37d36 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_96c97d8f62d38627cbb15c3eaf8a8d2d = $(`<div id="html_96c97d8f62d38627cbb15c3eaf8a8d2d" style="width: 100.0%; height: 100.0%;">🚉 北京</div>`)[0];
+                popup_8be4c423c77b6f18d781e43fa9a37d36.setContent(html_96c97d8f62d38627cbb15c3eaf8a8d2d);
+            
+        
+
+        circle_marker_e12f0808bd1505a8839e14a0f678603b.bindPopup(popup_8be4c423c77b6f18d781e43fa9a37d36)
+        ;
+
+        
+    
+    
+            circle_marker_e12f0808bd1505a8839e14a0f678603b.bindTooltip(
+                `<div>
+                     北京
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa6b533c40117f2fc0422616e4b1d29a = L.circleMarker(
+                [39.849995, 116.295342],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_350bcf833cde28527c9e63e5ea84d68b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cd16489ed6c847976105fa449289e20b = $(`<div id="html_cd16489ed6c847976105fa449289e20b" style="width: 100.0%; height: 100.0%;">🚉 北京丰台</div>`)[0];
+                popup_350bcf833cde28527c9e63e5ea84d68b.setContent(html_cd16489ed6c847976105fa449289e20b);
+            
+        
+
+        circle_marker_fa6b533c40117f2fc0422616e4b1d29a.bindPopup(popup_350bcf833cde28527c9e63e5ea84d68b)
+        ;
+
+        
+    
+    
+            circle_marker_fa6b533c40117f2fc0422616e4b1d29a.bindTooltip(
+                `<div>
+                     北京丰台
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf993e23095347e249bd34bfd8d3cdaa = L.circleMarker(
+                [34.266395, 117.201762],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_784119a9f07f3c398060ec2a572fbce2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c731b0e32f69e92847b26bc307834666 = $(`<div id="html_c731b0e32f69e92847b26bc307834666" style="width: 100.0%; height: 100.0%;">🚉 徐州</div>`)[0];
+                popup_784119a9f07f3c398060ec2a572fbce2.setContent(html_c731b0e32f69e92847b26bc307834666);
+            
+        
+
+        circle_marker_cf993e23095347e249bd34bfd8d3cdaa.bindPopup(popup_784119a9f07f3c398060ec2a572fbce2)
+        ;
+
+        
+    
+    
+            circle_marker_cf993e23095347e249bd34bfd8d3cdaa.bindTooltip(
+                `<div>
+                     徐州
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1d2e804870d90281a404e165e5100d67 = L.circleMarker(
+                [31.716997, 116.494464],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_bf1afcf961aa3653bcabef5c9ef51ae9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c9ccf7a76eaaeff2b30ef66fbd55f729 = $(`<div id="html_c9ccf7a76eaaeff2b30ef66fbd55f729" style="width: 100.0%; height: 100.0%;">🚉 六安</div>`)[0];
+                popup_bf1afcf961aa3653bcabef5c9ef51ae9.setContent(html_c9ccf7a76eaaeff2b30ef66fbd55f729);
+            
+        
+
+        circle_marker_1d2e804870d90281a404e165e5100d67.bindPopup(popup_bf1afcf961aa3653bcabef5c9ef51ae9)
+        ;
+
+        
+    
+    
+            circle_marker_1d2e804870d90281a404e165e5100d67.bindTooltip(
+                `<div>
+                     六安
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d089a958cb004dce281491cdb5642e32 = L.circleMarker(
+                [37.743493, 115.685057],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_bd5a856d748f3c78404b7448271fe244 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3b01882df8bf64252d954d0b9997a9f4 = $(`<div id="html_3b01882df8bf64252d954d0b9997a9f4" style="width: 100.0%; height: 100.0%;">🚉 衡水</div>`)[0];
+                popup_bd5a856d748f3c78404b7448271fe244.setContent(html_3b01882df8bf64252d954d0b9997a9f4);
+            
+        
+
+        circle_marker_d089a958cb004dce281491cdb5642e32.bindPopup(popup_bd5a856d748f3c78404b7448271fe244)
+        ;
+
+        
+    
+    
+            circle_marker_d089a958cb004dce281491cdb5642e32.bindTooltip(
+                `<div>
+                     衡水
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_932b9a43074da017205cdfdf0457638a = L.circleMarker(
+                [32.91667, 115.863962],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_16b5e4ac9e4ec7543676ff4e57fd9ff8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_def05b05a4d3cd5823fd016974fa86f0 = $(`<div id="html_def05b05a4d3cd5823fd016974fa86f0" style="width: 100.0%; height: 100.0%;">🚉 阜阳</div>`)[0];
+                popup_16b5e4ac9e4ec7543676ff4e57fd9ff8.setContent(html_def05b05a4d3cd5823fd016974fa86f0);
+            
+        
+
+        circle_marker_932b9a43074da017205cdfdf0457638a.bindPopup(popup_16b5e4ac9e4ec7543676ff4e57fd9ff8)
+        ;
+
+        
+    
+    
+            circle_marker_932b9a43074da017205cdfdf0457638a.bindTooltip(
+                `<div>
+                     阜阳
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d8ab493eea10d74f79fca509f2278d6 = L.circleMarker(
+                [31.887866, 117.311886],
+                {"bubblingMouseEvents": true, "color": "#666666", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_847f320ed5395520a53206faf08d29dd);
+        
+    
+        var popup_50c308c564fce421de3f0de2573f500b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2c26b517c883c0b620dc683e1761bfc7 = $(`<div id="html_2c26b517c883c0b620dc683e1761bfc7" style="width: 100.0%; height: 100.0%;">🚉 合肥</div>`)[0];
+                popup_50c308c564fce421de3f0de2573f500b.setContent(html_2c26b517c883c0b620dc683e1761bfc7);
+            
+        
+
+        circle_marker_2d8ab493eea10d74f79fca509f2278d6.bindPopup(popup_50c308c564fce421de3f0de2573f500b)
+        ;
+
+        
+    
+    
+            circle_marker_2d8ab493eea10d74f79fca509f2278d6.bindTooltip(
+                `<div>
+                     合肥
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

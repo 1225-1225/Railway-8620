@@ -627,3 +627,10 @@ EOFError: Ran out of input
 [MAP]/maps/route_T109.html[/MAP]
 [MAP]/maps/route_D11.html[/MAP]
 [MAP]/maps/route_D5.html[/MAP]
+2026-07-10 22:51:40 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '合肥', 'to_station': '北京丰台', 'limit': 5}
+2026-07-10 22:51:40 - tool_calls - INFO - 加载 train_stations.json: 9547 个车次
+2026-07-10 22:51:41 - tool_calls - INFO - 加载 train_details.json: 9547 个车次
+2026-07-10 22:51:41 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.283秒
+2026-07-10 22:52:41 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['Z227']}
+2026-07-10 22:52:43 - tool_calls - INFO - 地图已生成: D:\PyCharm\Railway-8620\data\maps\Z227_route.html
+2026-07-10 22:52:43 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 2.426秒

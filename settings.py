@@ -35,17 +35,6 @@ class Settings(BaseSettings):
     chat_history_storage_path: str = ""
     history_database_name: str = "chat_history_check_pointer"
 
-    # 铁路图数据
-    station_geojson_path: str = ""
-    railway_geojson_path: str = ""
-    train_data_path: str = ""
-    maps_output_dir: str = ""
-
-    # 铁路路线图（基于 OSM 真实轨道几何，按车次代码绘制运行路线）
-    route_map_gpkg_path: str = ""
-    route_map_line_graph_path: str = ""
-    route_map_timetable_path: str = ""
-
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
@@ -59,20 +48,6 @@ def _apply_path_defaults(s: Settings):
         s.md5_path = os.path.join(PROJECT_ROOT, "MD5")
     if not s.chat_history_storage_path:
         s.chat_history_storage_path = os.path.join(PROJECT_ROOT, "chat_history")
-    if not s.station_geojson_path:
-        s.station_geojson_path = os.path.join(PROJECT_ROOT, "data", "city_to_node.pkl")
-    if not s.railway_geojson_path:
-        s.railway_geojson_path = os.path.join(PROJECT_ROOT, "data", "china_railway.pkl")
-    if not s.train_data_path:
-        s.train_data_path = os.path.join(PROJECT_ROOT, "data", "train_data.json")
-    if not s.maps_output_dir:
-        s.maps_output_dir = os.path.join(PROJECT_ROOT, "frontend", "public", "maps")
-    if not s.route_map_gpkg_path:
-        s.route_map_gpkg_path = os.path.join(PROJECT_ROOT, "data", "railway_route", "china_railway_filtered.gpkg")
-    if not s.route_map_line_graph_path:
-        s.route_map_line_graph_path = os.path.join(PROJECT_ROOT, "data", "railway_route", "line_graph.json")
-    if not s.route_map_timetable_path:
-        s.route_map_timetable_path = os.path.join(PROJECT_ROOT, "data", "railway_route", "timetable.json")
 
 
 def _resolve_env_var_refs(s: Settings):

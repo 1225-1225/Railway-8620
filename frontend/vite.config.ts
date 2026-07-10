@@ -30,6 +30,8 @@ export default defineConfig({
           }
         },
       },
+      // /maps 开头的路径代理到后端（地图静态文件）
+      '/maps': 'http://localhost:8000',
     },
   },
 })
