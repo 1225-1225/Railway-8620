@@ -43,6 +43,9 @@ frontend/dist/
 # 运行时生成的铁路地图 HTML（按需保留时手动 git add）
 frontend/public/maps/*.html
 
+# PBF/GPKG 空间数据文件（太大，不提交）
+data/pbf/
+
 # macOS
 .DS_Store
 .DS_Store?
