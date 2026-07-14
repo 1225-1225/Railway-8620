@@ -1,0 +1,373 @@
+# Tag:railway=station
+
+- [帮助](https://wiki.openstreetmap.org/wiki/Zh-hans:Wiki_翻译)
+
+- Tag:railway=station
+- 其他语言
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ čeština ](https://wiki.openstreetmap.org/wiki/Cs:Tag:railway%3Dstation)
+
+ 
+
+
+
+
+
+[ Deutsch ](https://wiki.openstreetmap.org/wiki/DE:Tag:railway%3Dstation)
+
+ 
+
+
+
+ English 
+
+ 
+
+[ español ](https://wiki.openstreetmap.org/wiki/ES:Tag:railway%3Dstation)
+
+ 
+
+
+
+
+
+[ français ](https://wiki.openstreetmap.org/wiki/FR:Tag:railway%3Dstation)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ polski ](https://wiki.openstreetmap.org/wiki/Pl:Tag:railway%3Dstation)
+
+ 
+
+[ português ](https://wiki.openstreetmap.org/wiki/Pt:Tag:railway%3Dstation)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ suomi ](https://wiki.openstreetmap.org/wiki/Fi:Tag:railway%3Dstation)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ русский ](https://wiki.openstreetmap.org/wiki/RU:Tag:railway%3Dstation)
+
+ 
+
+
+
+[ українська ](https://wiki.openstreetmap.org/wiki/Uk:Tag:railway%3Dstation)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ 한국어 ](https://wiki.openstreetmap.org/wiki/Ko:Tag:railway%3Dstation)
+
+ 
+
+
+
+
+
+
+
+
+
+[ 日本語 ](https://wiki.openstreetmap.org/wiki/JA:Tag:railway%3Dstation)
+
+
+
+- [其他语言...](https://wiki.openstreetmap.org/wiki/Tag:railway=station#top)
+
+| [阅](https://wiki.openstreetmap.org/wiki/Template:ValueDescription) **·** [论](https://wiki.openstreetmap.org/wiki/Template_talk:ValueDescription) **·** [编](https://wiki.openstreetmap.org/w/index.php?title=Template:ValueDescription&action=edit)![img](https://wiki.openstreetmap.org/w/images/thumb/7/79/Public-images-osm_logo.svg/40px-Public-images-osm_logo.svg.png) **[railway](https://wiki.openstreetmap.org/wiki/Key:railway) = station** |
+| ------------------------------------------------------------ |
+| [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Paddington_Station.jpg/250px-Paddington_Station.jpg)](https://wiki.openstreetmap.org/wiki/File:Paddington_Station.jpg) |
+| Description                                                  |
+| A railway station. [![Show/edit corresponding data item.](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Arbcom_ru_editing.svg/20px-Arbcom_ru_editing.svg.png)](https://wiki.openstreetmap.org/wiki/Item:Q5052) |
+| Rendering in [OSM Carto](https://wiki.openstreetmap.org/wiki/OpenStreetMap_Carto) |
+| [![img](https://wiki.openstreetmap.org/w/images/1/11/Rendering-railway-tram_stop-mapnik.png.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway-tram_stop-mapnik.png.png) |
+| Rendering in [OSM Carto](https://wiki.openstreetmap.org/wiki/OpenStreetMap_Carto) [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) |
+| [![img](https://wiki.openstreetmap.org/w/images/thumb/a/a1/Landuse-industrial.png/120px-Landuse-industrial.png)](https://wiki.openstreetmap.org/wiki/File:Landuse-industrial.png) |
+| **Group:** [railways](https://wiki.openstreetmap.org/wiki/Category:Railways) |
+| Used on these [elements](https://wiki.openstreetmap.org/wiki/Elements) |
+| [![may be used on nodes](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/40px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node)[![should not be used on ways](https://wiki.openstreetmap.org/w/images/thumb/4/40/Osm_element_way_no.svg/40px-Osm_element_way_no.svg.png)](https://wiki.openstreetmap.org/wiki/Way)[![may be used on areas (and multipolygon relations)](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/40px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area)[![should not be used on relations (except multipolygon relations)](https://wiki.openstreetmap.org/w/images/thumb/8/8a/Osm_element_relation_no.svg/40px-Osm_element_relation_no.svg.png)](https://wiki.openstreetmap.org/wiki/Relation) |
+| Implies                                                      |
+| `landuse=railway`                                            |
+| Useful combination                                           |
+| `subway=*``name=*``uic_name=*``operator=*``network=*``start_date=*``end_date=*``wikipedia=*``image=*``ele=*``railway:position=*``railway:ref=*``ref:EU:PLC=*``uic_ref=*``railway:station_category=*``operating_times=*` |
+| See also                                                     |
+| `railway=halt``building=train_station``railway=tram stop``railway=platform``railway=train_station_entrance``railway=subway_entrance``railway=yard``disused:railway=station``abandoned:railway=station` |
+| **[Status:](https://wiki.openstreetmap.org/wiki/Tag_status#Status_values)** de facto |
+| **[railway](https://taginfo.openstreetmap.org/keys/railway)**=**[station](https://taginfo.openstreetmap.org/tags/railway%3Dstation)**[![All](https://wiki.openstreetmap.org/w/images/thumb/0/05/Osm_element_all.svg/20px-Osm_element_all.svg.png)](https://taginfo.openstreetmap.org/tags/railway%3Dstation)103,8461.24%[![Nodes](https://wiki.openstreetmap.org/w/images/thumb/5/50/Taginfo_element_node.svg/20px-Taginfo_element_node.svg.png)](https://taginfo.openstreetmap.org/tags/railway%3Dstation)96,7122.28%[![Ways](https://wiki.openstreetmap.org/w/images/thumb/f/f4/Taginfo_element_way.svg/20px-Taginfo_element_way.svg.png)](https://taginfo.openstreetmap.org/tags/railway%3Dstation)6,5860.16%[![Relations](https://wiki.openstreetmap.org/w/images/thumb/b/be/Taginfo_element_relation.svg/20px-Taginfo_element_relation.svg.png)](https://taginfo.openstreetmap.org/tags/railway%3Dstation)5481.92% |
+| Tools for this tag                                           |
+| [taginfo](https://taginfo.openstreetmap.org/tags/railway=station) **·** [GB](http://taginfo.openstreetmap.org.uk/tags/railway=station) **·** [IE (N+S)](https://taginfo.geofabrik.de/europe:ireland-and-northern-ireland/tags/railway=station) **·** [IN](https://taginfo.openstreetmap.in/tags/railway=station) **·** [US](https://taginfo.geofabrik.de/north-america:us/tags/railway=station)[overpass-turbo](https://overpass-turbo.eu/?template=key-value&key=railway&value=station)[QLever](https://qlever.dev/osm-planet/?query=PREFIX+geo%3A+ PREFIX+osmkey%3A+ SELECT+*+WHERE+{ ++%3Fosm+osmkey%3Arailway+"station"+. ++%3Fosm+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fgeometry+. })[Sophox](https://sophox.org/#%23defaultView%3AMap SELECT * WHERE {       %3Fosm osmt%3Arailway "station" .       %3Fosm osmm%3Aloc %3Floc . })[Postpass via overpass-turbo](https://overpass-turbo.eu/?Q={{data:sql,server=https://postpass.geofabrik.de/api/0.2/}} SELECT osm_id, tags, geom FROM postpass_pointlinepolygon WHERE tags->>'railway'%3D'station' AND geom %26%26 {{bbox}})[OSM Tag History](https://taghistory.raifer.tech/#***/railway/station)[StyleInfo](https://imagicode.eu/map/styleinfo/#style=osmcarto&section=tags&key=railway&value=station) |
+
+
+
+A railway station is a railway facility where trains stop to load & unload passengers and/or freight. It generally consists of at least one platform, one track, and a station building providing such ancillary services as ticket sales, waiting rooms etc. There should be only one `railway=station` element for each station (refer to [One feature, one OSM element](https://wiki.openstreetmap.org/wiki/One_feature,_one_OSM_element)).
+
+This page is solely about the `railway=*` schema.
+
+## 目录
+
+
+
+## How to map
+
+Map an unconnected node [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) at the middle of the station or, as an alternative, an area [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) to include the extents of the land owned and used by the operator as a station, but do not do both. (See the flow chart below for guidance.)
+
+[![img](https://wiki.openstreetmap.org/w/images/thumb/3/39/Railway-station-tagging.svg/960px-Railway-station-tagging.svg.png)](https://wiki.openstreetmap.org/wiki/File:Railway-station-tagging.svg)
+
+[![img](https://wiki.openstreetmap.org/w/images/thumb/7/70/Railway_station_node_placement_flowchart.png/330px-Railway_station_node_placement_flowchart.png)](https://wiki.openstreetmap.org/wiki/File:Railway_station_node_placement_flowchart.png)Where to put the `railway=station` node
+
+### Tags
+
+|            Key             |          Value          |                         Description                          |
+| :------------------------: | :---------------------: | :----------------------------------------------------------: |
+|         `railway`          |        `station`        |                                                              |
+|         `landuse`          |        `railway`        | When railway=station is mapped as a node this tag can be added to a closed polygon mapped to indicate the extents of the land owned & used by the operator as a station. |
+|         `station`          |     <station type>      |      Explicitly describes the type of railway station.       |
+|           `name`           |     <station name>      | The name of the station. For preference use the name on the signs at the station. |
+|         `uic_name`         |         <name>          | UIC's (International Union of Railways) assigned name for the station. |
+|         `operator`         |     <operator_name>     |                   The station's operator.                    |
+|         `network`          |    <network_name(s)>    | The name of the network the station belongs to. There maybe multiple values. |
+|        `start_date`        |         <date>          | The date the station was put into service. For formatting the tag, refer to the `start_date=*` page. |
+|         `end_date`         |         <date>          |         The date the station was put out of service.         |
+|        `wikipedia`         |  <lang>:<article name>  | The Wikipedia article relating to the actual station (Not the railway's operator or network). For formatting the tag, refer to the `wikipedia` page. |
+|          `image`           |    <filename or URL>    | Image of the station. Please use third-party databases when it is possible. (E.g : `wikimedia_commons`, `panoramax`, ...) |
+|           `ele`            |        <number>         |     Elevation of the station above sea level, in metres.     |
+|     `railway:position`     |        <number>         |                 The milepost of the station.                 |
+|       `railway:ref`        |     <station code>      | The reference number/letter code assigned to the railway station. |
+|        `ref:EU:PLC`        | <Coutry Code><5 digits> |           The Primary Location Code of the station           |
+|         `uic_ref`          |        <number>         | UIC's (International Union of Railways) assigned reference number for the station. |
+| `railway:station_category` |   <station category>    |                                                              |
+|     `operating_times`      |    <operating times>    |                                                              |
+
+### Station types
+
+Where railway stations share the same station building, consider if they should be modelled as separate stations or as a single station. The associated Wikipedia articles of the facilities might assist with the decision. If the facilities are run by separate organisations[[1\]](https://wiki.openstreetmap.org/wiki/Tag:railway=station#cite_note-1) (for example a heritage station next to a mainline station) then it is probably better to map them using two separate `railway=station` points.
+
+## Distinction between halt and station
+
+The distinction between `railway=halt` and `railway=station` might differ from country to country. A `halt` is occasionally distinguished by its smaller size compared to a `station`, although it's unclear what size defines the difference. It can also be classified as a [request stop](https://en.wikipedia.org/wiki/en:Request_stop). To make it explicitly clear, tag a request stop station as [request_stop=yes](https://wiki.openstreetmap.org/wiki/Tag:request_stop%3Dyes).
+
+- In Britain, after a discussion, `railway=halt` has been removed. All are now `railway=station`. It was felt the definition of halt was too ambiguous & subjective for OSM. Additional, objective, sub-tags are being added to stations such as `request_stop=*`, `usage=*`, `platforms=*` etc.
+- In Belgium, `railway=station` is only for staffed stations. NMBS/SNCB stations without any station building or stations where ticket offices are permanently closed are tagged as `railway=halt`.
+- In Denmark, Hungary, Italy, Sweden and German-speaking countries, stations without points ("switches") where only passenger trains stop are generally tagged as `halt`. For more information see the [German page](https://wiki.openstreetmap.org/wiki/DE:Tag:railway%3Dstation).
+
+## Things to avoid
+
+- Don't arbitrarily attach the word “station” to the `name=*` tag if it's not part of the printed station name, i.e. avoid `name=Newton Station`.[[2\]](https://wiki.openstreetmap.org/wiki/Tag:railway=station#cite_note-2)
+- Do not use abbreviations, even if the railway company use them. Use `short_name=*` in addition.
+- If the official name in documents differs from the actually used name (for example, name on signs at the station) use `official_name=*`.
+- Do not use `railway:traffic_mode=freight`, a tag used only on railway tracks, to indicate that a station is for handling freight. Instead, use `railway=yard`.
+
+## Examples
+
+- [Karlsruhe Central Station](https://www.openstreetmap.org/#map=17/48.99343/8.40477)
+- [Gare du Nord](https://www.openstreetmap.org/#map=18/48.88100/2.35537), with references to various networks for long distance lines, high-speed lines, regional commuter trains and subways
+- Kimle-Károlyháza ([![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [12471822632](https://osm.org/node/12471822632))
+- Rajka ([![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [11876769768](https://osm.org/node/11876769768))
+
+## See also
+
+### Tags
+
+- `railway=halt`
+- `public_transport=station` – public_transport schema.
+- `building=train_station` – The buildings used to access the station, buy tickets etc.
+- `railway=tram stop` – A place from which you can catch a tram.
+- `railway=platform` – To map individual platforms at the station.
+- `railway=train_station_entrance` - The entrance point of a train station.
+- `railway=subway_entrance` - The entrance point of a subway.
+- `railway=yard`
+- `landuse=railway` – An area of land dedicated to railway operation or support.
+- `disused:railway=station` – Refer to this page to tag closed stations.
+- `abandoned:railway=station`
+- `railway=stop` – The spot on a railway track where a train stops at a station.
+
+### Pages
+
+- [OpenRailwayMap](https://wiki.openstreetmap.org/wiki/OpenRailwayMap) and its feature-rich [tagging scheme](https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging).
+- [OpenStationMap](http://www.openstationmap.org/) – A map showing the levels of a station.
+- [Train station tagging](https://wiki.openstreetmap.org/wiki/Train_station_tagging)
+
+### Forum topics
+
+- https://community.openstreetmap.org/t/railway-station-as-an-area/104839
+
+## References
+
+1.  For example, see [Berlin Zoologischer Garten](http://www.openrailwaymap.org/?lang=de&lat=52.50716762326517&lon=13.333598971366882&zoom=17&style=standard): S-Bahn / light rail in the north-west and heavy rail in the south-east.
+2.  The rule is that if the word “-station” is not normally labeled, it should not be intentionally used to identify a station building, and even if some signboards, etc. are not labeled with the word “-station”, it is good practice to follow the convention if the word “-station” is normally used to distinguish it from other map features.(To put it another way, if you would normally append '-station' to a station name, append '-station' according to local custom.) See the “[Whether or not to append the descriptive term '-station' follows local convention.](https://wiki.openstreetmap.org/wiki/Talk:Tag:railway%3Dstation#Whether_or_not_to_append_the_descriptive_term_'-station'_follows_local_convention.)” topic on the *Discussion* tab.
+
+[Related terms](https://wiki.openstreetmap.org/wiki/RelatedTerms): ‹ *stop* › ‹ *terminal* › ‹ *station* ›
+
+[阅](https://wiki.openstreetmap.org/wiki/Template:Public_transport) **·** [论](https://wiki.openstreetmap.org/wiki/Template_talk:Public_transport) **·** [编](https://wiki.openstreetmap.org/w/index.php?title=Template:Public_transport&action=edit)[Public transport](https://wiki.openstreetmap.org/wiki/Public_transport)[Public transport](https://wiki.openstreetmap.org/wiki/Public_transport)[Stops](https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_position), [platform](https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dplatform), [stations](https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstation), [stop areas](https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_area), [stop area groups](https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_area_group)[Buses](https://wiki.openstreetmap.org/wiki/Buses)[Bus lanes](https://wiki.openstreetmap.org/wiki/Bus_lanes), [busway](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dbusway), [bus guideway](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dbus_guideway), [routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dbus), [stops](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dbus_stop), [platform](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dplatform), [stations](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbus_station)[Trolleybuses](https://wiki.openstreetmap.org/wiki/Trolleybus)[Routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dtrolleybus), [wires](https://wiki.openstreetmap.org/wiki/Key:trolley_wire), [stops](https://wiki.openstreetmap.org/wiki/Key:trolleybus)[Trains](https://wiki.openstreetmap.org/wiki/Railways)[Tracks](https://wiki.openstreetmap.org/wiki/Tag:railway%3Drail), [railway routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Drailway), [train routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dtrain), [platform](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dplatform), [halt](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dhalt), stations, [entrances](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dtrain_station_entrance)[Light rail](https://wiki.openstreetmap.org/wiki/Railways)[Tracks](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dlight_rail), [routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dlight_rail), [stations](https://wiki.openstreetmap.org/wiki/Tag:station%3Dlight_rail)[Metros](https://wiki.openstreetmap.org/wiki/Metros)[Tracks](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsubway), [routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dsubway), [stations](https://wiki.openstreetmap.org/wiki/Tag:station%3Dsubway), [entrances](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsubway_entrance)[Trams](https://wiki.openstreetmap.org/wiki/Trams)[Tracks](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dtram), [routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dtram), [stops](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dtram_stop)[Monorail](https://wiki.openstreetmap.org/wiki/Monorail)[Tracks](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dmonorail), [routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dmonorail), stations[Aerialways](https://wiki.openstreetmap.org/wiki/Aerialway)[cable car](https://wiki.openstreetmap.org/wiki/Tag:aerialway%3Dcable_car), [gondola](https://wiki.openstreetmap.org/wiki/Tag:aerialway%3Dgondola), [chair lift](https://wiki.openstreetmap.org/wiki/Tag:aerialway%3Dchair_lift), [drag lift](https://wiki.openstreetmap.org/wiki/Tag:aerialway%3Ddrag_lift), [zip line](https://wiki.openstreetmap.org/wiki/Tag:aerialway%3Dzip_line), [stations](https://wiki.openstreetmap.org/wiki/Tag:aerialway%3Dstation), [pylons](https://wiki.openstreetmap.org/wiki/Tag:aerialway%3Dpylon)[Ferries](https://wiki.openstreetmap.org/wiki/Ferries)[Shipping lanes](https://wiki.openstreetmap.org/wiki/Marine_Mapping), [routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dferry), [ports](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dferry_terminal), [docks](https://wiki.openstreetmap.org/wiki/Tag:waterway%3Ddock)[Flights](https://wiki.openstreetmap.org/wiki/Aeroways)[Runways](https://wiki.openstreetmap.org/wiki/Tag:aeroway%3Drunway), [taxiways](https://wiki.openstreetmap.org/wiki/Tag:aeroway%3Dtaxiway), [aprons](https://wiki.openstreetmap.org/wiki/Tag:aeroway%3Dapron), [terminals](https://wiki.openstreetmap.org/wiki/Tag:aeroway%3Dterminal), [aerodromes](https://wiki.openstreetmap.org/wiki/Tag:aeroway%3Daerodrome), [hangars](https://wiki.openstreetmap.org/wiki/Tag:aeroway%3Dhangar), [heliports](https://wiki.openstreetmap.org/wiki/Tag:aeroway%3Dheliport), [helipads](https://wiki.openstreetmap.org/wiki/Tag:aeroway%3Dhelipad)QA tools[Quality Assurance](https://wiki.openstreetmap.org/wiki/Public_transport/Quality_Assurance)
+
+[分类](https://wiki.openstreetmap.org/wiki/Special:Categories)：
+
+- [Tag descriptions for group "railways"](https://wiki.openstreetmap.org/wiki/Category:Tag_descriptions_for_group_"railways")
+- [Tag descriptions for key "railway"](https://wiki.openstreetmap.org/wiki/Category:Tag_descriptions_for_key_"railway")
+- [Tag descriptions](https://wiki.openstreetmap.org/wiki/Category:Tag_descriptions)
+- [Tag descriptions by value](https://wiki.openstreetmap.org/wiki/Category:Tag_descriptions_by_value)
+- [Tag descriptions with status "de facto"](https://wiki.openstreetmap.org/wiki/Category:Tag_descriptions_with_status_"de_facto")
+- [Railways](https://wiki.openstreetmap.org/wiki/Category:Railways)
+
+## 导航菜单
+
+- [中文（中国大陆）](https://wiki.openstreetmap.org/wiki/Tag:railway=station#)
+- [创建账号](https://wiki.openstreetmap.org/w/index.php?title=Special:CreateAccount&returnto=Tag%3Arailway%3Dstation)
+- [登录](https://wiki.openstreetmap.org/w/index.php?title=Special:UserLogin&returnto=Tag%3Arailway%3Dstation)
+
+- [页面](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dstation)
+- [讨论](https://wiki.openstreetmap.org/wiki/Talk:Tag:railway%3Dstation)
+
+- [阅读](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dstation)
+- [查看源代码](https://wiki.openstreetmap.org/w/index.php?title=Tag:railway%3Dstation&action=edit)
+- [查看历史](https://wiki.openstreetmap.org/w/index.php?title=Tag:railway%3Dstation&action=history)
+
+### 搜索
+
+- [首页](https://wiki.openstreetmap.org/wiki/Main_Page)
+- [The map](https://www.openstreetmap.org/)
+- [Map Features](https://wiki.openstreetmap.org/wiki/Zh-hans:Map_Features)
+- [Contributors](https://wiki.openstreetmap.org/wiki/Contributors)
+- [帮助](https://wiki.openstreetmap.org/wiki/Get_help)
+- [Blogs](https://wiki.openstreetmap.org/wiki/OSM_Blogs)
+- [Shop](https://wiki.openstreetmap.org/wiki/Merchandise)
+- [Donations](https://wiki.openstreetmap.org/wiki/Donations)
+- [Wiki discussion](https://wiki.openstreetmap.org/wiki/Talk:Wiki)
+- [最近更改](https://wiki.openstreetmap.org/wiki/Special:RecentChanges)
+
+### 工具
+
+- [链入页面](https://wiki.openstreetmap.org/wiki/Special:WhatLinksHere/Tag:railway%3Dstation)
+- [相关更改](https://wiki.openstreetmap.org/wiki/Special:RecentChangesLinked/Tag:railway%3Dstation)
+- [特殊页面](https://wiki.openstreetmap.org/wiki/Special:SpecialPages)
+- [可打印版](javascript:print();)
+- [固定链接](https://wiki.openstreetmap.org/w/index.php?title=Tag:railway%3Dstation&oldid=2961502)
+- [页面信息](https://wiki.openstreetmap.org/w/index.php?title=Tag:railway%3Dstation&action=info)
+- [引用此页](https://wiki.openstreetmap.org/w/index.php?title=Special:CiteThisPage&page=Tag%3Arailway%3Dstation&id=2961502&wpFormIdentifier=titleform)
+- [Data Items项目](https://wiki.openstreetmap.org/wiki/Special:EntityPage/Q5052)
+
+- 此页面最后编辑于2026年3月6日 (星期五) 23:44。
+- 除非另有声明，本网站内容采用[Creative Commons Attribution-ShareAlike 2.0 license](https://wiki.openstreetmap.org/wiki/Wiki_content_license)授权。

@@ -65,7 +65,7 @@ app.include_router(auth.router)
 # 静态文件：提供地图文件访问
 from fastapi.staticfiles import StaticFiles
 import os
-_maps_dir = os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'maps'))
+_maps_dir = os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'frontend', 'public', 'maps'))
 os.makedirs(_maps_dir, exist_ok=True)
 app.mount("/maps", StaticFiles(directory=_maps_dir), name="maps")
 

@@ -1,0 +1,8 @@
+向量库文件: 184.0 KB
+
+集合: id=0926d772-e928-4094-b325-a843e95a5f37, name=langchain-8620
+集合: id=d75374df-bb0f-4fd0-b889-8f2ebbffb697, name=railway-8620
+
+文档块(segments)数: 4
+向量(embeddings)数: 0
+embeddings 列: ['id', 'segment_id', 'embedding_id', 'seq_id', 'created_at']

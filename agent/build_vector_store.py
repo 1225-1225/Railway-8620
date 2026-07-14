@@ -1,11 +1,17 @@
 import hashlib
 import os.path
+import sys
 from pathlib import Path
 
 from datetime import datetime
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# 确保项目根目录在 sys.path 中
+_project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
 
 from settings import settings as config_data
 
@@ -89,12 +95,17 @@ class BuildVectorStore(object):
                 "operator": "1225"
             }
 
-            self.chroma.add_texts(
-                txt_file_chunks,
-                metadatas=[metadata for _ in txt_file_chunks]
-            )
+            # 分批入库，每批最多 10 个块（Embedding API 限制）
+            batch_size = 10
+            total_batches = (len(txt_file_chunks) + batch_size - 1) // batch_size
+            for batch_i in range(0, len(txt_file_chunks), batch_size):
+                batch = txt_file_chunks[batch_i:batch_i + batch_size]
+                self.chroma.add_texts(
+                    batch,
+                    metadatas=[metadata for _ in batch]
+                )
             save_md5(md5_hex)
-            print(f"[成功] {filename} 已存入库，共 {len(txt_file_chunks)} 个块")
+            print(f"[成功] {filename} 已存入库，共 {len(txt_file_chunks)} 个块（{total_batches} 批）")
 
 if __name__ == "__main__":
     builder = BuildVectorStore()

@@ -1,0 +1,14 @@
+表: 21 个
+  segments: 4 条
+  embeddings: 0 条
+  embedding_metadata: 0 条
+C:\Users\1225\.conda\envs\railway-8620\python.exe : Traceback (most recent call last):
+At line:15 char:6942
++ ... pgrep\bin'; C:\Users\1225\.conda\envs\railway-8620\python.exe "d:\PyC ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "d:\PyCharm\Railway-8620\data\route_builder\check_vectors2.py", line 22, in <module>
+    for r in c.execute('SELECT uuid, name FROM collections').fetchall():
+sqlite3.OperationalError: no such column: uuid

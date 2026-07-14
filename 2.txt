@@ -1,0 +1,362 @@
+# Key:railway
+
+*See also*: [Railways](https://wiki.openstreetmap.org/wiki/Railways) and [OpenRailwayMap/Tagging](https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging)
+
+- [帮助](https://wiki.openstreetmap.org/wiki/Zh-hans:Wiki_翻译)
+
+- Key:railway
+- 其他语言
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ čeština ](https://wiki.openstreetmap.org/wiki/Cs:Key:railway)
+
+ 
+
+
+
+
+
+[ Deutsch ](https://wiki.openstreetmap.org/wiki/DE:Key:railway)
+
+ 
+
+
+
+ English 
+
+ 
+
+[ español ](https://wiki.openstreetmap.org/wiki/ES:Key:railway)
+
+ 
+
+
+
+
+
+[ français ](https://wiki.openstreetmap.org/wiki/FR:Key:railway)
+
+ 
+
+
+
+
+
+
+
+[ hrvatski ](https://wiki.openstreetmap.org/wiki/Hr:Key:railway)
+
+ 
+
+
+
+
+
+
+
+[ italiano ](https://wiki.openstreetmap.org/wiki/IT:Key:railway)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ magyar ](https://wiki.openstreetmap.org/wiki/Hu:Key:railway)
+
+ 
+
+
+
+
+
+
+
+
+
+[ polski ](https://wiki.openstreetmap.org/wiki/Pl:Key:railway)
+
+ 
+
+[ português ](https://wiki.openstreetmap.org/wiki/Pt:Key:railway)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ русский ](https://wiki.openstreetmap.org/wiki/RU:Key:railway)
+
+ 
+
+
+
+[ українська ](https://wiki.openstreetmap.org/wiki/Uk:Key:railway)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ 한국어 ](https://wiki.openstreetmap.org/wiki/Ko:Key:railway)
+
+ 
+
+
+
+
+
+[ 中文（简体） ](https://wiki.openstreetmap.org/wiki/Zh-hans:Key:railway)
+
+ 
+
+
+
+[ 日本語 ](https://wiki.openstreetmap.org/wiki/JA:Key:railway)
+
+
+
+- [其他语言...](https://wiki.openstreetmap.org/wiki/Key:railway#top)
+
+| [阅](https://wiki.openstreetmap.org/wiki/Template:KeyDescription) **·** [论](https://wiki.openstreetmap.org/wiki/Template_talk:KeyDescription) **·** [编](https://wiki.openstreetmap.org/w/index.php?title=Template:KeyDescription&action=edit)![img](https://wiki.openstreetmap.org/w/images/thumb/7/79/Public-images-osm_logo.svg/40px-Public-images-osm_logo.svg.png) **railway** |
+| ------------------------------------------------------------ |
+| [![img](https://wiki.openstreetmap.org/w/images/thumb/8/80/Mapping-Features-Railroad-With-Station.png/250px-Mapping-Features-Railroad-With-Station.png)](https://wiki.openstreetmap.org/wiki/File:Mapping-Features-Railroad-With-Station.png) |
+| Description                                                  |
+| Used for railways and railway infrastructure. [![Show/edit corresponding data item.](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Arbcom_ru_editing.svg/20px-Arbcom_ru_editing.svg.png)](https://wiki.openstreetmap.org/wiki/Item:Q588) |
+| **Group:** [railways](https://wiki.openstreetmap.org/wiki/Category:Railways) |
+| Used on these [elements](https://wiki.openstreetmap.org/wiki/Elements) |
+| [![may be used on nodes](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/40px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node)[![may be used on ways](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/40px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way)[![may be used on areas (and multipolygon relations)](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/40px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area)[![may be used on relations](https://wiki.openstreetmap.org/w/images/thumb/4/48/Osm_element_relation.svg/40px-Osm_element_relation.svg.png)](https://wiki.openstreetmap.org/wiki/Relation) |
+| **Documented values:** [55](https://wiki.openstreetmap.org/wiki/Category:Tag_descriptions_for_key_"railway") |
+| Useful combination                                           |
+| `bridge=*``electrified=*``operator=*``usage=*``service=*``bridge=*``tunnel=*``landuse=railway` |
+| **[Status:](https://wiki.openstreetmap.org/wiki/Tag_status#Status_values)** de facto |
+| **[railway](https://taginfo.openstreetmap.org/keys/railway)**=*****[![All](https://wiki.openstreetmap.org/w/images/thumb/0/05/Osm_element_all.svg/20px-Osm_element_all.svg.png)](https://taginfo.openstreetmap.org/keys/railway)8,401,589[![Nodes](https://wiki.openstreetmap.org/w/images/thumb/5/50/Taginfo_element_node.svg/20px-Taginfo_element_node.svg.png)](https://taginfo.openstreetmap.org/keys/railway)4,236,232[![Ways](https://wiki.openstreetmap.org/w/images/thumb/f/f4/Taginfo_element_way.svg/20px-Taginfo_element_way.svg.png)](https://taginfo.openstreetmap.org/keys/railway)4,136,800[![Relations](https://wiki.openstreetmap.org/w/images/thumb/b/be/Taginfo_element_relation.svg/20px-Taginfo_element_relation.svg.png)](https://taginfo.openstreetmap.org/keys/railway)28,557 |
+| Tools for this tag                                           |
+| [taginfo](https://taginfo.openstreetmap.org/keys/railway) **·** [GB](http://taginfo.openstreetmap.org.uk/keys/railway) **·** [IE (N+S)](https://taginfo.geofabrik.de/europe:ireland-and-northern-ireland/keys/railway) **·** [IN](https://taginfo.openstreetmap.in/keys/railway) **·** [US](https://taginfo.geofabrik.de/north-america:us/keys/railway)[overpass-turbo](https://overpass-turbo.eu/?template=key&key=railway)[QLever](https://qlever.dev/osm-planet/?query=PREFIX+geo%3A+ PREFIX+osmkey%3A+ SELECT+*+WHERE+{ ++%3Fosm+osmkey%3Arailway+[]+. ++%3Fosm+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fgeometry+. })[Postpass via overpass-turbo](https://overpass-turbo.eu/?Q={{data:sql,server=https://postpass.geofabrik.de/api/0.2/}} SELECT osm_id, tags, geom FROM postpass_pointlinepolygon WHERE tags %3F 'railway' AND geom %26%26 {{bbox}})[OSM Tag History](https://taghistory.raifer.tech/#***/railway/) |
+
+`railway=*` is used to tag rails and infrastructure for many kinds of [railways](https://wiki.openstreetmap.org/wiki/Railways) including light rail, mainline freight and industrial railways, [metros](https://wiki.openstreetmap.org/wiki/Metros), monorails and [trams](https://wiki.openstreetmap.org/wiki/Trams).
+
+## 目录
+
+
+
+## Values
+
+There are a lot more values for `railway=*`. They are documented at [OpenRailwayMap/Tagging](https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging) and the [documentation of country-specific tagging](https://wiki.openstreetmap.org/wiki/OpenRailwayMap#Country-specific_tagging) (especially signals and other infrastructure which differ from country to country).
+
+|                             Key                              |                            Value                             |                           Element                            |                           Comment                            | [Rendering carto](https://wiki.openstreetmap.org/wiki/OpenStreetMap_Carto) |                            Photo                             |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|                            Tracks                            |                                                              |                                                              |                                                              |                                                              |                                                              |
+|                           railway                            | [abandoned](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dabandoned) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | The course of a former railway which has been abandoned and **the track removed**. The course is still recognized through embankments, cuttings, tree rows, bridges, tunnels, remaining track ties, building shapes and rolling or straight ways. Demolished rails that are no longer identifiable are better mapped in [OpenHistoricalMap](https://wiki.openstreetmap.org/wiki/OpenHistoricalMap) (they are controversial in OSM).[[1\]](https://wiki.openstreetmap.org/wiki/Key:railway#cite_note-1) |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vysocany_concrete_rail_ties_former_Northwestern_railway.jpg/120px-Vysocany_concrete_rail_ties_former_Northwestern_railway.jpg)](https://wiki.openstreetmap.org/wiki/File:Vysocany_concrete_rail_ties_former_Northwestern_railway.jpg) |
+|                           railway                            | [construction](https://wiki.openstreetmap.org/wiki/Key:construction#Railways) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) |                 Railway under construction.                  | [![img](https://wiki.openstreetmap.org/w/images/thumb/b/b3/Rendering-railway_construction-125.png/120px-Rendering-railway_construction-125.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_construction-125.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Verlegen_FF_Rheda.jpg/120px-Verlegen_FF_Rheda.jpg)](https://wiki.openstreetmap.org/wiki/File:Verlegen_FF_Rheda.jpg) |
+|                           railway                            | [proposed](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dproposed) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Railway being proposed but haven't started construction. Please see the [proposed ](https://wiki.openstreetmap.org/wiki/Key:proposed)page regarding verifiability on the ground of this value. |                                                              |                                                              |
+|                           railway                            | [disused](https://wiki.openstreetmap.org/wiki/Tag:railway%3Ddisused) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | A section of railway which is no longer used but where the track and infrastructure remains in place. The track is likely overgrown with endemic vegetation, but could be brought back into useful service with only minor effort. | [![img](https://wiki.openstreetmap.org/w/images/thumb/9/9c/Rendering-railway_disused-125.png/120px-Rendering-railway_disused-125.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_disused-125.png) | [![img](https://wiki.openstreetmap.org/w/images/thumb/9/97/Disused_railtrack_101_5351.jpg/120px-Disused_railtrack_101_5351.jpg)](https://wiki.openstreetmap.org/wiki/File:Disused_railtrack_101_5351.jpg) |
+|                           railway                            | [funicular](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dfunicular) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Cable driven inclined railways on a steep slope, with a pair of cars connected by one cable | [![img](https://wiki.openstreetmap.org/w/images/thumb/b/b3/Rendering-railway_light_rail_funicular_narrow_gauge-125.png/120px-Rendering-railway_light_rail_funicular_narrow_gauge-125.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_light_rail_funicular_narrow_gauge-125.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Vilnius_funicular.jpg/120px-Vilnius_funicular.jpg)](https://wiki.openstreetmap.org/wiki/File:Vilnius_funicular.jpg) |
+|                           railway                            | [light_rail](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dlight_rail) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | A higher-standard tram system, normally in its own right-of-way. Often it connects towns and thus reaches a considerable length (tens of kilometres). | [![img](https://wiki.openstreetmap.org/w/images/thumb/b/b3/Rendering-railway_light_rail_funicular_narrow_gauge-125.png/120px-Rendering-railway_light_rail_funicular_narrow_gauge-125.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_light_rail_funicular_narrow_gauge-125.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Pittsburgh_LRT_4305_47L_Gateway_to_Library_April_2008.jpg/120px-Pittsburgh_LRT_4305_47L_Gateway_to_Library_April_2008.jpg)](https://wiki.openstreetmap.org/wiki/File:Pittsburgh_LRT_4305_47L_Gateway_to_Library_April_2008.jpg) |
+|                           railway                            | [miniature](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dminiature) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | [Miniature railways](https://en.wikipedia.org/wiki/Ridable_miniature_railway) are narrower than narrow gauge and carry passengers, frequently at an exact scale of "standard-sized" rail (for example "1/4 scale"). They can often be found in parks. | [![img](https://wiki.openstreetmap.org/w/images/thumb/a/ab/Rendering-railway_miniature.png/120px-Rendering-railway_miniature.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_miniature.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Dampfbahnfreunde_sommerhofen_09180016.jpg/120px-Dampfbahnfreunde_sommerhofen_09180016.jpg)](https://wiki.openstreetmap.org/wiki/File:Dampfbahnfreunde_sommerhofen_09180016.jpg) |
+|                           railway                            | [monorail](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dmonorail) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | A railway with only a single rail. A monorail can run above the rail like in Las Vegas and [Disneyland](https://wiki.openstreetmap.org/wiki/Disneyland) or can suspend below the rail like the [Wuppertal Schwebebahn](https://en.wikipedia.org/wiki/Wuppertal_Schwebebahn) (Germany). | [![img](https://wiki.openstreetmap.org/w/images/thumb/e/e1/Rendering-railway_monorail.png/120px-Rendering-railway_monorail.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_monorail.png) | [![Monorail in Kuala Lumpur](https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Kl_monorail.jpg/120px-Kl_monorail.jpg)](https://wiki.openstreetmap.org/wiki/File:Kl_monorail.jpg) |
+|                           railway                            | [narrow_gauge](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dnarrow_gauge) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Narrow-gauge passenger or freight train tracks. Narrow gauge railways can have mainline railway service like the [Rhaetian Railway](https://en.wikipedia.org/wiki/Rhaetian_Railway) in Switzerland or can be a small light industrial railway. Use `gauge=*` to specify the actual width of rails in mm. | [![img](https://wiki.openstreetmap.org/w/images/thumb/b/b3/Rendering-railway_light_rail_funicular_narrow_gauge-125.png/120px-Rendering-railway_light_rail_funicular_narrow_gauge-125.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_light_rail_funicular_narrow_gauge-125.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Narrow-gauge_railway.JPG/120px-Narrow-gauge_railway.JPG)](https://wiki.openstreetmap.org/wiki/File:Narrow-gauge_railway.JPG) |
+|                           railway                            | [preserved](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dpreserved) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | This is the old tag for historic trains. Use `railway:preserved=yes` for historical railway instead. | [![img](https://wiki.openstreetmap.org/w/images/thumb/7/72/Rendering-railway_preserved.png/120px-Rendering-railway_preserved.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_preserved.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Sarganska_osmica_1.jpg/120px-Sarganska_osmica_1.jpg)](https://wiki.openstreetmap.org/wiki/File:Sarganska_osmica_1.jpg) |
+|                           railway                            | [rail](https://wiki.openstreetmap.org/wiki/Tag:railway%3Drail) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Full sized passenger or freight train tracks in the standard gauge for the country or state. | [![img](https://wiki.openstreetmap.org/w/images/thumb/8/86/Rendering-railway_rail.png/120px-Rendering-railway_rail.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_rail.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/LGV_Est_PK217.jpg/120px-LGV_Est_PK217.jpg)](https://wiki.openstreetmap.org/wiki/File:LGV_Est_PK217.jpg) |
+|                           railway                            | [subway](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsubway) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | A city passenger rail service running mostly grade separated (see [Wikipedia:rapid transit](https://en.wikipedia.org/wiki/rapid_transit)). Often a significant portion of the line or its system/network is underground. | [![img](https://wiki.openstreetmap.org/w/images/thumb/2/27/Rendering-railway_subway.png/120px-Rendering-railway_subway.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_subway.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Madrid_-_Estaci%C3%B3n_Marqu%C3%A9s_de_Vadillo_-_20060910.jpg/120px-Madrid_-_Estaci%C3%B3n_Marqu%C3%A9s_de_Vadillo_-_20060910.jpg)](https://wiki.openstreetmap.org/wiki/File:Madrid_-_Estación_Marqués_de_Vadillo_-_20060910.jpg) |
+|                           railway                            | [tram](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dtram) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | One or two carriage rail vehicle tracks, usually sharing motor road, sometimes called "street running" ([Other languages](http://www.omegawiki.org/DefinedMeaning:tram_(6611))). | [![img](https://wiki.openstreetmap.org/w/images/thumb/5/5d/Rendering-railway_tram.png/120px-Rendering-railway_tram.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_tram.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Praha%2C_Hloub%C4%9Bt%C3%ADn%2C_Lehovec%2C_tram_KT8D5.JPG/120px-Praha%2C_Hloub%C4%9Bt%C3%ADn%2C_Lehovec%2C_tram_KT8D5.JPG)](https://wiki.openstreetmap.org/wiki/File:Praha,_Hloubětín,_Lehovec,_tram_KT8D5.JPG) |
+|           Additional track features or attributes            |                                                              |                                                              |                                                              |                                                              |                                                              |
+|   [bridge](https://wiki.openstreetmap.org/wiki/Key:bridge)   |                             yes                              | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | If the railway goes over a street, waterway or other railway on an elevated structure. | [![img](https://wiki.openstreetmap.org/w/images/thumb/7/75/Railway_bridge_mapnick_render.jpg/120px-Railway_bridge_mapnick_render.jpg)](https://wiki.openstreetmap.org/wiki/File:Railway_bridge_mapnick_render.jpg) | [![img](https://wiki.openstreetmap.org/w/images/thumb/8/8a/Railway_bridge.jpg/120px-Railway_bridge.jpg)](https://wiki.openstreetmap.org/wiki/File:Railway_bridge.jpg) |
+|  [cutting](https://wiki.openstreetmap.org/wiki/Key:cutting)  |                             yes                              | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | A section where the railway is significantly lower than ground level, but not underground. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Railway_Cutting_-_geograph.org.uk_-_159988.jpg/120px-Railway_Cutting_-_geograph.org.uk_-_159988.jpg)](https://wiki.openstreetmap.org/wiki/File:Railway_Cutting_-_geograph.org.uk_-_159988.jpg) |
+| [electrified](https://wiki.openstreetmap.org/wiki/Key:electrified) |                   contact_line rail yes no                   | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | contact_line: a power line over the train head rail: a third rail near the track supplying the train with power yes: electrified track, but no details available no: track with no power supply. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Cat%C3%A9naire_1%2C5_kV_01.jpg/120px-Cat%C3%A9naire_1%2C5_kV_01.jpg)](https://wiki.openstreetmap.org/wiki/File:Caténaire_1,5_kV_01.jpg) |
+| [embankment](https://wiki.openstreetmap.org/wiki/Key:embankment) |                             yes                              | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | A section where the railway is raised significantly higher than ground level. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Railway_Embankment_South_of_Beattock_-_geograph.org.uk_-_398770.jpg/120px-Railway_Embankment_South_of_Beattock_-_geograph.org.uk_-_398770.jpg)](https://wiki.openstreetmap.org/wiki/File:Railway_Embankment_South_of_Beattock_-_geograph.org.uk_-_398770.jpg) |
+| [embedded_rails](https://wiki.openstreetmap.org/wiki/Key:embedded_rails) |                   yes / <type of railway>                    | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Specifies that a highway on which non-railway traffic is also allowed has railway tracks embedded in it but the rails are mapped as separate ways. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Ruusulankatu_tram_rails_%28at_lat_60.18206%2C_lon_24.92450%29_heading_NW.jpg/120px-Ruusulankatu_tram_rails_%28at_lat_60.18206%2C_lon_24.92450%29_heading_NW.jpg)](https://wiki.openstreetmap.org/wiki/File:Ruusulankatu_tram_rails_(at_lat_60.18206,_lon_24.92450)_heading_NW.jpg) |
+| [frequency](https://wiki.openstreetmap.org/wiki/Key:frequency) |                       <*number*> [Hz]                        | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | The frequency with which a line is electrified. Use 0 for DC. Also see the voltage tag. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Wave_frequency.gif/120px-Wave_frequency.gif)](https://wiki.openstreetmap.org/wiki/File:Wave_frequency.gif) |
+| [passenger_lines](https://wiki.openstreetmap.org/wiki/Key:passenger_lines) |                          <*number*>                          | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Used to describe number of tracks of the railway line a certain track segment belongs to. |                                                              |                                                              |
+| [railway:track_ref](https://wiki.openstreetmap.org/wiki/Key:railway:track_ref) |                          <*number*>                          | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) |                         Track number                         |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Gleis_101.jpg/120px-Gleis_101.jpg)](https://wiki.openstreetmap.org/wiki/File:Gleis_101.jpg) |
+|  [service](https://wiki.openstreetmap.org/wiki/Key:service)  | [crossover](https://wiki.openstreetmap.org/wiki/Tag:service%3Dcrossover) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Relatively short lengths of track which switch traffic from one parallel line to another |                                                              | [![img](https://wiki.openstreetmap.org/w/images/thumb/f/f2/Crossover.png/120px-Crossover.png)](https://wiki.openstreetmap.org/wiki/File:Crossover.png) |
+|  [service](https://wiki.openstreetmap.org/wiki/Key:service)  | [siding](https://wiki.openstreetmap.org/wiki/Tag:service%3Dsiding) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Relatively short lengths of track, running parallel to (and connected to) a main route | [![img](https://wiki.openstreetmap.org/w/images/thumb/a/a3/Rendering-railway_rail_service.png/120px-Rendering-railway_rail_service.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_rail_service.png) | [![img](https://wiki.openstreetmap.org/w/images/thumb/4/42/Siding.png/120px-Siding.png)](https://wiki.openstreetmap.org/wiki/File:Siding.png) |
+|  [service](https://wiki.openstreetmap.org/wiki/Key:service)  | [spur](https://wiki.openstreetmap.org/wiki/Tag:service%3Dspur) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Relatively short lengths of track, built to give one company or entity access to a main or branch line. | [![img](https://wiki.openstreetmap.org/w/images/thumb/a/a3/Rendering-railway_rail_service.png/120px-Rendering-railway_rail_service.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_rail_service.png) | [![img](https://wiki.openstreetmap.org/w/images/thumb/6/61/Spur.png/120px-Spur.png)](https://wiki.openstreetmap.org/wiki/File:Spur.png) |
+|  [service](https://wiki.openstreetmap.org/wiki/Key:service)  | [yard](https://wiki.openstreetmap.org/wiki/Tag:service%3Dyard) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Tracks within railway company operated marshalling or maintenance yards. | [![img](https://wiki.openstreetmap.org/w/images/thumb/a/a3/Rendering-railway_rail_service.png/120px-Rendering-railway_rail_service.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway_rail_service.png) | [![img](https://wiki.openstreetmap.org/w/images/thumb/5/55/Service_yard.png/120px-Service_yard.png)](https://wiki.openstreetmap.org/wiki/File:Service_yard.png) |
+|   [tunnel](https://wiki.openstreetmap.org/wiki/Key:tunnel)   |                             yes                              | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | If the railway goes below ground. Most subways have this tag. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Haywards_Heath_tunnel.jpg/120px-Haywards_Heath_tunnel.jpg)](https://wiki.openstreetmap.org/wiki/File:Haywards_Heath_tunnel.jpg) |
+|   [tracks](https://wiki.openstreetmap.org/wiki/Key:tracks)   |                          <*number*>                          | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | Number of parallel tracks in close proximity *when mapped as one single way representing all tracks*. If not given means *unknown* and defaults to 1. In many parts of the world the tracks are being drawn out separately so that there is more detail, in which case this tag isn't used. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Spoorlijn_51_R01.jpg/120px-Spoorlijn_51_R01.jpg)](https://wiki.openstreetmap.org/wiki/File:Spoorlijn_51_R01.jpg) |
+|    [usage](https://wiki.openstreetmap.org/wiki/Key:usage)    |   main branch industrial military tourism scientific test    | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | main line: heavy traffic branch line: connecting places with a mainline industrial: servicing large plants (iron, chemical etc.), surface mining, … military: servicing military area tourism: most mountain rails (rack-rails, funicular) and preserved railways scientific: rail transport at spaceports, large array telescopes, etc. test: track for testing new wheels, rails, tracks and rail technologies. |                                                              |                                                              |
+|  [voltage](https://wiki.openstreetmap.org/wiki/Key:voltage)  |                          <*number*>                          | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | The voltage with which a line is electrified. Also see the frequency tag. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/f/f0/Symbole_voltmetre.png)](https://wiki.openstreetmap.org/wiki/File:Symbole_voltmetre.png) |
+| [Stations](https://wiki.openstreetmap.org/wiki/Railway_stations) and stops |                                                              |                                                              |                                                              |                                                              |                                                              |
+|                           railway                            | [halt](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dhalt) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) |               A small station without switches               | [![img](https://wiki.openstreetmap.org/w/images/1/11/Rendering-railway-tram_stop-mapnik.png.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway-tram_stop-mapnik.png.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Desenka_Railway_Halt_2017_G1.jpg/120px-Desenka_Railway_Halt_2017_G1.jpg)](https://wiki.openstreetmap.org/wiki/File:Desenka_Railway_Halt_2017_G1.jpg) |
+| [public_transport](https://wiki.openstreetmap.org/wiki/Key:public_transport) | [stop_position](https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_position) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) | The position on the railway track where the train (its centre) stops at a platform. This is useful for routing on long platforms where also short trains stop and on long platforms where multiple trains stop behind each other. See also `public_transport=stop_area`. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Pr%C5%AFmyslov%C3%A1_str3%2C_Prague_%C5%A0t%C4%9Brboholy.jpg/120px-Pr%C5%AFmyslov%C3%A1_str3%2C_Prague_%C5%A0t%C4%9Brboholy.jpg)](https://wiki.openstreetmap.org/wiki/File:Průmyslová_str3,_Prague_Štěrboholy.jpg) |
+| [public_transport](https://wiki.openstreetmap.org/wiki/Key:public_transport) | [platform](https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dplatform) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) | This is parallel to the rail line for showing where the actual platforms are. It is also to know where you can change platform and enter the station, so use footpaths to connect them. This is really useful for routing too. Use only if the platform is served by public transport. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Relax_..._take_it_easy_%287757527444%29.jpg/120px-Relax_..._take_it_easy_%287757527444%29.jpg)](https://wiki.openstreetmap.org/wiki/File:Relax_..._take_it_easy_(7757527444).jpg) |
+|                           railway                            | [platform](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dplatform) | [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) | This is parallel to the rail line for showing where the actual platforms are. It is also to know where you can change platform and enter the station, so use footpaths to connect them. This is really useful for routing too. Use in addition to `public_transport=platform`. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Relax_..._take_it_easy_%287757527444%29.jpg/120px-Relax_..._take_it_easy_%287757527444%29.jpg)](https://wiki.openstreetmap.org/wiki/File:Relax_..._take_it_easy_(7757527444).jpg) |
+| [public_transport](https://wiki.openstreetmap.org/wiki/Key:public_transport) | [station](https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstation) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) |             Railway **passenger-only** station.              |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Paddington_Station.jpg/120px-Paddington_Station.jpg)](https://wiki.openstreetmap.org/wiki/File:Paddington_Station.jpg) |
+|                           railway                            | [station](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dstation) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) | Railway **passenger and/or cargo** station. Use in addition to `public_transport=station`. | [![img](https://wiki.openstreetmap.org/w/images/1/11/Rendering-railway-tram_stop-mapnik.png.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway-tram_stop-mapnik.png.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Paddington_Station.jpg/120px-Paddington_Station.jpg)](https://wiki.openstreetmap.org/wiki/File:Paddington_Station.jpg) |
+|                           railway                            | [stop](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dstop) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) | Marks the position where trains stop at a station. It should be added as a node on a railway=rail way. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/2017_at_Bath_Spa_-_fixing_new_stop_signs.JPG/120px-2017_at_Bath_Spa_-_fixing_new_stop_signs.JPG)](https://wiki.openstreetmap.org/wiki/File:2017_at_Bath_Spa_-_fixing_new_stop_signs.JPG) |
+|                           railway                            | [subway_entrance](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsubway_entrance) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) | The entrance to a subway station, usually going from surface to underground. | [![img](https://wiki.openstreetmap.org/w/images/thumb/3/3c/Subway-entrance-12.svg/20px-Subway-entrance-12.svg.png)](https://wiki.openstreetmap.org/wiki/File:Subway-entrance-12.svg) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Madrid-Metro-Tribunal-Entrada.jpg/120px-Madrid-Metro-Tribunal-Entrada.jpg)](https://wiki.openstreetmap.org/wiki/File:Madrid-Metro-Tribunal-Entrada.jpg) |
+|                           railway                            | [tram_stop](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dtram_stop) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) | A tram stop is a place where a passenger can embark / disembark a tram. | [![img](https://wiki.openstreetmap.org/w/images/1/11/Rendering-railway-tram_stop-mapnik.png.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-railway-tram_stop-mapnik.png.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/FotW_Tram_stop.jpg/120px-FotW_Tram_stop.jpg)](https://wiki.openstreetmap.org/wiki/File:FotW_Tram_stop.jpg) |
+|                        Infrastructure                        |                                                              |                                                              |                                                              |                                                              |                                                              |
+|  [landuse](https://wiki.openstreetmap.org/wiki/Key:landuse)  | [railway](https://wiki.openstreetmap.org/wiki/Tag:landuse%3Drailway) | [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) |       Ground used around railways and railwaystations.       | [![img](https://wiki.openstreetmap.org/w/images/a/a1/Landuse-industrial.png)](https://wiki.openstreetmap.org/wiki/File:Landuse-industrial.png) | [![img](https://wiki.openstreetmap.org/w/images/thumb/a/a7/Illustration_of_Rail.jpg/120px-Illustration_of_Rail.jpg)](https://wiki.openstreetmap.org/wiki/File:Illustration_of_Rail.jpg) |
+|                           railway                            | [buffer_stop](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dbuffer_stop) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) | Stops the train at the end of a track. See [buffer stop](https://en.wikipedia.org/wiki/buffer_stop). |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Stootblok_%28staal%29.jpg/120px-Stootblok_%28staal%29.jpg)](https://wiki.openstreetmap.org/wiki/File:Stootblok_(staal).jpg) |
+|                           railway                            | [crossing](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dcrossing) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) |             A point where pedestrians may cross.             | [![img](https://wiki.openstreetmap.org/w/images/thumb/b/ba/Level_crossing2.svg/20px-Level_crossing2.svg.png)](https://wiki.openstreetmap.org/wiki/File:Level_crossing2.svg) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/A_small_railway_crossing_in_Kamakura%2C_Japan.jpg/120px-A_small_railway_crossing_in_Kamakura%2C_Japan.jpg)](https://wiki.openstreetmap.org/wiki/File:A_small_railway_crossing_in_Kamakura,_Japan.jpg) |
+|                           railway                            | [derail](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dderail) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) | A device used to prevent fouling of a rail track by unauthorized movements of trains or unattended rolling stock. See [Derail (railroad)](https://en.wikipedia.org/wiki/Derail_(railroad)). |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/US_derail_detail.JPG/120px-US_derail_detail.JPG)](https://wiki.openstreetmap.org/wiki/File:US_derail_detail.JPG) |
+|                           railway                            | [level_crossing](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dlevel_crossing) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) |             A point where rails and roads cross.             | [![img](https://wiki.openstreetmap.org/w/images/thumb/b/ba/Level_crossing2.svg/20px-Level_crossing2.svg.png)](https://wiki.openstreetmap.org/wiki/File:Level_crossing2.svg) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Level_crossing_-_Chertsey_-_England_-_270404.jpg/120px-Level_crossing_-_Chertsey_-_England_-_270404.jpg)](https://wiki.openstreetmap.org/wiki/File:Level_crossing_-_Chertsey_-_England_-_270404.jpg) |
+|                           railway                            | [railway_crossing](https://wiki.openstreetmap.org/wiki/Tag:railway%3Drailway_crossing) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) |           Crossing rails with no interconnection.            |                                                              | [![img](https://wiki.openstreetmap.org/w/images/thumb/c/c7/Railroad_crossing_at_grade_also_known_as_a_diamond.jpg/120px-Railroad_crossing_at_grade_also_known_as_a_diamond.jpg)](https://wiki.openstreetmap.org/wiki/File:Railroad_crossing_at_grade_also_known_as_a_diamond.jpg) |
+|                           railway                            | [roundhouse](https://wiki.openstreetmap.org/wiki/Tag:railway%3Droundhouse) | [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) | A semicircular building with many stalls for servicing engines. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Roundhouse_Park_August_2017_01.jpg/120px-Roundhouse_Park_August_2017_01.jpg)](https://wiki.openstreetmap.org/wiki/File:Roundhouse_Park_August_2017_01.jpg) |
+|                           railway                            | [signal](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsignal) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) |                 Any kind of railway signal.                  |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zwischensignal_FFM-Hoechst_Schnee.jpg/120px-Zwischensignal_FFM-Hoechst_Schnee.jpg)](https://wiki.openstreetmap.org/wiki/File:Zwischensignal_FFM-Hoechst_Schnee.jpg) |
+|                           railway                            | [switch](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dswitch) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) |      Full connections between railways (aka 'points').       |                                                              | [![img](https://wiki.openstreetmap.org/w/images/thumb/1/1c/Railway_switch.JPG/120px-Railway_switch.JPG)](https://wiki.openstreetmap.org/wiki/File:Railway_switch.JPG) |
+|                           railway                            | [tram_level_crossing](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dtram_level_crossing) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) |             A point where trams and roads cross.             |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/RU_road_sign_1.5.svg/120px-RU_road_sign_1.5.svg.png)](https://wiki.openstreetmap.org/wiki/File:RU_road_sign_1.5.svg) |
+|                           railway                            | [traverser](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dtraverser) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) | These are used for changing trains between railways. Also known as transfer table. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Schiebebuehne_01.jpg/120px-Schiebebuehne_01.jpg)](https://wiki.openstreetmap.org/wiki/File:Schiebebuehne_01.jpg) |
+|                           railway                            | [turntable](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dturntable) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) | These are used for changing the direction that part of a train is pointing in. | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node): — [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area): [![img](https://wiki.openstreetmap.org/w/images/5/56/Rendering-area-railway_turntable-mapnik.png)](https://wiki.openstreetmap.org/wiki/File:Rendering-area-railway_turntable-mapnik.png) | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Turntable_of_Railroad_001.jpg/120px-Turntable_of_Railroad_001.jpg)](https://wiki.openstreetmap.org/wiki/File:Turntable_of_Railroad_001.jpg) |
+|                           railway                            | [ventilation_shaft](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dventilation_shaft) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) |  A structure that allows ventilation in underground tunnels  |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Moscow%2C_Dmitriya_Donskogo_Boulevard%2C_subway_ventilation_ducts_%2821984596650%29.jpg/120px-Moscow%2C_Dmitriya_Donskogo_Boulevard%2C_subway_ventilation_ducts_%2821984596650%29.jpg)](https://wiki.openstreetmap.org/wiki/File:Moscow,_Dmitriya_Donskogo_Boulevard,_subway_ventilation_ducts_(21984596650).jpg) |
+|                           railway                            | [wash](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dwash) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) |                 A railroad carriage/car wash                 |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/AKN_Waschanlage_-_panoramio.jpg/120px-AKN_Waschanlage_-_panoramio.jpg)](https://wiki.openstreetmap.org/wiki/File:AKN_Waschanlage_-_panoramio.jpg) |
+|                           railway                            | [water_crane](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dwater_crane) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) |      A structure to deliver water to steam locomotives       |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Wasserkran_Bf_St%C3%BCtzerbach.JPG/120px-Wasserkran_Bf_St%C3%BCtzerbach.JPG)](https://wiki.openstreetmap.org/wiki/File:Wasserkran_Bf_Stützerbach.JPG) |
+|                           railway                            | [workshop](https://wiki.openstreetmap.org/wiki/Tag:railway%3Dworkshop) | [![area](https://wiki.openstreetmap.org/w/images/thumb/e/e6/Osm_element_area.svg/20px-Osm_element_area.svg.png)](https://wiki.openstreetmap.org/wiki/Area) | Repair shop' for (rail) rolling stock' is a place where maintenance or overhaul of these vehicles (rail vehicles, metro, tram, light rail, monorail) is carried out. It should be added as a area on a building=yes. |                                                              | [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mid_Suffolk_Light_Railway_Workshops_-_geograph.org.uk_-_1841612.jpg/120px-Mid_Suffolk_Light_Railway_Workshops_-_geograph.org.uk_-_1841612.jpg)](https://wiki.openstreetmap.org/wiki/File:Mid_Suffolk_Light_Railway_Workshops_-_geograph.org.uk_-_1841612.jpg) |
+|                           railway                            | [user defined](https://wiki.openstreetmap.org/wiki/Proposed_features) | [![node](https://wiki.openstreetmap.org/w/images/thumb/7/76/Osm_element_node.svg/20px-Osm_element_node.svg.png)](https://wiki.openstreetmap.org/wiki/Node) [![way](https://wiki.openstreetmap.org/w/images/thumb/e/ee/Osm_element_way.svg/20px-Osm_element_way.svg.png)](https://wiki.openstreetmap.org/wiki/Way) | *[All commonly used values](https://taginfo.openstreetmap.org/keys/railway#values) according to [Taginfo](https://wiki.openstreetmap.org/wiki/Taginfo)* |                                                              |                                                              |
+
+This table is a wiki template with a default description in English. [Editable here](https://wiki.openstreetmap.org/wiki/Template:Map_Features:railway).
+
+## Possible tagging mistakes
+
+**[transport](https://taginfo.openstreetmap.org/keys/transport)**=**[subway](https://taginfo.openstreetmap.org/tags/transport%3Dsubway)**
+
+| [![All](https://wiki.openstreetmap.org/w/images/thumb/0/05/Osm_element_all.svg/20px-Osm_element_all.svg.png)](https://taginfo.openstreetmap.org/tags/transport%3Dsubway) | 429  | 12.73% |
+| ------------------------------------------------------------ | ---- | ------ |
+| [![Nodes](https://wiki.openstreetmap.org/w/images/thumb/5/50/Taginfo_element_node.svg/20px-Taginfo_element_node.svg.png)](https://taginfo.openstreetmap.org/tags/transport%3Dsubway) | 356  | 70.22% |
+| [![Ways](https://wiki.openstreetmap.org/w/images/thumb/f/f4/Taginfo_element_way.svg/20px-Taginfo_element_way.svg.png)](https://taginfo.openstreetmap.org/tags/transport%3Dsubway) | 52   | 1.84%  |
+| [![Relations](https://wiki.openstreetmap.org/w/images/thumb/b/be/Taginfo_element_relation.svg/20px-Taginfo_element_relation.svg.png)](https://taginfo.openstreetmap.org/tags/transport%3Dsubway) | 21   | 72.41% |
+
+- `transport=subway`[🔎](https://wiki.openstreetmap.org/wiki/Tag:transport%3Dsubway)
+
+If you know [places with this tag](https://overpass-turbo.eu/?w="transport"%3D"subway"+global&R), verify if it could be tagged with another tag.
+Automated edits are **strongly discouraged** unless [you really know what you are doing](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct)!
+
+1.  Some mappers add them to OpenStreetMap with `railway=razed`, but this is controversial.
+
+[分类](https://wiki.openstreetmap.org/wiki/Special:Categories)：
+
+- [Key descriptions for group "railways"](https://wiki.openstreetmap.org/wiki/Category:Key_descriptions_for_group_"railways")
+- [Key descriptions](https://wiki.openstreetmap.org/wiki/Category:Key_descriptions)
+- [Key descriptions with status "de facto"](https://wiki.openstreetmap.org/wiki/Category:Key_descriptions_with_status_"de_facto")
+- [Railways](https://wiki.openstreetmap.org/wiki/Category:Railways)
+- [Tagging Mistakes](https://wiki.openstreetmap.org/wiki/Category:Tagging_Mistakes)
+- [Top-level keys](https://wiki.openstreetmap.org/wiki/Category:Top-level_keys)
+
+## 导航菜单
+
+- [中文（中国大陆）](https://wiki.openstreetmap.org/wiki/Key:railway#)
+- [创建账号](https://wiki.openstreetmap.org/w/index.php?title=Special:CreateAccount&returnto=Key%3Arailway)
+- [登录](https://wiki.openstreetmap.org/w/index.php?title=Special:UserLogin&returnto=Key%3Arailway)
+
+- [页面](https://wiki.openstreetmap.org/wiki/Key:railway)
+- [讨论](https://wiki.openstreetmap.org/wiki/Talk:Key:railway)
+
+- [阅读](https://wiki.openstreetmap.org/wiki/Key:railway)
+- [查看源代码](https://wiki.openstreetmap.org/w/index.php?title=Key:railway&action=edit)
+- [查看历史](https://wiki.openstreetmap.org/w/index.php?title=Key:railway&action=history)
+
+### 搜索
+
+- [首页](https://wiki.openstreetmap.org/wiki/Main_Page)
+- [The map](https://www.openstreetmap.org/)
+- [Map Features](https://wiki.openstreetmap.org/wiki/Zh-hans:Map_Features)
+- [Contributors](https://wiki.openstreetmap.org/wiki/Contributors)
+- [帮助](https://wiki.openstreetmap.org/wiki/Get_help)
+- [Blogs](https://wiki.openstreetmap.org/wiki/OSM_Blogs)
+- [Shop](https://wiki.openstreetmap.org/wiki/Merchandise)
+- [Donations](https://wiki.openstreetmap.org/wiki/Donations)
+- [Wiki discussion](https://wiki.openstreetmap.org/wiki/Talk:Wiki)
+- [最近更改](https://wiki.openstreetmap.org/wiki/Special:RecentChanges)
+
+### 工具
+
+- [链入页面](https://wiki.openstreetmap.org/wiki/Special:WhatLinksHere/Key:railway)
+- [相关更改](https://wiki.openstreetmap.org/wiki/Special:RecentChangesLinked/Key:railway)
+- [特殊页面](https://wiki.openstreetmap.org/wiki/Special:SpecialPages)
+- [可打印版](javascript:print();)
+- [固定链接](https://wiki.openstreetmap.org/w/index.php?title=Key:railway&oldid=2971527)
+- [页面信息](https://wiki.openstreetmap.org/w/index.php?title=Key:railway&action=info)
+- [引用此页](https://wiki.openstreetmap.org/w/index.php?title=Special:CiteThisPage&page=Key%3Arailway&id=2971527&wpFormIdentifier=titleform)
+- [Data Items项目](https://wiki.openstreetmap.org/wiki/Special:EntityPage/Q588)
+
+- 此页面最后编辑于2026年3月28日 (星期六) 12:03。
+- 除非另有声明，本网站内容采用[Creative Commons Attribution-ShareAlike 2.0 license](https://wiki.openstreetmap.org/wiki/Wiki_content_license)授权。

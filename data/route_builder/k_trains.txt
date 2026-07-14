@@ -1,0 +1,15 @@
+C:\Users\1225\.conda\envs\railway-8620\python.exe :   File "<string>", line 1
+所在位置 行:1 字符: 5
++ & { C:\Users\1225\.conda\envs\railway-8620\python.exe -c "import json ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "<string>", line 1:String) 
+    [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    import json; d=json.load(open(r'd:\PyCharm\Railway-8620\data\train_details.
+json','r',encoding='utf-8')); codes=[c for c in d if c.startswith('K')][:5]; pr
+int('\n'.join([f'{c}: {d[c][" from\]}{d[c][\to\]}
+                                                                               
+                                                                               
+               ^
+SyntaxError: unterminated string literal (detected at line 1)

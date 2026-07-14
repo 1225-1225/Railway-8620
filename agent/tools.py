@@ -88,6 +88,39 @@ def retriever_tool(query: str):
     return "\n\n".join(doc.page_content for doc in docs)
 
 
-# ========== 铁路查询 / 地图工具 ==========
+# ========== 地图生成工具 ==========
+_MAP_URL_PREFIX = "/maps"
+
+from agent.route_map_generator import generate_train_route_map
+
+@tool(description="为指定车次生成运行路线交互式地图（HTML格式）。"
+                  "输入车次号，例如 ['Z227']。"
+                  "返回地图文件的访问URL。")
+@log_tool_call
+def generate_route_map(train_codes: list) -> str:
+    """为车次生成运行路线地图
+
+    Args:
+        train_codes: 车次号列表，如 ['Z227']
+
+    Returns:
+        地图的访问 URL 和简短说明
+    """
+    if not train_codes:
+        return "请提供至少一个车次号"
+
+    code = train_codes[0].upper().strip()
+    result = generate_train_route_map(code)
+
+    if result.startswith("需要") or result.startswith("未找到") or result.startswith("无法"):
+        return result
+
+    # result 是文件路径，转换为 URL
+    filename = os.path.basename(result)
+    url = f"{_MAP_URL_PREFIX}/{filename}"
+
+    return f"已生成车次 {code} 的运行路线地图\n请访问：{url}\n（在浏览器中打开此链接可查看交互式地图，支持缩放、悬停查看站名）"
+
+
+# ========== 铁路查询工具 ==========
 from agent.railway_tools import query_train_info, query_trains_by_route
-from agent.map_tool import generate_route_map

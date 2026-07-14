@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bdfb005ff7b8c2072f39debcec331ac7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    <div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%);z-index: 1000; background: white; padding: 10px 20px;border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);font-size: 16px; font-weight: bold;">🚄 G7262 运行路线图 | 合肥 → 上海</div>
+    
+            <div class="folium-map" id="map_bdfb005ff7b8c2072f39debcec331ac7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bdfb005ff7b8c2072f39debcec331ac7 = L.map(
+                "map_bdfb005ff7b8c2072f39debcec331ac7",
+                {
+                    center: [31.569711499999997, 119.38152550000001],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_62ac100a5a24615d2101fc4c5536650d = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_62ac100a5a24615d2101fc4c5536650d.addTo(map_bdfb005ff7b8c2072f39debcec331ac7);
+        
+    
+            var poly_line_fc139dca587b6a69934c6f1cddb0a1dd = L.polyline(
+                [[31.887866, 117.311886], [31.890379060606058, 117.35676981818182], [31.89289212121212, 117.40165363636363], [31.89540518181818, 117.44653745454545], [31.897918242424243, 117.49142127272728], [31.900431303030302, 117.5363050909091], [31.90294436363636, 117.58118890909091], [31.905457424242424, 117.62607272727273], [31.907970484848484, 117.67095654545454], [31.910483545454547, 117.71584036363636], [31.912996606060606, 117.76072418181819], [31.915509666666665, 117.805608], [31.918022727272728, 117.85049181818182], [31.920535787878787, 117.89537563636364], [31.92304884848485, 117.94025945454545], [31.92556190909091, 117.98514327272727], [31.92807496969697, 118.03002709090909], [31.93058803030303, 118.07491090909092], [31.93310109090909, 118.11979472727273], [31.93561415151515, 118.16467854545455], [31.938127212121213, 118.20956236363637], [31.940640272727272, 118.25444618181818], [31.943153333333335, 118.29933], [31.945666393939394, 118.34421381818181], [31.948179454545453, 118.38909763636364], [31.950692515151516, 118.43398145454546], [31.953205575757575, 118.47886527272728], [31.95571863636364, 118.52374909090909], [31.958231696969698, 118.56863290909091], [31.960744757575757, 118.61351672727272], [31.96325781818182, 118.65840054545455], [31.96577087878788, 118.70328436363637], [31.96828393939394, 118.74816818181819], [31.970797, 118.793052]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_bdfb005ff7b8c2072f39debcec331ac7);
+        
+    
+            poly_line_fc139dca587b6a69934c6f1cddb0a1dd.bindTooltip(
+                `<div>
+                     合肥 → 南京南
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d16ce56fe07c361ac5c56d0f98f7da1a = L.polyline(
+                [[31.970797, 118.793052], [31.959558875000003, 118.83458501562501], [31.94832075, 118.87611803125], [31.937082625000002, 118.91765104687501], [31.9258445, 118.9591840625], [31.914606375, 119.000717078125], [31.90336825, 119.04225009375], [31.892130125, 119.083783109375], [31.880892, 119.125316125], [31.869653875, 119.166849140625], [31.85841575, 119.20838215625], [31.847177625, 119.249915171875], [31.835939500000002, 119.29144818750001], [31.824701375, 119.332981203125], [31.81346325, 119.37451421875001], [31.802225125, 119.416047234375], [31.790987, 119.45758025], [31.779748875, 119.499113265625], [31.76851075, 119.54064628125], [31.757272625, 119.582179296875], [31.7460345, 119.6237123125], [31.734796375, 119.665245328125], [31.72355825, 119.70677834375], [31.712320125, 119.74831135937501], [31.701082, 119.789844375], [31.689843875, 119.83137739062501], [31.67860575, 119.87291040625], [31.667367625, 119.914443421875], [31.6561295, 119.9559764375], [31.644891375, 119.997509453125], [31.63365325, 120.03904246875], [31.622415125, 120.080575484375], [31.611176999999998, 120.1221085], [31.599938875, 120.163641515625], [31.58870075, 120.20517453125001], [31.577462625, 120.246707546875], [31.5662245, 120.28824056250001], [31.554986375, 120.329773578125], [31.54374825, 120.37130659375], [31.532510124999998, 120.412839609375], [31.521272, 120.454372625], [31.510033874999998, 120.495905640625], [31.49879575, 120.53743865625], [31.487557625, 120.57897167187501], [31.4763195, 120.6205046875], [31.465081375, 120.66203770312501], [31.45384325, 120.70357071875], [31.442605125, 120.74510373437501], [31.431366999999998, 120.78663675], [31.420128875, 120.828169765625], [31.408890749999998, 120.86970278125], [31.397652625, 120.911235796875], [31.386414499999997, 120.9527688125], [31.375176375, 120.994301828125], [31.36393825, 121.03583484375001], [31.352700125, 121.077367859375], [31.341462, 121.11890087500001], [31.330223874999998, 121.160433890625], [31.31898575, 121.20196690625001], [31.307747624999998, 121.243499921875], [31.2965095, 121.2850329375], [31.285271374999997, 121.326565953125], [31.27403325, 121.36809896875], [31.262795124999997, 121.409631984375], [31.251557, 121.451165]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_bdfb005ff7b8c2072f39debcec331ac7);
+        
+    
+            poly_line_d16ce56fe07c361ac5c56d0f98f7da1a.bindTooltip(
+                `<div>
+                     南京南 → 上海
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e6c504e4d81301ccf3fa6834f9009764 = L.marker(
+                [31.887866, 117.311886],
+                {
+}
+            ).addTo(map_bdfb005ff7b8c2072f39debcec331ac7);
+        
+    
+            var icon_cce059c5525dbac823992ce979f5da37 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "play",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_945313023ffdb9be4bdcc2def96e5580 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a25e232538c0473f7b64d40ac837b90 = $(`<div id="html_6a25e232538c0473f7b64d40ac837b90" style="width: 100.0%; height: 100.0%;">🚉 合肥（始发站）</div>`)[0];
+                popup_945313023ffdb9be4bdcc2def96e5580.setContent(html_6a25e232538c0473f7b64d40ac837b90);
+            
+        
+
+        marker_e6c504e4d81301ccf3fa6834f9009764.bindPopup(popup_945313023ffdb9be4bdcc2def96e5580)
+        ;
+
+        
+    
+    
+            marker_e6c504e4d81301ccf3fa6834f9009764.bindTooltip(
+                `<div>
+                     合肥
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e6c504e4d81301ccf3fa6834f9009764.setIcon(icon_cce059c5525dbac823992ce979f5da37);
+            
+    
+            var circle_marker_b2389e9b2856afbbc3874f0e94f41dac = L.circleMarker(
+                [31.970797, 118.793052],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bdfb005ff7b8c2072f39debcec331ac7);
+        
+    
+        var popup_0105249ed5cf2117d27eb8be5c1b0f24 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_502b1ca3be1b872c1a6d129e8133d7d3 = $(`<div id="html_502b1ca3be1b872c1a6d129e8133d7d3" style="width: 100.0%; height: 100.0%;">🚉 南京南</div>`)[0];
+                popup_0105249ed5cf2117d27eb8be5c1b0f24.setContent(html_502b1ca3be1b872c1a6d129e8133d7d3);
+            
+        
+
+        circle_marker_b2389e9b2856afbbc3874f0e94f41dac.bindPopup(popup_0105249ed5cf2117d27eb8be5c1b0f24)
+        ;
+
+        
+    
+    
+            circle_marker_b2389e9b2856afbbc3874f0e94f41dac.bindTooltip(
+                `<div>
+                     南京南
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_57d66bcacacf17c3ce24a53c364c3525 = L.marker(
+                [31.251557, 121.451165],
+                {
+}
+            ).addTo(map_bdfb005ff7b8c2072f39debcec331ac7);
+        
+    
+            var icon_23be8ec6ab0d867d9b0f3df9a1979247 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag-checkered",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5a55239a1fab6ba53cc7c1512029e04 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a02b83e1c7ad4b523eaf071825062f6b = $(`<div id="html_a02b83e1c7ad4b523eaf071825062f6b" style="width: 100.0%; height: 100.0%;">🚉 上海（终点站）</div>`)[0];
+                popup_c5a55239a1fab6ba53cc7c1512029e04.setContent(html_a02b83e1c7ad4b523eaf071825062f6b);
+            
+        
+
+        marker_57d66bcacacf17c3ce24a53c364c3525.bindPopup(popup_c5a55239a1fab6ba53cc7c1512029e04)
+        ;
+
+        
+    
+    
+            marker_57d66bcacacf17c3ce24a53c364c3525.bindTooltip(
+                `<div>
+                     上海
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_57d66bcacacf17c3ce24a53c364c3525.setIcon(icon_23be8ec6ab0d867d9b0f3df9a1979247);
+            
+</script>
+</html>

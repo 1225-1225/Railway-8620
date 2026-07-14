@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_560acbdd5a4f35ac871de82f98c4f449 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); 
+                z-index: 1000; background: white; padding: 10px 20px; 
+                border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                font-size: 16px; font-weight: bold;">
+        🚄 G339 运行路线图 | 北京西 → 广州南
+    </div>
+    
+    
+            <div class="folium-map" id="map_560acbdd5a4f35ac871de82f98c4f449" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_560acbdd5a4f35ac871de82f98c4f449 = L.map(
+                "map_560acbdd5a4f35ac871de82f98c4f449",
+                {
+                    center: [31.4424775, 114.78957199999999],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_22fa7f29636f420521d31ad5caf737b7 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_22fa7f29636f420521d31ad5caf737b7.addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            var poly_line_429d4752f51261b23ecbf7b7edb6250a = L.polyline(
+                [[39.893541, 116.315106], [38.009503, 114.478129]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_429d4752f51261b23ecbf7b7edb6250a.bindTooltip(
+                `<div>
+                     北京西 → 石家庄
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2d5bac2d7af9c9fde61b4e05d0742a10 = L.polyline(
+                [[38.009503, 114.478129], [35.706055, 114.294393]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_2d5bac2d7af9c9fde61b4e05d0742a10.bindTooltip(
+                `<div>
+                     石家庄 → 鹤壁东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7a58a38fa3a79a0480458141ed3db63c = L.polyline(
+                [[35.706055, 114.294393], [35.314708, 113.972933]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_7a58a38fa3a79a0480458141ed3db63c.bindTooltip(
+                `<div>
+                     鹤壁东 → 新乡东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c64f4b2637f85939987292f6e78919b8 = L.polyline(
+                [[35.314708, 113.972933], [34.760086, 113.77002]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_c64f4b2637f85939987292f6e78919b8.bindTooltip(
+                `<div>
+                     新乡东 → 郑州东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bcc20ae1adf2f1e2b73e6fa25264bf11 = L.polyline(
+                [[34.760086, 113.77002], [34.050002, 113.882019]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_bcc20ae1adf2f1e2b73e6fa25264bf11.bindTooltip(
+                `<div>
+                     郑州东 → 许昌东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_276817c2b3f3cfc4f76b7bd37de32ccc = L.polyline(
+                [[34.050002, 113.882019], [33.574368, 113.957598]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_276817c2b3f3cfc4f76b7bd37de32ccc.bindTooltip(
+                `<div>
+                     许昌东 → 漯河西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_745234198b7f08c4118934eaf63aa24b = L.polyline(
+                [[33.574368, 113.957598], [33.002557, 113.972637]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_745234198b7f08c4118934eaf63aa24b.bindTooltip(
+                `<div>
+                     漯河西 → 驻马店西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_477fe8895e351a47d52df14dc72fd447 = L.polyline(
+                [[33.002557, 113.972637], [32.145915, 114.154387]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_477fe8895e351a47d52df14dc72fd447.bindTooltip(
+                `<div>
+                     驻马店西 → 信阳东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_12f7c67bf7ab89589bcb55ba7ea22ae1 = L.polyline(
+                [[32.145915, 114.154387], [30.60985, 114.418943]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_12f7c67bf7ab89589bcb55ba7ea22ae1.bindTooltip(
+                `<div>
+                     信阳东 → 武汉
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bf37745d694e75387fe47b939d53d1da = L.polyline(
+                [[30.60985, 114.418943], [29.901612, 114.295846]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_bf37745d694e75387fe47b939d53d1da.bindTooltip(
+                `<div>
+                     武汉 → 咸宁北
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_70d18abae7301d62f0d037eaa6468c96 = L.polyline(
+                [[29.901612, 114.295846], [29.36896, 113.20232]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_70d18abae7301d62f0d037eaa6468c96.bindTooltip(
+                `<div>
+                     咸宁北 → 岳阳东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_84020bc157a8364ff6c47c2028631925 = L.polyline(
+                [[29.36896, 113.20232], [28.150078, 113.059881]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_84020bc157a8364ff6c47c2028631925.bindTooltip(
+                `<div>
+                     岳阳东 → 长沙南
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ee4da7604e489c978c2708e709427686 = L.polyline(
+                [[28.150078, 113.059881], [26.899696, 112.70449]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_ee4da7604e489c978c2708e709427686.bindTooltip(
+                `<div>
+                     长沙南 → 衡阳东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3cc636254a2f310de8cfc84d67a7e2f8 = L.polyline(
+                [[26.899696, 112.70449], [26.417581, 112.78305]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_3cc636254a2f310de8cfc84d67a7e2f8.bindTooltip(
+                `<div>
+                     衡阳东 → 耒阳西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bb3a0a5e31d917d7c7d2d9073a446147 = L.polyline(
+                [[26.417581, 112.78305], [25.739132, 112.964531]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_bb3a0a5e31d917d7c7d2d9073a446147.bindTooltip(
+                `<div>
+                     耒阳西 → 郴州西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_302b0b44d31c5cf773d58bac8530ce40 = L.polyline(
+                [[25.739132, 112.964531], [22.991414, 113.264038]],
+                {"bubblingMouseEvents": true, "color": "#FF4444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            poly_line_302b0b44d31c5cf773d58bac8530ce40.bindTooltip(
+                `<div>
+                     郴州西 → 广州南
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c5693f11eb445b49f35a6e4348cc3235 = L.marker(
+                [39.893541, 116.315106],
+                {
+}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            var icon_3702e825a14dfc0ffad05fed7c3e4648 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "play",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1d1290be0b5491a79024459d15317aab = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8878a7403ea208a9d2eb8de8c0c67b69 = $(`<div id="html_8878a7403ea208a9d2eb8de8c0c67b69" style="width: 100.0%; height: 100.0%;">🚉 北京西（始发站）</div>`)[0];
+                popup_1d1290be0b5491a79024459d15317aab.setContent(html_8878a7403ea208a9d2eb8de8c0c67b69);
+            
+        
+
+        marker_c5693f11eb445b49f35a6e4348cc3235.bindPopup(popup_1d1290be0b5491a79024459d15317aab)
+        ;
+
+        
+    
+    
+            marker_c5693f11eb445b49f35a6e4348cc3235.bindTooltip(
+                `<div>
+                     北京西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c5693f11eb445b49f35a6e4348cc3235.setIcon(icon_3702e825a14dfc0ffad05fed7c3e4648);
+            
+    
+            var circle_marker_b5d00b34a47473df71671a09a1739738 = L.circleMarker(
+                [38.009503, 114.478129],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_1aa8d6c224313892864553f3c4b98b9f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_44b366730cba6a6134d18defe8f5f4fb = $(`<div id="html_44b366730cba6a6134d18defe8f5f4fb" style="width: 100.0%; height: 100.0%;">🚉 石家庄</div>`)[0];
+                popup_1aa8d6c224313892864553f3c4b98b9f.setContent(html_44b366730cba6a6134d18defe8f5f4fb);
+            
+        
+
+        circle_marker_b5d00b34a47473df71671a09a1739738.bindPopup(popup_1aa8d6c224313892864553f3c4b98b9f)
+        ;
+
+        
+    
+    
+            circle_marker_b5d00b34a47473df71671a09a1739738.bindTooltip(
+                `<div>
+                     石家庄
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7fad494682e8bbc38cbf0730431325ac = L.circleMarker(
+                [35.706055, 114.294393],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_6fa74358ba99179aebf80f0d5644ec43 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d208c015991db1ac0be3790b9effe11a = $(`<div id="html_d208c015991db1ac0be3790b9effe11a" style="width: 100.0%; height: 100.0%;">🚉 鹤壁东</div>`)[0];
+                popup_6fa74358ba99179aebf80f0d5644ec43.setContent(html_d208c015991db1ac0be3790b9effe11a);
+            
+        
+
+        circle_marker_7fad494682e8bbc38cbf0730431325ac.bindPopup(popup_6fa74358ba99179aebf80f0d5644ec43)
+        ;
+
+        
+    
+    
+            circle_marker_7fad494682e8bbc38cbf0730431325ac.bindTooltip(
+                `<div>
+                     鹤壁东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a294b31df0f15189cf429fac733f3b7f = L.circleMarker(
+                [35.314708, 113.972933],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_69f37ff637f8cb9676ab7e771718b1d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66f20785626850d079ab4978f705e70b = $(`<div id="html_66f20785626850d079ab4978f705e70b" style="width: 100.0%; height: 100.0%;">🚉 新乡东</div>`)[0];
+                popup_69f37ff637f8cb9676ab7e771718b1d0.setContent(html_66f20785626850d079ab4978f705e70b);
+            
+        
+
+        circle_marker_a294b31df0f15189cf429fac733f3b7f.bindPopup(popup_69f37ff637f8cb9676ab7e771718b1d0)
+        ;
+
+        
+    
+    
+            circle_marker_a294b31df0f15189cf429fac733f3b7f.bindTooltip(
+                `<div>
+                     新乡东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4def09f12c45d92f853b329a9262fd83 = L.circleMarker(
+                [34.760086, 113.77002],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_752f7fee8eb5f7c6a2264547bd5da3c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59217907dbc270316333384ecc3cfcd5 = $(`<div id="html_59217907dbc270316333384ecc3cfcd5" style="width: 100.0%; height: 100.0%;">🚉 郑州东</div>`)[0];
+                popup_752f7fee8eb5f7c6a2264547bd5da3c2.setContent(html_59217907dbc270316333384ecc3cfcd5);
+            
+        
+
+        circle_marker_4def09f12c45d92f853b329a9262fd83.bindPopup(popup_752f7fee8eb5f7c6a2264547bd5da3c2)
+        ;
+
+        
+    
+    
+            circle_marker_4def09f12c45d92f853b329a9262fd83.bindTooltip(
+                `<div>
+                     郑州东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a72bcc440a662264f1d3634defc6b7f = L.circleMarker(
+                [34.050002, 113.882019],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_0692fb3056cd6a38304d435f06b3f308 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_23de15f046dc3ed05546270feb8f8fcf = $(`<div id="html_23de15f046dc3ed05546270feb8f8fcf" style="width: 100.0%; height: 100.0%;">🚉 许昌东</div>`)[0];
+                popup_0692fb3056cd6a38304d435f06b3f308.setContent(html_23de15f046dc3ed05546270feb8f8fcf);
+            
+        
+
+        circle_marker_4a72bcc440a662264f1d3634defc6b7f.bindPopup(popup_0692fb3056cd6a38304d435f06b3f308)
+        ;
+
+        
+    
+    
+            circle_marker_4a72bcc440a662264f1d3634defc6b7f.bindTooltip(
+                `<div>
+                     许昌东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_230f2fc78e96464ced33aa083a987c81 = L.circleMarker(
+                [33.574368, 113.957598],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_0603d964f3c88753cbe19b62279b759f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d1653daecb47e942146529598f21ea4 = $(`<div id="html_4d1653daecb47e942146529598f21ea4" style="width: 100.0%; height: 100.0%;">🚉 漯河西</div>`)[0];
+                popup_0603d964f3c88753cbe19b62279b759f.setContent(html_4d1653daecb47e942146529598f21ea4);
+            
+        
+
+        circle_marker_230f2fc78e96464ced33aa083a987c81.bindPopup(popup_0603d964f3c88753cbe19b62279b759f)
+        ;
+
+        
+    
+    
+            circle_marker_230f2fc78e96464ced33aa083a987c81.bindTooltip(
+                `<div>
+                     漯河西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0933166ed7504bd5cfe9f7d8065cc63 = L.circleMarker(
+                [33.002557, 113.972637],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_53996ad0f14b2ab74f1fabe6063650d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bff67b864291bfdb578bd7227c6bd617 = $(`<div id="html_bff67b864291bfdb578bd7227c6bd617" style="width: 100.0%; height: 100.0%;">🚉 驻马店西</div>`)[0];
+                popup_53996ad0f14b2ab74f1fabe6063650d3.setContent(html_bff67b864291bfdb578bd7227c6bd617);
+            
+        
+
+        circle_marker_b0933166ed7504bd5cfe9f7d8065cc63.bindPopup(popup_53996ad0f14b2ab74f1fabe6063650d3)
+        ;
+
+        
+    
+    
+            circle_marker_b0933166ed7504bd5cfe9f7d8065cc63.bindTooltip(
+                `<div>
+                     驻马店西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_88df7c9563cf29e53f5a401d92d5bc63 = L.circleMarker(
+                [32.145915, 114.154387],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_c3f23bc17f3dab99ffd8d2294329bd74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b1ae378031865dd7d7c47b7ad7c3cb31 = $(`<div id="html_b1ae378031865dd7d7c47b7ad7c3cb31" style="width: 100.0%; height: 100.0%;">🚉 信阳东</div>`)[0];
+                popup_c3f23bc17f3dab99ffd8d2294329bd74.setContent(html_b1ae378031865dd7d7c47b7ad7c3cb31);
+            
+        
+
+        circle_marker_88df7c9563cf29e53f5a401d92d5bc63.bindPopup(popup_c3f23bc17f3dab99ffd8d2294329bd74)
+        ;
+
+        
+    
+    
+            circle_marker_88df7c9563cf29e53f5a401d92d5bc63.bindTooltip(
+                `<div>
+                     信阳东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c97d5503d90c5069d6d637f8237e263a = L.circleMarker(
+                [30.60985, 114.418943],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_c76fcc3d5f31b7a3fbd356842c4c03ae = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72388d6f221b0dfb580972c9afcc359a = $(`<div id="html_72388d6f221b0dfb580972c9afcc359a" style="width: 100.0%; height: 100.0%;">🚉 武汉</div>`)[0];
+                popup_c76fcc3d5f31b7a3fbd356842c4c03ae.setContent(html_72388d6f221b0dfb580972c9afcc359a);
+            
+        
+
+        circle_marker_c97d5503d90c5069d6d637f8237e263a.bindPopup(popup_c76fcc3d5f31b7a3fbd356842c4c03ae)
+        ;
+
+        
+    
+    
+            circle_marker_c97d5503d90c5069d6d637f8237e263a.bindTooltip(
+                `<div>
+                     武汉
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c964a9303a6ebdc76f1fec15ed5fc63 = L.circleMarker(
+                [29.901612, 114.295846],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_ca8569ecff74d7585e244ca26f9363d9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_224e439f000a7a7b32f2ab009981167c = $(`<div id="html_224e439f000a7a7b32f2ab009981167c" style="width: 100.0%; height: 100.0%;">🚉 咸宁北</div>`)[0];
+                popup_ca8569ecff74d7585e244ca26f9363d9.setContent(html_224e439f000a7a7b32f2ab009981167c);
+            
+        
+
+        circle_marker_9c964a9303a6ebdc76f1fec15ed5fc63.bindPopup(popup_ca8569ecff74d7585e244ca26f9363d9)
+        ;
+
+        
+    
+    
+            circle_marker_9c964a9303a6ebdc76f1fec15ed5fc63.bindTooltip(
+                `<div>
+                     咸宁北
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_419c9ace1e27ae8fc6693c0843728f1a = L.circleMarker(
+                [29.36896, 113.20232],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_5c5d9771419d0a617f46ea46d3eeb504 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e88fd83ce731a47b0dabce845393e80 = $(`<div id="html_8e88fd83ce731a47b0dabce845393e80" style="width: 100.0%; height: 100.0%;">🚉 岳阳东</div>`)[0];
+                popup_5c5d9771419d0a617f46ea46d3eeb504.setContent(html_8e88fd83ce731a47b0dabce845393e80);
+            
+        
+
+        circle_marker_419c9ace1e27ae8fc6693c0843728f1a.bindPopup(popup_5c5d9771419d0a617f46ea46d3eeb504)
+        ;
+
+        
+    
+    
+            circle_marker_419c9ace1e27ae8fc6693c0843728f1a.bindTooltip(
+                `<div>
+                     岳阳东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb5ab0c12c7b2678a92fe4fbb0a69ef2 = L.circleMarker(
+                [28.150078, 113.059881],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_9d5e95ab74fa282f32935fe679aa89b3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8403e00db99b5651f5d06f0a701a4277 = $(`<div id="html_8403e00db99b5651f5d06f0a701a4277" style="width: 100.0%; height: 100.0%;">🚉 长沙南</div>`)[0];
+                popup_9d5e95ab74fa282f32935fe679aa89b3.setContent(html_8403e00db99b5651f5d06f0a701a4277);
+            
+        
+
+        circle_marker_bb5ab0c12c7b2678a92fe4fbb0a69ef2.bindPopup(popup_9d5e95ab74fa282f32935fe679aa89b3)
+        ;
+
+        
+    
+    
+            circle_marker_bb5ab0c12c7b2678a92fe4fbb0a69ef2.bindTooltip(
+                `<div>
+                     长沙南
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6f24b70ece6ae08483b7abda13531c3 = L.circleMarker(
+                [26.899696, 112.70449],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_a4a9647a9da46ed719d4a1aaad39df9c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_136ee3bdcf2aecdd5417a01c13875f7c = $(`<div id="html_136ee3bdcf2aecdd5417a01c13875f7c" style="width: 100.0%; height: 100.0%;">🚉 衡阳东</div>`)[0];
+                popup_a4a9647a9da46ed719d4a1aaad39df9c.setContent(html_136ee3bdcf2aecdd5417a01c13875f7c);
+            
+        
+
+        circle_marker_d6f24b70ece6ae08483b7abda13531c3.bindPopup(popup_a4a9647a9da46ed719d4a1aaad39df9c)
+        ;
+
+        
+    
+    
+            circle_marker_d6f24b70ece6ae08483b7abda13531c3.bindTooltip(
+                `<div>
+                     衡阳东
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3bb7f1382ae00154418aebbe3d877ae = L.circleMarker(
+                [26.417581, 112.78305],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_dcfab98fa1581e7eada2c29ddbc7f953 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_362eaa6b4be5b1ccc223972cc83405a6 = $(`<div id="html_362eaa6b4be5b1ccc223972cc83405a6" style="width: 100.0%; height: 100.0%;">🚉 耒阳西</div>`)[0];
+                popup_dcfab98fa1581e7eada2c29ddbc7f953.setContent(html_362eaa6b4be5b1ccc223972cc83405a6);
+            
+        
+
+        circle_marker_b3bb7f1382ae00154418aebbe3d877ae.bindPopup(popup_dcfab98fa1581e7eada2c29ddbc7f953)
+        ;
+
+        
+    
+    
+            circle_marker_b3bb7f1382ae00154418aebbe3d877ae.bindTooltip(
+                `<div>
+                     耒阳西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ff233fe83b38f45ddd398cfaa05d6ae0 = L.circleMarker(
+                [25.739132, 112.964531],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+        var popup_35a2da34df240ce2874d5329f462955a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_21028dbbe82f38a4f25788998988c19e = $(`<div id="html_21028dbbe82f38a4f25788998988c19e" style="width: 100.0%; height: 100.0%;">🚉 郴州西</div>`)[0];
+                popup_35a2da34df240ce2874d5329f462955a.setContent(html_21028dbbe82f38a4f25788998988c19e);
+            
+        
+
+        circle_marker_ff233fe83b38f45ddd398cfaa05d6ae0.bindPopup(popup_35a2da34df240ce2874d5329f462955a)
+        ;
+
+        
+    
+    
+            circle_marker_ff233fe83b38f45ddd398cfaa05d6ae0.bindTooltip(
+                `<div>
+                     郴州西
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_331110fa92731e1c9467bff2b0abcba1 = L.marker(
+                [22.991414, 113.264038],
+                {
+}
+            ).addTo(map_560acbdd5a4f35ac871de82f98c4f449);
+        
+    
+            var icon_00a9383256a6c9e13cef71c32b85ab1e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag-checkered",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_367ee9336d4289d770fd13afa5938a19 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0a007ee63e4013d49419783efff8cc0f = $(`<div id="html_0a007ee63e4013d49419783efff8cc0f" style="width: 100.0%; height: 100.0%;">🚉 广州南（终点站）</div>`)[0];
+                popup_367ee9336d4289d770fd13afa5938a19.setContent(html_0a007ee63e4013d49419783efff8cc0f);
+            
+        
+
+        marker_331110fa92731e1c9467bff2b0abcba1.bindPopup(popup_367ee9336d4289d770fd13afa5938a19)
+        ;
+
+        
+    
+    
+            marker_331110fa92731e1c9467bff2b0abcba1.bindTooltip(
+                `<div>
+                     广州南
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_331110fa92731e1c9467bff2b0abcba1.setIcon(icon_00a9383256a6c9e13cef71c32b85ab1e);
+            
+</script>
+</html>

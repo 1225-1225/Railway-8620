@@ -634,3 +634,82 @@ EOFError: Ran out of input
 2026-07-10 22:52:41 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['Z227']}
 2026-07-10 22:52:43 - tool_calls - INFO - 地图已生成: D:\PyCharm\Railway-8620\data\maps\Z227_route.html
 2026-07-10 22:52:43 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 2.426秒
+2026-07-12 15:48:10 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '合肥', 'to_station': '上海', 'limit': 5}
+2026-07-12 15:48:10 - tool_calls - INFO - 加载 train_stations.json: 9547 个车次
+2026-07-12 15:48:10 - tool_calls - INFO - 加载 train_details.json: 9547 个车次
+2026-07-12 15:48:10 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.264秒
+2026-07-12 16:05:36 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['G7262']}
+2026-07-12 16:05:37 - tool_calls - INFO - 地图已生成: D:\PyCharm\Railway-8620\data\maps\G7262_route.html
+2026-07-12 16:05:37 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 0.885秒
+2026-07-12 16:48:33 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '南京', 'limit': 5}
+2026-07-12 16:48:33 - tool_calls - INFO - 加载 train_stations.json: 9547 个车次
+2026-07-12 16:48:33 - tool_calls - INFO - 加载 train_details.json: 9547 个车次
+2026-07-12 16:48:33 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.570秒
+2026-07-12 16:48:36 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京南', 'to_station': '南京南', 'limit': 5}
+2026-07-12 16:48:36 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.004秒
+2026-07-12 16:48:36 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '南京南', 'limit': 5}
+2026-07-12 16:48:36 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.004秒
+2026-07-12 16:51:28 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['G2585', 'G65']}
+2026-07-12 16:51:41 - tool_calls - INFO - 已加载 2001 条路线的轨迹数据
+2026-07-12 16:51:41 - tool_calls - INFO - 多车次地图已生成: D:\PyCharm\Railway-8620\data\maps\multi_train_routes.html
+2026-07-12 16:51:41 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 13.001秒
+2026-07-13 10:59:48 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '上海', 'to_station': '北京', 'limit': 5}
+2026-07-13 10:59:48 - tool_calls - INFO - 加载 train_stations.json: 9547 个车次
+2026-07-13 10:59:49 - tool_calls - INFO - 加载 train_details.json: 9547 个车次
+2026-07-13 10:59:49 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.593秒
+2026-07-13 11:00:33 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['G26', 'D6', 'D8', 'T110']}
+2026-07-13 11:00:40 - tool_calls - INFO - 最佳匹配路线: 京沪线
+2026-07-13 11:00:40 - tool_calls - INFO - 已加载路段缓存: 11068 段
+2026-07-13 11:00:45 - tool_calls - INFO - 最佳匹配路线: 京沪线
+2026-07-13 11:00:45 - tool_calls - INFO - 最佳匹配路线: 京沪线
+2026-07-13 11:00:45 - tool_calls - INFO - 最佳匹配路线: 京沪线
+2026-07-13 11:00:46 - tool_calls - INFO - 多车次地图已生成: D:\PyCharm\Railway-8620\data\maps\multi_train_routes.html
+2026-07-13 11:00:46 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 13.029秒
+2026-07-13 13:41:24 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '广州', 'limit': 5}
+2026-07-13 13:41:24 - tool_calls - ERROR - 工具 query_trains_by_route 执行失败，耗时: 0.002秒，错误: [Errno 2] No such file or directory: 'D:\\PyCharm\\Railway-8620\\data\\train_stations.json'
+2026-07-13 13:44:16 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '广州', 'limit': 5}
+2026-07-13 13:44:16 - tool_calls - ERROR - 工具 query_trains_by_route 执行失败，耗时: 0.003秒，错误: [Errno 2] No such file or directory: 'D:\\PyCharm\\Railway-8620\\data\\train_stations.json'
+2026-07-13 13:46:31 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '上海', 'limit': 2}
+2026-07-13 13:46:31 - tool_calls - INFO - 加载 train_details.json: 9547 个车次
+2026-07-13 13:46:31 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.179秒
+2026-07-13 13:51:41 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '广州', 'limit': 5}
+2026-07-13 13:51:41 - tool_calls - ERROR - 工具 query_trains_by_route 执行失败，耗时: 0.000秒，错误: [Errno 2] No such file or directory: 'D:\\PyCharm\\Railway-8620\\data\\train_stations.json'
+2026-07-13 13:52:40 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '上海', 'limit': 1}
+2026-07-13 13:52:40 - tool_calls - INFO - 加载 train_details.json: 9547 个车次
+2026-07-13 13:52:40 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.195秒
+2026-07-13 13:53:11 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '广州', 'limit': 5}
+2026-07-13 13:53:11 - tool_calls - ERROR - 工具 query_trains_by_route 执行失败，耗时: 0.001秒，错误: [Errno 2] No such file or directory: 'D:\\PyCharm\\Railway-8620\\data\\train_stations.json'
+2026-07-13 13:53:35 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '广州', 'limit': 5}
+2026-07-13 13:53:35 - tool_calls - ERROR - 工具 query_trains_by_route 执行失败，耗时: 0.003秒，错误: [Errno 2] No such file or directory: 'D:\\PyCharm\\Railway-8620\\data\\train_stations.json'
+2026-07-13 13:54:35 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '广州', 'limit': 5}
+2026-07-13 13:54:35 - tool_calls - ERROR - 工具 query_trains_by_route 执行失败，耗时: 0.003秒，错误: [Errno 2] No such file or directory: 'D:\\PyCharm\\Railway-8620\\data\\train_stations.json'
+2026-07-13 13:55:28 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '广州', 'limit': 5}
+2026-07-13 13:55:28 - tool_calls - INFO - 加载 train_stations.json: 9547 个车次
+2026-07-13 13:55:29 - tool_calls - INFO - 加载 train_details.json: 9547 个车次
+2026-07-13 13:55:29 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.870秒
+2026-07-13 13:55:31 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京西', 'to_station': '广州南', 'limit': 5}
+2026-07-13 13:55:31 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.004秒
+2026-07-13 13:55:31 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京西', 'to_station': '广州', 'limit': 5}
+2026-07-13 13:55:31 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.005秒
+2026-07-13 13:55:31 - tool_calls - INFO - 调用工具: query_trains_by_route，参数: args=(), kwargs={'from_station': '北京', 'to_station': '广州南', 'limit': 5}
+2026-07-13 13:55:31 - tool_calls - INFO - 工具 query_trains_by_route 执行成功，耗时: 0.005秒
+2026-07-13 13:56:42 - tool_calls - INFO - 调用工具: query_train_info，参数: args=(), kwargs={'train_codes': ['G339']}
+2026-07-13 13:56:42 - tool_calls - INFO - 工具 query_train_info 执行成功，耗时: 0.002秒
+2026-07-13 13:56:42 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['G339']}
+2026-07-13 13:56:47 - tool_calls - INFO - 地图已生成: D:\PyCharm\Railway-8620\data\maps\G339_route.html
+2026-07-13 13:56:47 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 4.440秒
+2026-07-13 15:35:09 - tool_calls - INFO - 调用工具: query_train_info，参数: args=(), kwargs={'train_codes': ['Z227']}
+2026-07-13 15:35:09 - tool_calls - INFO - 工具 query_train_info 执行成功，耗时: 0.009秒
+2026-07-13 15:35:35 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['Z227']}
+2026-07-13 15:35:36 - tool_calls - INFO - 地图已生成: D:\PyCharm\Railway-8620\data\maps\Z227_route.html
+2026-07-13 15:35:36 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 0.847秒
+2026-07-14 20:57:19 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['Z227']}
+2026-07-14 20:57:20 - tool_calls - INFO - 地图已生成: D:\PyCharm\Railway-8620\data\maps\Z227_route.html
+2026-07-14 20:57:20 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 0.704秒，返回值: 已生成车次 Z227 的运行路线地图
+请访问：/maps/Z227_route.html
+（在浏览器中打开此链接可查看交互式地图，支持缩放、悬停查看站名）
+2026-07-14 20:57:31 - tool_calls - INFO - 调用工具: generate_route_map，参数: args=(), kwargs={'train_codes': ['Z227']}
+2026-07-14 20:57:31 - tool_calls - INFO - 地图已生成: D:\PyCharm\Railway-8620\data\maps\Z227_route.html
+2026-07-14 20:57:31 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 0.638秒，返回值: 已生成车次 Z227 的运行路线地图
+请访问：/maps/Z227_route.html
+（在浏览器中打开此链接可查看交互式地图，支持缩放、悬停查看站名）

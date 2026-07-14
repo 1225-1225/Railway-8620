@@ -1,0 +1,425 @@
+# Railways
+
+- [帮助](https://wiki.openstreetmap.org/wiki/Zh-hans:Wiki_翻译)
+
+- Railways
+- 其他语言
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ Deutsch ](https://wiki.openstreetmap.org/wiki/DE:Railways)
+
+ 
+
+
+
+ English 
+
+ 
+
+[ español ](https://wiki.openstreetmap.org/wiki/ES:Railways)
+
+ 
+
+
+
+
+
+[ français ](https://wiki.openstreetmap.org/wiki/FR:Railways)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ italiano ](https://wiki.openstreetmap.org/wiki/IT:Railways)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ polski ](https://wiki.openstreetmap.org/wiki/Pl:Railways)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ русский ](https://wiki.openstreetmap.org/wiki/RU:Railways)
+
+ 
+
+
+
+[ українська ](https://wiki.openstreetmap.org/wiki/Uk:Railways)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ 中文（繁體） ](https://wiki.openstreetmap.org/wiki/Zh-hant:Railways)
+
+ 
+
+[ 日本語 ](https://wiki.openstreetmap.org/wiki/JA:Railways)
+
+
+
+- [其他语言...](https://wiki.openstreetmap.org/wiki/Railways#top)
+
+| ![Logo.](https://wiki.openstreetmap.org/w/images/thumb/7/79/Public-images-osm_logo.svg/40px-Public-images-osm_logo.svg.png) **[Feature](https://wiki.openstreetmap.org/wiki/Features): Railways** |
+| ------------------------------------------------------------ |
+| [![One example for Feature: Railways](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/08_tory_railtrack_ubt.jpeg/250px-08_tory_railtrack_ubt.jpeg)](https://wiki.openstreetmap.org/wiki/File:08_tory_railtrack_ubt.jpeg) |
+| **Description**                                              |
+| All forms of transport using metal rails, including mainline services, subways, "light rail," trams, monorails, heritage lines, funiculars and more |
+| **Tags**                                                     |
+| `railway=*`                                                  |
+
+There is considerable information about **railways**, including mainline services, subways, "light rail", trams, monorails, heritage lines, funiculars and more in OpenStreetMap, together with details of [railway stations](https://wiki.openstreetmap.org/wiki/Railway_station), sidings, yards and freight terminals.
+
+There is also a page with a far more [detailed railway tagging scheme](https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging), OpenRailwayMap (ORM). If you are new to OSM railway mapping, this wiki right here is a good place to start. You may wish to learn if there are any country-specific tagging conventions in your mapping area (see [below](https://wiki.openstreetmap.org/wiki/Railways#Railway_systems_by_country)). Then, learning about ORM can offer a richer set of tags and more detailed rendering. Additionally, there may even be tagging of features specific to your country.
+
+## 目录
+
+
+
+## Types of railway line
+
+Railway lines should be tagged based on the type of operation of their primary usage. Where tracks are shared between multiple usages (such as passenger, freight and industrial), the more major service should be used: generally the longer distance or heavier line.
+
+Lines are generally assumed to be primarily for use by passengers unless tagged as `railway:traffic_mode=freight` for freight only lines or `usage=industrial` (mines, factories, lumber yards). Tag `usage=military` for lines only used by the military, and `usage=tourism` for "heritage" lines used only as a tourist attraction or in conjunction with a (rail) museum.
+
+The `electrified=*` key, together with `frequency=*` and `voltage=*` can be used to specify details of how the track is powered. Use `electrified=no` if the line is not electrified, `electrified=contact_line` if it is powered from an overhead wire and `electrified=rail` if it is powered from a '3rd (or 4th) rail'. For short, parallel tracks used for deferring right-of-way to through trains, meeting them or brief storage of railcars add `service=siding`, for tracks within a place used for maintenance of trains or longer-term storage use `service=yard` and for short spur lines leading to an industrial or military facility use `service=spur`. Add `railway=level_crossing` on a node where a road crosses a railway line at-grade and `railway=crossing` on a node where pedestrians may cross. The `railway=turntable` tag is used for turntables. Gauge is specified using `gauge=*` which should contain nominal width of the track in millimetres (1435 for *standard gauge*). Buffers are tagged `railway=buffer_stop` on a node.
+
+When modelling multi-track parallel railway lines in close proximity they can either be modelled as a single way with `tracks=*`, or as a number of parallel ways (preferred). If individual tracks have different tagging requirements (max-speed, electrification, gauge, etc.) then the tracks should be modelled appropriately with multiple ways, not `tracks=*`. If used, the `tracks=*` tag should be used to record the number of tracks with a default value of `1` being assumed where this is not supplied.
+
+Where a line goes over a bridge, the relevant segment should be tagged with either `bridge=yes` for shorter bridges or `bridge=viaduct` for long bridges and `layer=1` or other value as appropriate. Where a line goes through a tunnel it should be tagged with `tunnel=yes` often at `layer=-1`. Where tracks are on ground raised for the purpose use `embankment=yes` and when in a cutting use `cutting=yes`. If necessary split the way at the point where the bridge, tunnel, viaduct, embankment or cutting starts and ends. Track tagged embankment and cutting do not normally need a `layer=*` tag.
+
+Features (railway lines, footways, ...) in [railway stations](https://wiki.openstreetmap.org/wiki/Railway_station) that are tied to particular levels can be tagged with `level=*` in addition to `layer=*`.
+
+Where a line has a recognised name this can be included in `name=*`. Sometimes this is entered as the name of the `operator=*` or `owner=*`, but if they are known, please use these tags, reserving `name=*` for the actual *name* of the *line*.
+
+|  Rail type   |                         Description                          |
+| :----------: | :----------------------------------------------------------: |
+|   Mainline   | `railway=rail` - Full-sized passenger or freight trains in the standard gauge for the country or state. |
+|    Subway    |          `railway=subway` - Metro / rapid transit.           |
+|  Light rail  | `railway=light_rail` - A higher-standard tram system, normally in its own right-of-way with dedicated signalling, but may share roads with cars ("street running"), especially in dense, urban/downtown areas. |
+|     Tram     | `railway=tram` - Trolley rail systems with one/two carriage, usually four-wheeled vehicles, often street running. |
+| Narrow-gauge | `railway=narrow_gauge` - Narrow-gauge passenger or freight trains, often tourist/scenic routes. In some regions narrow gauge railways are used for full sized passenger or freight trains service. See the [Rhätische Bahn (RhB)](http://www.rhb.ch/) and [Matterhorn Gotthard Bahn (MGB)](http://www.matterhorngotthardbahn.ch/) in Switzerland as examples for such full-featured narrow gauge railways. Use `gauge=*` to specify in millimetres how small narrow is for this railway. |
+|   Monorail   | `railway=monorail` - A railway with only a single rail, often inner city and above street level. Also used for monorail-like automated people-mover systems like Miami's [Metromover](https://en.wikipedia.org/wiki/Metromover). |
+|  Preserved   | `railway:preserved=yes` + `railway=*` (discouraged or deprecated is `railway=preserved`) - A railway running historic (or "heritage") trains, usually a tourist attraction or as part of a (rail) museum. |
+|  Miniature   | `railway=miniature` - Smaller trains, often at a precise scale of "regular-sized" rail (such as "1/4 scale") or formally that you can ride on top of equipment, normally operated as a tourist attraction. |
+|  Funicular   |    `railway=funicular` - Cable driven inclined railways.     |
+
+### Usage
+
+Railway should be tagged with `usage=*` or `service=*`. Rail should only have one of these two tags, never both on the same way, although minor exceptions are allowable in industrial and military areas where distinctions between `usage=*` and `service=*` can blur. It is acceptable to omit these if not known. See the following for more details: [Railroad Tagging details](https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging)
+
+|   Description   |  `usage=*`   | `service=*` |
+| :-------------: | :----------: | :---------: |
+|    Main line    |    `main`    |   (none)    |
+|   Branch line   |   `branch`   |   (none)    |
+| Industrial line | `industrial` |   (none)    |
+|  Military line  |  `military`  |   (none)    |
+|   Test track    |    `test`    |   (none)    |
+| Scientific line |  `science`   |   (none)    |
+|     Siding      |    (none)    |  `siding`   |
+|    Crossover    |    (none)    | `crossover` |
+|      Yard       |    (none)    |   `yard`    |
+|      Spur       |    (none)    |   `spur`    |
+
+## Routes
+
+Railway ways (frequently tagged `railway=rail`) are commonly members of two types of route [relations](https://wiki.openstreetmap.org/wiki/Relations):
+
+1. [railway route](https://wiki.openstreetmap.org/wiki/Tag:route%3Drailway) - a sequence of interconnected, usually contiguous railway ways, often between two major junctions, sometimes including minor branches.
+2. [train route](https://wiki.openstreetmap.org/wiki/Train_routes) - a route of a train in regular *passenger* service, including railway ways/routes travelled and stations served.
+
+## Stations and stops
+
+
+
+Please see the main article about station tagging as it is beyond the scope of this guide.
+
+## Life-cycle
+
+Features in OpenStreetMap may be in a number of states - from planned to abandoned. For railways it is common to use combinations such as `railway=disused` + **disused:railway=rail/light_rail/subway/tram** to indicate that the railway is disused and which kind of railway it was. For other railway related features such as `railway=station` it is suggested ([OpenRailwayMap/Tagging#Stations / Stops](https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging#Stations_/_Stops)) to use just the [lifecycle prefix](https://wiki.openstreetmap.org/wiki/Lifecycle_prefix) such as **disused:railway=station**.
+
+- Proposed
+
+  For features that have a strong likelihood of being constructed. For a proposed railway line, tag `railway=proposed` and `proposed=*` where * is the type of railway being proposed (rail, subway, light_rail etc). An aspiration on the part of an advocacy group which is not approved or from an authority which is not funded should not be added.
+
+- Construction
+
+  Features that are in the process of being constructed with actual work on the ground. For a railway line under construction, tag `railway=construction` and `construction=*` where * is the type of railway being constructed (rail, subway, light_rail etc). Often this will be a feature that has previously been 'proposed.'
+
+- Operational - "rail"
+
+  The normal state of most features. No additional tagging needed and any construction tags should be removed. If the top of the rail or rail head is not obscured this is the most appropriate tag. If known, consider adding `start_date=*`.PreservedA former mainline railway which is now operated as a tourist attraction, "heritage line" or as part of a (rail) museum. Use `railway:preserved=yes` + `railway=*`.
+
+- Disused
+
+  The feature is disused/out of service. This tag is used to tag evidence of lack of maintenance. If the top of the rail or rail head is not visible use `railway=disused`. When surrounding railway is abandoned but rail persists as a way with a node tagged `railway=level_crossing`, this is the best tag.
+
+- Abandoned
+
+  The rail has been removed and the right-of-way may have been reused or left to decay but is still clearly visible, either from the replacement infrastructure, or from a line of trees around an original cutting or embankment. Use `railway=abandoned`. Where an abandoned rail right-of-way is being re-purposed as a bicycle path (e.g. "Rails to Trails"), add `highway=cycleway`. If known, add `end_date=*` or more specifically `railway:end_date=*` of when the abandonment happened.
+
+- Obliterated (or dismantled/razed)
+
+  Some people use `railway=razed` where all evidence of the line has been removed, others prefer such lines not to be included at all. This tag is used where the alignment has been replaced by new buildings, by roads which don't refer to the old alignment or where the alignment now crosses open land. General opinion is that in cases where all evidence was removed, the object should no longer be mapped, but railways tend to leave long-lasting traces. See [demolished railway](https://wiki.openstreetmap.org/wiki/Demolished_railway) for more info.
+
+
+
+| **Status of the railway line ...** |                        |      |                            |      |                    |      |                       |      |                         |      |                     |      |
+| ---------------------------------- | ---------------------- | ---- | -------------------------- | ---- | ------------------ | ---- | --------------------- | ---- | ----------------------- | ---- | ------------------- | ---- |
+|                                    | projected              | →    | in construction            | →    | in operation       | →    | not used              | →    | abandoned               | →    | razed               |      |
+|                                    | **`railway=proposed`** |      | **`railway=construction`** |      | **`railway=rail`** |      | **`railway=disused`** |      | **`railway=abandoned`** |      | **`railway=razed`** |      |
+
+## Proposals
+
+This section provides details of experimental tagging methods that have not yet been adopted and may not be supported by all rendering or tools.
+
+### Tag life-cycle
+
+Some users are adding a [lifecycle prefix](https://wiki.openstreetmap.org/wiki/Lifecycle_prefix) such as 'proposed:', 'construction:', 'disused:' and 'abandoned:' to tags to indicate changes to the tag values over time.
+
+Note that recording of historic data in OSM is dubious, consider mapping of history in [OHM](https://wiki.openstreetmap.org/wiki/OHM) - a separate project.
+
+Examples:
+
+- An un-electrified line which it is being converted into an electrified line at 25kV at 50Hz using an overhead line might be tagged with:
+  - `railway=rail`
+  - `electrified=no`
+  - `construction:electrified=contact_line`
+  - `construction:voltage=25000`
+  - `construction:frequency=50`.
+- A freight-only line, not currently with any passenger operation:
+  - `railway=rail`
+  - `usage=main` or `usage=branch`
+  - `railway:traffic_mode=freight`
+- A former railway which was abandoned in 1965 and opened as a path ("railtrail") in 2003:
+  - `railway=abandoned`
+  - `historic:railway=narrow_gauge`
+  - `historic:gauge=600`
+  - `historic:start_date=1845`
+  - `historic:end_date=1965`
+  - `old_name=Blar railway`
+  - `highway=footway`
+  - `name=The old railway path`
+  - `start_date=2003`
+
+More complicated changes over time can be recorded using the [date namespace](https://wiki.openstreetmap.org/wiki/Date_namespace) suffix:
+
+- `railway:1835-1870=narrow_gauge`
+- `railway:1871-=rail`
+- `electrified:1954-=yes`
+
+## Rendering
+
+### OpenRailwayMap
+
+[OpenRailwayMap](https://wiki.openstreetmap.org/wiki/OpenRailwayMap) (ORM) is a dedicated map for railways, displaying rail infrastructure as an overlay. Released in mid-2013, the project is available in numerous languages. An early-emerging (2024) vector-tile-based version (NW Europe only) is available [here](https://openrailwaymap.fly.dev/#view=5.2/50/14.5&style=standard). This is [said](https://community.openstreetmap.org/t/openrailwaymap-vector-announcement/126995/9) to be both worldwide and daily as of 2025-Q1.
+
+### OpenPublicTransportMap
+
+[OpenPublicTransportMap](https://wiki.openstreetmap.org/wiki/Openptmap) (OPTM) [displays](http://openptmap.org/) passenger rail in `route=train` relations. At closer zooms, OPTM also displays `route=light_rail`, `route=subway`, `route=tram`, `route=monorail`, `route=funicular`, `route=bus`, `route=trolleybus`, `route=aerialway` and `route=ferry` with colors similar to ORM.
+
+Thanks to Indy Hurt, [here](http://indyhurt.github.io/te-transit/map) (was) another rail renderer which display(ed) rail-based passenger routes with their `colour=*` or `color=*` tag. Unfortunately, this is no longer functional, it is mentioned here as it was found useful by many, especially for visualizing international/national/regional/suburban differences of Amtrak™ routes in the USA.
+
+### Öpnvkarte
+
+A renderer similar to OPTM is [öpnvkarte](https://www.xn--pnvkarte-m4a.de/#-87.7601;39.2189;6), displaying "worldwide public transport facilities on a uniform map." In addition to Train, Light rail, Tram, Subway, Ferry, Trolleybus and Bus routes, it includes Airports, Bus stops, Taxi ranks, Car rental and Bicycle rental nodes.
+
+### Transport layer
+
+Please compare and contrast ORM (rail infrastructure) and OPTM (passenger rail, bus and ferry routes) with OSM's [Transport layer](http://www.osm.org/#map=7/37/-121&layers=T) which rather simply displays "any and all rail" (`railway=*`, excluding `railway=disused` and `railway=abandoned`) and at closer zooms, `route=bus`.
+
+### OSM Carto (standard)
+
+Besides the basic `railway=rail` line style of alternating grey-solid/grey-hollow, [OSM Carto](https://wiki.openstreetmap.org/wiki/OSM_Carto) renders `railway=construction` and `railway=disused` with a dotted line. `service=spur`, `service=siding`, and `service=yard` show as thinner forms of the `railway=rail` and `railway=tram` line styles. `railway=abandoned` is not rendered.[[1\]](https://wiki.openstreetmap.org/wiki/Railways#cite_note-1)
+
+Rendering of `railway=tram` and some other more exotic railway types (`railway=narrow_gauge`, `railway=funicular`...) is also supported.
+
+### RailTrailsMap
+
+[RailTrailsMap](https://www.railtrailsmap.net/) is a map showing cycleways on abandoned railway lines. Not rendered from live data, but updated occasionally.
+
+## Railway systems by country
+
+### World
+
+See also [Tag:route=train#Network_by_countries](https://wiki.openstreetmap.org/wiki/Tag:route%3Dtrain#Network_by_countries)
+
+While this Railways wiki explains railway tagging at a high level and in an international, generic manner, there are country-specific railway tagging schemes, which diverge somewhat from conventions noted above. If you are new to railway mapping, get to know what's on this page as a good start, as it is straightforward and works well in much of the world. When comfortable with the tagging outlined here, and where a continent / country / region is listed below, please click on the link to read about tagging differences, remembering to only apply these (usually minor) differences in the appropriate geographical area. There may be more countries / regions with specific railway tagging which have not yet had wiki created nor linked here: try a Wiki search (upper right) with both "rail" and "your country" as search elements.
+
+### Europe
+
+- [Belgium](https://wiki.openstreetmap.org/wiki/WikiProject_Belgium/Railways)
+- Czechia - [railways](https://wiki.openstreetmap.org/wiki/Cs:Železniční_tratě_v_ČR), [stations](https://wiki.openstreetmap.org/wiki/Cs:Železniční_stanice_a_zastávky_v_ČR)
+- [Denmark](https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging_in_Denmark)
+- [Finland](https://wiki.openstreetmap.org/wiki/WikiProject_Finland/Railroads)
+- [France](https://wiki.openstreetmap.org/wiki/WikiProject_France/Voies_ferrées)
+- [Germany](https://wiki.openstreetmap.org/wiki/WikiProject_Germany/Railway)
+- [Italy](https://wiki.openstreetmap.org/wiki/WikiProject_Italy/Ferrovie)
+- [Netherlands](https://wiki.openstreetmap.org/wiki/WikiProject_Netherlands_Railways)
+- [Poland](https://wiki.openstreetmap.org/wiki/WikiProject_Poland/Railways)
+- [Slovakia](https://wiki.openstreetmap.org/wiki/Slovakia_railways)
+- [Sweden](https://wiki.openstreetmap.org/wiki/WikiProject_Sweden/Railways)
+- [United Kingdom](https://wiki.openstreetmap.org/wiki/United_Kingdom_railways)
+
+### North America
+
+- [United States](https://wiki.openstreetmap.org/wiki/United_States/Railroads) Note that in the United States, because of US English, "railroad" is frequently used across many contexts (not simply OSM) in preference to "railway" (which is more British English or Canadian English).
+- [Canada](https://wiki.openstreetmap.org/wiki/Canada/Railways)
+
+### South America
+
+- [Brazil](https://wiki.openstreetmap.org/wiki/WikiProject_Brazil/Ferroviarias)
+
+### Asia
+
+- [China](https://wiki.openstreetmap.org/wiki/WikiProject_China_Railways)
+- [Korea](https://wiki.openstreetmap.org/wiki/WikiProject_Korea/Railways)
+- [India](https://wiki.openstreetmap.org/wiki/India/Railways)
+
+## Terminology
+
+### Railway
+
+- Track, is made up of rails with ties or sleepers.
+- Ties or Sleepers are the horizontal or sometime diagonal connection between the rails.
+- Rail, the steel or concreted device the wheels of the train roll directly in contact with.
+- Signals are any sign, digital device, or communication that convey information for train operations.
+- Abandoned can be a legal term set forth by a governing body.
+
+### OpenStreetMap
+
+- Signals are any sign or digital device that convey information for train operations.
+- Disused / Preserved / Abandoned / Razed are descriptors of the "lifecycle state" of the railway.
