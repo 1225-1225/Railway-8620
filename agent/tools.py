@@ -4,7 +4,8 @@ import functools
 import time
 from langchain_core.tools import tool
 
-from agent.vector_store import VectorStoreService
+from agent.ragflow_client import RAGFlowClient
+from settings import settings as config_data
 
 # ========== 日志配置 ==========
 # 创建日志器
@@ -57,35 +58,49 @@ def log_tool_call(func):
     return wrapper
 
 
-# ========== 服务单例 ==========
-# VectorStoreService 构造时需加载持久化向量库，
-# 重复 new 会带来显著开销，因此用模块级单例懒加载。
-_vector_store_service: "VectorStoreService | None" = None
+# ========== RAGFlow 客户端单例 ==========
+_ragflow_client: RAGFlowClient | None = None
 
 
-def get_vector_store_service() -> "VectorStoreService":
-    """返回 VectorStoreService 单例（懒加载）"""
-    global _vector_store_service
-    if _vector_store_service is None:
-        _vector_store_service = VectorStoreService()
-    return _vector_store_service
+def get_ragflow_client() -> RAGFlowClient:
+    """返回 RAGFlowClient 单例（懒加载）"""
+    global _ragflow_client
+    if _ragflow_client is None:
+        _ragflow_client = RAGFlowClient(
+            host=config_data.ragflow_host,
+            api_key=config_data.ragflow_api_key,
+            dataset_id=config_data.ragflow_dataset_id,
+        )
+    return _ragflow_client
 
 
 def reset_service_singletons():
-    """重置单例（仅用于测试隔离：每个测试用例mock掉底层前调用一次，确保不残留旧实例）"""
-    global _vector_store_service
-    _vector_store_service = None
+    """重置单例（仅用于测试隔离）"""
+    global _ragflow_client
+    _ragflow_client = None
 
 
 # ========== 工具函数（应用装饰器） ==========
 @tool(description="检索向量库, 寻找匹配的知识")
 @log_tool_call
 def retriever_tool(query: str):
-    retriever = get_vector_store_service().get_retriever()
-    docs = retriever.invoke(query)
-    if not docs:
+    """从 RAGFlow 知识库中检索相关知识"""
+    client = get_ragflow_client()
+    results = client.search(
+        query=query,
+        top_k=config_data.kwargs,
+        similarity_threshold=config_data.ragflow_similarity_threshold,
+    )
+
+    if not results:
         return "未找到相关消息"
-    return "\n\n".join(doc.page_content for doc in docs)
+
+    # 格式化返回结果
+    formatted = []
+    for i, r in enumerate(results, 1):
+        source = f"（来源: {r['source']}）" if r['source'] else ""
+        formatted.append(f"{i}. {r['content']}{source}")
+    return "\n\n".join(formatted)
 
 
 # ========== 地图生成工具 ==========

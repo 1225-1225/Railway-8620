@@ -12,20 +12,15 @@ langchain==1.3.9
 langchain-core==1.4.7
 langchain-openai==1.3.2
 langchain-anthropic==1.4.6
-langchain-text-splitters==1.1.2
 langgraph==1.2.5
 langgraph-checkpoint-sqlite==3.1.0
 
-# === 向量库 ===
-chromadb==1.5.9
-langchain-chroma==1.1.0
+# === HTTP 客户端（RAGFlow API 调用） ===
+requests==2.32.3
 
-# === 地图 / 图算法 ===
+# === 地图 ===
 folium==0.20.0
-networkx==3.4.2
-geopy==2.4.1
-numpy==2.2.6                     # cKDTree 最近邻查询（路线图服务依赖）
-scipy==1.15.3                    # cKDTree 断段桥接 + 子图裁剪（路线图服务依赖）
+numpy==2.2.6
 
 # === 数据库 / 认证 ===
 SQLAlchemy==2.0.51

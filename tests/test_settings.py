@@ -1,22 +1,20 @@
 """
 测试 settings.py —— 默认值、环境变量读取、路径补全
+
+注意：Chroma 相关配置（collection_name, chunk_size 等）已移除，
+      现在配置专注于 RAGFlow。
 """
 import os 
 from unittest import mock
+
 class TestSettingsDefaults:
     """验证 Settings 类每个字段的默认值"""
-    def test_default_chunk_size(self):
-        # clear=True 清空所有环境变量，Settings 只能用代码里的默认值
-        with mock.patch.dict(os.environ, {}, clear=True):
-            from settings import Settings
-            s = Settings()
-            assert s.chunk_size == 500
 
-    def test_default_chunk_overlap(self):
+    def test_default_ragflow_host(self):
         with mock.patch.dict(os.environ, {}, clear=True):
             from settings import Settings
             s = Settings()
-            assert s.chunk_overlap == 77
+            assert s.ragflow_host == "http://localhost:9380"
 
     def test_default_kwargs(self):
         with mock.patch.dict(os.environ, {}, clear=True):
@@ -24,11 +22,11 @@ class TestSettingsDefaults:
             s = Settings()
             assert s.kwargs == 5
 
-    def test_default_collection_name(self):
+    def test_default_similarity_threshold(self):
         with mock.patch.dict(os.environ, {}, clear=True):
             from settings import Settings
             s = Settings()
-            assert s.collection_name == "railway-8620"
+            assert s.ragflow_similarity_threshold == 0.0
 
     def test_default_llm_provider(self):
         with mock.patch.dict(os.environ, {}, clear=True):
@@ -36,22 +34,22 @@ class TestSettingsDefaults:
             s = Settings()
             assert s.llm_provider == "openai"
 
-    def test_default_separators_include_chinese(self):
+    def test_default_ragflow_api_key_empty(self):
         with mock.patch.dict(os.environ, {}, clear=True):
             from settings import Settings
             s = Settings()
-            assert "。" in s.separators  
-            assert "？" in s.separators  
-            assert "！" in s.separators  
+            assert s.ragflow_api_key == ""
 
-    def test_default_split_starting_point(self):
+    def test_default_ragflow_dataset_id_empty(self):
         with mock.patch.dict(os.environ, {}, clear=True):
             from settings import Settings
             s = Settings()
-            assert s.split_starting_point == 1000
+            assert s.ragflow_dataset_id == ""
+
 
 class TestSettingsFromEnv:
     """验证settings能从环境变量中读取值"""
+
     def test_model_name_from_env(self):
         with mock.patch.dict(os.environ, {"llm_model_name":"deepseek-v4-air"}, clear=True):
             from settings import Settings
@@ -70,6 +68,24 @@ class TestSettingsFromEnv:
             s = Settings()
             assert s.embedding_api_key == "sk-test-1919810"
 
+    def test_ragflow_api_key_from_env(self):
+        with mock.patch.dict(os.environ, {"ragflow_api_key":"sk-ragflow-001"}, clear=True):
+            from settings import Settings
+            s = Settings()
+            assert s.ragflow_api_key == "sk-ragflow-001"
+
+    def test_ragflow_host_from_env(self):
+        with mock.patch.dict(os.environ, {"ragflow_host": "http://192.168.1.100:9380"}, clear=True):
+            from settings import Settings
+            s = Settings()
+            assert s.ragflow_host == "http://192.168.1.100:9380"
+
+    def test_ragflow_dataset_id_from_env(self):
+        with mock.patch.dict(os.environ, {"ragflow_dataset_id": "ds-001"}, clear=True):
+            from settings import Settings
+            s = Settings()
+            assert s.ragflow_dataset_id == "ds-001"
+
     def test_base_url_from_env(self):
         with mock.patch.dict(os.environ, {"llm_base_url": "https://my-proxy.com/v1"}, clear=True):
             from settings import Settings
@@ -82,28 +98,22 @@ class TestSettingsFromEnv:
             s = Settings()
             assert s.embedding_model_name == "text-embedding-v3"
 
+
 class TestSettingsPathResolution:
     """验证settings.py的底部自动补全逻辑"""
-    def test_persist_directory_not_empty(self):
-        # 用模块级单例 settings, 他已经执行过补全
-        from settings import settings as s
-        assert s.persist_directory != ""
 
     def test_data_path_not_empty(self):
-        # 用模块级单例 settings, 他已经执行过补全
         from settings import settings as s
         assert s.data_path != ""
-
-    def test_md5_path_not_empty(self):
-        from settings import settings as s
-        assert s.md5_path != ""
 
     def test_chat_history_storage_path_not_empty(self):
         from settings import settings as s
         assert s.chat_history_storage_path != ""
 
+
 class TestSettingsMeta:
     """Settings 类的元行为"""
+
     def test_session_config_is_dict(self):
         with mock.patch.dict(os.environ, {}, clear=True):
             from settings import Settings

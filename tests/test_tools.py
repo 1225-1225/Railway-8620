@@ -1,24 +1,16 @@
-"""测试 agent/tools.py —— retriever_tool / route_map_drawing_tool / 服务单例"""
-import os
+"""测试 agent/tools.py —— retriever_tool / 服务单例"""
 from unittest import mock
 
 
 class TestRetrieverTool:
     def test_returns_merged_docs(self):
-        doc1 = mock.MagicMock()
-        doc1.page_content = "文档A"
-        doc2 = mock.MagicMock()
-        doc2.page_content = "文档B"
+        client = mock.MagicMock()
+        client.search.return_value = [
+            {"content": "文档A", "source": "a.txt", "similarity": 0.9, "img_id": ""},
+            {"content": "文档B", "source": "b.txt", "similarity": 0.8, "img_id": ""},
+        ]
 
-        ret = mock.MagicMock()
-        ret.invoke.return_value = [doc1, doc2]
-
-        vs = mock.MagicMock()
-        vs.get_retriever.return_value = ret
-
-        # 注意：tools.py 改为走 get_vector_store_service() 单例
-        # mock VectorStoreService 类即可，单例首次访问时调用 VectorStoreService() 返回 vs
-        with mock.patch("agent.tools.VectorStoreService", return_value=vs):
+        with mock.patch("agent.tools.get_ragflow_client", return_value=client):
             from agent.tools import retriever_tool
             result = retriever_tool.invoke({"query": "测试"})
             assert "文档A" in result
@@ -26,71 +18,66 @@ class TestRetrieverTool:
             assert "\n\n" in result
 
     def test_returns_hint_when_no_results(self):
-        ret = mock.MagicMock()
-        ret.invoke.return_value = []
+        client = mock.MagicMock()
+        client.search.return_value = []
 
-        vs = mock.MagicMock()
-        vs.get_retriever.return_value = ret
-
-        with mock.patch("agent.tools.VectorStoreService", return_value=vs):
+        with mock.patch("agent.tools.get_ragflow_client", return_value=client):
             from agent.tools import retriever_tool
             result = retriever_tool.invoke({"query": "不存在"})
             assert result == "未找到相关消息"
 
     def test_single_doc_no_extra_separator(self):
-        doc = mock.MagicMock()
-        doc.page_content = "唯一文档"
+        client = mock.MagicMock()
+        client.search.return_value = [
+            {"content": "唯一文档", "source": "doc.txt", "similarity": 0.95, "img_id": ""},
+        ]
 
-        ret = mock.MagicMock()
-        ret.invoke.return_value = [doc]
-
-        vs = mock.MagicMock()
-        vs.get_retriever.return_value = ret
-
-        with mock.patch("agent.tools.VectorStoreService", return_value=vs):
+        with mock.patch("agent.tools.get_ragflow_client", return_value=client):
             from agent.tools import retriever_tool
-
             result = retriever_tool.invoke({"query": "查"})
-            assert result == "唯一文档"
+            assert "唯一文档" in result
             assert "\n\n" not in result
 
     def test_passes_query_correctly(self):
-        ret = mock.MagicMock()
-        ret.invoke.return_value = []
+        client = mock.MagicMock()
+        client.search.return_value = []
 
-        vs = mock.MagicMock()
-        vs.get_retriever.return_value = ret
-
-        with mock.patch("agent.tools.VectorStoreService", return_value=vs):
+        with mock.patch("agent.tools.get_ragflow_client", return_value=client):
             from agent.tools import retriever_tool
-
             retriever_tool.invoke({"query": "前进型蒸汽机车"})
-            ret.invoke.assert_called_once_with("前进型蒸汽机车")
+            client.search.assert_called_once()
+            args, kwargs = client.search.call_args
+            assert kwargs.get("query") == "前进型蒸汽机车"
+
+    def test_single_result_has_no_number_prefix(self):
+        """单条结果不应带编号前缀"""
+        client = mock.MagicMock()
+        client.search.return_value = [
+            {"content": "单条内容", "source": "x.txt", "similarity": 0.9, "img_id": ""},
+        ]
+        with mock.patch("agent.tools.get_ragflow_client", return_value=client):
+            from agent.tools import retriever_tool
+            result = retriever_tool.invoke({"query": "test"})
+            assert result == "1. 单条内容（来源: x.txt）"
 
 
 class TestServiceSingleton:
-    """验证 get_vector_store_service 单例行为"""
+    """验证 get_ragflow_client 单例行为"""
 
-    def test_vector_store_service_is_singleton(self):
-        """同一进程内多次获取应返回同一实例"""
-        from agent.tools import get_vector_store_service, reset_service_singletons
+    def test_ragflow_client_is_singleton(self):
+        from agent.tools import get_ragflow_client, reset_service_singletons
         reset_service_singletons()
-        with mock.patch("agent.tools.VectorStoreService", return_value=mock.MagicMock()):
-            s1 = get_vector_store_service()
-            s2 = get_vector_store_service()
+        with mock.patch("agent.tools.RAGFlowClient", return_value=mock.MagicMock()):
+            s1 = get_ragflow_client()
+            s2 = get_ragflow_client()
             assert s1 is s2
 
     def test_reset_clears_singleton(self):
-        from agent.tools import (
-            get_vector_store_service,
-            reset_service_singletons,
-        )
+        from agent.tools import get_ragflow_client, reset_service_singletons
         reset_service_singletons()
-        with mock.patch("agent.tools.VectorStoreService", return_value=mock.MagicMock()):
-            s1 = get_vector_store_service()
+        with mock.patch("agent.tools.RAGFlowClient", return_value=mock.MagicMock()):
+            s1 = get_ragflow_client()
         reset_service_singletons()
-        with mock.patch("agent.tools.VectorStoreService", return_value=mock.MagicMock()):
-            s2 = get_vector_store_service()
+        with mock.patch("agent.tools.RAGFlowClient", return_value=mock.MagicMock()):
+            s2 = get_ragflow_client()
             assert s1 is not s2
-
-

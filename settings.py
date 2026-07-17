@@ -5,18 +5,14 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 class Settings(BaseSettings):
-    # 向量库和RAG
-    collection_name: str = "railway-8620"
-    persist_directory: str = ""
-    chunk_size: int = 500
-    chunk_overlap: int = 77
-    separators: list = ["\n\n", "\n", "。", "？", "！", "，", ".", "?", "!", ","]
-    data_path: str = ""
-    md5_path: str = ""
-    split_starting_point: int = 1000
+    # RAGFlow 配置
+    ragflow_host: str = "http://localhost:9380"
+    ragflow_api_key: str = ""
+    ragflow_dataset_id: str = ""
 
     # 检索
     kwargs: int = 5
+    ragflow_similarity_threshold: float = 0.0
 
     # LLM 供应商（openai / anthropic）
     llm_provider: str = "openai"
@@ -35,17 +31,16 @@ class Settings(BaseSettings):
     chat_history_storage_path: str = ""
     history_database_name: str = "chat_history_check_pointer"
 
+    # 数据路径（用于迁移脚本等）
+    data_path: str = ""
+
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
 def _apply_path_defaults(s: Settings):
     """补全未在.env中指定的相对路径"""
-    if not s.persist_directory:
-        s.persist_directory = os.path.join(PROJECT_ROOT, "data", "vector_database")
     if not s.data_path:
         s.data_path = os.path.join(PROJECT_ROOT, "data", "cleaned_txts")
-    if not s.md5_path:
-        s.md5_path = os.path.join(PROJECT_ROOT, "MD5")
     if not s.chat_history_storage_path:
         s.chat_history_storage_path = os.path.join(PROJECT_ROOT, "chat_history")
 
@@ -57,7 +52,7 @@ def _resolve_env_var_refs(s: Settings):
         llm_api_key=sk-xxx        → 直接用
         llm_api_key=DEEPSEEK_API_KEY  → 视为环境变量名，取 os.environ["DEEPSEEK_API_KEY"]
     """
-    for field in ("llm_api_key", "embedding_api_key"):
+    for field in ("llm_api_key", "embedding_api_key", "ragflow_api_key"):
         raw = getattr(s, field)
         if raw and raw in os.environ and os.environ[raw]:
             setattr(s, field, os.environ[raw])

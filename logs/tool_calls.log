@@ -713,3 +713,39 @@ EOFError: Ran out of input
 2026-07-14 20:57:31 - tool_calls - INFO - 工具 generate_route_map 执行成功，耗时: 0.638秒，返回值: 已生成车次 Z227 的运行路线地图
 请访问：/maps/Z227_route.html
 （在浏览器中打开此链接可查看交互式地图，支持缩放、悬停查看站名）
+2026-07-14 21:53:30 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-14 21:53:30 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 1. 文档A（来源: a.txt）
+
+2. 文档B（来源: b.txt）
+2026-07-14 21:53:30 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-14 21:53:30 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-14 21:53:30 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-14 21:53:30 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 1. 唯一文档（来源: doc.txt）
+2026-07-14 21:53:30 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-14 21:53:30 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-14 21:53:30 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': 'test'}
+2026-07-14 21:53:30 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 1. 单条内容（来源: x.txt）
+2026-07-14 21:54:13 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-14 21:54:13 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 1. 文档A（来源: a.txt）
+
+2. 文档B（来源: b.txt）
+2026-07-14 21:54:13 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-14 21:54:13 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-14 21:54:13 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-14 21:54:13 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 1. 唯一文档（来源: doc.txt）
+2026-07-14 21:54:13 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-14 21:54:13 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-14 21:54:13 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': 'test'}
+2026-07-14 21:54:13 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 1. 单条内容（来源: x.txt）
+2026-07-14 21:55:56 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '测试'}
+2026-07-14 21:55:56 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 1. 文档A（来源: a.txt）
+
+2. 文档B（来源: b.txt）
+2026-07-14 21:55:56 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '不存在'}
+2026-07-14 21:55:56 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 未找到相关消息
+2026-07-14 21:55:56 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '查'}
+2026-07-14 21:55:56 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 1. 唯一文档（来源: doc.txt）
+2026-07-14 21:55:56 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': '前进型蒸汽机车'}
+2026-07-14 21:55:56 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.001秒，返回值: 未找到相关消息
+2026-07-14 21:55:56 - tool_calls - INFO - 调用工具: retriever_tool，参数: args=(), kwargs={'query': 'test'}
+2026-07-14 21:55:56 - tool_calls - INFO - 工具 retriever_tool 执行成功，耗时: 0.000秒，返回值: 1. 单条内容（来源: x.txt）

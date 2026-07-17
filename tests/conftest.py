@@ -26,7 +26,7 @@ def temp_dir():
 def _reset_service_singletons():
     """每个测试用例前后重置 agent.tools 中的服务单例
 
-    为什么需要：tools.py 改成模块级单例后，若某个测试 mock 了 VectorStoreService
+    为什么需要：tools.py 改成模块级单例后，若某个测试 mock 了 RAGFlowClient
     的构造函数并触发了实例化，单例会残留，污染后续测试。
     autouse=True 保证每个测试独立。
     """
