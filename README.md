@@ -185,13 +185,27 @@ npm run dev
 ### 🐳 Docker Compose 一键启动
 
 ```bash
+# 仅启动前后端（快速体验，车次查询/地图/对话全部可用）
 docker compose up -d
+
+# 启动全部服务（含 RAGFlow，自动初始化知识库并上传文档）
+.\start.ps1 ragflow      # Windows
+./start.sh ragflow        # Linux / macOS
+
+# 或分步操作：
+# docker compose -f docker-compose.ragflow.yml up -d   # 启动 RAGFlow
+# python agent/ragflow_init.py                          # 初始化知识库
 ```
 
-| 服务 | 地址 |
-|------|------|
-| 前端 (Nginx) | http://localhost:8620 |
-| 后端 (FastAPI) | http://localhost:8000 |
+| 服务 | 地址 | 说明 |
+|------|------|------|
+| 前端 (Nginx) | http://localhost:8620 | Vue 3 聊天界面 |
+| 后端 (FastAPI) | http://localhost:8000/docs | API 文档（Swagger） |
+| RAGFlow | http://localhost:9380 | 知识库管理 Web UI |
+
+> RAGFlow 是可选的外部知识库引擎。不启动它不影响车次查询、路线地图生成和对话功能。
+>
+> 首次启动 RAGFlow 时，`agent/ragflow_init.py` 会自动注册管理员账号、创建知识库、上传全部 150+ 篇铁路文档到 RAGFlow，并将凭证写入 `.env`。之后所有操作在 RAGFlow Web UI (http://localhost:9380) 中完成。
 
 ---
 

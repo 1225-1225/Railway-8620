@@ -25,10 +25,9 @@ class RAGFlowClient:
         self.api_key = api_key
         self.dataset_id = dataset_id
         self._session = requests.Session()
-        self._session.headers.update({
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json",
-        })
+        self._session.headers["Content-Type"] = "application/json"
+        if self.api_key:
+            self._session.headers["Authorization"] = f"Bearer {self.api_key}"
 
     def search(
         self,
@@ -126,3 +125,122 @@ class RAGFlowClient:
         except requests.RequestException as e:
             logger.error(f"上传文档请求失败: {e}")
             return False
+
+    # ================================================================
+    #  以下方法用于自动化初始化（首次部署时由 ragflow_init.py 调用）
+    #
+    #  ⚠️ 注意：RAGFlow v0.26.4 更换了 API 端点、改用 RSA 加密密码、
+    #  并且不再提供创建 API Key 的 REST 端点。
+    #  推荐使用 agent/ragflow_init.py 通过 docker exec 完成初始化。
+    # ================================================================
+
+    def register(self, email: str, password: str, nickname: str = "admin") -> bool:
+        """注册 RAGFlow 用户 (v0.26.4)
+
+        POST /api/v1/users
+
+        Args:
+            email: 邮箱（用户名）
+            password: 密码（明文）
+            nickname: 昵称
+
+        Returns:
+            bool: 是否成功
+        """
+        url = f"{self.base_url}/api/v1/users"
+        try:
+            # v0.26.4 注册接口需要 nickname + email + password
+            resp = requests.post(url, json={
+                "nickname": nickname,
+                "email": email,
+                "password": password,
+            }, timeout=10)
+            data = resp.json()
+            if data.get("code") == 0:
+                logger.info(f"用户注册成功: {email}")
+                return True
+            logger.warning(f"用户注册失败: {data.get('message', resp.text[:100])}")
+            return False
+        except requests.RequestException as e:
+            logger.warning(f"用户注册请求失败: {e}")
+            return False
+
+    def login(self, email: str, encrypted_password: str) -> Optional[dict]:
+        """登录 RAGFlow (v0.26.4)
+
+        POST /api/v1/auth/login
+
+        ⚠️ 密码必须先经过 RSA 加密（通过 docker exec 调用 crypt()）。
+
+        Args:
+            email: 邮箱
+            encrypted_password: RSA 加密后的密码
+
+        Returns:
+            Optional[dict]: 包含 access_token 等字段的完整响应 data，
+                           失败返回 None
+        """
+        url = f"{self.base_url}/api/v1/auth/login"
+        try:
+            resp = requests.post(url, json={
+                "email": email,
+                "password": encrypted_password,
+            }, timeout=10)
+            data = resp.json()
+            if data.get("code") == 0:
+                logger.info(f"登录成功: {email}")
+                return data.get("data", {})
+            logger.error(f"登录失败: {data.get('message', resp.text[:100])}")
+            return None
+        except requests.RequestException as e:
+            logger.error(f"登录请求失败: {e}")
+            return None
+
+    def create_api_key(self, token: str) -> Optional[str]:
+        """创建 API Key
+
+        ⚠️ RAGFlow v0.26.4 没有公开的 REST 端点用于创建 API Key。
+        请使用 agent/ragflow_init.py 中的 docker exec 方式，
+        或手动在 Web UI (http://localhost:9380) 中创建。
+
+        Returns:
+            None（已废弃）
+        """
+        logger.warning(
+            "create_api_key: v0.26.4 不再提供此 REST 端点，"
+            "请通过 Web UI 或 docker exec 创建"
+        )
+        return None
+
+    def create_dataset(self, token: str, name: str = "铁路知识库") -> Optional[str]:
+        """创建知识库 (v0.26.4)
+
+        POST /api/v1/datasets
+
+        ⚠️ v0.26.4 使用 session cookie 认证，而非 Bearer token。
+        推荐使用 agent/ragflow_init.py 中的完整流程。
+
+        Args:
+            token: 登录后的 access_token（用作 Bearer）
+            name: 知识库名称
+
+        Returns:
+            Optional[str]: 知识库 ID，失败返回 None
+        """
+        url = f"{self.base_url}/api/v1/datasets"
+        session = requests.Session()
+        session.headers["Authorization"] = f"Bearer {token}"
+        try:
+            resp = session.post(url, json={"name": name}, timeout=15)
+            data = resp.json()
+            if data.get("code") == 0:
+                ds = data.get("data", {})
+                ds_id = ds.get("id", "") or ds.get("dataset_id", "")
+                if ds_id:
+                    logger.info(f"知识库创建成功: {name} (id={ds_id})")
+                    return ds_id
+            logger.error(f"创建知识库失败: {data.get('message', resp.text[:100])}")
+            return None
+        except requests.RequestException as e:
+            logger.error(f"创建知识库请求失败: {e}")
+            return None

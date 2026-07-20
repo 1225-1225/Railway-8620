@@ -14,7 +14,6 @@ services:
       # 用户库走 named volume，避免 file bind mount 在文件不存在时被 Docker 创建成目录
       - DATABASE_URL=sqlite:////app/data/users.db
     volumes:
-      - ./data/vector_database:/app/data/vector_database
       - ./chat_history:/app/chat_history
       - backend_data:/app/data
       - maps_data:/app/shared/maps
