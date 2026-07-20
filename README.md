@@ -6,29 +6,7 @@
 [![Vue 3](https://img.shields.io/badge/Vue-3.5%2B-4FC08D)](https://vuejs.org/)
 [![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](LICENSE)
 
-基于 **LangChain + LangGraph + FastAPI + Vue 3** 的中文铁路知识智能问答系统。支持 **RAG 向量检索问答**、**铁路线路图绘制**、**多轮对话**与**流式输出**。
-
-> ⚠️ **注意**：本仓库包含大体积地理数据文件（GPKG、PKL、JSON），使用 **Git LFS** 管理。克隆前请确保已安装 Git LFS。
-
----
-
-## 📸 功能演示
-
-| 对话界面 | 铁路线路图 |
-|:---:|:---:|
-| ![对话界面](docs/screenshots/chat.png) | ![线路图](docs/screenshots/map.png) |
-
-<details>
-<summary>🎬 点击展开操作示例</summary>
-
-**用户输入：** `合肥到北京丰台`
-
-**系统返回：**
-- 7 趟列车信息（含直达/途经），按发车时间排列
-- 每趟车对应的交互式铁路线路图（基于 OSM 真实轨道几何，支持点击/缩放/平移）
-- 自动推荐最佳车次
-
-</details>
+基于 **LangChain + LangGraph + FastAPI + Vue 3** 的中文铁路知识智能问答系统。支持 **RAG 向量检索问答**（RAGFlow）、**交互式路线地图生成**、**多轮对话**与**流式输出**。
 
 ---
 
@@ -36,8 +14,10 @@
 
 | 功能 | 说明 |
 |------|------|
-| 🧠 **铁路知识问答** | 基于 Chroma 向量库 + RAG，检索 150+ 篇中国铁路机车知识文档 |
-| 🗺️ **铁路线路图绘制** | 输入起止城市，自动匹配车次，在**真实铁路轨道网络**上绘制交互式地图 (Folium) |
+| 🧠 **铁路知识问答** | 基于 RAGFlow 知识库 + RAG，检索 150+ 篇中国铁路机车知识文档 |
+| 🗺️ **交互式路线地图** | 输入车次，自动生成途经站点路线图 (Folium)，支持缩放/悬停 |
+| 🚄 **车次信息查询** | 查询指定车次的详细信息（起讫站、经停站、时刻表） |
+| 🔍 **路线车次推荐** | 根据起讫站查询车次列表，按 G/D/C/Z/T/K 优先级排序 |
 | 💬 **流式对话** | 前端 SSE 实时流式输出，打字机效果 |
 | 🔄 **多轮对话** | LangGraph Agent + SQLite Checkpointer，支持跨轮次记忆 |
 | 🔐 **用户认证** | JWT 注册/登录，每个用户独立对话历史 |
@@ -49,14 +29,14 @@
 
 | 层级 | 技术 |
 |------|------|
-| **LLM 框架** | LangChain、LangGraph |
-| **向量检索** | Chroma + OpenAI 兼容 Embedding（阿里百炼 text-embedding-v4） |
+| **LLM 框架** | LangChain 1.3 + LangGraph 1.2 |
+| **向量检索** | RAGFlow（REST API 对接，阿里百炼 text-embedding-v4） |
 | **LLM 提供商** | OpenAI 兼容 API / Anthropic（支持 OpenCode、DeepSeek 等） |
-| **后端** | FastAPI、SQLAlchemy、python-jose (JWT) |
-| **前端** | Vue 3 + TypeScript + Vite + Pinia + Vue Router |
-| **地图** | Folium + NetworkX（A\* 路径搜索，真实铁路网络） |
-| **数据库** | SQLite（用户库 + 对话检查点） |
-| **部署** | Docker Compose（Python 3.10 + Nginx） |
+| **后端** | FastAPI 0.137、SQLAlchemy 2.0、python-jose (JWT)、argon2-cffi |
+| **前端** | Vue 3.5 + TypeScript + Vite 7 + Pinia 3 + Vue Router 5 |
+| **地图** | Folium 0.20（相邻站点直线连接） |
+| **数据库** | SQLite（用户库 `users.db` + LangGraph 对话检查点） |
+| **部署** | Docker Compose（Python 3.10-slim + Nginx alpine） |
 
 ---
 
@@ -65,12 +45,14 @@
 ```
 Railway-8620/
 ├── agent/                          # Agent 核心模块
-│   ├── agent.py                    # LangGraph Agent（工具调用 + 多轮记忆）
+│   ├── agent.py                    # LangGraph Agent（工具调用 + SqliteSaver 多轮记忆）
 │   ├── llm.py                      # LLM 工厂函数（支持 OpenAI / Anthropic）
-│   ├── tools.py                    # 工具定义：retriever_tool / route_map_drawing_tool
-│   ├── vector_store.py             # Chroma 向量库服务
-│   ├── build_vector_store.py       # 向量库构建（文本分块 + MD5去重）
-│   ├── route_map_service.py        # 铁路绘图：车次匹配 + A* 最短路径 + Folium 地图
+│   ├── tools.py                    # 工具工厂 + retriever_tool（RAGFlow 知识库检索）
+│   ├── railway_tools.py            # 铁路工具：query_train_info / query_trains_by_route
+│   ├── route_map_generator.py      # Folium 路线地图生成器（相邻站点直线连接）
+│   ├── route_map_service.py        # （保留，暂为空）
+│   ├── ragflow_client.py           # RAGFlow REST API 客户端封装
+│   ├── ragflow_migrate.py          # 批量上传文档到 RAGFlow
 │   └── chat_history.py             # JSON 文件对话历史（独立存储实现）
 ├── backend/                        # FastAPI 后端
 │   ├── api.py                      # 主入口：流式/非流式聊天接口、CORS 配置
@@ -91,31 +73,38 @@ Railway-8620/
 │   │   ├── router/index.ts         # 路由 + 守卫
 │   │   ├── App.vue                 # 根组件
 │   │   └── main.ts                 # 入口
-│   ├── nginx.conf                  # Nginx 配置（反向代理 /auth、/chat）
+│   ├── nginx.conf                  # Nginx 配置（反向代理 /auth、/chat、/maps）
 │   ├── Dockerfile                  # 多阶段构建
-│   └── vite.config.ts              # Vite 配置（开发代理）
+│   └── vite.config.ts              # Vite 配置（开发代理 :8620 → :8000）
 ├── data/
-│   ├── cleaned_txts/               # 150+ 篇清洗后的铁路知识文本
-│   ├── vector_database/            # Chroma 向量库持久化目录
-│   ├── railway_route/              # ⚠️ 大文件（Git LFS）
-│   │   ├── china_railway_filtered.gpkg  # 全国铁路 OSM 地理数据（~222MB）
-│   │   ├── line_graph.json              # 铁路线路图结构数据（~19MB）
-│   │   └── timetable.json               # 列车时刻表（~56MB）
-│   ├── china_railway.pkl           # 全国铁路 NetworkX 图（Git LFS）
-│   ├── city_to_node.pkl            # 站点坐标映射（Git LFS）
-│   ├── train_data.json             # 列车车次与经停站数据（Git LFS）
-│   └── stations.json               # 城市→站点映射（模糊匹配兜底）
+│   ├── cleaned_txts/               # 150+ 篇清洗后的铁路知识文本（RAGFlow 语料源）
+│   ├── station_coords.json         # 车站经纬度坐标（地图绘制用）
+│   ├── stations.json               # 车站基础信息
+│   ├── train_details.json          # 车次详细信息（含经停站时刻表）
+│   ├── train_stations.json         # 车次-站点映射
+│   ├── railway_graph.json          # 铁路线路图结构数据
+│   ├── maps/                       # 运行时生成的 Folium 地图 HTML
+│   ├── vector_database/            # （旧版 Chroma 遗留目录）
+│   └── railway_route/
+│       ├── line_graph.json         # 铁路线路图结构
+│       └── timetable.json          # 列车时刻表
 ├── tests/                          # Pytest 测试
-│   ├── test_api.py                 # 端到端 API 测试
+│   ├── test_api.py                 # 端到端 API 测试（Mock 数据库 + Agent）
 │   ├── test_auth.py                # JWT 认证测试
-│   └── ...
-├── mytools/                        # 数据采集/清洗工具脚本
-├── chat_history/                   # 对话历史持久化目录（运行时生成）
+│   ├── test_settings.py            # 配置管理测试
+│   ├── test_tools.py               # 工具函数 + 单例测试
+│   ├── test_database.py            # 用户模型 CRUD
+│   ├── test_schemas.py             # Pydantic 校验
+│   ├── test_chat_history.py        # 对话历史读写
+│   ├── test_llm.py                 # LLM 工厂函数
+│   └── conftest.py                 # 全局夹具 + 环境变量注入
+├── mytools/                        # 数据采集/清洗/处理工具脚本
+├── chat_history/                   # 对话检查点 SQLite 存储（运行时生成）
+├── logs/                           # 运行日志（tool_calls.log）
 ├── .env.example                    # 环境变量模板
-├── .gitattributes                  # Git LFS 配置
-├── settings.py                     # 配置管理层（支持 .env 热重载）
-├── Dockerfile                      # 后端 Dockerfile
-├── docker-compose.yml              # 一键启动前后端
+├── settings.py                     # Pydantic 配置管理（支持 .env 热重载）
+├── Dockerfile                      # 后端 Dockerfile（Python 3.10-slim）
+├── docker-compose.yml              # 一键启动 backend + frontend
 └── requirements.txt                # Python 依赖
 ```
 
@@ -128,17 +117,14 @@ Railway-8620/
 - Python 3.10+
 - Node.js 18+ / npm
 - Docker Desktop（可选，容器化部署）
-- Git LFS（克隆大文件用）
+- RAGFlow 服务（可选，可外部部署，参见 `docker-compose.ragflow.yml`）
 
-### 1️⃣ 克隆仓库并拉取 LFS 文件
+### 1️⃣ 克隆仓库
 
 ```bash
 git clone https://github.com/1225-1225/Railway-8620.git
 cd Railway-8620
-git lfs pull
 ```
-
-> 如果未安装 Git LFS，可先 `git lfs install` 再 `git lfs pull`。
 
 ### 2️⃣ 配置环境变量
 
@@ -239,41 +225,50 @@ data: [DONE]
 
 ## 🧩 Agent 工具说明
 
-### `retriever_tool` — 知识检索
+Agent（`agent/agent.py`）基于 LangGraph 的 `create_agent` 构建，使用 `SqliteSaver` 持久化对话检查点，共注册 4 个工具：
 
-- 查询 Chroma 向量数据库，检索相关铁路知识文档
-- 数据源：`data/cleaned_txts/` 下 150+ 篇清洗文本（蒸汽机车、电力机车、内燃机车等）
+### `retriever_tool` — 知识库检索
 
-### `route_map_drawing_tool` — 按车次绘制路线图
+- 调用 RAGFlow 的 `/api/v1/retrieval` 接口，检索相关铁路知识文档
+- 数据源：`data/cleaned_txts/` 下 150+ 篇清洗文本（蒸汽机车、电力机车、内燃机车、铁路历史等）
+- 支持配置 `top_k` 和相似度阈值
+
+### `query_train_info` — 车次信息查询
 
 - 输入车次代码（如 `G1`、`Z227`）
-- 在 OSM 真实轨道网络上用 **per-line A\*** 算法（按线路隔离的图搜索）计算路径
-- 回退策略：per-line 失败 → 全图 A\* → 直线连接
-- 区间匹配三级策略：Tier 1 segments 直查 → Tier 2 line_stations 评分 → Tier 3 空间兜底
-- 生成带线路颜色区分、车站标注的 Folium 交互式地图
+- 从 `train_details.json` 查询详细信息：起讫站、发车/到达时间、经停站列表及时刻
+- 支持同时查询多个车次
 
-### `station_route_drawing_tool` — 按起止站查找并绘图
+### `query_trains_by_route` — 路线车次查询
 
-- 输入："合肥" → "北京丰台"
-- 从时刻表匹配所有经过这两站的车次（按发车时间排序）
-- 每趟车分别绘制路线图
-- 支持站名模糊匹配和归一化
+- 输入起讫站："合肥" → "北京丰台"
+- 从时刻表匹配所有经过这两站的车次
+- 按 G（高铁）→ D（动车）→ C（城际）→ Z（直达）→ T（特快）→ K（快速）优先级排序
+
+### `generate_route_map` — 生成路线地图
+
+- 输入车次代码
+- 读取 `station_coords.json` 站点经纬度坐标
+- 将相邻经停站用直线连接，生成 Folium 交互式 HTML 地图
+- 始发站绿色图标、终点站红色方格旗、中间站蓝色圆点，支持悬停查看站名
+- 地图文件保存到 `data/maps/`，通过 `/maps/` 路径访问
 
 ---
 
-## 🔧 构建向量库
+## 🔧 知识库管理
 
-如有新的文本数据，重新构建向量库：
+项目使用 RAGFlow 作为知识库引擎。如有新的文本数据需要导入：
 
 ```bash
-python -m agent.build_vector_store
+python -m agent.ragflow_migrate
 ```
 
 该脚本会：
 1. 扫描 `data/cleaned_txts/` 下所有 `.txt` 文件
-2. 使用 `RecursiveCharacterTextSplitter` 分块（chunk_size=500, overlap=77）
-3. 计算 MD5 去重，避免重复入库
-4. 存入 Chroma 向量数据库
+2. 通过 RAGFlow REST API 批量上传文档
+3. 由 RAGFlow 内部完成解析、分块和向量化（使用阿里百炼 text-embedding-v4 模型）
+
+> RAGFlow 服务需独立部署（参考 `docker-compose.ragflow.yml`），或在 `settings.py` 中配置外部 RAGFlow 地址。
 
 ---
 
@@ -287,14 +282,14 @@ pytest tests/ -v
 
 | 文件 | 测试内容 |
 |------|----------|
-| `test_api.py` | 端到端：注册、登录、聊天接口 |
+| `test_api.py` | 端到端：注册、登录、聊天接口（Mock 数据库 + Agent） |
 | `test_auth.py` | JWT 签发/验证、用户认证逻辑 |
 | `test_database.py` | 用户模型 CRUD |
 | `test_schemas.py` | Pydantic 数据校验 |
 | `test_llm.py` | LLM 服务创建与链调用 |
 | `test_chat_history.py` | 对话历史读写 |
-| `test_tools.py` | 工具函数调用 |
-| `test_build_vector_store.py` | 向量库构建 |
+| `test_tools.py` | RAGFlow 检索工具 + 单例行为 |
+| `test_settings.py` | 配置管理默认值与环境变量 |
 
 ---
 
@@ -310,14 +305,10 @@ Nginx (生产) / Vite Proxy (开发)
 FastAPI 后端
     ├── /auth/*       → JWT 认证 (SQLite users.db)
     ├── /chat/*       → LangGraph Agent
-    │                    ├── retriever_tool          → Chroma 向量检索
-    │                    └── route_map_drawing_tool  → RouteMapService
-    │                        或 station_route_drawing_tool
-    │                        ├── 车次匹配 (timetable.json)
-    │                        ├── 站点定位 (city_to_node.pkl / GPKG)
-    │                        ├── per-line A* 路径搜索 (line_graph.json)
-    │                        ├── 全图 A* 兜底 (china_railway_filtered.gpkg)
-    │                        └── Folium 地图生成 (frontend/public/maps/*.html)
+    │                    ├── retriever_tool          → RAGFlow 知识库检索
+    │                    ├── query_train_info        → train_details.json
+    │                    ├── query_trains_by_route   → train_stations.json
+    │                    └── generate_route_map      → Folium 直线地图
     └── /chat/sessions → 历史会话管理 (SQLite checkpoint)
 ```
 
@@ -351,19 +342,19 @@ FastAPI 后端
 A: 确保 Docker Desktop 已启动并运行，然后重试 `docker compose up -d`。
 
 **Q: 启动后端报 API Key 错误？**
-A: 检查 `.env` 中的 `llm_api_key` 和 `embedding_api_key` 是否正确填写。
+A: 检查 `.env` 中的 `llm_api_key` 和 `embedding_api_key` 是否正确填写。如果使用环境变量间接引用（如 `OPENCODE_GO_API_KEY`），确保该环境变量已设置。
 
 **Q: 如何切换 LLM 提供商？**
-A: 修改 `.env` 中 `llm_provider` 为 `openai` 或 `anthropic`，调整对应的 `llm_model_name`、`llm_base_url`、`llm_api_key`，重启后端即可生效。
+A: 修改 `.env` 中 `llm_provider` 为 `openai` 或 `anthropic`，调整对应的 `llm_model_name`、`llm_base_url`、`llm_api_key`，调用 API 的 `/reload` 接口即可热生效，无需重启。
 
 **Q: 生成的铁路地图在哪？**
-A: 地图 HTML 保存在 `frontend/public/maps/` 目录，通过前端聊天消息中的链接即可打开。
-
-**Q: 克隆后文件不完整？（GPKG / JSON 为空）**
-A: 运行 `git lfs install && git lfs pull` 拉取大文件。
+A: 地图 HTML 保存在 `data/maps/` 目录，通过 `/maps/` 静态路径访问。
 
 **Q: 如何重置对话历史？**
 A: 删除 `chat_history/` 目录下的 SQLite 文件，重启后端即可。
+
+**Q: 需要部署 RAGFlow 吗？**
+A: RAGFlow 是可选的外部依赖。可以参考 `docker-compose.ragflow.yml` 部署，或在 `settings.py` 中配置已有服务的地址。不配置 RAGFlow 时，知识库检索功能不可用，但车次查询和地图生成功能不受影响。
 
 ---
 
