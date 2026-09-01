@@ -99,6 +99,7 @@ Railway-8620/
 │   ├── test_llm.py                 # LLM 工厂函数
 │   └── conftest.py                 # 全局夹具 + 环境变量注入
 ├── mytools/                        # 数据采集/清洗/处理工具脚本
+├── devtools/                       # 开发期 RAGFlow 调试/补丁脚本（历史参考，勿在业务中引用）
 ├── chat_history/                   # 对话检查点 SQLite 存储（运行时生成）
 ├── logs/                           # 运行日志（tool_calls.log）
 ├── .env.example                    # 环境变量模板
@@ -307,6 +308,60 @@ pytest tests/ -v
 
 ---
 
+## 🔬 技术深度：关键难点与解决思路
+
+> 本节记录开发过程中遇到的真实技术难点及对应解法，便于理解设计取舍。
+> 完整架构图（系统拓扑 / ReAct 循环 / SSE 时序）见 [`docs/architecture.md`](docs/architecture.md)。
+
+### 1. 同步流式输出 × asyncio 事件循环的阻塞问题
+
+**难点**：`agent.stream()`（LangGraph）是同步阻塞的生成器，直接放进 FastAPI 的异步生成器里会阻塞整个事件循环，导致所有并发请求卡死；且同步生成器的 `StopIteration` 一旦穿越 `asyncio.Future` 会被包装成 `RuntimeError`，破坏迭代语义。
+
+**解法**（`backend/api.py` 的 `chat_stream`）：
+- 用 `loop.run_in_executor(None, ...)` 把同步的 `agent.stream()` 和每次 `next()` 都扔进线程池，事件循环只做 `await`，不碰同步代码；
+- 用**哨兵对象** `_SENTINEL = object()` 代替 `StopIteration` 终止迭代，从根上避免 StopIteration 被 asyncio 包装成 RuntimeError；
+- 双保险超时：首次创建流 60s 超时，单次取块 300s 超时，超时后向客户端推送一条 `error` 事件再正常结束，避免前端无限转圈。
+
+### 2. 从 LangGraph checkpoint 二进制中反解历史会话
+
+**难点**：多轮记忆用 `SqliteSaver` 落盘，但历史消息被序列化为 **msgpack ExtType(5)** 二进制（内部格式：`['module', 'ClassName', {kwargs}]`），且 LangGraph 版本升级后 messages 可能被包装进 dict / `__start__`，没有统一的读取路径。历史侧边栏（`/chat/sessions`）要展示会话列表和预览，必须直接解析这些 blob。
+
+**解法**（`backend/api.py` 的 `_parse_messages_from_checkpoint` / `_parse_first_message`）：
+- 先用 `msgpack.unpackb` 解开最外层，兼容 `bytes` / `dict` 两种 channel_values；
+- 按 `messages` → dict 包装 → `__start__` 三级降级提取原始消息列表；
+- 对每条消息按 **ExtType(5) → 元组 → 纯 dict** 三种格式分别解析，从 `kwargs.content` 还原文本、从 `ClassName` 判断角色；
+- 全程 `try/except` 兜底，任何一步失败返回空列表，保证读历史不影响主流程。
+
+### 3. 给开源 RAGFlow v0.26.4 打入容器运行时补丁
+
+**难点**：RAGFlow 是外部开源组件，但存在两个上游 bug 会阻断本项目部署：① DashScope `text-embedding-v4` 限制 batch_size ≤ 10，而 RAGFlow 写死 16，批量向量化直接失败；② `parser_config` 在部分路径下是 JSON **字符串**而非 dict，导致解析任务崩溃。改 Docker 镜像源码没法热更新，且版本升级会覆盖改动。
+
+**解法**（`agent/ragflow_init.py` 的 `RAGFLOW_PATCHES` + `apply_container_patches`）：
+- 把补丁定义为"旧代码 → 新代码"的**精确替换对**，通过 `docker exec` 在容器内用 Python 做字符串替换；
+- 每次先**检测是否已打过补丁**（检查新代码是否已存在于文件），幂等、可重入，重启容器后自动补打；
+- 打入后清除 `__pycache__` 并重启容器使改动生效；
+- 集成到初始化流程首步，首次部署自动完成"等待就绪 → 打补丁 → 注册模型 → 建库上传"全链路（另见 `devtools/` 中的历史调试脚本）。
+
+### 4. 工具调用中断后的状态修复
+
+**难点**：当流式请求因工具执行超时而中断时，checkpoint 里最后一条可能是**带 `tool_calls` 的 AIMessage 却没有对应的 ToolMessage**。下次用同一 `thread_id` 发消息时，LangGraph/LLM 会拒绝这种"未闭合"的消息序列，会话直接坏掉。
+
+**解法**（`backend/api.py` 的 `_repair_incomplete_tool_calls`）：
+- 每次请求前用 `agent.get_state(config)` 取最近状态；
+- 检查最后一条消息是否带 `tool_calls`（说明工具结果没写回）；
+- 若有，则调用 `agent.invoke(input=None, config=config)` 让框架**补完工具执行**、写回 ToolMessage，使状态恢复完整后再进入正常对话。
+
+### 5. Agent 单例生命周期与配置热更新
+
+**难点**：Agent 持有 SQLite 连接（SqliteSaver）等资源，若在每次请求时重建会产生连接泄漏；同时 LLM 配置变更需要在不重启进程的前提下生效。此外初始化依赖 `.env` 中的 API Key，空 key 时启动会直接崩溃。
+
+**解法**（`backend/api.py` 的 `_get_agent` / `reload_agent` + `settings.py` 的 `_SettingsProxy`）：
+- Agent 采用**懒加载 + 双检锁**，首次请求才创建，空 key 不影响进程启动；
+- `reload_agent()` 用锁保护"先建新实例 → 替换引用 → 再关旧连接"的顺序，避免中间态对外不可用；
+- `settings.py` 通过代理类实现 `.env` 运行时重载，且 API Key 支持"环境变量名间接引用"，让 `.env` 可以安全入库。
+
+---
+
 ## 🏗️ 架构说明
 
 ```
@@ -334,9 +389,10 @@ FastAPI 后端
 
 ### 地图自动补全机制
 
-- LLM 生成回答时可能忘记在文字中嵌入 `[MAP]` 标记
-- 后端 `_ensure_map_tags()` 自动检测并从工具返回值中提取 `[MAP]...[/MAP]` 块追加到回答末尾
-- 前端 `renderContent()` 自动将 `[MAP]` 标记渲染为带 iframe 的地图容器
+- `generate_route_map` 工具生成 Folium HTML 后，返回可访问的 `/maps/{train_code}_route.html` URL
+- 后端通过 `/maps` 静态目录挂载提供地图文件（开发环境经 Vite 代理）
+- 前端 `renderContent()` 将回答中的地图 URL 渲染为可点击/内嵌的交互地图容器
+- 地图文件保存在 `data/maps/`，始发站绿色、终点站红色方格旗、中间站蓝色圆点
 
 ---
 
@@ -359,7 +415,7 @@ A: 确保 Docker Desktop 已启动并运行，然后重试 `docker compose up -d
 A: 检查 `.env` 中的 `llm_api_key` 和 `embedding_api_key` 是否正确填写。如果使用环境变量间接引用（如 `OPENCODE_GO_API_KEY`），确保该环境变量已设置。
 
 **Q: 如何切换 LLM 提供商？**
-A: 修改 `.env` 中 `llm_provider` 为 `openai` 或 `anthropic`，调整对应的 `llm_model_name`、`llm_base_url`、`llm_api_key`，调用 API 的 `/reload` 接口即可热生效，无需重启。
+A: 修改 `.env` 中 `llm_provider` 为 `openai` 或 `anthropic`，调整对应的 `llm_model_name`、`llm_base_url`、`llm_api_key`，重启后端进程后配置即生效（`settings.py` 的代理类支持运行时 `reload()`，`backend/api.py` 的 `reload_agent()` 可在配置变更后重建 Agent 实例）。
 
 **Q: 生成的铁路地图在哪？**
 A: 地图 HTML 保存在 `data/maps/` 目录，通过 `/maps/` 静态路径访问。
