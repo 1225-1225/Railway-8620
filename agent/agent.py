@@ -15,8 +15,17 @@ class AgentService:
         os.makedirs(config_data.chat_history_storage_path, exist_ok=True)
         # 构建数据库文件的完整路径
         db_path = os.path.join(config_data.chat_history_storage_path, config_data.history_database_name)
-        # 直接创建 SQLite 连接并传入 SqliteSaver（需要设置 check_same_thread=False）
-        self.conn = sqlite3.connect(db_path, check_same_thread=False)
+
+        # 并发安全配置：
+        # 1. check_same_thread=False —— SqliteSaver 内部用 threading.Lock 保护写路径，
+        #    但 api.py 会在多线程（线程池）中跑 agent.stream()，因此连接必须跨线程可用
+        # 2. WAL 模式 —— 读操作不阻塞写、写操作不阻塞读，大幅降低 database is locked
+        # 3. busy_timeout —— 写锁竞争时自动重试等待，而不是立刻抛异常
+        self.conn = sqlite3.connect(db_path, check_same_thread=False, timeout=30.0)
+        self.conn.execute("PRAGMA journal_mode=WAL")
+        self.conn.execute("PRAGMA busy_timeout=30000")
+        self.conn.execute("PRAGMA synchronous=NORMAL")
+
         self.checkpointer = SqliteSaver(self.conn)
         # 启用流式输出
         self.agent = create_agent(
