@@ -2,14 +2,16 @@
 import asyncio
 import json
 import os
+import re
 import sqlite3
 import sys
 import threading
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
 from datetime import datetime
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 # 将项目根目录添加到 Python 路径
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -22,6 +24,14 @@ from backend.auth import get_current_user
 from fastapi.responses import StreamingResponse
 from langchain_core.messages import AIMessage, AIMessageChunk
 import msgpack
+import logging
+
+logger = logging.getLogger("backend.api")
+logger.setLevel(logging.INFO)
+if not logger.handlers:
+    _handler = logging.StreamHandler()
+    _handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+    logger.addHandler(_handler)
 
 # CORS 允许的前端来源，逗号分隔；默认仅放行 Vite 开发服务器
 # 生产环境下前端走 Nginx 反代到后端，同源不需要 CORS
@@ -37,15 +47,27 @@ _agent = None
 _agent_service = None
 _agent_lock = threading.Lock()
 
+# 有界线程池：所有 agent.stream() 的同步迭代都在这个池子里执行
+# 不能再用默认无界池（run_in_executor(None)）——并发请求会无限创建线程，
+# 且所有请求共享同一个 SQLite 连接，线程爆炸会放大锁竞争。
+# 容量通过环境变量 AGENT_THREAD_POOL_SIZE 配置，默认 8。
+_AGENT_POOL_SIZE = int(os.getenv("AGENT_THREAD_POOL_SIZE", "8"))
+_agent_executor = ThreadPoolExecutor(
+    max_workers=_AGENT_POOL_SIZE,
+    thread_name_prefix="agent-worker",
+)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """应用生命周期：启动时无需预热，关闭时释放 Agent 持有的 SQLite 连接"""
+    """应用生命周期：启动时无需预热，关闭时释放 Agent 持有的 SQLite 连接与线程池"""
     yield
     global _agent_service
     if _agent_service is not None:
         _agent_service.close()
         _agent_service = None
+    # 优雅关闭线程池：等待在跑的任务结束，不再接收新任务
+    _agent_executor.shutdown(wait=True)
 
 
 app = FastAPI(lifespan=lifespan)
@@ -99,6 +121,28 @@ class ChatRequest(BaseModel):
     message: str
     session_id: str = ""
 
+    # session_id 会被拼进 thread_id 并作为目录/DB 查询条件，必须限制为安全字符
+    # 允许：字母数字、下划线、连字符（覆盖 UUID 与前端生成的自定义 ID）
+    _SESSION_ID_RE = re.compile(r"^[A-Za-z0-9_-]{0,64}$")
+
+    @field_validator("session_id")
+    @classmethod
+    def _validate_session_id(cls, v: str) -> str:
+        if not cls._SESSION_ID_RE.match(v):
+            raise ValueError(
+                "session_id 只能包含字母、数字、下划线或连字符，且长度不超过 64"
+            )
+        return v
+
+    @field_validator("message")
+    @classmethod
+    def _validate_message(cls, v: str) -> str:
+        if not v or not v.strip():
+            raise ValueError("消息内容不能为空")
+        if len(v) > 8000:
+            raise ValueError("消息内容过长（上限 8000 字符）")
+        return v
+
 
 def _get_checkpointer_db() -> str:
     """返回 SqliteSaver 检查点数据库的完整路径"""
@@ -122,6 +166,13 @@ def _parse_first_message(blob: bytes) -> str:
                 msgs = msgs.get(b'messages', msgs.get('messages', []))
             if isinstance(msgs, (list, tuple)) and len(msgs) > 0:
                 first = msgs[0]
+                # 兼容 JsonPlusSerializer 的 ['msgpack', <bytes>] 包装
+                if isinstance(first, (list, tuple)) and len(first) >= 2:
+                    inner = first[1]
+                    if isinstance(inner, bytes):
+                        inner = msgpack.unpackb(inner)
+                    if hasattr(inner, 'code') and inner.code == 5:
+                        first = inner
                 # ExtType(5) 格式
                 if hasattr(first, 'code') and first.code == 5:
                     inner = msgpack.unpackb(first.data)
@@ -137,8 +188,8 @@ def _parse_first_message(blob: bytes) -> str:
                     content = first.get(b'content', first.get('content', ''))
                     if content:
                         return content[:100]
-    except Exception:
-        pass
+    except Exception as e:
+        logger.warning("解析 checkpoint 首条消息失败: %s", e)
     return ""
 
 
@@ -148,8 +199,9 @@ def _parse_checkpoint_ts(blob: bytes) -> str:
         data = msgpack.unpackb(blob)
         ts = data.get(b'ts', data.get('ts', b'')).decode() if isinstance(data.get(b'ts', data.get('ts', b'')), bytes) else data.get('ts', '')
         return ts
-    except Exception:
-        return ""
+    except Exception as e:
+        logger.warning("解析 checkpoint 时间戳失败: %s", e)
+    return ""
 
 
 @app.get("/chat/sessions")
@@ -265,11 +317,36 @@ def _parse_messages_from_checkpoint(blob: bytes) -> list:
                             result.append({'role': role, 'content': content})
                 continue
 
-            # ── 兼容旧格式：元组 (code, data) ──
+            # ── 兼容旧格式：元组 (type, data) —— LangGraph JsonPlusSerializer
+            # 实际格式为 ['msgpack', <bytes>]，bytes 内是 ExtType(5)，需要再解一层
             if isinstance(msg, (list, tuple)) and len(msg) >= 2:
                 data = msg[1]
                 if isinstance(data, bytes):
                     data = msgpack.unpackb(data)
+                # 统一走 ExtType(5) 解析（与主线分支共用逻辑）
+                if hasattr(data, 'code') and data.code == 5 and hasattr(data, 'data'):
+                    inner = msgpack.unpackb(data.data)
+                    if isinstance(inner, (list, tuple)) and len(inner) >= 3:
+                        class_name = inner[1]
+                        kw = inner[2]
+                        if isinstance(kw, bytes):
+                            kw = msgpack.unpackb(kw)
+                        if isinstance(kw, dict):
+                            content = kw.get('content', '')
+                            if isinstance(content, bytes):
+                                content = content.decode()
+                            if isinstance(class_name, bytes):
+                                class_name = class_name.decode()
+                            if class_name == 'HumanMessage':
+                                role = 'user'
+                            elif class_name in ('AIMessage', 'AIMessageChunk'):
+                                role = 'assistant'
+                            else:
+                                role = ''
+                            if role and content:
+                                result.append({'role': role, 'content': content})
+                    continue
+                # 极旧格式：纯 dict
                 if isinstance(data, dict):
                     role = data.get('role', data.get(b'role', ''))
                     content = data.get('content', data.get(b'content', ''))
@@ -289,7 +366,8 @@ def _parse_messages_from_checkpoint(blob: bytes) -> list:
                     result.append({'role': role, 'content': content})
 
         return result
-    except Exception:
+    except Exception as e:
+        logger.warning("解析 checkpoint 消息列表失败（可能为 langgraph 版本升级导致格式变更）: %s", e)
         return []
 
 
@@ -335,8 +413,8 @@ def _repair_incomplete_tool_calls(agent, config: dict):
     if hasattr(last, 'tool_calls') and last.tool_calls:
         try:
             agent.invoke(input=None, config=config)
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning("修复未完成 tool_calls 失败: %s", e)
 
 
 @app.post("/chat")
@@ -375,11 +453,11 @@ async def chat_stream(
     async def generate():
         loop = asyncio.get_event_loop()
         try:
-            # 在独立线程中运行同步的 agent.stream()，避免阻塞事件循环
+            # 在独立线程（有界线程池）中运行同步的 agent.stream()，避免阻塞事件循环
             stream_iter = iter(
                 await asyncio.wait_for(
                     loop.run_in_executor(
-                        None,
+                        _agent_executor,
                         lambda: agent.stream(
                             input_data, config=config, stream_mode="messages"
                         ),
@@ -397,7 +475,7 @@ async def chat_stream(
 
             while True:
                 chunk = await asyncio.wait_for(
-                    loop.run_in_executor(None, _next_chunk),
+                    loop.run_in_executor(_agent_executor, _next_chunk),
                     timeout=300.0,
                 )
                 if chunk is _SENTINEL:

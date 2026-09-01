@@ -4,8 +4,30 @@
 注意：Chroma 相关配置（collection_name, chunk_size 等）已移除，
       现在配置专注于 RAGFlow。
 """
-import os 
+import os
+import tempfile
 from unittest import mock
+
+import pytest
+
+
+@pytest.fixture(autouse=True)
+def _isolate_env_file():
+    """隔离项目根目录的 .env 文件
+
+    Settings 的 model_config 里指定了 env_file=".env"，pydantic-settings 会
+    按相对 cwd 解析它。本地开发时项目根目录存在 .env（含真实 API Key / RAGFlow
+    ID），会让"默认值应为空"的断言失败。此 fixture 把 cwd 临时切到无 .env 的
+    目录，测完恢复，保证默认值测试可复现。
+    """
+    orig_cwd = os.getcwd()
+    with tempfile.TemporaryDirectory() as tmp:
+        os.chdir(tmp)
+        try:
+            yield
+        finally:
+            os.chdir(orig_cwd)
+
 
 class TestSettingsDefaults:
     """验证 Settings 类每个字段的默认值"""
