@@ -23,8 +23,13 @@ from backend.auth import get_current_user
 
 from fastapi.responses import StreamingResponse
 from langchain_core.messages import AIMessage, AIMessageChunk
-import msgpack
 import logging
+
+from agent.checkpoint_parser import (
+    parse_messages_from_checkpoint,
+    parse_first_message,
+    parse_checkpoint_ts,
+)
 
 logger = logging.getLogger("backend.api")
 logger.setLevel(logging.INFO)
@@ -153,57 +158,6 @@ def _get_checkpointer_db() -> str:
     )
 
 
-def _parse_first_message(blob: bytes) -> str:
-    """从 msgpack 编码的 checkpoint 中提取第一条用户消息"""
-    try:
-        data = msgpack.unpackb(blob)
-        cv = data.get(b'channel_values', data.get('channel_values', {}))
-        if isinstance(cv, bytes):
-            cv = msgpack.unpackb(cv)
-        for key in (b'messages', 'messages', b'__start__', '__start__'):
-            msgs = cv.get(key, {})
-            if isinstance(msgs, dict):
-                msgs = msgs.get(b'messages', msgs.get('messages', []))
-            if isinstance(msgs, (list, tuple)) and len(msgs) > 0:
-                first = msgs[0]
-                # 兼容 JsonPlusSerializer 的 ['msgpack', <bytes>] 包装
-                if isinstance(first, (list, tuple)) and len(first) >= 2:
-                    inner = first[1]
-                    if isinstance(inner, bytes):
-                        inner = msgpack.unpackb(inner)
-                    if hasattr(inner, 'code') and inner.code == 5:
-                        first = inner
-                # ExtType(5) 格式
-                if hasattr(first, 'code') and first.code == 5:
-                    inner = msgpack.unpackb(first.data)
-                    if isinstance(inner, (list, tuple)) and len(inner) >= 3:
-                        kw = inner[2]
-                        if isinstance(kw, bytes):
-                            kw = msgpack.unpackb(kw)
-                        if isinstance(kw, dict):
-                            content = kw.get('content', '')
-                            if content:
-                                return content[:100]
-                elif isinstance(first, dict):
-                    content = first.get(b'content', first.get('content', ''))
-                    if content:
-                        return content[:100]
-    except Exception as e:
-        logger.warning("解析 checkpoint 首条消息失败: %s", e)
-    return ""
-
-
-def _parse_checkpoint_ts(blob: bytes) -> str:
-    """从 msgpack 编码的 checkpoint 中提取 ISO 时间戳"""
-    try:
-        data = msgpack.unpackb(blob)
-        ts = data.get(b'ts', data.get('ts', b'')).decode() if isinstance(data.get(b'ts', data.get('ts', b'')), bytes) else data.get('ts', '')
-        return ts
-    except Exception as e:
-        logger.warning("解析 checkpoint 时间戳失败: %s", e)
-    return ""
-
-
 @app.get("/chat/sessions")
 def list_sessions(current_user: User = Depends(get_current_user)):
     """返回当前用户的所有历史会话，按日期分组"""
@@ -224,8 +178,8 @@ def list_sessions(current_user: User = Depends(get_current_user)):
         tid = row["thread_id"]
         meta = json.loads(row["metadata"])
         if meta.get("source") == "input" and tid not in threads:
-            ts = _parse_checkpoint_ts(row["checkpoint"])
-            preview = _parse_first_message(row["checkpoint"])
+            ts = parse_checkpoint_ts(row["checkpoint"])
+            preview = parse_first_message(row["checkpoint"])
             threads[tid] = {"thread_id": tid, "created_at": ts, "preview": preview or "新对话"}
 
     conn.close()
@@ -256,121 +210,6 @@ def list_sessions(current_user: User = Depends(get_current_user)):
     return {"groups": sorted_groups}
 
 
-def _parse_messages_from_checkpoint(blob: bytes) -> list:
-    """从最新的 checkpoint msgpack blob 中提取所有人类可读的消息
-
-    LangGraph SqliteSaver 使用 msgpack ExtType(5) 序列化 LangChain 消息。
-    格式: ExtType(5, msgpack(['module', 'ClassName', {kwargs}]))
-    """
-    try:
-        data = msgpack.unpackb(blob)
-        cv = data.get(b'channel_values', data.get('channel_values', {}))
-        if isinstance(cv, bytes):
-            cv = msgpack.unpackb(cv)
-
-        # 统一提取 messages 列表（旧版直接是列表，新版可能是 dict 包装）
-        raw_messages = []
-        for key in (b'messages', 'messages'):
-            val = cv.get(key)
-            if val is None:
-                continue
-            if isinstance(val, (list, tuple)):
-                raw_messages = val
-                break
-            if isinstance(val, dict):
-                # 新版 LangGraph 可能把 messages 包装在 dict 中
-                inner = val.get(b'messages', val.get('messages', []))
-                if isinstance(inner, (list, tuple)):
-                    raw_messages = inner
-                    break
-
-        # 兜底：从 __start__ 中提取
-        if not raw_messages:
-            start = cv.get(b'__start__', cv.get('__start__', {}))
-            raw_messages = start.get(b'messages', start.get('messages', []))
-            if isinstance(raw_messages, dict):
-                raw_messages = raw_messages.get(b'messages', raw_messages.get('messages', []))
-
-        result = []
-        for msg in raw_messages:
-            # ── 主线：LangGraph msgpack ExtType(code=5) ──
-            if hasattr(msg, 'code') and msg.code == 5 and hasattr(msg, 'data'):
-                inner = msgpack.unpackb(msg.data)
-                if isinstance(inner, (list, tuple)) and len(inner) >= 3:
-                    class_name = inner[1]
-                    kw = inner[2]
-                    if isinstance(kw, bytes):
-                        kw = msgpack.unpackb(kw)
-                    if isinstance(kw, dict):
-                        content = kw.get('content', '')
-                        if isinstance(content, bytes):
-                            content = content.decode()
-                        if isinstance(class_name, bytes):
-                            class_name = class_name.decode()
-                        if class_name == 'HumanMessage':
-                            role = 'user'
-                        elif class_name in ('AIMessage', 'AIMessageChunk'):
-                            role = 'assistant'
-                        else:
-                            role = ''
-                        if role and content:
-                            result.append({'role': role, 'content': content})
-                continue
-
-            # ── 兼容旧格式：元组 (type, data) —— LangGraph JsonPlusSerializer
-            # 实际格式为 ['msgpack', <bytes>]，bytes 内是 ExtType(5)，需要再解一层
-            if isinstance(msg, (list, tuple)) and len(msg) >= 2:
-                data = msg[1]
-                if isinstance(data, bytes):
-                    data = msgpack.unpackb(data)
-                # 统一走 ExtType(5) 解析（与主线分支共用逻辑）
-                if hasattr(data, 'code') and data.code == 5 and hasattr(data, 'data'):
-                    inner = msgpack.unpackb(data.data)
-                    if isinstance(inner, (list, tuple)) and len(inner) >= 3:
-                        class_name = inner[1]
-                        kw = inner[2]
-                        if isinstance(kw, bytes):
-                            kw = msgpack.unpackb(kw)
-                        if isinstance(kw, dict):
-                            content = kw.get('content', '')
-                            if isinstance(content, bytes):
-                                content = content.decode()
-                            if isinstance(class_name, bytes):
-                                class_name = class_name.decode()
-                            if class_name == 'HumanMessage':
-                                role = 'user'
-                            elif class_name in ('AIMessage', 'AIMessageChunk'):
-                                role = 'assistant'
-                            else:
-                                role = ''
-                            if role and content:
-                                result.append({'role': role, 'content': content})
-                    continue
-                # 极旧格式：纯 dict
-                if isinstance(data, dict):
-                    role = data.get('role', data.get(b'role', ''))
-                    content = data.get('content', data.get(b'content', ''))
-                    if isinstance(role, bytes): role = role.decode()
-                    if isinstance(content, bytes): content = content.decode()
-                    if role in ('user', 'assistant') and content:
-                        result.append({'role': role, 'content': content})
-                continue
-
-            # ── 兼容旧格式：纯 dict ──
-            if isinstance(msg, dict):
-                role = msg.get('role', msg.get(b'role', ''))
-                content = msg.get('content', msg.get(b'content', ''))
-                if isinstance(role, bytes): role = role.decode()
-                if isinstance(content, bytes): content = content.decode()
-                if role in ('user', 'assistant') and content:
-                    result.append({'role': role, 'content': content})
-
-        return result
-    except Exception as e:
-        logger.warning("解析 checkpoint 消息列表失败（可能为 langgraph 版本升级导致格式变更）: %s", e)
-        return []
-
-
 @app.get("/chat/sessions/{thread_id:path}")
 def get_session_messages(thread_id: str, current_user: User = Depends(get_current_user)):
     """返回指定会话的全部历史消息"""
@@ -390,7 +229,7 @@ def get_session_messages(thread_id: str, current_user: User = Depends(get_curren
     conn.close()
     if not row:
         return {"messages": []}
-    messages = _parse_messages_from_checkpoint(row[0])
+    messages = parse_messages_from_checkpoint(row[0])
     return {"messages": messages}
 
 

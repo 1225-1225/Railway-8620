@@ -1,5 +1,5 @@
 """
-测试 backend/api.py 的 checkpoint 二进制解析逻辑。
+测试 agent/checkpoint_parser.py 的 checkpoint 二进制解析逻辑。
 
 背景：
   LangGraph SqliteSaver 把完整对话状态用 msgpack 序列化后存入 SQLite 的 checkpoint 字段。
@@ -16,10 +16,10 @@ import pytest
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
 
-from backend.api import (
-    _parse_messages_from_checkpoint,
-    _parse_first_message,
-    _parse_checkpoint_ts,
+from agent.checkpoint_parser import (
+    parse_messages_from_checkpoint,
+    parse_first_message,
+    parse_checkpoint_ts,
 )
 
 
@@ -42,7 +42,7 @@ class TestParseMessagesFromCheckpoint:
             HumanMessage(content="你好，查一下Z227"),
             AIMessage(content="Z227 从北京到广州"),
         ])
-        msgs = _parse_messages_from_checkpoint(blob)
+        msgs = parse_messages_from_checkpoint(blob)
         assert msgs == [
             {"role": "user", "content": "你好，查一下Z227"},
             {"role": "assistant", "content": "Z227 从北京到广州"},
@@ -54,7 +54,7 @@ class TestParseMessagesFromCheckpoint:
             HumanMessage(content="G1 的信息"),
             AIMessage(content="G1 是京沪高铁"),
         ])
-        msgs = _parse_messages_from_checkpoint(blob)
+        msgs = parse_messages_from_checkpoint(blob)
         # SystemMessage 不应被解析出来
         assert all(m["role"] in ("user", "assistant") for m in msgs)
         assert msgs[0] == {"role": "user", "content": "G1 的信息"}
@@ -62,17 +62,17 @@ class TestParseMessagesFromCheckpoint:
 
     def test_empty_messages(self):
         blob = _make_blob([])
-        assert _parse_messages_from_checkpoint(blob) == []
+        assert parse_messages_from_checkpoint(blob) == []
 
     def test_invalid_blob_returns_empty(self):
         # 无效二进制不应抛异常，返回空列表
-        assert _parse_messages_from_checkpnt_guard(b"not-msgpack-data") == []
+        assert _parse_messages_guard(b"not-msgpack-data") == []
 
 
-def _parse_messages_from_checkpnt_guard(blob: bytes) -> list:
+def _parse_messages_guard(blob: bytes) -> list:
     """包一层 try/except 的守卫，等价于线上行为（异常返回空）"""
     try:
-        return _parse_messages_from_checkpoint(blob)
+        return parse_messages_from_checkpoint(blob)
     except Exception:
         return []
 
@@ -83,14 +83,14 @@ class TestParseFirstMessage:
             HumanMessage(content="帮我查G1"),
             AIMessage(content="G1 的信息如下"),
         ])
-        assert _parse_first_message(blob) == "帮我查G1"
+        assert parse_first_message(blob) == "帮我查G1"
 
     def test_no_messages_returns_empty(self):
         blob = _make_blob([])
-        assert _parse_first_message(blob) == ""
+        assert parse_first_message(blob) == ""
 
 
 class TestParseCheckpointTs:
     def test_extracts_iso_timestamp(self):
         blob = _make_blob([], ts="2026-09-01T08:30:00+00:00")
-        assert _parse_checkpoint_ts(blob) == "2026-09-01T08:30:00+00:00"
+        assert parse_checkpoint_ts(blob) == "2026-09-01T08:30:00+00:00"

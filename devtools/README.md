@@ -34,3 +34,8 @@
 | `_verify_fix.py` | 验证 Tenant 修复后 `get_chunking_config` 是否正常 |
 | `_encrypt_pw.py` | 调用容器内 `api.utils.crypt.crypt` 加密密码（RAGFlow RSA 加密） |
 | `_check_keys.py` | 检查本地 `.env` API Key 解析是否正确 |
+
+### 旧版 Chroma RAG 参考（已废弃，配置字段已移除，勿运行）
+| 脚本 | 作用 |
+|------|------|
+| `retriever_test_chroma.py` | 旧版手动 RAG（Chroma + DashScopeEmbeddings）检索测试。引用 `settings.py` 中已删除的 `collection_name` / `persist_directory` 配置，**已失效**，仅作历史参考 |
