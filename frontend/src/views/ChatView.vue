@@ -8,6 +8,7 @@
       @toggle="sidebarCollapsed = !sidebarCollapsed"
       @new-chat="startNewChat"
       @select-session="loadSession"
+      @rename-session="renameSession"
       @delete-session="deleteSession"
     />
     <div class="main-area">
@@ -199,6 +200,27 @@ async function loadSession(threadId: string) {
     scrollToBottom()
   } catch (e) {
     console.error('加载会话失败', e)
+  }
+}
+
+/** 重命名会话（行内编辑确认后调用） */
+async function renameSession(threadId: string, newTitle: string) {
+  try {
+    const res = await fetch(`/chat/sessions/${encodeURIComponent(threadId)}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authStore.token || ''}`,
+      },
+      body: JSON.stringify({ title: newTitle }),
+    })
+    if (!res.ok) return
+    const data = await res.json()
+    if (data.ok) {
+      fetchSessions()
+    }
+  } catch (e) {
+    console.error('重命名会话失败', e)
   }
 }
 

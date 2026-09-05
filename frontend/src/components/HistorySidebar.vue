@@ -33,15 +33,36 @@
             :class="{ active: session.thread_id === activeThreadId }"
             @click="$emit('select-session', session.thread_id)"
           >
-            <div class="session-preview">{{ session.preview }}</div>
-            <div class="session-meta">
-              <span class="session-time">{{ session.time }}</span>
-              <button
-                class="delete-btn"
-                title="删除会话"
-                @click.stop="$emit('delete-session', session.thread_id)"
-              >🗑</button>
-            </div>
+            <!-- 行内重命名编辑态 -->
+            <input
+              v-if="renamingId === session.thread_id"
+              v-model="renamingTitle"
+              class="rename-input"
+              maxlength="100"
+              @click.stop
+              @vue:mounted="focusRenameInput"
+              @keyup.enter="confirmRename(session.thread_id)"
+              @keyup.esc="cancelRename"
+              @blur="confirmRename(session.thread_id)"
+            />
+            <template v-else>
+              <div class="session-preview">{{ session.preview }}</div>
+              <div class="session-meta">
+                <span class="session-time">{{ session.time }}</span>
+                <span class="session-actions">
+                  <button
+                    class="rename-btn"
+                    title="重命名会话"
+                    @click.stop="startRename(session)"
+                  >✏️</button>
+                  <button
+                    class="delete-btn"
+                    title="删除会话"
+                    @click.stop="$emit('delete-session', session.thread_id)"
+                  >🗑</button>
+                </span>
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -69,12 +90,44 @@ defineProps<{
   activeThreadId: string
 }>()
 
-defineEmits<{
+const emit = defineEmits<{
   toggle: []
   'new-chat': []
   'select-session': [threadId: string]
+  'rename-session': [threadId: string, newTitle: string]
   'delete-session': [threadId: string]
 }>()
+
+// ── 行内重命名状态 ──
+const renamingId = ref('')
+const renamingTitle = ref('')
+
+/** input 挂载后聚焦并全选（v-for 中 ref 会收集为数组，改用 mounted 钩子） */
+function focusRenameInput(event: unknown) {
+  const el = (event as { el?: HTMLInputElement }).el
+  if (el) {
+    el.focus()
+    el.select()
+  }
+}
+
+function startRename(session: { thread_id: string; preview: string }) {
+  renamingId.value = session.thread_id
+  renamingTitle.value = session.preview
+}
+
+function confirmRename(threadId: string) {
+  if (renamingId.value !== threadId) return // 已由 blur/enter 处理过
+  const title = renamingTitle.value.trim()
+  renamingId.value = ''
+  if (title) {
+    emit('rename-session', threadId, title)
+  }
+}
+
+function cancelRename() {
+  renamingId.value = ''
+}
 
 function formatDateHeader(dateStr: string): string {
   const today = new Date()
@@ -255,6 +308,19 @@ function formatDateHeader(dateStr: string): string {
   gap: 4px;
 }
 
+.session-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.session-item:hover .session-actions {
+  opacity: 1;
+}
+
+.rename-btn,
 .delete-btn {
   border: none;
   background: transparent;
@@ -263,18 +329,34 @@ function formatDateHeader(dateStr: string): string {
   cursor: pointer;
   padding: 2px 4px;
   border-radius: 4px;
-  opacity: 0;
   transition: all 0.2s;
   line-height: 1;
 }
 
-.session-item:hover .delete-btn {
-  opacity: 1;
+.rename-btn:hover {
+  color: #7dd3fc;
+  background: rgba(125, 211, 252, 0.15);
 }
 
 .delete-btn:hover {
   color: #ff6b6b;
   background: rgba(255, 100, 100, 0.15);
+}
+
+.rename-input {
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid rgba(125, 211, 252, 0.5);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 13px;
+  outline: none;
+}
+
+.rename-input:focus {
+  border-color: rgba(125, 211, 252, 0.9);
+  box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.15);
 }
 
 .session-list::-webkit-scrollbar {

@@ -167,6 +167,37 @@ def _get_checkpointer_db() -> str:
     )
 
 
+def _ensure_session_meta_table(conn: sqlite3.Connection):
+    """确保 session_meta 表存在（存自定义会话标题，与 checkpointer 同库）
+
+    LangGraph 的 SqliteSaver 只管理 checkpoints/writes 表，
+    自定义表放在同一个库里是安全的，互不干扰。
+    """
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS session_meta (
+            thread_id TEXT PRIMARY KEY,
+            title TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+        """
+    )
+
+
+class RenameRequest(BaseModel):
+    title: str
+
+    @field_validator("title")
+    @classmethod
+    def _validate_title(cls, v: str) -> str:
+        v = v.strip()
+        if not v:
+            raise ValueError("标题不能为空")
+        if len(v) > 100:
+            raise ValueError("标题过长（上限 100 字符）")
+        return v
+
+
 @app.get("/chat/sessions")
 def list_sessions(current_user: User = Depends(get_current_user)):
     """返回当前用户的所有历史会话，按日期分组"""
@@ -177,6 +208,7 @@ def list_sessions(current_user: User = Depends(get_current_user)):
     prefix = f"user_{current_user.id}_" if current_user else ""
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
+    _ensure_session_meta_table(conn)
     cur = conn.execute(
         "SELECT thread_id, checkpoint, metadata FROM checkpoints WHERE thread_id LIKE ? ORDER BY rowid",
         (f"{prefix}%",)
@@ -190,6 +222,18 @@ def list_sessions(current_user: User = Depends(get_current_user)):
             ts = parse_checkpoint_ts(row["checkpoint"])
             preview = parse_first_message(row["checkpoint"])
             threads[tid] = {"thread_id": tid, "created_at": ts, "preview": preview or "新对话"}
+
+    # 自定义标题优先于自动预览
+    custom_titles = {
+        r["thread_id"]: r["title"]
+        for r in conn.execute(
+            "SELECT thread_id, title FROM session_meta WHERE thread_id LIKE ?",
+            (f"{prefix}%",)
+        )
+    }
+    for tid, title in custom_titles.items():
+        if tid in threads:
+            threads[tid]["preview"] = title
 
     conn.close()
 
@@ -242,6 +286,40 @@ def get_session_messages(thread_id: str, current_user: User = Depends(get_curren
     return {"messages": messages}
 
 
+@app.put("/chat/sessions/{thread_id:path}")
+def rename_session(thread_id: str, request: RenameRequest, current_user: User = Depends(get_current_user)):
+    """重命名指定会话（自定义标题，优先于自动预览显示）"""
+    # 安全校验：只允许当前用户的会话
+    expected_prefix = f"user_{current_user.id}"
+    if not thread_id.startswith(expected_prefix):
+        return {"ok": False, "error": "无权限"}
+    db_path = _get_checkpointer_db()
+    if not os.path.exists(db_path):
+        return {"ok": False, "error": "会话不存在"}
+    conn = sqlite3.connect(db_path)
+    try:
+        _ensure_session_meta_table(conn)
+        # 会话必须真实存在（checkpoints 里有记录）
+        exists = conn.execute(
+            "SELECT 1 FROM checkpoints WHERE thread_id=? LIMIT 1",
+            (thread_id,),
+        ).fetchone()
+        if not exists:
+            return {"ok": False, "error": "会话不存在"}
+        conn.execute(
+            """
+            INSERT INTO session_meta (thread_id, title, updated_at)
+            VALUES (?, ?, ?)
+            ON CONFLICT(thread_id) DO UPDATE SET title=excluded.title, updated_at=excluded.updated_at
+            """,
+            (thread_id, request.title, datetime.utcnow().isoformat()),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return {"ok": True, "title": request.title}
+
+
 @app.delete("/chat/sessions/{thread_id:path}")
 def delete_session(thread_id: str, current_user: User = Depends(get_current_user)):
     """删除指定会话（含所有 checkpoints 与 writes 记录）"""
@@ -254,6 +332,7 @@ def delete_session(thread_id: str, current_user: User = Depends(get_current_user
         return {"ok": False, "error": "会话不存在"}
     conn = sqlite3.connect(db_path)
     try:
+        _ensure_session_meta_table(conn)
         cur = conn.execute(
             "DELETE FROM checkpoints WHERE thread_id=?",
             (thread_id,),
@@ -261,6 +340,11 @@ def delete_session(thread_id: str, current_user: User = Depends(get_current_user
         deleted = cur.rowcount
         conn.execute(
             "DELETE FROM writes WHERE thread_id=?",
+            (thread_id,),
+        )
+        # 同步清理自定义标题，避免残留
+        conn.execute(
+            "DELETE FROM session_meta WHERE thread_id=?",
             (thread_id,),
         )
         conn.commit()

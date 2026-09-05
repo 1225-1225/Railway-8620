@@ -402,6 +402,128 @@ class TestChatEndpoint:
 
 
 # ═══════════════════════════════════════════════════════════════
+#  会话管理端点测试: 重命名 (PUT) / 删除 (DELETE)
+#
+#  这两个接口直接操作 checkpointer SQLite（session_meta 表），
+#  用 tmp_path 造一个临时 checkpointer 库，mock _get_checkpointer_db 指向它。
+# ═══════════════════════════════════════════════════════════════
+
+class TestSessionManagement:
+    """测试会话重命名与删除接口"""
+
+    @pytest.fixture
+    def checkpoint_db(self, tmp_path):
+        """构造一个带 checkpoints + session_meta 表的临时 checkpointer 库"""
+        import sqlite3
+
+        db_path = tmp_path / "checkpointer.db"
+        conn = sqlite3.connect(db_path)
+        conn.execute(
+            "CREATE TABLE checkpoints (thread_id TEXT, checkpoint_ns TEXT DEFAULT '', "
+            "checkpoint_id TEXT DEFAULT '', parent_checkpoint_id TEXT DEFAULT '', "
+            "type TEXT DEFAULT '', checkpoint BLOB DEFAULT '', metadata TEXT DEFAULT '{}')"
+        )
+        conn.execute(
+            "CREATE TABLE writes (thread_id TEXT, checkpoint_ns TEXT DEFAULT '', "
+            "checkpoint_id TEXT DEFAULT '', task_id TEXT DEFAULT '', idx INTEGER DEFAULT 0, "
+            "channel TEXT DEFAULT '', type TEXT DEFAULT '', blob BLOB DEFAULT '')"
+        )
+        conn.execute(
+            "INSERT INTO checkpoints (thread_id, metadata) VALUES (?, '{}')",
+            ("user_1_test-session",),
+        )
+        conn.commit()
+        conn.close()
+        return str(db_path)
+
+    def _override_user(self):
+        app.dependency_overrides[get_current_user] = lambda: fake_current_user()
+
+    def test_rename_session_success(self, checkpoint_db):
+        """合法重命名 → ok=True，标题写入 session_meta"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.put(
+                "/chat/sessions/user_1_test-session",
+                json={"title": "我的车次查询"},
+            )
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        data = response.json()
+        assert data["ok"] is True
+        assert data["title"] == "我的车次查询"
+
+    def test_rename_session_empty_title(self, checkpoint_db):
+        """空标题 → 422 校验错误"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.put(
+                "/chat/sessions/user_1_test-session",
+                json={"title": "   "},
+            )
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 422
+
+    def test_rename_session_forbidden_thread(self, checkpoint_db):
+        """重命名别人的会话 → ok=False（thread_id 前缀校验）"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.put(
+                "/chat/sessions/user_999_other",
+                json={"title": "越权"},
+            )
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        assert response.json()["ok"] is False
+
+    def test_rename_session_not_found(self, checkpoint_db):
+        """会话不存在（checkpoints 无记录）→ ok=False"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.put(
+                "/chat/sessions/user_1_ghost",
+                json={"title": "幽灵会话"},
+            )
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        assert response.json()["ok"] is False
+
+    def test_delete_session_success(self, checkpoint_db):
+        """删除会话 → ok=True，checkpoints/writes/session_meta 全部清理"""
+        import sqlite3
+
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.delete("/chat/sessions/user_1_test-session")
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        assert response.json()["ok"] is True
+
+        # 验证数据库已清空
+        conn = sqlite3.connect(checkpoint_db)
+        count = conn.execute(
+            "SELECT COUNT(*) FROM checkpoints WHERE thread_id='user_1_test-session'"
+        ).fetchone()[0]
+        conn.close()
+        assert count == 0
+
+    def test_delete_session_not_found(self, checkpoint_db):
+        """删除不存在的会话 → ok=False"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.delete("/chat/sessions/user_1_ghost")
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        assert response.json()["ok"] is False
+
+
+# ═══════════════════════════════════════════════════════════════
 #  /chat/stream 端点测试
 #
 #  与 /chat 的区别:
