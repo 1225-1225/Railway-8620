@@ -110,6 +110,113 @@ flowchart LR
 
 ---
 
+## 3. 部署拓扑（Docker Compose）
+
+```mermaid
+flowchart TB
+    subgraph 宿主机
+        subgraph Docker 网络 railway-8620_default
+            subgraph 前端容器 frontend
+                Nginx["Nginx (:80)<br/>静态资源 + 反向代理"]
+            end
+            subgraph 后端容器 backend
+                FastAPI["uvicorn FastAPI (:8000)"]
+                Agent["LangGraph Agent"]
+            end
+            subgraph RAGFlow 容器 ragflow
+                RAGFlow["RAGFlow (:9380)<br/>知识库引擎"]
+            end
+        end
+
+        subgraph 命名卷 Volumes
+            V1["backend_data<br/>/app/data"]
+            V2["maps_data<br/>/app/shared/maps"]
+        end
+
+        subgraph 绑定挂载 Bind Mounts
+            B1["./chat_history<br/>→ /app/chat_history"]
+        end
+
+        subgraph 外部依赖
+            LLM_API["LLM API<br/>(DeepSeek/OpenCode)"]
+            EMB_API["Embedding API<br/>(阿里百炼 text-embedding-v4)"]
+        end
+    end
+
+    Browser["🌐 浏览器"] -->|":8620"| Nginx
+    Nginx -->|"/auth /chat 代理"| FastAPI
+    Nginx -->|"/maps 静态"| V2
+    FastAPI --> Agent
+    Agent -->|"REST /api/v1/retrieval"| RAGFlow
+    Agent -->|"REST /api/v1/retrieval"| LLM_API
+    RAGFlow -->|"向量化"| EMB_API
+    FastAPI -->|"SQLite 用户库"| V1
+    Agent -->|"SqliteSaver 检查点"| B1
+```
+
+**端口映射：**
+
+| 容器 | 内部端口 | 宿主机端口 | 说明 |
+|------|---------|-----------|------|
+| `frontend` | 80 | **8620** | Nginx 托管 Vue 静态资源 + 反代 API |
+| `backend` | 8000 | **8000** | FastAPI 服务 |
+| `ragflow` | 9380 | **9380** | RAGFlow 知识库（可选） |
+
+**关键设计：**
+
+- **共享卷 `maps_data`**：后端生成的地图 HTML 写入 `/app/shared/maps`，前端 Nginx 通过只读挂载 `/usr/share/nginx/maps:ro` 直接提供 `/maps/` 静态访问，无需经过后端
+- **绑定挂载 `./chat_history`**：对话检查点 SQLite 持久化到宿主机，容器重建不丢失
+- **SSE 反代**：Nginx 对 `/chat/` 关闭 `proxy_buffering`，保证流式输出实时到达浏览器
+- **RAGFlow 可选**：不启动 RAGFlow 时，车次查询/地图生成/对话功能不受影响，仅知识库检索不可用
+
+---
+
+## 4. 一次完整请求的数据流（时序）
+
+```mermaid
+sequenceDiagram
+    participant U as 用户
+    participant F as Vue 前端
+    participant N as Nginx/Vite
+    participant A as FastAPI
+    participant G as LangGraph Agent
+    participant T as 工具集
+    participant R as RAGFlow
+    participant D as data/*.json
+    participant S as SQLite
+
+    U->>F: 输入问题
+    F->>N: POST /chat/stream {message, session_id} + JWT
+    N->>A: 转发请求
+    A->>A: 校验 JWT → 解析用户
+    A->>A: thread_id = user_{id}_{session_id}
+    A->>G: 检查并修复未完成 tool_calls
+    A->>G: agent.stream(messages, stream_mode="messages")
+
+    loop ReAct 循环
+        G->>G: LLM 判断是否需要工具
+        alt 需要工具
+            G->>T: 执行工具
+            T->>R: retriever_tool → RAGFlow 检索
+            T->>D: query_train_info / query_trains_by_route
+            T->>D: generate_route_map → Folium HTML
+            T-->>G: ToolMessage 写回
+            G->>S: 保存 checkpoint
+        else 直接回答
+            G-->>A: AIMessageChunk（逐 token）
+        end
+    end
+
+    A-->>N: SSE data: {content: "..."}
+    N-->>F: 流式推送
+    F-->>U: 打字机效果渲染
+    F->>A: GET /chat/sessions（刷新历史侧边栏）
+    A->>S: 反解 checkpoint 二进制
+    A-->>F: 会话列表
+```
+
+---
+
 ## 3. 流式对话时序（SSE）
 
 ```mermaid

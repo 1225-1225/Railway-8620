@@ -90,9 +90,16 @@ app.add_middleware(
 app.include_router(auth.router)
 
 # 静态文件：提供地图文件访问
+# 注意：地图由 agent/route_map_generator.py 生成，这里必须挂载同一目录，
+# 否则生成的地图无法通过 /maps 访问。
+#   - Docker 部署时由 docker-compose.yml 注入 maps_output_dir=/app/shared/maps
+#   - 本地开发时回退到 data/maps
 from fastapi.staticfiles import StaticFiles
 import os
-_maps_dir = os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'frontend', 'public', 'maps'))
+_maps_dir = os.getenv(
+    "maps_output_dir",
+    os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'maps')),
+)
 os.makedirs(_maps_dir, exist_ok=True)
 app.mount("/maps", StaticFiles(directory=_maps_dir), name="maps")
 
@@ -122,18 +129,20 @@ def reload_agent():
 
 
 
+# session_id 会被拼进 thread_id 并作为目录/DB 查询条件，必须限制为安全字符
+# 允许：字母数字、下划线、连字符（覆盖 UUID 与前端生成的自定义 ID）
+# 注意：不能定义为类属性（_ 前缀会被 Pydantic 当作私有属性，无法通过 cls.xxx 访问）
+_SESSION_ID_RE = re.compile(r"^[A-Za-z0-9_-]{0,64}$")
+
+
 class ChatRequest(BaseModel):
     message: str
     session_id: str = ""
 
-    # session_id 会被拼进 thread_id 并作为目录/DB 查询条件，必须限制为安全字符
-    # 允许：字母数字、下划线、连字符（覆盖 UUID 与前端生成的自定义 ID）
-    _SESSION_ID_RE = re.compile(r"^[A-Za-z0-9_-]{0,64}$")
-
     @field_validator("session_id")
     @classmethod
     def _validate_session_id(cls, v: str) -> str:
-        if not cls._SESSION_ID_RE.match(v):
+        if not _SESSION_ID_RE.match(v):
             raise ValueError(
                 "session_id 只能包含字母、数字、下划线或连字符，且长度不超过 64"
             )
@@ -231,6 +240,35 @@ def get_session_messages(thread_id: str, current_user: User = Depends(get_curren
         return {"messages": []}
     messages = parse_messages_from_checkpoint(row[0])
     return {"messages": messages}
+
+
+@app.delete("/chat/sessions/{thread_id:path}")
+def delete_session(thread_id: str, current_user: User = Depends(get_current_user)):
+    """删除指定会话（含所有 checkpoints 与 writes 记录）"""
+    # 安全校验：只允许当前用户的会话
+    expected_prefix = f"user_{current_user.id}"
+    if not thread_id.startswith(expected_prefix):
+        return {"ok": False, "error": "无权限"}
+    db_path = _get_checkpointer_db()
+    if not os.path.exists(db_path):
+        return {"ok": False, "error": "会话不存在"}
+    conn = sqlite3.connect(db_path)
+    try:
+        cur = conn.execute(
+            "DELETE FROM checkpoints WHERE thread_id=?",
+            (thread_id,),
+        )
+        deleted = cur.rowcount
+        conn.execute(
+            "DELETE FROM writes WHERE thread_id=?",
+            (thread_id,),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    if deleted == 0:
+        return {"ok": False, "error": "会话不存在"}
+    return {"ok": True, "deleted": deleted}
 
 
 def _repair_incomplete_tool_calls(agent, config: dict):

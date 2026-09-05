@@ -352,6 +352,54 @@ class TestChatEndpoint:
             # 验证 thread_id 格式: "user_1"
         assert config["configurable"]["thread_id"] == "user_1"
 
+    def test_chat_valid_session_id(self):
+        """
+        合法 session_id → 200（回归测试）
+
+        背景: 曾有一个 bug —— _SESSION_ID_RE 定义为类属性（_ 前缀），
+        Pydantic v2 会把它当作 ModelPrivateAttr，导致
+        cls._SESSION_ID_RE.match(v) 抛 AttributeError，所有 /chat 请求 500。
+        修复后改为模块级常量。此测试防止该 bug 回归。
+        """
+        mock_agent = mock.MagicMock()
+        mock_agent.invoke.return_value = {"messages": [mock.MagicMock(content="OK")]}
+
+        user = fake_current_user()
+        app.dependency_overrides[get_current_user] = lambda: user
+
+        with mock.patch("backend.api._agent", mock_agent):
+            response = client.post(
+                "/chat",
+                json={"message": "测试", "session_id": "abc-123_XYZ"},
+            )
+
+        del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+
+    def test_chat_invalid_session_id(self):
+        """
+        非法 session_id（含特殊字符）→ 422 校验错误
+
+        session_id 会被拼进 thread_id 并作为 DB 查询条件，
+        必须限制为安全字符（字母数字、下划线、连字符）。
+        """
+        mock_agent = mock.MagicMock()
+        mock_agent.invoke.return_value = {"messages": [mock.MagicMock(content="OK")]}
+
+        user = fake_current_user()
+        app.dependency_overrides[get_current_user] = lambda: user
+
+        with mock.patch("backend.api._agent", mock_agent):
+            response = client.post(
+                "/chat",
+                json={"message": "测试", "session_id": "bad;DROP TABLE"},
+            )
+
+        del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 422
+
 
 # ═══════════════════════════════════════════════════════════════
 #  /chat/stream 端点测试

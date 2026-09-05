@@ -100,12 +100,19 @@ def test_thread_id_isolation(sqlite_agent):
 
 
 def test_agent_service_uses_wal_mode():
-    """AgentService 创建的连接应开启 WAL + busy_timeout（并发安全的必要条件）"""
-    service = AgentService()
-    try:
-        pragma = service.conn.execute("PRAGMA journal_mode").fetchone()[0]
-        assert pragma.upper() == "WAL"
-        busy = service.conn.execute("PRAGMA busy_timeout").fetchone()[0]
-        assert busy == 30000
-    finally:
-        service.close()
+    """AgentService 创建的连接应开启 WAL + busy_timeout（并发安全的必要条件）
+
+    注意：mock 掉 create_llm，避免测试依赖真实 LLM API Key。
+    本测试只关心 SQLite 连接配置，不关心 LLM 是否可用。
+    """
+    from unittest import mock
+
+    with mock.patch("agent.agent.create_llm", return_value=mock.MagicMock()):
+        service = AgentService()
+        try:
+            pragma = service.conn.execute("PRAGMA journal_mode").fetchone()[0]
+            assert pragma.upper() == "WAL"
+            busy = service.conn.execute("PRAGMA busy_timeout").fetchone()[0]
+            assert busy == 30000
+        finally:
+            service.close()

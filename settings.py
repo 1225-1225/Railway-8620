@@ -49,13 +49,28 @@ def _resolve_env_var_refs(s: Settings):
     """将 API Key 字段中的环境变量名引用替换为实际值
 
     `.env` 中两种写法都支持：
-        llm_api_key=sk-xxx        → 直接用
-        llm_api_key=DEEPSEEK_API_KEY  → 视为环境变量名，取 os.environ["DEEPSEEK_API_KEY"]
+        llm_api_key=sk-xxx              → 直接用
+        llm_api_key=DEEPSEEK_API_KEY    → 视为环境变量名，取 os.environ["DEEPSEEK_API_KEY"]
+        llm_api_key="DEEPSEEK_API_KEY"  → 同上（pydantic-settings 会自动去掉引号）
+
+    注意：pydantic-settings 读取 .env 时会自动去掉引号，所以这里拿到的 raw
+    已经是去引号后的值。判断依据是"值是否像环境变量名"（全大写字母+下划线）。
     """
+    import re
+
+    _ENV_REF_RE = re.compile(r"^[A-Z][A-Z0-9_]*$")
+
     for field in ("llm_api_key", "embedding_api_key", "ragflow_api_key"):
         raw = getattr(s, field)
-        if raw and raw in os.environ and os.environ[raw]:
-            setattr(s, field, os.environ[raw])
+        if not raw:
+            continue
+        # 值形如 DEEPSEEK_API_KEY（全大写+下划线）→ 视为环境变量引用
+        if _ENV_REF_RE.match(raw):
+            if raw in os.environ and os.environ[raw]:
+                setattr(s, field, os.environ[raw])
+            else:
+                # 引用的环境变量不存在 → 置空，避免把字面量当 key 用
+                setattr(s, field, "")
 
 
 class _SettingsProxy:

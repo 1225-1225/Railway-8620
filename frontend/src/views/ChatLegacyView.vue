@@ -227,8 +227,9 @@ async function sendMessage() {
     const answerArray = answer.split('')
 
     for (let i = 0; i < answerArray.length; i++) {
-      displayText += answerArray[i]
-      messages.value[assistantMsgIndex].content = displayText
+      displayText += answerArray[i] ?? ''
+      const msg = messages.value[assistantMsgIndex]
+      if (msg) msg.content = displayText
       scrollToBottom()
       await new Promise((resolve) => setTimeout(resolve, typingSpeed))
     }

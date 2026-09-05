@@ -34,7 +34,14 @@
             @click="$emit('select-session', session.thread_id)"
           >
             <div class="session-preview">{{ session.preview }}</div>
-            <div class="session-time">{{ session.time }}</div>
+            <div class="session-meta">
+              <span class="session-time">{{ session.time }}</span>
+              <button
+                class="delete-btn"
+                title="删除会话"
+                @click.stop="$emit('delete-session', session.thread_id)"
+              >🗑</button>
+            </div>
           </div>
         </div>
       </div>
@@ -66,6 +73,7 @@ defineEmits<{
   toggle: []
   'new-chat': []
   'select-session': [threadId: string]
+  'delete-session': [threadId: string]
 }>()
 
 function formatDateHeader(dateStr: string): string {
@@ -83,7 +91,7 @@ function formatDateHeader(dateStr: string): string {
   const weekDay = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
   const diffDays = Math.floor((today.getTime() - targetDate.getTime()) / (1000 * 60 * 60 * 24))
   if (diffDays <= 7 && targetDate.getDay() <= today.getDay()) {
-    return weekDay[targetDate.getDay()]
+    return weekDay[targetDate.getDay()] ?? dateStr
   }
   return dateStr
 }
@@ -238,6 +246,35 @@ function formatDateHeader(dateStr: string): string {
 .session-time {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.3);
+}
+
+.session-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.delete-btn {
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.session-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  color: #ff6b6b;
+  background: rgba(255, 100, 100, 0.15);
 }
 
 .session-list::-webkit-scrollbar {

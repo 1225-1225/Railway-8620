@@ -99,6 +99,7 @@ Railway-8620/
 │   ├── test_llm.py                 # LLM 工厂函数
 │   └── conftest.py                 # 全局夹具 + 环境变量注入
 ├── mytools/                        # 数据采集/清洗/处理工具脚本
+├── benchmarks/                     # 性能压测脚本（QPS / P50/P95/P99）
 ├── devtools/                       # 开发期 RAGFlow 调试/补丁脚本（历史参考，勿在业务中引用）
 ├── chat_history/                   # 对话检查点 SQLite 存储（运行时生成）
 ├── logs/                           # 运行日志（tool_calls.log）
@@ -305,6 +306,44 @@ pytest tests/ -v
 | `test_chat_history.py` | 对话历史读写 |
 | `test_tools.py` | RAGFlow 检索工具 + 单例行为 |
 | `test_settings.py` | 配置管理默认值与环境变量 |
+
+**测试覆盖率**（`pytest --cov=agent --cov=backend`）：
+
+| 模块 | 覆盖率 |
+|------|--------|
+| `agent/agent.py`（Agent 核心） | 61% |
+| `agent/tools.py`（工具工厂） | 81% |
+| `agent/checkpoint_parser.py`（checkpoint 解析） | 62% |
+| `agent/chat_history.py` | 100% |
+| `agent/llm.py` | 100% |
+| `backend/api.py`（API 路由） | 59% |
+| `backend/auth.py`（JWT 认证） | 82% |
+| `backend/database.py` | 100% |
+| **总计** | **39%** |
+
+> 覆盖率较低的部分（`ragflow_init.py`、`ragflow_migrate.py`、`ragflow_client.py`）是外部依赖（RAGFlow）相关脚本，需要真实 RAGFlow 服务才能测试，属预期情况。
+
+### 📊 性能压测
+
+```bash
+# 纯 Python 压测（零额外依赖）
+python benchmarks/benchmark_api.py --concurrency 10 --requests 100
+
+# 或使用 Locust（更专业）
+pip install locust
+locust -f benchmarks/locustfile.py --host http://localhost:8000
+```
+
+输出 QPS、P50/P95/P99 延迟、成功率等指标。详见 [`benchmarks/README.md`](benchmarks/README.md)。
+
+### 🤖 CI/CD
+
+项目内置 GitHub Actions 流水线（`.github/workflows/ci.yml`），每次 push/PR 自动执行：
+
+- **Lint**：Ruff 基础检查
+- **Test**：Python 3.10/3.11 多版本测试 + 覆盖率
+- **Frontend**：Vue 3 类型检查 + 构建
+- **Docker**：后端 + 前端镜像构建验证
 
 ---
 
