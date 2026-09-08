@@ -14,17 +14,17 @@
 
 ### 0.2 技术栈全景
 
-| 层 | 技术 | 版本 | 作用 |
-|---|---|---|---|
-| Agent 框架 | LangChain / LangGraph | 1.3 / 1.2 | ReAct 循环、工具调用、状态持久化 |
-| 向量检索 | RAGFlow（REST 对接） | v0.26.4 | 237 篇文档的解析/分块/向量化/检索 |
-| LLM | 火山方舟 deepseek-v4-flash（OpenAI 兼容） | - | 推理引擎，可换 DeepSeek/Anthropic |
-| Embedding | 阿里百炼 text-embedding-v4 | - | 文档向量化（RAGFlow 内部使用） |
-| 后端 | FastAPI / SQLAlchemy / python-jose / argon2-cffi | 0.137 / 2.0 | API、ORM、JWT、密码哈希 |
-| 前端 | Vue 3 / TypeScript / Pinia / Vue Router / Vite | 3.5 / 5.9 / 3 / 5 / 7 | SPA、状态、路由、构建 |
-| 地图 | Folium（后端生成 HTML）+ Leaflet（iframe 内渲染） | 0.20 | 交互式路线图 |
-| 存储 | SQLite ×3（用户库 / checkpointer / session_meta 同库） | - | 零运维持久化 |
-| 部署 | Docker Compose / Nginx / GitHub Actions | - | 容器化、反代、CI |
+| 层         | 技术                                                    | 版本                  | 作用                              |
+| ---------- | ------------------------------------------------------- | --------------------- | --------------------------------- |
+| Agent 框架 | LangChain / LangGraph                                   | 1.3 / 1.2             | ReAct 循环、工具调用、状态持久化  |
+| 向量检索   | RAGFlow（REST 对接）                                    | v0.26.4               | 237 篇文档的解析/分块/向量化/检索 |
+| LLM        | 火山方舟 deepseek-v4-flash（OpenAI 兼容）               | -                     | 推理引擎，可换 DeepSeek/Anthropic |
+| Embedding  | 阿里百炼 text-embedding-v4                              | -                     | 文档向量化（RAGFlow 内部使用）    |
+| 后端       | FastAPI / SQLAlchemy / python-jose / argon2-cffi        | 0.137 / 2.0           | API、ORM、JWT、密码哈希           |
+| 前端       | Vue 3 / TypeScript / Pinia / Vue Router / Vite          | 3.5 / 5.9 / 3 / 5 / 7 | SPA、状态、路由、构建             |
+| 地图       | Folium（后端生成 HTML）+ Leaflet（iframe 内渲染）       | 0.20                  | 交互式路线图                      |
+| 存储       | SQLite ×3（用户库 / checkpointer / session_meta 同库） | -                     | 零运维持久化                      |
+| 部署       | Docker Compose / Nginx / GitHub Actions                 | -                     | 容器化、反代、CI                  |
 
 ### 0.3 目录结构（带职责注释）
 
@@ -81,7 +81,7 @@ Railway-8620/
   → Vite 代理/Nginx 反代 → FastAPI
   → get_current_user 解 JWT → 查 users.db → User 对象
   → thread_id = f"user_{user.id}_{session_id}"
-  → _repair_incomplete_tool_calls() 修复上次中断的会话
+  → _repair_incomplete_tool_calls_async() 修复上次中断的会话（线程池执行，不阻塞事件循环）
   → _get_agent() 懒加载双检锁取 Agent
   → run_in_executor(线程池, agent.stream(..., stream_mode="messages"))
   → LangGraph ReAct 循环：LLM 判断 → 调工具 → ToolMessage 回写 → 再问 LLM
@@ -124,6 +124,7 @@ class Settings(BaseSettings):
 ```
 
 **要点**：
+
 - 字段名 = `.env` 里的 key（大小写不敏感），自动注入
 - `extra="ignore"`：.env 里有额外配置（如 COMPOSE_PROJECT_NAME）不报错
 
@@ -136,6 +137,7 @@ def _apply_path_defaults(s: Settings):
     if not s.chat_history_storage_path:
         s.chat_history_storage_path = os.path.join(PROJECT_ROOT, "chat_history")
 ```
+
 **为什么**：相对路径依赖 cwd，不可控；用 `__file__` 推导项目根目录绝对路径。
 
 ### 1.3 环境变量间接引用（安全设计）
@@ -156,6 +158,7 @@ def _resolve_env_var_refs(s: Settings):
 ```
 
 **踩坑记录（重要）**：
+
 - 初版用 `raw in os.environ` 判断，但 pydantic-settings 读 `.env` 时**自动去掉引号**，导致 `llm_api_key="DEEPSEEK_API_KEY"` 的引号判断逻辑失效，字面量 `"DEEPSEEK_API_KEY"`（16 字符）被当真实 key 发给 DeepSeek → 401
 - 修复：改用正则判断"值是否长得像环境变量名"，与引号无关
 
@@ -187,6 +190,7 @@ settings = _SettingsProxy()   # 全局单例，所有模块 `from settings impor
 ```
 
 **为什么用代理而不是直接暴露 Settings 实例**：
+
 - `reload()` 后所有 `settings.xxx` 的读取都拿到新值（代理转发）
 - `__getattr__` 拦截下划线开头属性避免内部状态泄漏
 - 配合 `backend/api.py` 的 `reload_agent()` 实现"改 .env 不重启进程生效"
@@ -220,6 +224,7 @@ def get_db():
 ```
 
 **要点**：
+
 - `check_same_thread=False`：FastAPI 线程池处理请求，SQLite 连接需跨线程
 - `get_db` 是生成器依赖：请求结束自动关闭会话
 - `create_all` 幂等：表存在则跳过
@@ -235,6 +240,7 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 ```
+
 **要点**：注册请求体和登录响应体的契约。`response_model=Token` 让 Swagger 文档自动生成响应示例。
 
 ---
@@ -252,6 +258,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 300          # 5 小时
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 ph = PasswordHasher()                      # argon2
 ```
+
 **安全设计**：`SECRET_KEY=None` 时 `jwt.encode/decode` 直接抛错——**拒绝静默使用弱密钥**，宁可启动失败也不留后门。
 
 ### 4.2 密码验证（argon2）
@@ -267,6 +274,7 @@ def authenticate_user(db, username, password):
     except VerifyMismatchError:
         return False
 ```
+
 **踩坑**：测试时若数据库存的是明文，argon2 抛 `InvalidHashError`（不是 `VerifyMismatchError`），不会被捕获 → 500。所以测试夹具必须用 `ph.hash()` 造数据。
 
 ### 4.3 JWT 签发
@@ -278,6 +286,7 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 ```
+
 **要点**：payload 里 `sub` 存用户名；`exp` 是 JWT 标准过期字段。
 
 ### 4.4 依赖注入式鉴权
@@ -298,6 +307,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db = Depends(dat
         raise credentials_exception
     return user
 ```
+
 **要点**：任何路由加 `current_user: User = Depends(get_current_user)` 即受保护；`algorithms` 显式指定防算法混淆攻击。
 
 ### 4.5 注册/登录路由
@@ -323,6 +333,7 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db = Depends(databas
                             headers={"WWW-Authenticate": "Bearer"})
     ...  # 同上签发 token
 ```
+
 **要点**：注册收 JSON，登录收 **Form**（`OAuth2PasswordRequestForm` 要求 `application/x-www-form-urlencoded`）——前端登录时必须用 `FormData`，这是常见联调坑。
 
 **面试考点**：为什么选 argon2（内存困难，抗 GPU 爆破）；JWT 无状态鉴权流程；OAuth2PasswordRequestForm 与 Swagger Authorize 按钮的关系。
@@ -343,7 +354,9 @@ def create_llm(**kwargs):
     elif provider == "anthropic":
         return ChatAnthropic(model=..., api_key=..., base_url=..., **kwargs)
 ```
+
 **要点**：
+
 - `**kwargs` 透传：`create_llm(streaming=True)` 把流式开关传给底层
 - 火山方舟/DeepSeek 都兼容 OpenAI 协议 → 只换 `base_url` + `model_name` 即可切换供应商
 - `api_key=""` 时 ChatOpenAI 构造直接抛 `OpenAIError: Missing credentials`（这是"空 key 不影响启动但影响首次请求"的原因）
@@ -362,6 +375,7 @@ def _load_train_details():
         logger.info(f"加载 train_details.json: {len(_train_details)} 个车次")
     return _train_details
 ```
+
 **为什么**：9547 车次 JSON 约 10MB+，进程内只加载一次；首次调用慢（0.4s），后续 0.005s。
 
 ### 6.2 车次类型优先级排序
@@ -370,6 +384,7 @@ def _load_train_details():
 priority = {'G': 0, 'D': 1, 'C': 2, 'Z': 3, 'T': 4, 'K': 5}
 results.sort(key=lambda x: (priority.get(x[0][0], 9), x[0]))
 ```
+
 **要点**：先按车次首字母等级排，再按车次号排；未知前缀排最后（9）。
 
 ### 6.3 两个 @tool
@@ -389,6 +404,7 @@ def query_trains_by_route(from_station: str, to_station: str, limit: int = 3) ->
 ```
 
 **工具设计心得（面试高频）**：
+
 - **description 就是给 LLM 看的 API 文档**：写清输入格式（`['Z227']` 列表而非字符串）能显著降低 LLM 传参错误率
 - 返回**格式化文本**而非 JSON：LLM 读文本更稳，且能直接引用到回答里
 - 查不到时返回明确提示（`❌ 未找到以下车次: xxx`）而非抛异常——让 LLM 能向用户解释
@@ -401,6 +417,7 @@ def query_trains_by_route(from_station: str, to_station: str, limit: int = 3) ->
 _DATA_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'data'))
 _MAP_DIR = os.getenv("maps_output_dir", os.path.join(_DATA_DIR, 'maps'))
 ```
+
 **踩坑记录**：初版硬编码 `data/maps`，但 docker-compose 注入 `maps_output_dir=/app/shared/maps`（共享卷给 Nginx）→ Docker 里地图写错位置，Nginx 404。修复：`os.getenv` 优先，本地默认兜底。同一 bug 还出现在 `backend/api.py` 的静态挂载处——**两处必须指向同一目录**。
 
 ### 7.2 生成流程
@@ -423,6 +440,7 @@ def generate_train_route_map(train_code: str) -> str:
 ```
 
 **设计决策**：
+
 - 相邻站**直线连接**而非真实铁路轨迹（简化版；真实轨迹数据在 `data/handle_gpkg/` 有 GeoPandas 处理脚本，未接入）
 - 错误返回中文字符串（"未找到车次 xxx 的信息"），LLM 能直接转述给用户
 - 生成的 HTML 自包含，iframe 直接加载无需额外依赖
@@ -446,6 +464,7 @@ def log_tool_call(func):
             raise                    # 重新抛出，保持原有行为
     return wrapper
 ```
+
 **关键细节**：`@functools.wraps` 不能省——LangChain 通过 `__name__`/`__doc__` 内省工具，丢了会导致工具名变 `wrapper`。
 
 **装饰器顺序**：`@tool` 在最上，`@log_tool_call` 在下——先包装日志再注册为工具。
@@ -466,6 +485,7 @@ def reset_service_singletons():
     global _ragflow_client
     _ragflow_client = None
 ```
+
 **为什么单例**：内部持有 `requests.Session`（连接池），每次重建浪费连接。`reset` 配合 conftest 的 autouse fixture 保证测试互不污染。
 
 ### 8.3 检索工具
@@ -482,6 +502,7 @@ def retriever_tool(query: str):
     formatted = [f"{i}. {r['content']}（来源: {r['source']}）" for i, r in enumerate(results, 1)]
     return "\n\n".join(formatted)
 ```
+
 **细节**：带来源文件名 → LLM 回答可引用出处；RAGFlow 挂掉时 `search` 内部捕获异常返回 `[]` → 工具返回"未找到"而非崩溃（但 LLM 会反复重试检索，这是压测发现的延迟问题）。
 
 ## 第 9 章 · agent/agent.py —— AgentService
@@ -515,6 +536,7 @@ class AgentService:
 ```
 
 **四个关键决策**：
+
 1. **check_same_thread=False**：api.py 在线程池里跑 `agent.stream()`，连接必须跨线程；SqliteSaver 内部有 `threading.Lock` 保护写路径
 2. **WAL 模式**：读不阻塞写、写不阻塞读——20 线程并发测试不出现 `database is locked` 的前提
 3. **system_prompt 写工具使用指南**：LLM 选工具的准确率大幅提升（尤其"先查信息再画图"的组合指令）
@@ -578,6 +600,7 @@ def reload_agent():
         if old_service is not None:
             old_service.close()              # 再关旧连接
 ```
+
 **双检锁**：避免每次请求都抢锁；**先建新再关旧**：reload 期间服务不中断。
 
 ## 第 12 章 · 请求模型与校验
@@ -703,11 +726,13 @@ def delete_session(thread_id, current_user):
 ```
 
 **session_meta 表**（与 checkpointer 同库）：
+
 ```python
 def _ensure_session_meta_table(conn):
     conn.execute("""CREATE TABLE IF NOT EXISTS session_meta (
         thread_id TEXT PRIMARY KEY, title TEXT NOT NULL, updated_at TEXT NOT NULL)""")
 ```
+
 **为什么能同库**：SqliteSaver 只管自己的 checkpoints/writes 表，额外建表互不干扰——省掉第二个数据库文件。
 
 **`{thread_id:path}`**：path 转换器允许 thread_id 含 `/`（虽然当前不含，但防止 UUID 被路由误切）。
@@ -744,8 +769,26 @@ def _repair_incomplete_tool_calls(agent, config):
             agent.invoke(input=None, config=config)   # 框架自动补完工具执行
         except Exception as e:
             logger.warning("修复失败: %s", e)
+
+async def _repair_incomplete_tool_calls_async(agent, config):
+    """异步包装：在线程池中执行，不阻塞事件循环"""
+    loop = asyncio.get_event_loop()
+    await loop.run_in_executor(
+        _agent_executor,
+        lambda: _repair_incomplete_tool_calls(agent, config),
+    )
 ```
+
 **场景还原**：流式请求 300s 超时被切断时，Agent 可能正停在"LLM 要求调工具"这一步 → checkpoint 里留下悬空的 tool_calls → 下次同 thread_id 请求，LLM API 直接拒绝这种非法消息序列 → **会话永久损坏**。修复 = 请求前检测 + `invoke(None)` 让 LangGraph 走完工具节点。
+
+**两个版本的使用场景（重要设计细节）**：
+
+| 端点 | 调用方式 | 原因 |
+|---|---|---|
+| `/chat`（同步 `def`） | 直接调用 `_repair_incomplete_tool_calls()` | FastAPI 自动把同步端点扔进线程池，阻塞的是工作线程不是事件循环 |
+| `/chat/stream`（`async def`） | `await _repair_incomplete_tool_calls_async()` | async 端点跑在事件循环里，同步的 `get_state`/`invoke`（SQLite + 潜在 LLM 调用）会卡住**所有**并发请求，必须经 `run_in_executor` 扔进有界线程池 |
+
+> **踩坑记录**：初版两个端点都直接调用同步修复函数——async 端点里修复期间（最坏 30s，工具内部超时）事件循环被阻塞，其他用户的请求全部卡住。这是代码审查时主动发现并修复的真实瑕疵：**async 端点里任何同步阻塞调用都必须走 executor**，与 15.3 的流式处理是同一条原则。
 
 ### 15.3 流式 /chat/stream（全项目最精妙的 40 行）
 
@@ -789,6 +832,7 @@ async def chat_stream(request: ChatRequest, current_user = Depends(get_current_u
 ```
 
 **四个设计点（面试必考）**：
+
 1. **为什么不能直接 `async for`**：`agent.stream()` 是同步阻塞生成器，直接放事件循环会卡死所有并发请求
 2. **为什么用哨兵**：同步生成器的 `StopIteration` 穿越 `asyncio.Future` 会被包装成 `RuntimeError`，破坏迭代语义——用哨兵对象标记结束从根上规避
 3. **双层超时**：建流 60s（LLM 连接慢）+ 单块 300s（工具执行慢，如地图生成 6s、RAGFlow 重试 4s×N）
@@ -823,6 +867,7 @@ class RAGFlowClient:
         except requests.RequestException:
             return []                                    # 网络异常 → 空结果不崩溃
 ```
+
 **要点**：所有方法失败返回空/False 而非抛异常——检索挂了不应炸掉整个对话。还有 `list_datasets` / `upload_document` / `register` / `login`（RSA 加密密码）等方法支撑初始化流程。
 
 ## 第 17 章 · agent/ragflow_init.py —— 自动初始化 + 容器补丁（最大亮点）
@@ -859,10 +904,12 @@ def apply_container_patches():
 ```
 
 **两个上游 bug**：
+
 1. DashScope text-embedding-v4 限制 batch_size ≤ 10，RAGFlow 写死 16 → 批量向量化必失败
 2. `parser_config` 部分路径是 JSON 字符串而非 dict → 解析任务崩溃
 
 **为什么这么设计（面试重点）**：
+
 - 改 Docker 镜像源码 → 重新 build 慢、版本升级被覆盖
 - 补丁定义为"旧→新"字符串对 → **幂等可重入**（容器重启后自动补打，检测先行）
 - `docker exec` 容器内执行 → 不侵入镜像
@@ -886,16 +933,17 @@ TenantModelProvider（OpenAI-API-Compatible）
        └─ TenantModel（具体模型名，model_type: 1=CHAT 2=EMBEDDING）
 最后 Tenant.update(embd_id="模型名@实例名@供应商名", llm_id=...) 写默认引用
 ```
+
 **为什么要在数据库里注册**：光有 .env 不够，task executor 从 RAGFlow 自己的表里找模型凭证。
 
 ## 第 18 章 · 数据管线（mytools/）
 
-| 脚本 | 职责 | 关键实现 |
-|---|---|---|
-| `scrap_trains.py` | 爬车次列表 | requests + lxml XPath（`//div[@class="train_index_cz"]//ul/li`），verify=False 禁 SSL 警告 |
-| `clean_text.py` | 清洗 237 篇文档 | 12 步正则：markdown 标题→保留结构、去链接/图片/引用、去 HTML 标签、零宽字符、多空格、目录行、纯符号行、纯 URL 行；输出处理报告（压缩率） |
-| `merge_trains.py` / `add_count.py` | 合并车次数据 | - |
-| `exact_stations.py` / `get_city_station.py` | 站点坐标提取 | 产出 station_coords.json |
+| 脚本                                            | 职责            | 关键实现                                                                                                                                  |
+| ----------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `scrap_trains.py`                             | 爬车次列表      | requests + lxml XPath（`//div[@class="train_index_cz"]//ul/li`），verify=False 禁 SSL 警告                                              |
+| `clean_text.py`                               | 清洗 237 篇文档 | 12 步正则：markdown 标题→保留结构、去链接/图片/引用、去 HTML 标签、零宽字符、多空格、目录行、纯符号行、纯 URL 行；输出处理报告（压缩率） |
+| `merge_trains.py` / `add_count.py`          | 合并车次数据    | -                                                                                                                                         |
+| `exact_stations.py` / `get_city_station.py` | 站点坐标提取    | 产出 station_coords.json                                                                                                                  |
 
 **数据流**：爬取 → 清洗 → `data/cleaned_txts/`（RAG 语料）+ JSON（工具数据源）→ `ragflow_migrate.py` 批量上传。
 
@@ -928,6 +976,7 @@ onMounted(() => { timer = setInterval(checkTokenExpiry, 30_000) })   // 每 30s 
 onUnmounted(() => { if (timer) clearInterval(timer) })
 </script>
 ```
+
 **要点**：路由守卫只拦"导航时"，长时间停留页面的过期靠这个定时器兜底。全局样式：CSS reset + Inter 字体 + 毛玻璃变量。
 
 ## 第 20 章 · stores/auth.ts —— 认证状态
@@ -960,6 +1009,7 @@ export const useAuthStore = defineStore('auth', () => {
   ...
 })
 ```
+
 **细节**：base64url 的 `-_` 替换、UTF-8 中文解码、提前 10s 判过期（防请求发出瞬间过期）、解析失败视为过期。
 
 ## 第 21 章 · services/api.ts —— Axios 双拦截器
@@ -1017,6 +1067,7 @@ router.beforeEach((to, _from, next) => {
   next()
 })
 ```
+
 所有视图组件 `() => import(...)` 动态导入 → 代码分割，首屏只加载登录页。
 
 ## 第 23 章 · LoginView.vue —— 登录页
@@ -1064,6 +1115,7 @@ function renderMapCard(url: string): string {
   </div>`
 }
 ```
+
 **为什么先抽占位符**：地图 URL 直接进 markdown 可能被链接语法干扰；占位符保证卡片 HTML 原样输出。
 
 ### 24.2 SSE 流式接收 + 停止生成
@@ -1169,6 +1221,7 @@ function confirmRename(threadId: string) {
 ```
 
 **踩坑记录**：
+
 - `v-for` 里 `ref="renameInputRef"` 收集为**数组**，`input.focus is not a function` → 改用 `@vue:mounted` 钩子从 VNode 取 `el`
 - 最初用 `window.prompt`，自动化测试环境不支持 → 行内编辑体验也更好
 - `confirmRename` 的 `renamingId !== threadId` 守卫：Enter 触发后 blur 又触发一次，第二次直接跳过
@@ -1251,6 +1304,7 @@ def _make_blob(messages, ts=...) -> bytes:
     _, blob = serde.dumps_typed(checkpoint)
     return blob
 ```
+
 **为什么**：手造 msgpack 格式容易与真实格式偏差；用官方序列化器构造 = 测试即真实。
 
 ### 会话管理测试（tmp_path 造库）
@@ -1268,6 +1322,7 @@ def checkpoint_db(self, tmp_path):
 with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
     response = client.put("/chat/sessions/user_1_test-session", json={"title": "我的车次查询"})
 ```
+
 覆盖：重命名成功/空标题 422/越权 ok=False/不存在 ok=False + 删除成功（验证 DB 真的清了）/不存在。
 
 **测试金字塔总结**：单元（schemas/settings/llm/tools）→ 集成（API 端到端 Mock）→ 并发（真 SqliteSaver 多线程）→ 格式兼容（真序列化器）。
@@ -1290,6 +1345,7 @@ RUN mkdir -p /app/shared/maps /app/chat_history /app/data && chmod -R 777 ...
 VOLUME ["/app/chat_history", "/app/shared/maps", "/app/data"]
 CMD ["uvicorn", "backend.api:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
+
 **层缓存技巧**：requirements 先 COPY 单独装依赖 → 代码改动不触发重装依赖。
 
 ### 前端 Dockerfile（多阶段）
@@ -1320,6 +1376,7 @@ frontend:
   volumes:
     - maps_data:/usr/share/nginx/maps:ro        # Nginx 只读挂同一卷 → /maps/ 静态直出
 ```
+
 **地图链路**：后端生成 → 共享卷 → Nginx 直接静态服务（不经后端转发）。
 
 ### nginx.conf 要点
@@ -1337,6 +1394,7 @@ location /chat/ {
 ## 第 30 章 · CI（.github/workflows/ci.yml）
 
 4 个并行 job：
+
 1. **lint**：`ruff check . --select E9,F63,F7,F82`（只查致命错误，continue-on-error）
 2. **test**：Python 3.10/3.11 矩阵 + `pytest-cov` 覆盖率 + pip 缓存（`hashFiles('requirements.txt')`）
 3. **frontend**：`npm ci` → `type-check` → `build-only`（node 22 + npm 缓存）
@@ -1357,6 +1415,7 @@ $backend = Start-Process -FilePath $PythonCmd -ArgumentList "-m","uvicorn",... -
 $npmCmd = (Get-Command npm.cmd -ErrorAction SilentlyContinue).Source   # Windows 必须 npm.cmd！
 $frontend = Start-Process -FilePath $npmCmd -ArgumentList "run","dev" ... -PassThru
 ```
+
 **踩坑**：`Start-Process npm` 找不到（Windows npm 是 npm.cmd）；PowerShell 字符串里的中文括号会被解析器误判。
 
 ### start.ps1（Docker 版）
@@ -1381,28 +1440,29 @@ with ThreadPoolExecutor(max_workers=concurrency) as pool:
 
 # 第 33 章 · 踩坑总录（面试弹药库）
 
-| # | 坑 | 现象 | 解法 |
-|---|---|---|---|
-| 1 | 同步流式阻塞事件循环 | 并发请求全卡死 | run_in_executor 有界线程池 |
-| 2 | StopIteration 穿越 Future | RuntimeError 破坏迭代 | 哨兵对象 `_SENTINEL` |
-| 3 | Pydantic `_` 前缀类属性 | `cls._RE.match` AttributeError → 全接口 500 | 提为模块级常量 |
-| 4 | pydantic-settings 去引号 | 字面量 "DEEPSEEK_API_KEY" 被当 key → 401 | 正则判断环境变量引用 |
-| 5 | 地图路径三处不一致 | Docker 里 /maps 404 | `maps_output_dir` 环境变量统一 |
-| 6 | 未闭合 tool_calls | 超时中断后会话永久损坏 | 请求前 `_repair_incomplete_tool_calls` |
-| 7 | msgpack ExtType(5) | 历史会话无法读取 | 三级降级解析 + 永不抛异常 |
-| 8 | RAGFlow batch_size=16 | DashScope 限 10 → 向量化失败 | 容器补丁（幂等精确替换） |
-| 9 | marked v17 renderer 签名 | TS 类型错误 | `code({text, lang})` 对象参数 |
-| 10 | noUncheckedIndexedAccess | 数组索引访问 TS 报错 | 全部判空 |
-| 11 | v-for 中 ref 是数组 | `input.focus is not a function` | `@vue:mounted` 钩子取 el |
-| 12 | window.prompt | 自动化环境不支持 | 行内编辑 |
-| 13 | functools.wraps 遗漏 | 工具名变 wrapper | 装饰器必加 wraps |
-| 14 | 登录 Form vs JSON | 422 校验错误 | OAuth2PasswordRequestForm 用 FormData |
-| 15 | Windows GBK 控制台 | emoji 输出 UnicodeEncodeError | `sys.stdout.reconfigure(encoding="utf-8")` |
-| 16 | Start-Process npm | 找不到可执行文件 | `Get-Command npm.cmd` |
-| 17 | SQLite 并发锁 | database is locked | WAL + busy_timeout + check_same_thread=False |
-| 18 | 无界线程池 | 线程爆炸放大锁竞争 | `ThreadPoolExecutor(max_workers=8)` |
-| 19 | 测试明文密码 | argon2 InvalidHashError 500 | 夹具用 `ph.hash()` 造数据 |
-| 20 | mock 残留污染 | 单例跨测试泄漏 | autouse fixture 前后 reset |
+| #  | 坑                        | 现象                                           | 解法                                         |
+| -- | ------------------------- | ---------------------------------------------- | -------------------------------------------- |
+| 1  | 同步流式阻塞事件循环      | 并发请求全卡死                                 | run_in_executor 有界线程池                   |
+| 2  | StopIteration 穿越 Future | RuntimeError 破坏迭代                          | 哨兵对象`_SENTINEL`                        |
+| 3  | Pydantic`_` 前缀类属性  | `cls._RE.match` AttributeError → 全接口 500 | 提为模块级常量                               |
+| 4  | pydantic-settings 去引号  | 字面量 "DEEPSEEK_API_KEY" 被当 key → 401      | 正则判断环境变量引用                         |
+| 5  | 地图路径三处不一致        | Docker 里 /maps 404                            | `maps_output_dir` 环境变量统一             |
+| 6  | 未闭合 tool_calls         | 超时中断后会话永久损坏                         | 请求前`_repair_incomplete_tool_calls`      |
+| 7  | msgpack ExtType(5)        | 历史会话无法读取                               | 三级降级解析 + 永不抛异常                    |
+| 8  | RAGFlow batch_size=16     | DashScope 限 10 → 向量化失败                  | 容器补丁（幂等精确替换）                     |
+| 9  | marked v17 renderer 签名  | TS 类型错误                                    | `code({text, lang})` 对象参数              |
+| 10 | noUncheckedIndexedAccess  | 数组索引访问 TS 报错                           | 全部判空                                     |
+| 11 | v-for 中 ref 是数组       | `input.focus is not a function`              | `@vue:mounted` 钩子取 el                   |
+| 12 | window.prompt             | 自动化环境不支持                               | 行内编辑                                     |
+| 13 | functools.wraps 遗漏      | 工具名变 wrapper                               | 装饰器必加 wraps                             |
+| 14 | 登录 Form vs JSON         | 422 校验错误                                   | OAuth2PasswordRequestForm 用 FormData        |
+| 15 | Windows GBK 控制台        | emoji 输出 UnicodeEncodeError                  | `sys.stdout.reconfigure(encoding="utf-8")` |
+| 16 | Start-Process npm         | 找不到可执行文件                               | `Get-Command npm.cmd`                      |
+| 17 | SQLite 并发锁             | database is locked                             | WAL + busy_timeout + check_same_thread=False |
+| 18 | 无界线程池                | 线程爆炸放大锁竞争                             | `ThreadPoolExecutor(max_workers=8)`        |
+| 19 | 测试明文密码              | argon2 InvalidHashError 500                    | 夹具用`ph.hash()` 造数据                   |
+| 20 | mock 残留污染             | 单例跨测试泄漏                                 | autouse fixture 前后 reset                   |
+| 21 | async 端点里的同步阻塞调用 | 修复期间事件循环被卡，其他请求全停             | `_repair_incomplete_tool_calls_async` 走 executor |
 
 ---
 
@@ -1413,6 +1473,7 @@ with ThreadPoolExecutor(max_workers=concurrency) as pool:
 **第三遍（模拟面试）**：对着每章末尾的「面试考点」自问自答；让 AI 模拟追问
 
 **必须能白板手写的三段代码**：
+
 1. `chat_stream` 的 generate()（哨兵 + 双超时 + executor）
 2. `_extract_one` 三级降级解析
 3. `sendMessage` 的 reader 循环 + AbortError 处理

@@ -362,6 +362,11 @@ def _repair_incomplete_tool_calls(agent, config: dict):
     带 tool_calls 的 AIMessage，但缺少对应的 ToolMessage。
     再次用同一 thread_id 发送消息时，LLM 会拒绝这种不完整的消息序列。
     此函数检测到这种情况时，先调用 invoke() 完成工具执行，使状态恢复完整。
+
+    注意：本函数是同步阻塞的（get_state/invoke 涉及 SQLite 与 LLM 调用）。
+    - 同步端点（/chat）：FastAPI 自动扔线程池，直接调用即可
+    - 异步端点（/chat/stream）：必须经 run_in_executor 调用
+      （见 _repair_incomplete_tool_calls_async），否则会阻塞事件循环
     """
     state = agent.get_state(config)
     if state is None or not state.values:
@@ -376,6 +381,19 @@ def _repair_incomplete_tool_calls(agent, config: dict):
             agent.invoke(input=None, config=config)
         except Exception as e:
             logger.warning("修复未完成 tool_calls 失败: %s", e)
+
+
+async def _repair_incomplete_tool_calls_async(agent, config: dict):
+    """_repair_incomplete_tool_calls 的异步包装：在线程池中执行，不阻塞事件循环。
+
+    修复涉及同步的 SQLite 读取（get_state）与潜在的 LLM/工具调用（invoke），
+    在 async 端点里直接调用会卡住整个事件循环，必须扔进有界线程池。
+    """
+    loop = asyncio.get_event_loop()
+    await loop.run_in_executor(
+        _agent_executor,
+        lambda: _repair_incomplete_tool_calls(agent, config),
+    )
 
 
 @app.post("/chat")
@@ -405,7 +423,8 @@ async def chat_stream(
     thread_id = f"user_{current_user.id}{session_suffix}"
     config = {"configurable": {"thread_id": thread_id}}
     agent = _get_agent()
-    _repair_incomplete_tool_calls(agent, config)
+    # 修复是同步阻塞操作（SQLite + 可能的 LLM 调用），必须走线程池避免阻塞事件循环
+    await _repair_incomplete_tool_calls_async(agent, config)
     input_data = {"messages": [{"role": "user", "content": request.message}]}
 
     # 用哨兵值标记迭代结束，避免 StopIteration 通过 asyncio Future 传播
