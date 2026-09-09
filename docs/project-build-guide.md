@@ -783,10 +783,10 @@ async def _repair_incomplete_tool_calls_async(agent, config):
 
 **两个版本的使用场景（重要设计细节）**：
 
-| 端点 | 调用方式 | 原因 |
-|---|---|---|
-| `/chat`（同步 `def`） | 直接调用 `_repair_incomplete_tool_calls()` | FastAPI 自动把同步端点扔进线程池，阻塞的是工作线程不是事件循环 |
-| `/chat/stream`（`async def`） | `await _repair_incomplete_tool_calls_async()` | async 端点跑在事件循环里，同步的 `get_state`/`invoke`（SQLite + 潜在 LLM 调用）会卡住**所有**并发请求，必须经 `run_in_executor` 扔进有界线程池 |
+| 端点                              | 调用方式                                        | 原因                                                                                                                                                      |
+| --------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/chat`（同步 `def`）         | 直接调用`_repair_incomplete_tool_calls()`     | FastAPI 自动把同步端点扔进线程池，阻塞的是工作线程不是事件循环                                                                                            |
+| `/chat/stream`（`async def`） | `await _repair_incomplete_tool_calls_async()` | async 端点跑在事件循环里，同步的`get_state`/`invoke`（SQLite + 潜在 LLM 调用）会卡住**所有**并发请求，必须经 `run_in_executor` 扔进有界线程池 |
 
 > **踩坑记录**：初版两个端点都直接调用同步修复函数——async 端点里修复期间（最坏 30s，工具内部超时）事件循环被阻塞，其他用户的请求全部卡住。这是代码审查时主动发现并修复的真实瑕疵：**async 端点里任何同步阻塞调用都必须走 executor**，与 15.3 的流式处理是同一条原则。
 
@@ -1136,8 +1136,10 @@ async function sendMessage() {
   while (true) {
     const { done, value } = await reader.read()
     if (done) break
-    const chunk = decoder.decode(value, { stream: true })   // 流式解码（多字节中文安全）
-    for (const line of chunk.split('\n\n')) {
+    buffer += decoder.decode(value, { stream: true })   // 流式解码（多字节中文安全）+ 追加进事件缓冲
+    const lines = buffer.split('\n\n')
+    buffer = lines.pop() ?? ''   // 最后一段可能是被网络切断的半个事件 → 留在缓冲区等下次拼接
+    for (const line of lines) {
       if (!line.startsWith('data: ')) continue
       const data = line.slice(6).trim()
       if (data === '[DONE]') continue
@@ -1174,6 +1176,10 @@ async function sendMessage() {
 function stopGenerating() { abortController?.abort() }
 onBeforeUnmount(() => abortController?.abort())              // 组件卸载防泄漏
 ```
+
+**跨 read 事件缓冲区（为什么需要 buffer）**：
+
+TCP 网络分包不看应用层的事件边界——一个 SSE 事件（`data: {...}\n\n`）可能被网络切在两个包里。如果每次 read 到的数据单独 `split('\n\n')`，被切断的半个事件在两半上都会 `JSON.parse` 失败 → 丢一个 token。修复：维护跨 read 的 `buffer`，每次追加新数据后 split，**用 `lines.pop()` 把最后一段（可能是半个事件）留在缓冲区**，与下次数据拼接后再解析。`TextDecoder({stream:true})` 解决的是字节级的多字节汉字跨包问题，buffer 解决的是字符级的事件跨包问题——两层各管一层。
 
 ### 24.3 会话管理
 
@@ -1440,29 +1446,30 @@ with ThreadPoolExecutor(max_workers=concurrency) as pool:
 
 # 第 33 章 · 踩坑总录（面试弹药库）
 
-| #  | 坑                        | 现象                                           | 解法                                         |
-| -- | ------------------------- | ---------------------------------------------- | -------------------------------------------- |
-| 1  | 同步流式阻塞事件循环      | 并发请求全卡死                                 | run_in_executor 有界线程池                   |
-| 2  | StopIteration 穿越 Future | RuntimeError 破坏迭代                          | 哨兵对象`_SENTINEL`                        |
-| 3  | Pydantic`_` 前缀类属性  | `cls._RE.match` AttributeError → 全接口 500 | 提为模块级常量                               |
-| 4  | pydantic-settings 去引号  | 字面量 "DEEPSEEK_API_KEY" 被当 key → 401      | 正则判断环境变量引用                         |
-| 5  | 地图路径三处不一致        | Docker 里 /maps 404                            | `maps_output_dir` 环境变量统一             |
-| 6  | 未闭合 tool_calls         | 超时中断后会话永久损坏                         | 请求前`_repair_incomplete_tool_calls`      |
-| 7  | msgpack ExtType(5)        | 历史会话无法读取                               | 三级降级解析 + 永不抛异常                    |
-| 8  | RAGFlow batch_size=16     | DashScope 限 10 → 向量化失败                  | 容器补丁（幂等精确替换）                     |
-| 9  | marked v17 renderer 签名  | TS 类型错误                                    | `code({text, lang})` 对象参数              |
-| 10 | noUncheckedIndexedAccess  | 数组索引访问 TS 报错                           | 全部判空                                     |
-| 11 | v-for 中 ref 是数组       | `input.focus is not a function`              | `@vue:mounted` 钩子取 el                   |
-| 12 | window.prompt             | 自动化环境不支持                               | 行内编辑                                     |
-| 13 | functools.wraps 遗漏      | 工具名变 wrapper                               | 装饰器必加 wraps                             |
-| 14 | 登录 Form vs JSON         | 422 校验错误                                   | OAuth2PasswordRequestForm 用 FormData        |
-| 15 | Windows GBK 控制台        | emoji 输出 UnicodeEncodeError                  | `sys.stdout.reconfigure(encoding="utf-8")` |
-| 16 | Start-Process npm         | 找不到可执行文件                               | `Get-Command npm.cmd`                      |
-| 17 | SQLite 并发锁             | database is locked                             | WAL + busy_timeout + check_same_thread=False |
-| 18 | 无界线程池                | 线程爆炸放大锁竞争                             | `ThreadPoolExecutor(max_workers=8)`        |
-| 19 | 测试明文密码              | argon2 InvalidHashError 500                    | 夹具用`ph.hash()` 造数据                   |
-| 20 | mock 残留污染             | 单例跨测试泄漏                                 | autouse fixture 前后 reset                   |
+| #  | 坑                         | 现象                                           | 解法                                                |
+| -- | -------------------------- | ---------------------------------------------- | --------------------------------------------------- |
+| 1  | 同步流式阻塞事件循环       | 并发请求全卡死                                 | run_in_executor 有界线程池                          |
+| 2  | StopIteration 穿越 Future  | RuntimeError 破坏迭代                          | 哨兵对象`_SENTINEL`                               |
+| 3  | Pydantic`_` 前缀类属性   | `cls._RE.match` AttributeError → 全接口 500 | 提为模块级常量                                      |
+| 4  | pydantic-settings 去引号   | 字面量 "DEEPSEEK_API_KEY" 被当 key → 401      | 正则判断环境变量引用                                |
+| 5  | 地图路径三处不一致         | Docker 里 /maps 404                            | `maps_output_dir` 环境变量统一                    |
+| 6  | 未闭合 tool_calls          | 超时中断后会话永久损坏                         | 请求前`_repair_incomplete_tool_calls`             |
+| 7  | msgpack ExtType(5)         | 历史会话无法读取                               | 三级降级解析 + 永不抛异常                           |
+| 8  | RAGFlow batch_size=16      | DashScope 限 10 → 向量化失败                  | 容器补丁（幂等精确替换）                            |
+| 9  | marked v17 renderer 签名   | TS 类型错误                                    | `code({text, lang})` 对象参数                     |
+| 10 | noUncheckedIndexedAccess   | 数组索引访问 TS 报错                           | 全部判空                                            |
+| 11 | v-for 中 ref 是数组        | `input.focus is not a function`              | `@vue:mounted` 钩子取 el                          |
+| 12 | window.prompt              | 自动化环境不支持                               | 行内编辑                                            |
+| 13 | functools.wraps 遗漏       | 工具名变 wrapper                               | 装饰器必加 wraps                                    |
+| 14 | 登录 Form vs JSON          | 422 校验错误                                   | OAuth2PasswordRequestForm 用 FormData               |
+| 15 | Windows GBK 控制台         | emoji 输出 UnicodeEncodeError                  | `sys.stdout.reconfigure(encoding="utf-8")`        |
+| 16 | Start-Process npm          | 找不到可执行文件                               | `Get-Command npm.cmd`                             |
+| 17 | SQLite 并发锁              | database is locked                             | WAL + busy_timeout + check_same_thread=False        |
+| 18 | 无界线程池                 | 线程爆炸放大锁竞争                             | `ThreadPoolExecutor(max_workers=8)`               |
+| 19 | 测试明文密码               | argon2 InvalidHashError 500                    | 夹具用`ph.hash()` 造数据                          |
+| 20 | mock 残留污染              | 单例跨测试泄漏                                 | autouse fixture 前后 reset                          |
 | 21 | async 端点里的同步阻塞调用 | 修复期间事件循环被卡，其他请求全停             | `_repair_incomplete_tool_calls_async` 走 executor |
+| 22 | SSE 事件被网络分包切断     | 半个事件 JSON.parse 失败 → 丢 token            | 跨 read 的 `buffer` + `lines.pop()` 留尾巴拼接   |
 
 ---
 

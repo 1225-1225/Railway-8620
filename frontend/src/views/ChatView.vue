@@ -311,6 +311,9 @@ async function sendMessage() {
     const reader = response.body.getReader()
     const decoder = new TextDecoder()
     let assistantMessage = ''
+    // 跨 read 的事件缓冲区：网络分包可能把一个 SSE 事件切在两个包里，
+    // 不完整的尾巴留在这里，与下一次 read 的数据拼接后再解析
+    let buffer = ''
 
     messages.value.push({ role: 'assistant', content: '' })
     const lastIndex = messages.value.length - 1
@@ -319,8 +322,10 @@ async function sendMessage() {
       const { done, value } = await reader.read()
       if (done) break
 
-      const chunk = decoder.decode(value, { stream: true })
-      const lines = chunk.split('\n\n')
+      buffer += decoder.decode(value, { stream: true })
+      const lines = buffer.split('\n\n')
+      // 最后一段可能是被切断的半个事件（或空串）→ 留在缓冲区等下次拼接
+      buffer = lines.pop() ?? ''
       for (const line of lines) {
         if (line.startsWith('data: ')) {
           const data = line.slice(6).trim()
