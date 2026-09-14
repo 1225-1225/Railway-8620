@@ -37,6 +37,10 @@ def log_tool_call(func):
     return wrapper
 
 # ===== 数据加载 =====
+# 支持两种文件名：
+#   - 日期化：train_details_YYYYMMDD.json（由 train_sync 每日更新产出）
+#   - 默认：  train_details.json
+# 优先加载日期化文件（最新），缺失时回退默认文件
 _data_dir = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'data'))
 _train_details_path = os.path.join(_data_dir, 'train_details.json')
 _train_stations_path = os.path.join(_data_dir, 'train_stations.json')
@@ -46,21 +50,40 @@ _train_details = None
 _train_stations = None
 
 
+def _resolve_latest_data_path(base_name: str) -> str:
+    """在 data/ 下找日期化的最新文件，找不到就用默认文件。
+
+    文件名约定：train_details_YYYYMMDD.json / train_stations_YYYYMMDD.json
+    train_sync 每日更新时写入带日期的文件，这里按日期取最新。
+    """
+    import glob as _glob
+    pattern = os.path.join(_data_dir, f"{base_name}_????????.json")
+    matches = _glob.glob(pattern)
+    if matches:
+        # 文件名末尾是 YYYYMMDD，取最大的
+        latest = max(matches, key=lambda p: os.path.basename(p))
+        logger.info(f"使用日期化数据: {os.path.basename(latest)}")
+        return latest
+    return os.path.join(_data_dir, f"{base_name}.json")
+
+
 def _load_train_details():
     global _train_details
     if _train_details is None:
-        with open(_train_details_path, 'r', encoding='utf-8') as f:
+        path = _resolve_latest_data_path('train_details')
+        with open(path, 'r', encoding='utf-8') as f:
             _train_details = json.load(f)
-        logger.info(f"加载 train_details.json: {len(_train_details)} 个车次")
+        logger.info(f"加载 train_details: {len(_train_details)} 个车次")
     return _train_details
 
 
 def _load_train_stations():
     global _train_stations
     if _train_stations is None:
-        with open(_train_stations_path, 'r', encoding='utf-8') as f:
+        path = _resolve_latest_data_path('train_stations')
+        with open(path, 'r', encoding='utf-8') as f:
             _train_stations = json.load(f)
-        logger.info(f"加载 train_stations.json: {len(_train_stations)} 个车次")
+        logger.info(f"加载 train_stations: {len(_train_stations)} 个车次")
     return _train_stations
 
 

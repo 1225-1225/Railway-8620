@@ -1469,7 +1469,7 @@ with ThreadPoolExecutor(max_workers=concurrency) as pool:
 | 19 | 测试明文密码               | argon2 InvalidHashError 500                    | 夹具用`ph.hash()` 造数据                          |
 | 20 | mock 残留污染              | 单例跨测试泄漏                                 | autouse fixture 前后 reset                          |
 | 21 | async 端点里的同步阻塞调用 | 修复期间事件循环被卡，其他请求全停             | `_repair_incomplete_tool_calls_async` 走 executor |
-| 22 | SSE 事件被网络分包切断     | 半个事件 JSON.parse 失败 → 丢 token            | 跨 read 的 `buffer` + `lines.pop()` 留尾巴拼接   |
+| 22 | SSE 事件被网络分包切断     | 半个事件 JSON.parse 失败 → 丢 token           | 跨 read 的`buffer` + `lines.pop()` 留尾巴拼接   |
 
 ---
 

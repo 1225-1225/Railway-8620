@@ -4,6 +4,10 @@
 # 初始化标记（运行时生成，含内部 ID）
 .ragflow_initialized
 
+# train_sync 运行时产物（12306 原始数据与日志，按需保留）
+train_sync/raw/
+train_sync/sync.log
+
 # Python
 __pycache__/
 *.pyc
