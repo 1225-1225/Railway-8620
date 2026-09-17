@@ -610,13 +610,13 @@ class ChatRequest(BaseModel):
     message: str
     session_id: str = ""
 
-    # 必须加 ClassVar 注解，否则 Pydantic 会把 `_` 开头的类属性当私有属性
-    _SESSION_ID_RE: ClassVar[re.Pattern] = re.compile(r"^[A-Za-z0-9_-]{0,64}$")
+    # 必须加 ClassVar 注解，否则 Pydantic 会把它当成字段或私有属性
+    SESSION_ID_RE: ClassVar[re.Pattern] = re.compile(r"^[A-Za-z0-9_-]{0,64}$")
 
     @field_validator("session_id")
     @classmethod
     def _validate_session_id(cls, v: str) -> str:
-        if not cls._SESSION_ID_RE.match(v):
+        if not cls.SESSION_ID_RE.match(v):
             raise ValueError("session_id 只能包含字母、数字、下划线或连字符，且长度不超过 64")
         return v
 
@@ -630,23 +630,25 @@ class ChatRequest(BaseModel):
         return v
 ```
 
-**踩坑记录（本项目最典型的 bug）**：`_SESSION_ID_RE` 最初定义为**不加注解的类属性**，Pydantic v2 把这种 `_` 前缀属性判定为“私有属性”，从 `__dict__` 移入 `__private_attributes__` 并包装成 `ModelPrivateAttr`。关键点在于 Pydantic 对**类级访问和实例级访问的处理不对称**：
+**踩坑记录（本项目最典型的 bug）**：`SESSION_ID_RE` 最初定义为**不加注解的类属性**，且命名带 `_` 前缀。Pydantic v2 对“`_` 开头 + 无注解”的类属性判定为“私有属性”，从 `__dict__` 移入 `__private_attributes__` 并包装成 `ModelPrivateAttr`。关键在于 Pydantic 对**类级访问和实例级访问的处理不对称**：
 
 | 访问方式 | Pydantic 行为 | 结果 |
 |---|---|---|
-| `cls._SESSION_ID_RE`（类级） | `ModelMetaclass.__getattr__` 直接返回 `private_attributes[item]`，**不解包** | 拿到包装对象 → `.match()` 抛 `AttributeError` |
-| `self._SESSION_ID_RE`（实例级） | `BaseModel.__getattr__` 从 `__pydantic_private__` 取真值 | 拿到正则 ✅ |
+| `cls.SESSION_ID_RE`（类级） | `ModelMetaclass.__getattr__` 直接返回 `private_attributes[item]`，**不解包** | 拿到包装对象 → `.match()` 抛 `AttributeError` |
+| `self.SESSION_ID_RE`（实例级） | `BaseModel.__getattr__` 从 `__pydantic_private__` 取真值 | 拿到正则 ✅ |
 
 而 `@field_validator` 必然是 `@classmethod`（校验发生在实例创建**之前**，没有 self），只能用 `cls` → 踩中不对称 → **所有 /chat 请求 500**。这个 bug 是自研压测脚本跑出来的。
 
-**两种修法**：
+**命名与注解的四种组合（实测验证，pydantic 2.13.4）**：
 
-| 修法 | 写法 | 特点 |
-|---|---|---|
-| **模块级常量**（最保守） | 正则提到类外 | 绕开 Pydantic 一切类属性处理，绝对安全，但与类分离 |
-| **类内 + ClassVar**（本项目采用） | `_SESSION_ID_RE: ClassVar[re.Pattern] = ...` | 内聚性好、命名空间干净；`ClassVar` 告诉 Pydantic“这是普通类变量，别管它” |
+| 写法 | 结果 |
+|---|---|
+| `NAME = re.compile(...)`（无下划线、无注解） | ❌ **类定义时立刻报错** `PydanticUserError: A non-annotated attribute was detected` |
+| `NAME: ClassVar[...] = ...`（无下划线 + ClassVar） | ✅ 正常，`cls.NAME` 是 `Pattern` |
+| `_NAME = re.compile(...)`（有下划线、无注解） | ⚠️ **类定义正常，运行时才崩**——静默包装成 `ModelPrivateAttr` |
+| `_NAME: ClassVar[...] = ...`（有下划线 + ClassVar） | ✅ 正常 |
 
-> 💡 **ClassVar 的作用**：它是 `typing.ClassVar` 注解，语义是“属于类而非实例的变量”。Pydantic 识别到它就不会将其视为字段或私有属性，属性原样保留在 `__dict__` 中，因此 `cls._SESSION_ID_RE` 拿到的就是真正的 `re.Pattern`。
+> 💡 **为什么最终去掉 `_` 前缀**：`_` 并非技术要求（`ClassVar` 才是关键），但它会改变 Pydantic 的判定路径——**无下划线 + 无注解会响亮报错（当场发现），有下划线 + 无注解则静默埋雷（运行时才崩）**。去掉 `_` 后，万一将来有人误删 `ClassVar` 注解，Pydantic 会立刻在类定义时报错而不是留到线上。同时它也表达了“这是类常量而非私有细节”的语义，注释也因此可以精简。
 
 **为什么校验 session_id**：它会被拼进 `thread_id` 并作为 SQLite 查询条件，不限制字符就是注入漏洞。
 
@@ -1467,7 +1469,7 @@ with ThreadPoolExecutor(max_workers=concurrency) as pool:
 | -- | -------------------------- | ---------------------------------------------- | --------------------------------------------------- |
 | 1  | 同步流式阻塞事件循环       | 并发请求全卡死                                 | run_in_executor 有界线程池                          |
 | 2  | StopIteration 穿越 Future  | RuntimeError 破坏迭代                          | 哨兵对象`_SENTINEL`                               |
-| 3  | Pydantic`_` 前缀类属性   | `cls._RE.match` AttributeError → 全接口 500 | `ClassVar` 注解（或提为模块级常量）                |
+| 3  | Pydantic`_` 前缀类属性   | `cls._RE.match` AttributeError → 全接口 500 | `ClassVar` 注解 + 去掉 `_`（让错误提前暴露）        |
 | 4  | pydantic-settings 去引号   | 字面量 "DEEPSEEK_API_KEY" 被当 key → 401      | 正则判断环境变量引用                                |
 | 5  | 地图路径三处不一致         | Docker 里 /maps 404                            | `maps_output_dir` 环境变量统一                    |
 | 6  | 未闭合 tool_calls          | 超时中断后会话永久损坏                         | 请求前`_repair_incomplete_tool_calls`             |

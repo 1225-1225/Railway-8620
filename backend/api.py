@@ -136,18 +136,12 @@ class ChatRequest(BaseModel):
 
     # session_id 会被拼进 thread_id 并作为目录/DB 查询条件，必须限制为安全字符
     # 允许：字母数字、下划线、连字符（覆盖 UUID 与前端生成的自定义 ID）
-    #
-    # 注意：必须加 ClassVar 注解！不加注解时 Pydantic 会把 `_` 开头的类属性当作
-    # 私有属性，包装成 ModelPrivateAttr 并从 __dict__ 中移走。此时类级访问
-    # （cls._SESSION_ID_RE）拿到的是包装对象而非正则本身，调用 .match() 会抛
-    # AttributeError（实例级访问 self.xxx 才会解包，@classmethod 用 cls 不会）。
-    # 加 ClassVar 告诉 Pydantic "这是普通类变量"，属性保持原样。
-    _SESSION_ID_RE: ClassVar[re.Pattern] = re.compile(r"^[A-Za-z0-9_-]{0,64}$")
+    SESSION_ID_RE: ClassVar[re.Pattern] = re.compile(r"^[A-Za-z0-9_-]{0,64}$")
 
     @field_validator("session_id")
     @classmethod
     def _validate_session_id(cls, v: str) -> str:
-        if not cls._SESSION_ID_RE.match(v):
+        if not cls.SESSION_ID_RE.match(v):
             raise ValueError(
                 "session_id 只能包含字母、数字、下划线或连字符，且长度不超过 64"
             )
