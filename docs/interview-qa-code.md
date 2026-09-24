@@ -8,15 +8,13 @@
 
 ## 📺 关于 B 站链接的说明
 
-每个板块标题下的 B 站链接是**搜索结果页**（永远有效），点击后显示该关键词下的视频列表。挑选建议：
+每个板块标题下的 B 站链接都是**真实视频直链**（已逐个验证存在），点击直接观看。挑选标准：
 
-| 技巧 | 说明 |
+| 标准 | 说明 |
 |---|---|
-| 优先选播放量 10 万+、时长 1-3 小时的系统课 | 黑马程序员、尚硅谷、技术蛋老师等 UP 主质量稳定 |
-| 面试速成搜"面试题" | 如"Python GIL 面试"、"JWT 面试" |
-| 概念不懂搜"详解/原理" | 如"asyncio 事件循环"、"JWT 原理" |
-
-> 💡 如果某个搜索结果不理想，把链接里的 `keyword=` 后面换成你自己的关键词即可（URL 编码的中文）。
+| 优先选播放量 10 万+ 的系统课 | 黑马程序员、尚硅谷、技术蛋老师、码农高天等 UP 主质量稳定 |
+| 面试速成看"面试"系列 | 如 GIL 面试、JWT 面试 |
+| 概念不懂看"详解/原理" | 如 asyncio 事件循环、JWT 原理 |
 
 ---
 
@@ -40,7 +38,7 @@
 
 # 一、HTTP 协议与 RESTful 设计
 
-> 📺 **B 站复习**：[HTTP 协议详解](https://search.bilibili.com/all?keyword=HTTP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3) · [RESTful API 设计](https://search.bilibili.com/all?keyword=RESTful%20API%E8%AE%BE%E8%AE%A1) · [HTTP 状态码面试](https://search.bilibili.com/all?keyword=HTTP%E7%8A%B6%E6%80%81%E7%A0%81)
+> 📺 **B 站复习**：[HTTP 协议详解（26万播放）](https://www.bilibili.com/video/BV1V54y1y7c4/) · [RESTful API 设计（鱼皮 15.9万）](https://www.bilibili.com/video/BV1WFBXBmExs/) · [HTTP 状态码痛度表（10.9万）](https://www.bilibili.com/video/BV14w41147fr/) · [HTTP/1.1 vs 2 vs 3（技术蛋老师 22.1万）](https://www.bilibili.com/video/BV1vv4y1U77y/)
 
 ## Q1. 我看你项目里用了 POST 来传信息，传的是什么信息？
 
@@ -97,7 +95,7 @@
 
 # 二、FastAPI 框架
 
-> 📺 **B 站复习**：[FastAPI 教程](https://search.bilibili.com/all?keyword=FastAPI%E6%95%99%E7%A8%8B) · [FastAPI 依赖注入](https://search.bilibili.com/all?keyword=FastAPI%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5) · [FastAPI 中间件](https://search.bilibili.com/all?keyword=FastAPI%20%E4%B8%AD%E9%97%B4%E4%BB%B6)
+> 📺 **B 站复习**：[FastAPI 从入门到实战（黑马 152.5万）](https://www.bilibili.com/video/BV1zV2QBtE39/) · [FastAPI 依赖注入（7421）](https://www.bilibili.com/video/BV1oZ4y1J7MJ/) · [FastAPI 中间件（4687）](https://www.bilibili.com/video/BV1epiCYCEzH/)
 
 ## Q1. 为什么选 FastAPI 而不是 Flask / Django？
 
@@ -149,7 +147,7 @@
 
 # 三、Pydantic 数据校验
 
-> 📺 **B 站复习**：[Pydantic 教程](https://search.bilibili.com/all?keyword=Pydantic%E6%95%99%E7%A8%8B) · [Pydantic v2 校验](https://search.bilibili.com/all?keyword=Pydantic%20v2%20%E6%A0%A1%E9%AA%8C)
+> 📺 **B 站复习**：[Pydantic 数据验证（2.3万）](https://www.bilibili.com/video/BV1JKmeY9ED2/) · [Pydantic for LLM 工作流（吴恩达 1.2万）](https://www.bilibili.com/video/BV1SMRpBmEyG/)
 
 ## Q1. Pydantic 是什么？为什么需要它？
 
@@ -185,7 +183,7 @@
 
 # 四、SSE 与流式传输
 
-> 📺 **B 站复习**：[SSE Server-Sent Events](https://search.bilibili.com/all?keyword=SSE%20Server-Sent%20Events) · [流式输出原理](https://search.bilibili.com/all?keyword=LLM%20%E6%B5%81%E5%BC%8F%E8%BE%93%E5%87%BA%E5%8E%9F%E7%90%86) · [ChatGPT 流式实现](https://search.bilibili.com/all?keyword=ChatGPT%20%E6%B5%81%E5%BC%8F%E5%AE%9E%E7%8E%B0)
+> 📺 **B 站复习**：[SSE 服务端推送（1.2万）](https://www.bilibili.com/video/BV1nL411B7ND/) · [SSE 才是 AI 流式输出的答案（1.3万）](https://www.bilibili.com/video/BV15F7J6dEdm/) · [ChatGPT 流式输出原理 SSE（2.3万）](https://www.bilibili.com/video/BV1ws4y1P7G7/) · [SSE vs WebSocket 面试（2925）](https://www.bilibili.com/video/BV1MZYT6pEsE/)
 
 ## Q1. SSE 是什么？数据格式是什么？
 
@@ -219,7 +217,7 @@
 
 # 五、Python 异步编程（asyncio）
 
-> 📺 **B 站复习**：[asyncio 事件循环](https://search.bilibili.com/all?keyword=asyncio%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF) · [async await 详解](https://search.bilibili.com/all?keyword=Python%20async%20await%20%E8%AF%A6%E8%A7%A3) · [Python GIL](https://search.bilibili.com/all?keyword=Python%20GIL%20%E9%9D%A2%E8%AF%95)
+> 📺 **B 站复习**：[asyncio 协程入门（码农高天 15.7万）](https://www.bilibili.com/video/BV1oa411b7c9/) · [async/await 面试考点（4.2万）](https://www.bilibili.com/video/BV1JsLDzAEGu/) · [GIL 前世今生（码农高天 4.7万）](https://www.bilibili.com/video/BV1za411t7dR/)
 
 ## Q1. 什么是事件循环？为什么阻塞代码会冻结它？
 
@@ -260,7 +258,7 @@
 
 # 六、Python 语言特性
 
-> 📺 **B 站复习**：[Python 生成器](https://search.bilibili.com/all?keyword=Python%20%E7%94%9F%E6%88%90%E5%99%A8%E8%AF%A6%E8%A7%A3) · [装饰器](https://search.bilibili.com/all?keyword=Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E8%AF%A6%E8%A7%A3) · [描述符协议](https://search.bilibili.com/all?keyword=Python%20%E6%8F%8F%E8%BF%B0%E7%AC%A6%E5%8D%8F%E8%AE%AE) · [下划线约定](https://search.bilibili.com/all?keyword=Python%20%E5%8D%95%E4%B8%8B%E5%88%92%E7%BA%BF%20%E5%8F%8C%E4%B8%8B%E5%88%92%E7%BA%BF)
+> 📺 **B 站复习**：[生成器是什么（码农高天 6.7万）](https://www.bilibili.com/video/BV1KS4y1D7Qb/) · [装饰器超详细教学（码农高天 16.4万）](https://www.bilibili.com/video/BV1Gu411Q7JV/) · [描述符协议（码农高天 4.2万）](https://www.bilibili.com/video/BV1pT4y1a7dd/) · [下划线的用法（5.4万）](https://www.bilibili.com/video/BV1z94y1U7j9/)
 
 ## Q1. yield 是什么？和 return 什么区别？
 
@@ -306,7 +304,7 @@
 
 # 七、LangChain / LangGraph / Agent
 
-> 📺 **B 站复习**：[LangGraph 教程](https://search.bilibili.com/all?keyword=LangGraph%E6%95%99%E7%A8%8B) · [LangChain Agent 实战](https://search.bilibili.com/all?keyword=LangChain%20Agent%20%E5%AE%9E%E6%88%98) · [ReAct 模式](https://search.bilibili.com/all?keyword=ReAct%20Agent%20%E5%8E%9F%E7%90%86)
+> 📺 **B 站复习**：[LangGraph 智能体实战（尚硅谷 66.5万）](https://www.bilibili.com/video/BV1z3NY66EY1/) · [LangChain+LangGraph 开发实战（黑马 177.9万）](https://www.bilibili.com/video/BV178w1z7EHQ/) · [ReAct Agent 原理（1.7万）](https://www.bilibili.com/video/BV1iuAUzHErP/)
 
 ## Q1. ReAct 循环是什么？你的项目里怎么跑的？
 
@@ -338,7 +336,7 @@
 
 # 八、数据库与 SQL
 
-> 📺 **B 站复习**：[SQL 注入防范](https://search.bilibili.com/all?keyword=SQL%E6%B3%A8%E5%85%A5%20%E9%98%B2%E8%8C%83) · [SQLite WAL 模式](https://search.bilibili.com/all?keyword=SQLite%20WAL) · [SQLAlchemy 教程](https://search.bilibili.com/all?keyword=SQLAlchemy%E6%95%99%E7%A8%8B) · [数据库事务](https://search.bilibili.com/all?keyword=%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%20%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB)
+> 📺 **B 站复习**：[SQL 注入原理（技术蛋老师 24万）](https://www.bilibili.com/video/BV1ZR4y1Y745/) · [WAL 预写式日志详解](https://www.bilibili.com/video/BV1frNm67E4T/) · [SQLAlchemy 2.0 入门（2.3万）](https://www.bilibili.com/video/BV1Gz4y1P76z/) · [事务隔离级别/MVCC（6.4万）](https://www.bilibili.com/video/BV1Hr421p7EK/)
 
 ## Q1. SQL 注入怎么防的？（⭐ 必考）
 
@@ -381,7 +379,7 @@
 
 # 九、Web 安全
 
-> 📺 **B 站复习**：[JWT 原理](https://search.bilibili.com/all?keyword=JWT%20%E5%8E%9F%E7%90%86%20%E9%9D%A2%E8%AF%95) · [argon2 密码哈希](https://search.bilibili.com/all?keyword=%E5%AF%86%E7%A0%81%E5%93%88%E5%B8%8C%20argon2%20bcrypt) · [CORS 跨域](https://search.bilibili.com/all?keyword=CORS%20%E8%B7%A8%E5%9F%9F%E8%AF%A6%E8%A7%A3) · [XSS CSRF 区别](https://search.bilibili.com/all?keyword=XSS%20CSRF%20%E5%8C%BA%E5%88%AB)
+> 📺 **B 站复习**：[JWT 认证原理+实战（21.5万）](https://www.bilibili.com/video/BV1i54y1m7cP/) · [15 分钟学会 JWT（15.5万）](https://www.bilibili.com/video/BV1cK4y197EM/) · [加盐哈希原理（2.7万）](https://www.bilibili.com/video/BV1F4wWehErP/) · [CORS 跨域详解（尚硅谷 5.8万）](https://www.bilibili.com/video/BV1pT421k7yz/) · [XSS 攻击原理（技术蛋老师 16.3万）](https://www.bilibili.com/video/BV1rg411v7B8/) · [CSRF 攻击与防范（技术蛋老师 7.2万）](https://www.bilibili.com/video/BV1UH4y1M7Dg/)
 
 ## Q1. JWT 的结构是什么？怎么验证的？
 
@@ -411,7 +409,7 @@
 
 # 十、前端 Vue 3 / TypeScript
 
-> 📺 **B 站复习**：[Vue3 组合式 API](https://search.bilibili.com/all?keyword=Vue3%20%E7%BB%84%E5%90%88%E5%BC%8F%20API) · [响应式原理 ref reactive](https://search.bilibili.com/all?keyword=Vue3%20%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86) · [Vue Router 路由守卫](https://search.bilibili.com/all?keyword=Vue%20Router%20%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB)
+> 📺 **B 站复习**：[Vue3 极简教程（71.7万）](https://www.bilibili.com/video/BV13tjqzmEDZ/) · [组合式 API vs 选项式 API（1.8万）](https://www.bilibili.com/video/BV1cr4y1C7Xc/) · [Vue3 响应式原理（3.5万）](https://www.bilibili.com/video/BV1qK42147nm/) · [Vue Router4 路由（7.6万）](https://www.bilibili.com/video/BV1xt421h7LC/)
 
 ## Q1. ref 和 reactive 什么区别？你用的哪个？
 
@@ -447,7 +445,7 @@
 
 # 十一、Docker 与 Nginx 部署
 
-> 📺 **B 站复习**：[Docker 从入门到实践](https://search.bilibili.com/all?keyword=Docker%20%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5) · [Dockerfile 编写](https://search.bilibili.com/all?keyword=Dockerfile%20%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA) · [Nginx 反向代理](https://search.bilibili.com/all?keyword=Nginx%20%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AF%A6%E8%A7%A3)
+> 📺 **B 站复习**：[Docker 实战攻略（技术爬爬虾 69.1万）](https://www.bilibili.com/video/BV1THKyzBER6/) · [Dockerfile 多阶段构建（5109）](https://www.bilibili.com/video/BV1FE421u7nH/) · [Nginx 三大功能配置（技术蛋老师 22.2万）](https://www.bilibili.com/video/BV1TZ421b7SD/)
 
 ## Q1. Dockerfile 的多阶段构建是什么？为什么用？
 
@@ -473,7 +471,7 @@
 
 # 十二、测试（pytest/Mock）
 
-> 📺 **B 站复习**：[pytest 教程](https://search.bilibili.com/all?keyword=pytest%E6%95%99%E7%A8%8B) · [unittest mock 详解](https://search.bilibili.com/all?keyword=Python%20mock%20%E6%B5%8B%E8%AF%95) · [软件测试金字塔](https://search.bilibili.com/all?keyword=%E6%B5%8B%E8%AF%95%E9%87%91%E5%AD%97%E5%A1%94)
+> 📺 **B 站复习**：[Pytest 一小时速成（40.3万）](https://www.bilibili.com/video/BV1rDdHYCEUP/) · [Python 单元测试 Mock（4214）](https://www.bilibili.com/video/BV1784y147P7/) · [unittest/mock 为什么高效（3万）](https://www.bilibili.com/video/BV1bawPesEZL/)
 
 ## Q1. Mock 是什么？为什么需要？
 
@@ -499,7 +497,7 @@
 
 # 十三、Git 与工程化
 
-> 📺 **B 站复习**：[Git 工作流](https://search.bilibili.com/all?keyword=Git%20%E5%B7%A5%E4%BD%9C%E6%B5%81%20%E6%95%99%E7%A8%8B) · [GitHub Actions 入门](https://search.bilibili.com/all?keyword=GitHub%20Actions%20%E5%85%A5%E9%97%A8)
+> 📺 **B 站复习**：[一小时 Git 教程（GeekHour 83.4万）](https://www.bilibili.com/video/BV1HM411377j/) · [GitHub Actions 入门（技术蛋老师 8万）](https://www.bilibili.com/video/BV1aT421y7Ar/)
 
 ## Q1. 你的 Git 工作流是什么样的？
 
