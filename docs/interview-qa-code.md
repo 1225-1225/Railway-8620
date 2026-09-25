@@ -8,13 +8,15 @@
 
 ## 📺 关于 B 站链接的说明
 
-每个板块标题下的 B 站链接都是**真实视频直链**（已逐个验证存在），点击直接观看。挑选标准：
+每个板块标题下的 B 站链接都是**真实视频直链**，且**优先选了 2025–2026 年新发布的**（技术迭代快，老视频容易过时）。点开即可看，括号里标了播放量/作者/发布时间便于判断。
 
 | 标准 | 说明 |
 |---|---|
-| 优先选播放量 10 万+ 的系统课 | 黑马程序员、尚硅谷、技术蛋老师、码农高天等 UP 主质量稳定 |
-| 面试速成看"面试"系列 | 如 GIL 面试、JWT 面试 |
-| 概念不懂看"详解/原理" | 如 asyncio 事件循环、JWT 原理 |
+| 优先 2025–2026 年发布 | 框架版本、API 写法不会过时 |
+| 系统课选大 UP 主 | 黑马、尚硅谷、技术蛋老师、码农高天等 |
+| 面试速成看"面试"系列 | JWT 面试、GIL 面试、响应式原理面试 |
+
+> 💡 视频终究会过时，建议以官方文档为主、视频为辅。链接失效时直接在 B 站搜板块关键词即可。
 
 ---
 
@@ -38,7 +40,7 @@
 
 # 一、HTTP 协议与 RESTful 设计
 
-> 📺 **B 站复习**：[HTTP 协议详解（26万播放）](https://www.bilibili.com/video/BV1V54y1y7c4/) · [RESTful API 设计（鱼皮 15.9万）](https://www.bilibili.com/video/BV1WFBXBmExs/) · [HTTP 状态码痛度表（10.9万）](https://www.bilibili.com/video/BV14w41147fr/) · [HTTP/1.1 vs 2 vs 3（技术蛋老师 22.1万）](https://www.bilibili.com/video/BV1vv4y1U77y/)
+> 📺 **B 站复习**：[HTTP 协议 5 分钟讲透（9月）](https://www.bilibili.com/video/BV1yKYJ61Ed8/) · [HTTP 高频响应码精讲（9月）](https://www.bilibili.com/video/BV1EyY36mEkD/) · [RESTful API 凭什么火了 20 多年（9月）](https://www.bilibili.com/video/BV1SjeB6yEuX/) · [API 设计最佳实践（郭宏志 8月）](https://www.bilibili.com/video/BV1dHMQ6tEYG/)
 
 ## Q1. 我看你项目里用了 POST 来传信息，传的是什么信息？
 
@@ -95,7 +97,7 @@
 
 # 二、FastAPI 框架
 
-> 📺 **B 站复习**：[FastAPI 从入门到实战（黑马 152.5万）](https://www.bilibili.com/video/BV1zV2QBtE39/) · [FastAPI 依赖注入（7421）](https://www.bilibili.com/video/BV1oZ4y1J7MJ/) · [FastAPI 中间件（4687）](https://www.bilibili.com/video/BV1epiCYCEzH/)
+> 📺 **B 站复习**：[FastAPI 入门到实战（黑马 152.8万 2025-12）](https://www.bilibili.com/video/BV1zV2QBtE39/) · [FastAPI 入门到实战（尚学堂 19.6万 2025-09）](https://www.bilibili.com/video/BV1eKpizeEnb/) · [FastAPI + LangGraph 智能实验室系统（青戈 9月）](https://www.bilibili.com/video/BV13hbP6zEUd/) · [依赖注入 DI（9月）](https://www.bilibili.com/video/BV1Yato6REW6/) · [请求中间件（9月）](https://www.bilibili.com/video/BV1Yato6RE2U/)
 
 ## Q1. 为什么选 FastAPI 而不是 Flask / Django？
 
@@ -147,7 +149,7 @@
 
 # 三、Pydantic 数据校验
 
-> 📺 **B 站复习**：[Pydantic 数据验证（2.3万）](https://www.bilibili.com/video/BV1JKmeY9ED2/) · [Pydantic for LLM 工作流（吴恩达 1.2万）](https://www.bilibili.com/video/BV1SMRpBmEyG/)
+> 📺 **B 站复习**：[Pydantic for LLM 官方课程（吴恩达 9月）](https://www.bilibili.com/video/BV1w1hv6EE4A/) · [Pydantic 用于 LLM 工作流（吴恩达 1.2万 5月）](https://www.bilibili.com/video/BV1SMRpBmEyG/) · [Pydantic 数据验证完整教程（2025-10）](https://www.bilibili.com/video/BV1B5yqBCEPT/)
 
 ## Q1. Pydantic 是什么？为什么需要它？
 
@@ -183,7 +185,7 @@
 
 # 四、SSE 与流式传输
 
-> 📺 **B 站复习**：[SSE 服务端推送（1.2万）](https://www.bilibili.com/video/BV1nL411B7ND/) · [SSE 才是 AI 流式输出的答案（1.3万）](https://www.bilibili.com/video/BV15F7J6dEdm/) · [ChatGPT 流式输出原理 SSE（2.3万）](https://www.bilibili.com/video/BV1ws4y1P7G7/) · [SSE vs WebSocket 面试（2925）](https://www.bilibili.com/video/BV1MZYT6pEsE/)
+> 📺 **B 站复习**：[SSE 才是 AI 流式输出的答案（1.3万 6月）](https://www.bilibili.com/video/BV15F7J6dEdm/) · [用 FastAPI 讲透 SSE 流式响应（6月）](https://www.bilibili.com/video/BV1if7E64Ex5/) · [SSE vs WebSocket 面试（9月）](https://www.bilibili.com/video/BV1MZYT6pEsE/) · [7 分钟了解 SSE（1.4万）](https://www.bilibili.com/video/BV12auGzHEK2/)
 
 ## Q1. SSE 是什么？数据格式是什么？
 
@@ -217,7 +219,7 @@
 
 # 五、Python 异步编程（asyncio）
 
-> 📺 **B 站复习**：[asyncio 协程入门（码农高天 15.7万）](https://www.bilibili.com/video/BV1oa411b7c9/) · [async/await 面试考点（4.2万）](https://www.bilibili.com/video/BV1JsLDzAEGu/) · [GIL 前世今生（码农高天 4.7万）](https://www.bilibili.com/video/BV1za411t7dR/)
+> 📺 **B 站复习**：[asyncio 小白速通（1万 2025-11）](https://www.bilibili.com/video/BV1KmUpB8EJ3/) · [async+await+future 高频面试考点（4.2万）](https://www.bilibili.com/video/BV1JsLDzAEGu/) · [15 分钟看懂 GIL（9356）](https://www.bilibili.com/video/BV1RHz4B8EE8/) · [FastAPI 没加 async 性能入土（1万）](https://www.bilibili.com/video/BV1gn7DzXEEj/)
 
 ## Q1. 什么是事件循环？为什么阻塞代码会冻结它？
 
@@ -258,7 +260,7 @@
 
 # 六、Python 语言特性
 
-> 📺 **B 站复习**：[生成器是什么（码农高天 6.7万）](https://www.bilibili.com/video/BV1KS4y1D7Qb/) · [装饰器超详细教学（码农高天 16.4万）](https://www.bilibili.com/video/BV1Gu411Q7JV/) · [描述符协议（码农高天 4.2万）](https://www.bilibili.com/video/BV1pT4y1a7dd/) · [下划线的用法（5.4万）](https://www.bilibili.com/video/BV1z94y1U7j9/)
+> 📺 **B 站复习**：[迭代器与生成器（9月）](https://www.bilibili.com/video/BV1JwtZ6NEAo/) · [装饰器/正则/元类/单例 29 个面试考点（9月）](https://www.bilibili.com/video/BV1S6to6JEVq/) · [深入探讨 Python 描述符（1214 3月）](https://www.bilibili.com/video/BV1nLAszcEEf/) · [双下划线到底是什么（2.9万）](https://www.bilibili.com/video/BV1tf7c6YExq/)
 
 ## Q1. yield 是什么？和 return 什么区别？
 
@@ -304,7 +306,7 @@
 
 # 七、LangChain / LangGraph / Agent
 
-> 📺 **B 站复习**：[LangGraph 智能体实战（尚硅谷 66.5万）](https://www.bilibili.com/video/BV1z3NY66EY1/) · [LangChain+LangGraph 开发实战（黑马 177.9万）](https://www.bilibili.com/video/BV178w1z7EHQ/) · [ReAct Agent 原理（1.7万）](https://www.bilibili.com/video/BV1iuAUzHErP/)
+> 📺 **B 站复习**：[LangGraph+MCP+RAG 多智能体实战（9月）](https://www.bilibili.com/video/BV1hoaA6CErz/) · [LangChain+LangGraph 16 个实战章节](https://www.bilibili.com/video/BV1Lsht6UEMA/) · [10 分钟搞懂 ReAct Agent](https://www.bilibili.com/video/BV1nqaA64EAJ/) · [LangGraph 智能体实战（尚硅谷 66.5万）](https://www.bilibili.com/video/BV1z3NY66EY1/)
 
 ## Q1. ReAct 循环是什么？你的项目里怎么跑的？
 
@@ -336,7 +338,7 @@
 
 # 八、数据库与 SQL
 
-> 📺 **B 站复习**：[SQL 注入原理（技术蛋老师 24万）](https://www.bilibili.com/video/BV1ZR4y1Y745/) · [WAL 预写式日志详解](https://www.bilibili.com/video/BV1frNm67E4T/) · [SQLAlchemy 2.0 入门（2.3万）](https://www.bilibili.com/video/BV1Gz4y1P76z/) · [事务隔离级别/MVCC（6.4万）](https://www.bilibili.com/video/BV1Hr421p7EK/)
+> 📺 **B 站复习**：[SQL 注入原理与实战（2.7万 2025-11）](https://www.bilibili.com/video/BV1WqUUBAET5/) · [预写日志 WAL 提升性能原理（1178）](https://www.bilibili.com/video/BV1awZRBXE12/) · [SQLAlchemy 核心教程（5月）](https://www.bilibili.com/video/BV14qRxBWEpg/) · [用故事讲透索引/事务/锁（9月）](https://www.bilibili.com/video/BV1G7466MEQf/)
 
 ## Q1. SQL 注入怎么防的？（⭐ 必考）
 
@@ -379,7 +381,7 @@
 
 # 九、Web 安全
 
-> 📺 **B 站复习**：[JWT 认证原理+实战（21.5万）](https://www.bilibili.com/video/BV1i54y1m7cP/) · [15 分钟学会 JWT（15.5万）](https://www.bilibili.com/video/BV1cK4y197EM/) · [加盐哈希原理（2.7万）](https://www.bilibili.com/video/BV1F4wWehErP/) · [CORS 跨域详解（尚硅谷 5.8万）](https://www.bilibili.com/video/BV1pT421k7yz/) · [XSS 攻击原理（技术蛋老师 16.3万）](https://www.bilibili.com/video/BV1rg411v7B8/) · [CSRF 攻击与防范（技术蛋老师 7.2万）](https://www.bilibili.com/video/BV1UH4y1M7Dg/)
+> 📺 **B 站复习**：[JWT 真的能替代 Session 吗（4064 9月）](https://www.bilibili.com/video/BV1fKeg6mEt8/) · [一个视频入门密码学：加密/哈希/签名（9月）](https://www.bilibili.com/video/BV1a6bg6oESg/) · [CORS 跨域配置（FastAPI 9月）](https://www.bilibili.com/video/BV1f5b46UEhT/) · [CSRF 攻击原理与防范（1100 7月）](https://www.bilibili.com/video/BV1jE346NESz/) · [XSS 攻击到底有多狠（7月）](https://www.bilibili.com/video/BV1PnNE6gEfe/)
 
 ## Q1. JWT 的结构是什么？怎么验证的？
 
@@ -409,7 +411,7 @@
 
 # 十、前端 Vue 3 / TypeScript
 
-> 📺 **B 站复习**：[Vue3 极简教程（71.7万）](https://www.bilibili.com/video/BV13tjqzmEDZ/) · [组合式 API vs 选项式 API（1.8万）](https://www.bilibili.com/video/BV1cr4y1C7Xc/) · [Vue3 响应式原理（3.5万）](https://www.bilibili.com/video/BV1qK42147nm/) · [Vue Router4 路由（7.6万）](https://www.bilibili.com/video/BV1xt421h7LC/)
+> 📺 **B 站复习**：[Vue3 从入门到精通（老杜 10.6万）](https://www.bilibili.com/video/BV1fRwtzKEoN/) · [Vue3 极简教程（图灵 71.7万）](https://www.bilibili.com/video/BV13tjqzmEDZ/) · [Vue3 响应式原理面试（Proxy 5月）](https://www.bilibili.com/video/BV1q4Gt6rEtu/) · [路由守卫从全局到组件（9月）](https://www.bilibili.com/video/BV1mJ47z2EuX/)
 
 ## Q1. ref 和 reactive 什么区别？你用的哪个？
 
@@ -445,7 +447,7 @@
 
 # 十一、Docker 与 Nginx 部署
 
-> 📺 **B 站复习**：[Docker 实战攻略（技术爬爬虾 69.1万）](https://www.bilibili.com/video/BV1THKyzBER6/) · [Dockerfile 多阶段构建（5109）](https://www.bilibili.com/video/BV1FE421u7nH/) · [Nginx 三大功能配置（技术蛋老师 22.2万）](https://www.bilibili.com/video/BV1TZ421b7SD/)
+> 📺 **B 站复习**：[40 分钟精通 Docker（技术爬爬虾 69.1万）](https://www.bilibili.com/video/BV1THKyzBER6/) · [都 2026 了还不会写 Dockerfile（5519）](https://www.bilibili.com/video/BV1eKiRBeEPi/) · [Nginx 三大功能配置（技术蛋老师 22.2万）](https://www.bilibili.com/video/BV1TZ421b7SD/) · [Nginx 高并发架构拆解（27.5万）](https://www.bilibili.com/video/BV1gMX1YSEtm/)
 
 ## Q1. Dockerfile 的多阶段构建是什么？为什么用？
 
@@ -471,7 +473,7 @@
 
 # 十二、测试（pytest/Mock）
 
-> 📺 **B 站复习**：[Pytest 一小时速成（40.3万）](https://www.bilibili.com/video/BV1rDdHYCEUP/) · [Python 单元测试 Mock（4214）](https://www.bilibili.com/video/BV1784y147P7/) · [unittest/mock 为什么高效（3万）](https://www.bilibili.com/video/BV1bawPesEZL/)
+> 📺 **B 站复习**：[2026 最强 pytest 项目实战（7月）](https://www.bilibili.com/video/BV1hTgh6NECF/) · [pytest 为什么要用 fixture（9月）](https://www.bilibili.com/video/BV1SytL6vE29/) · [mock 是什么怎么用（2875 5月）](https://www.bilibili.com/video/BV1TGReByEVb/) · [unittest 单元测试（3万）](https://www.bilibili.com/video/BV1bawPesEZL/)
 
 ## Q1. Mock 是什么？为什么需要？
 
@@ -497,7 +499,7 @@
 
 # 十三、Git 与工程化
 
-> 📺 **B 站复习**：[一小时 Git 教程（GeekHour 83.4万）](https://www.bilibili.com/video/BV1HM411377j/) · [GitHub Actions 入门（技术蛋老师 8万）](https://www.bilibili.com/video/BV1aT421y7Ar/)
+> 📺 **B 站复习**：[Git+Github 核心概念大串讲（技术爬爬虾 96.4万 5月）](https://www.bilibili.com/video/BV1ySLc6QEcB/) · [2026 最新 Git 教程（6358）](https://www.bilibili.com/video/BV19bPkzKEhq/) · [为什么每个开发者都要懂 CI/CD（6949）](https://www.bilibili.com/video/BV1jf7n6NEXV/) · [GitHub Actions 完全指南（8月）](https://www.bilibili.com/video/BV1STbv6xE8w/)
 
 ## Q1. 你的 Git 工作流是什么样的？
 
