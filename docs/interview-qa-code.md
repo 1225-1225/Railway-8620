@@ -13,7 +13,7 @@
 | 标准 | 说明 |
 |---|---|
 | 优先 2025–2026 年发布 | 框架版本、API 写法不会过时 |
-| 系统课选大 UP 主 | 黑马、尚硅谷、技术蛋老师、码农高天等 |
+| **优先短视频（≤1 小时）** | 复习用，别选十几小时的系统课 |
 | 面试速成看"面试"系列 | JWT 面试、GIL 面试、响应式原理面试 |
 
 > 💡 视频终究会过时，建议以官方文档为主、视频为辅。链接失效时直接在 B 站搜板块关键词即可。
@@ -97,7 +97,7 @@
 
 # 二、FastAPI 框架
 
-> 📺 **B 站复习**：[FastAPI 入门到实战（黑马 152.8万 2025-12）](https://www.bilibili.com/video/BV1zV2QBtE39/) · [FastAPI 入门到实战（尚学堂 19.6万 2025-09）](https://www.bilibili.com/video/BV1eKpizeEnb/) · [FastAPI + LangGraph 智能实验室系统（青戈 9月）](https://www.bilibili.com/video/BV13hbP6zEUd/) · [依赖注入 DI（9月）](https://www.bilibili.com/video/BV1Yato6REW6/) · [请求中间件（9月）](https://www.bilibili.com/video/BV1Yato6RE2U/)
+> 📺 **B 站复习**（都是 1 小时内的短视频，适合复习）：[10 分钟学会 FastAPI（Indently 8月）](https://www.bilibili.com/video/BV1g88967E18/) · [10 分钟入门 FastAPI 实战示例（8月）](https://www.bilibili.com/video/BV1G38w6BEKN/) · [FastAPI 入门 36 分钟（零到全栈 7月）](https://www.bilibili.com/video/BV1LW3K63ExS/) · [1 小时精通 FastAPI 知识点（科科 48min）](https://www.bilibili.com/video/BV1JTCQBQERg/) · [依赖注入 DI 18 分钟（9月）](https://www.bilibili.com/video/BV1Yato6REW6/) · [请求中间件 18 分钟（9月）](https://www.bilibili.com/video/BV1Yato6RE2U/) · [中间件必看 10 分钟（1月）](https://www.bilibili.com/video/BV1yizsBGEco/)
 
 ## Q1. 为什么选 FastAPI 而不是 Flask / Django？
 
