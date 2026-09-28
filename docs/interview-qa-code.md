@@ -35,6 +35,7 @@
 11. [Docker 与 Nginx 部署](#十一docker-与-nginx-部署)
 12. [测试（pytest/Mock）](#十二测试pytestmock)
 13. [Git 与工程化](#十三git-与工程化)
+14. [RAGFlow 集成适配](#十四ragflow-集成适配)
 
 ---
 
@@ -515,6 +516,66 @@
 
 ---
 
+# 十四、RAGFlow 集成适配
+
+> 📺 **B 站复习**（RAGFlow 官方中文资料偏少，优先看短的 + 官方 Meetup）：[10 分钟用 Qwen3+RAGFlow 搭本地知识库（9月）](https://www.bilibili.com/video/BV1jyaA6QE9G/) · [30 分钟 DeepSeek+RAGFlow 纯本地化部署（9月）](https://www.bilibili.com/video/BV1Zdht64E2E/) · [RAGFlow 官方 Meetup 新版本功能分享（9月）](https://www.bilibili.com/video/BV1R4ej6tEwL/) · [RAG 检索增强生成原理](https://search.bilibili.com/all?keyword=RAG%20%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E5%8E%9F%E7%90%86)
+
+## Q1. 为什么把 Chroma 换成 RAGFlow？
+
+> Chroma 适合原型：切片要自己写，遇到 PDF/表格/扫描件就崩。我 237 篇铁路文档里有大量表格和历史资料，**切片质量直接决定检索质量**。RAGFlow 内置深度文档解析（OCR、表格、版面分析）+ 向量/全文混合检索 + 引用溯源，且是独立服务可横向扩展。这是从"能跑"到"能看"的取舍，不是跟风。
+>
+> 代价是 RAGFlow 组件重（MySQL+ES+MinIO+Redis），所以设计成**可选组件**——.env 配了 ragflow_host 才启用。
+
+## Q2. `ragflow_client.py` 为什么包一层？不是多此一举吗？
+
+> 这是**适配器模式**。关键在 `search()` 返回的是我自己定义的标准结构（`{content, source, similarity, img_id}`），不是 RAGFlow 的原始响应。
+>
+> 好处：上层 `retriever_tool` 完全不知道后面是 RAGFlow——**换检索后端只改这一个类，工具和 Agent 一行不动**。同时它是**失败软降级**：RAGFlow 挂了 `search()` 返回空列表，工具回"未找到相关消息"，Agent 不崩，只是这轮没检索到。
+>
+> `top_k`、`similarity_threshold` 这些参数也从 settings 统一注入，不散落在调用处。
+
+## Q3. `ragflow_init.py` 是干什么的？为什么要写它？
+
+> 把 RAGFlow 首次部署的**十步手工操作自动化成一条命令**。原来要做的：
+> 1. 打开 RAGFlow 网页注册管理员 2. UI 里生成 API Token 3. 手动添加嵌入模型（填 base_url/key/模型名）4. 新建知识库 5. 拖 237 个文件上传 6. 等解析 7. 把 dataset_id 复制回 .env
+>
+> 每次重建环境都要重来一遍，30 分钟且易错。现在是 `python agent/ragflow_init.py`，用 `.ragflow_initialized` 标记文件做**幂等**——重复执行直接跳过。
+>
+> 技术手段：API Token 只能从 UI 生成、没有 API，所以用 `docker exec` 进容器直接写数据库创建 token；用脚本模拟登录拿 cookie；REST API 建库传文档。**认清组件能力边界，用非常规手段补齐**——集成第三方时很常见。
+
+## Q4. 容器源码热补丁是什么？为什么需要？
+
+> RAGFlow v0.26.4 有两个上游 bug 会直接让我的集成失败：
+>
+> **Bug 1（致命）**：`OpenAI_APIEmbed` 里把 embedding `batch_size` 写死 16，但阿里百炼 `text-embedding-v4` 限制单次最多 10 条 → 上传 237 篇文档全部解析失败。修复：精确字符串替换 16→10。
+>
+> **Bug 2**：`parser_config` 从任务记录取出时预期 dict，实际可能是 JSON 字符串 → `'str' object has no attribute 'get'`。修复：`isinstance(val, str)` 时尝试 json 解析，失败给空 dict（防御式解析）。
+>
+> **精确替换的细节**：全文有多处 `batch_size=16`，所以匹配串必须**带上 `class OpenAI_APIEmbed` 声明做锚点**保证唯一，否则会误改父类。
+
+## Q5. 补丁为什么集成进初始化流程，而不是打一次就完事？
+
+> 因为**容器是无状态的**。`docker compose down` 删掉容器，`up` 重建一个全新镜像的容器——补丁全没了。
+>
+> 所以做成了「检查→未打则打→清 pyc 缓存→重启容器」的完整流程，每次初始化自动重打。这体现了对容器本质的理解：**容器可丢弃，任何运行时修改都必须靠自动化重现**，不能指望手工操作持久化。
+
+## Q6. 为什么热补丁，不 fork 源码或提 PR？
+
+> 三种方案权衡：
+> - **fork**：要自己维护整个 RAGFlow 仓库的同步，成本极高
+> - **提 PR**：是长期正解，但合并时间不可控，不能卡住自己项目
+> - **热补丁**：最小侵入 + 自动化可重现，是集成的务实方案
+>
+> 这是**受控的技术债**——所有补丁集中在一个 `RAGFLOW_PATCHES` dict 里，每条有描述、路径、old/new 三要素，上游修了直接删条目。补丁代码本身就是 bug 文档。
+
+## Q7. `docker-compose.ragflow.yml` 为什么要配 healthcheck？
+
+> RAGFlow 依赖 MySQL+Redis+ES+MinIO 四个中间件。healthcheck（`mysqladmin ping`、`curl /minio/health/live` 等）让 Docker 知道每个依赖**真正就绪**了，初始化脚本的 `wait_for_ragflow()` 据此等待——避免"MySQL 还没起来就建库"的竞态错误。
+>
+> 注释里写的"自包含编排，无需外部依赖"意味着这套 compose 可以原样搬到任何机器，`up -d` 一条命令起全套。
+
+---
+
 # 附：高频"代码指认题"速查表
 
 面试官指着代码最可能问的 15 个点，一句话答案：
@@ -536,3 +597,8 @@
 | `TextDecoder({stream:true})` | 跨包缓冲不完整字节序列，防中文乱码 |
 | `proxy_buffering off` | Nginx 不攒响应，SSE 实时到达浏览器 |
 | `ClassVar` + 去掉 `_` | Pydantic 类常量的正确写法，让配置错误在类定义时就暴露 |
+| `RAGFlowClient.search()` | 适配器：返回标准化结构，上层不感知检索后端，挂了返回空列表软降级 |
+| `batch_size=10` 热补丁 | 上游 bug：RAGFlow 写死 16，DashScope 限 10 → 精确替换保证唯一匹配 |
+| `apply_container_patches()` | 容器无状态，down/up 后补丁丢失，所以集成进初始化流程每次重打 |
+| `docker exec` 写数据库创建 token | RAGFlow 无创建 token 的 API（只能 UI 点），用非常规手段补边界 |
+| `.ragflow_initialized` | 标记文件做幂等，重复执行初始化直接跳过 |
