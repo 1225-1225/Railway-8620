@@ -887,7 +887,7 @@ class RAGFlowClient:
             return []                                    # 网络异常 → 空结果不崩溃
 ```
 
-**要点**：所有方法失败返回空/False 而非抛异常——检索挂了不应炸掉整个对话。还有 `list_datasets` / `upload_document` / `register` / `login`（RSA 加密密码）等方法支撑初始化流程。
+**要点**：所有方法失败返回空/False 而非抛异常——检索挂了不应炸掉整个对话。`list_datasets` / `upload_document` 支撑迁移脚本；曾有 register / login / create_api_key / create_dataset 等初始化方法，因 v0.26.4 REST 路线走不通（无创建 Key 端点、RSA 密码）已删除，初始化统一由 `ragflow_init.py` 的 docker exec 完成。
 
 ## 第 17 章 · agent/ragflow_init.py —— 自动初始化 + 容器补丁（最大亮点）
 
