@@ -150,7 +150,7 @@
 
 # 三、Pydantic 数据校验
 
-> 📺 **B 站复习**：[Pydantic 用于 LLM 工作流（吴恩达 1.2万 5月）](https://www.bilibili.com/video/BV1SMRpBmEyG/) · [Pydantic 数据验证完整教程（2025-10）](https://www.bilibili.com/video/BV1B5yqBCEPT/)
+> 📺 **B 站复习**：[Pydantic AI 入门实战（吴恩达 1h13m 8月）](https://www.bilibili.com/video/BV1hQ8u6WEsj/) · [Pydantic 数据验证完整教程（2025-10）](https://www.bilibili.com/video/BV1B5yqBCEPT/)
 
 ## Q1. Pydantic 是什么？为什么需要它？
 
@@ -220,7 +220,7 @@
 
 # 五、Python 异步编程（asyncio）
 
-> 📺 **B 站复习**：[async+await+future 高频面试考点（4.2万）](https://www.bilibili.com/video/BV1JsLDzAEGu/) · [15 分钟看懂 GIL（9356）](https://www.bilibili.com/video/BV1RHz4B8EE8/) · [FastAPI 没加 async 性能入土（1万）](https://www.bilibili.com/video/BV1gn7DzXEEj/)
+> 📺 **B 站复习**：[AsyncIO/多线程/多进程大对决（Indently 12min）](https://www.bilibili.com/video/BV1116ABSES1/) · [async+await+future 高频面试考点（4.2万）](https://www.bilibili.com/video/BV1JsLDzAEGu/) · [15 分钟看懂 GIL（9356）](https://www.bilibili.com/video/BV1RHz4B8EE8/) · [FastAPI 没加 async 性能入土（1万）](https://www.bilibili.com/video/BV1gn7DzXEEj/)
 
 ## Q1. 什么是事件循环？为什么阻塞代码会冻结它？
 
@@ -261,7 +261,7 @@
 
 # 六、Python 语言特性
 
-> 📺 **B 站复习**：[迭代器与生成器（9月）](https://www.bilibili.com/video/BV1JwtZ6NEAo/) · [深入探讨 Python 描述符（1214 3月）](https://www.bilibili.com/video/BV1nLAszcEEf/) · [双下划线到底是什么（2.9万）](https://www.bilibili.com/video/BV1tf7c6YExq/)
+> 📺 **B 站复习**：[迭代器与生成器（9月）](https://www.bilibili.com/video/BV1JwtZ6NEAo/) · [装饰器 13 分钟（米沙AI 7月）](https://www.bilibili.com/video/BV1LLgD6hE7M/) · [深入探讨 Python 描述符（1214 3月）](https://www.bilibili.com/video/BV1nLAszcEEf/) · [双下划线到底是什么（2.9万）](https://www.bilibili.com/video/BV1tf7c6YExq/)
 
 ## Q1. yield 是什么？和 return 什么区别？
 
@@ -307,7 +307,7 @@
 
 # 七、LangChain / LangGraph / Agent
 
-> 📺 **B 站复习**：[10 分钟搞懂 ReAct Agent](https://www.bilibili.com/video/BV1nqaA64EAJ/) · [LangGraph 智能体实战（尚硅谷 66.5万）](https://www.bilibili.com/video/BV1z3NY66EY1/)
+> 📺 **B 站复习**：[10 分钟搞懂 ReAct Agent](https://www.bilibili.com/video/BV1nqaA64EAJ/) · [Pydantic AI 入门实战（吴恩达 1h13m）](https://www.bilibili.com/video/BV1hQ8u6WEsj/) · [LangGraph 智能体实战（尚硅谷 66.5万，系统课）](https://www.bilibili.com/video/BV1z3NY66EY1/)
 
 ## Q1. ReAct 循环是什么？你的项目里怎么跑的？
 
@@ -339,7 +339,7 @@
 
 # 八、数据库与 SQL
 
-> 📺 **B 站复习**：[SQL 注入原理与实战（2.7万 2025-11）](https://www.bilibili.com/video/BV1WqUUBAET5/) · [预写日志 WAL 提升性能原理（1178）](https://www.bilibili.com/video/BV1awZRBXE12/) · [SQLAlchemy 核心教程（5月）](https://www.bilibili.com/video/BV14qRxBWEpg/)
+> 📺 **B 站复习**：[SQL 注入原理与实战（2.7万 2025-11）](https://www.bilibili.com/video/BV1WqUUBAET5/) · [预写日志 WAL 提升性能原理（1178）](https://www.bilibili.com/video/BV1awZRBXE12/) · [SQLAlchemy 核心教程（5月）](https://www.bilibili.com/video/BV14qRxBWEpg/) · [事务隔离级别 4 分钟（8月）](https://www.bilibili.com/video/BV18qb663EDN/)
 
 ## Q1. SQL 注入怎么防的？（⭐ 必考）
 
@@ -412,7 +412,7 @@
 
 # 十、前端 Vue 3 / TypeScript
 
-> 📺 **B 站复习**：[Vue3 极简教程（图灵 71.7万）](https://www.bilibili.com/video/BV13tjqzmEDZ/) · [Vue3 响应式原理面试（Proxy 5月）](https://www.bilibili.com/video/BV1q4Gt6rEtu/) · [路由守卫从全局到组件（9月）](https://www.bilibili.com/video/BV1mJ47z2EuX/)
+> 📺 **B 站复习**：[Vue3 极简教程（图灵 71.7万）](https://www.bilibili.com/video/BV13tjqzmEDZ/) · [Vue3 响应式原理面试（Proxy 5月）](https://www.bilibili.com/video/BV1q4Gt6rEtu/) · [路由守卫从全局到组件（9月）](https://www.bilibili.com/video/BV1mJ47z2EuX/) · [Vue3 effect 优化 11 分钟（渡一 9月）](https://www.bilibili.com/video/BV1NvhW6xE3d/)
 
 ## Q1. ref 和 reactive 什么区别？你用的哪个？
 
@@ -474,7 +474,7 @@
 
 # 十二、测试（pytest/Mock）
 
-> 📺 **B 站复习**：[pytest 为什么要用 fixture（9月）](https://www.bilibili.com/video/BV1SytL6vE29/) · [mock 是什么怎么用（2875 5月）](https://www.bilibili.com/video/BV1TGReByEVb/) · [unittest 单元测试（3万）](https://www.bilibili.com/video/BV1bawPesEZL/)
+> 📺 **B 站复习**：[pytest 为什么要用 fixture（9月）](https://www.bilibili.com/video/BV1SytL6vE29/) · [mock 是什么怎么用（2875 5月）](https://www.bilibili.com/video/BV1TGReByEVb/) · [unittest 单元测试（3万）](https://www.bilibili.com/video/BV1bawPesEZL/) · [Playwright+Pytest 快速上手（华为 1.5h）](https://www.bilibili.com/video/BV14dYx6iE36/)
 
 ## Q1. Mock 是什么？为什么需要？
 
@@ -500,7 +500,7 @@
 
 # 十三、Git 与工程化
 
-> 📺 **B 站复习**：[Git+Github 核心概念大串讲（技术爬爬虾 96.4万 5月）](https://www.bilibili.com/video/BV1ySLc6QEcB/) · [2026 最新 Git 教程（6358）](https://www.bilibili.com/video/BV19bPkzKEhq/) · [为什么每个开发者都要懂 CI/CD（6949）](https://www.bilibili.com/video/BV1jf7n6NEXV/)
+> 📺 **B 站复习**：[Git+Github 核心概念大串讲（技术爬爬虾 96.4万 5月）](https://www.bilibili.com/video/BV1ySLc6QEcB/) · [2026 最新 Git 教程（6358）](https://www.bilibili.com/video/BV19bPkzKEhq/) · [为什么每个开发者都要懂 CI/CD（6949）](https://www.bilibili.com/video/BV1jf7n6NEXV/) · [GitHub Actions 推送即自动化 4 分钟（9月）](https://www.bilibili.com/video/BV12SYG6AEge/)
 
 ## Q1. 你的 Git 工作流是什么样的？
 
