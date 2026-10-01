@@ -30,7 +30,7 @@
 
 | 功能 | 说明 |
 |------|------|
-| 🧠 **铁路知识问答** | 基于 RAGFlow 知识库 + RAG，检索 150+ 篇中国铁路机车知识文档 |
+| 🧠 **铁路知识问答** | 基于 RAGFlow 知识库 + RAG，检索 237 篇中国铁路机车知识文档 |
 | 🗺️ **交互式路线地图** | 输入车次，自动生成途经站点路线图 (Folium)，支持缩放/悬停 |
 | 🚄 **车次信息查询** | 查询指定车次的详细信息（起讫站、经停站、时刻表） |
 | 🔍 **路线车次推荐** | 根据起讫站查询车次列表，按 G/D/C/Z/T/K 优先级排序 |
@@ -93,7 +93,7 @@ Railway-8620/
 │   ├── Dockerfile                  # 多阶段构建
 │   └── vite.config.ts              # Vite 配置（开发代理 :8620 → :8000）
 ├── data/
-│   ├── cleaned_txts/               # 150+ 篇清洗后的铁路知识文本（RAGFlow 语料源）
+│   ├── cleaned_txts/               # 237 篇清洗后的铁路知识文本（RAGFlow 语料源）
 │   ├── station_coords.json         # 车站经纬度坐标（地图绘制用）
 │   ├── stations.json               # 车站基础信息
 │   ├── train_details.json          # 车次详细信息（含经停站时刻表）
@@ -223,7 +223,7 @@ docker compose up -d
 
 > RAGFlow 是可选的外部知识库引擎。不启动它不影响车次查询、路线地图生成和对话功能。
 >
-> 首次启动 RAGFlow 时，`agent/ragflow_init.py` 会自动注册管理员账号、创建知识库、上传全部 150+ 篇铁路文档到 RAGFlow，并将凭证写入 `.env`。之后所有操作在 RAGFlow Web UI (http://localhost:9380) 中完成。
+> 首次启动 RAGFlow 时，`agent/ragflow_init.py` 会自动注册管理员账号、创建知识库、上传全部 237 篇铁路文档到 RAGFlow，并将凭证写入 `.env`。之后所有操作在 RAGFlow Web UI (http://localhost:9380) 中完成。
 
 ---
 
@@ -262,7 +262,7 @@ Agent（`agent/agent.py`）基于 LangGraph 的 `create_agent` 构建，使用 `
 ### `retriever_tool` — 知识库检索
 
 - 调用 RAGFlow 的 `/api/v1/retrieval` 接口，检索相关铁路知识文档
-- 数据源：`data/cleaned_txts/` 下 150+ 篇清洗文本（蒸汽机车、电力机车、内燃机车、铁路历史等）
+- 数据源：`data/cleaned_txts/` 下 237 篇清洗文本（蒸汽机车、电力机车、内燃机车、铁路历史等）
 - 支持配置 `top_k` 和相似度阈值
 
 ### `query_train_info` — 车次信息查询
@@ -455,7 +455,7 @@ FastAPI 后端
 
 - **铁路网络数据**：OpenStreetMap 中国铁路数据（经筛选过滤）
 - **列车时刻表**：12306 公开接口（`train_sync/` 子项目每日自动拉取，见下）
-- **铁路知识文档**：150+ 篇中国铁路机车相关技术文档
+- **铁路知识文档**：237 篇中国铁路机车相关技术文档
 
 ### 🔄 车次数据每日更新（train_sync/）
 

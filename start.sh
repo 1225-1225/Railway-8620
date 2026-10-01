@@ -14,7 +14,7 @@ if [ "$1" = "ragflow" ]; then
     docker compose -f docker-compose.ragflow.yml up -d
 
     echo "→ 等待 RAGFlow 就绪并自动初始化 ..."
-    echo "  （将自动注册账号、创建知识库、上传 150+ 篇铁路文档）"
+    echo "  （将自动注册账号、创建知识库、上传 237 篇铁路文档）"
 
     # 运行初始化脚本
     python agent/ragflow_init.py

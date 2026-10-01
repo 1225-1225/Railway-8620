@@ -20,7 +20,7 @@ if ($Mode -eq "ragflow") {
     docker compose -f docker-compose.ragflow.yml up -d
 
     Write-Host "→ 等待 RAGFlow 就绪并自动初始化 ..." -ForegroundColor Yellow
-    Write-Host "  （将自动注册账号、创建知识库、上传 150+ 篇铁路文档）" -ForegroundColor DarkYellow
+    Write-Host "  （将自动注册账号、创建知识库、上传 237 篇铁路文档）" -ForegroundColor DarkYellow
 
     # 运行初始化脚本（复用本地 Python 环境）
     python agent/ragflow_init.py
