@@ -150,7 +150,7 @@
 
 # 三、Pydantic 数据校验
 
-> 📺 **B 站复习**：[Pydantic for LLM 官方课程（吴恩达 9月）](https://www.bilibili.com/video/BV1w1hv6EE4A/) · [Pydantic 用于 LLM 工作流（吴恩达 1.2万 5月）](https://www.bilibili.com/video/BV1SMRpBmEyG/) · [Pydantic 数据验证完整教程（2025-10）](https://www.bilibili.com/video/BV1B5yqBCEPT/)
+> 📺 **B 站复习**：[Pydantic 用于 LLM 工作流（吴恩达 1.2万 5月）](https://www.bilibili.com/video/BV1SMRpBmEyG/) · [Pydantic 数据验证完整教程（2025-10）](https://www.bilibili.com/video/BV1B5yqBCEPT/)
 
 ## Q1. Pydantic 是什么？为什么需要它？
 
@@ -220,7 +220,7 @@
 
 # 五、Python 异步编程（asyncio）
 
-> 📺 **B 站复习**：[asyncio 小白速通（1万 2025-11）](https://www.bilibili.com/video/BV1KmUpB8EJ3/) · [async+await+future 高频面试考点（4.2万）](https://www.bilibili.com/video/BV1JsLDzAEGu/) · [15 分钟看懂 GIL（9356）](https://www.bilibili.com/video/BV1RHz4B8EE8/) · [FastAPI 没加 async 性能入土（1万）](https://www.bilibili.com/video/BV1gn7DzXEEj/)
+> 📺 **B 站复习**：[async+await+future 高频面试考点（4.2万）](https://www.bilibili.com/video/BV1JsLDzAEGu/) · [15 分钟看懂 GIL（9356）](https://www.bilibili.com/video/BV1RHz4B8EE8/) · [FastAPI 没加 async 性能入土（1万）](https://www.bilibili.com/video/BV1gn7DzXEEj/)
 
 ## Q1. 什么是事件循环？为什么阻塞代码会冻结它？
 
@@ -261,7 +261,7 @@
 
 # 六、Python 语言特性
 
-> 📺 **B 站复习**：[迭代器与生成器（9月）](https://www.bilibili.com/video/BV1JwtZ6NEAo/) · [装饰器/正则/元类/单例 29 个面试考点（9月）](https://www.bilibili.com/video/BV1S6to6JEVq/) · [深入探讨 Python 描述符（1214 3月）](https://www.bilibili.com/video/BV1nLAszcEEf/) · [双下划线到底是什么（2.9万）](https://www.bilibili.com/video/BV1tf7c6YExq/)
+> 📺 **B 站复习**：[迭代器与生成器（9月）](https://www.bilibili.com/video/BV1JwtZ6NEAo/) · [深入探讨 Python 描述符（1214 3月）](https://www.bilibili.com/video/BV1nLAszcEEf/) · [双下划线到底是什么（2.9万）](https://www.bilibili.com/video/BV1tf7c6YExq/)
 
 ## Q1. yield 是什么？和 return 什么区别？
 
@@ -307,7 +307,7 @@
 
 # 七、LangChain / LangGraph / Agent
 
-> 📺 **B 站复习**：[LangGraph+MCP+RAG 多智能体实战（9月）](https://www.bilibili.com/video/BV1hoaA6CErz/) · [LangChain+LangGraph 16 个实战章节](https://www.bilibili.com/video/BV1Lsht6UEMA/) · [10 分钟搞懂 ReAct Agent](https://www.bilibili.com/video/BV1nqaA64EAJ/) · [LangGraph 智能体实战（尚硅谷 66.5万）](https://www.bilibili.com/video/BV1z3NY66EY1/)
+> 📺 **B 站复习**：[10 分钟搞懂 ReAct Agent](https://www.bilibili.com/video/BV1nqaA64EAJ/) · [LangGraph 智能体实战（尚硅谷 66.5万）](https://www.bilibili.com/video/BV1z3NY66EY1/)
 
 ## Q1. ReAct 循环是什么？你的项目里怎么跑的？
 
@@ -339,7 +339,7 @@
 
 # 八、数据库与 SQL
 
-> 📺 **B 站复习**：[SQL 注入原理与实战（2.7万 2025-11）](https://www.bilibili.com/video/BV1WqUUBAET5/) · [预写日志 WAL 提升性能原理（1178）](https://www.bilibili.com/video/BV1awZRBXE12/) · [SQLAlchemy 核心教程（5月）](https://www.bilibili.com/video/BV14qRxBWEpg/) · [用故事讲透索引/事务/锁（9月）](https://www.bilibili.com/video/BV1G7466MEQf/)
+> 📺 **B 站复习**：[SQL 注入原理与实战（2.7万 2025-11）](https://www.bilibili.com/video/BV1WqUUBAET5/) · [预写日志 WAL 提升性能原理（1178）](https://www.bilibili.com/video/BV1awZRBXE12/) · [SQLAlchemy 核心教程（5月）](https://www.bilibili.com/video/BV14qRxBWEpg/)
 
 ## Q1. SQL 注入怎么防的？（⭐ 必考）
 
@@ -412,7 +412,7 @@
 
 # 十、前端 Vue 3 / TypeScript
 
-> 📺 **B 站复习**：[Vue3 从入门到精通（老杜 10.6万）](https://www.bilibili.com/video/BV1fRwtzKEoN/) · [Vue3 极简教程（图灵 71.7万）](https://www.bilibili.com/video/BV13tjqzmEDZ/) · [Vue3 响应式原理面试（Proxy 5月）](https://www.bilibili.com/video/BV1q4Gt6rEtu/) · [路由守卫从全局到组件（9月）](https://www.bilibili.com/video/BV1mJ47z2EuX/)
+> 📺 **B 站复习**：[Vue3 极简教程（图灵 71.7万）](https://www.bilibili.com/video/BV13tjqzmEDZ/) · [Vue3 响应式原理面试（Proxy 5月）](https://www.bilibili.com/video/BV1q4Gt6rEtu/) · [路由守卫从全局到组件（9月）](https://www.bilibili.com/video/BV1mJ47z2EuX/)
 
 ## Q1. ref 和 reactive 什么区别？你用的哪个？
 
@@ -474,7 +474,7 @@
 
 # 十二、测试（pytest/Mock）
 
-> 📺 **B 站复习**：[2026 最强 pytest 项目实战（7月）](https://www.bilibili.com/video/BV1hTgh6NECF/) · [pytest 为什么要用 fixture（9月）](https://www.bilibili.com/video/BV1SytL6vE29/) · [mock 是什么怎么用（2875 5月）](https://www.bilibili.com/video/BV1TGReByEVb/) · [unittest 单元测试（3万）](https://www.bilibili.com/video/BV1bawPesEZL/)
+> 📺 **B 站复习**：[pytest 为什么要用 fixture（9月）](https://www.bilibili.com/video/BV1SytL6vE29/) · [mock 是什么怎么用（2875 5月）](https://www.bilibili.com/video/BV1TGReByEVb/) · [unittest 单元测试（3万）](https://www.bilibili.com/video/BV1bawPesEZL/)
 
 ## Q1. Mock 是什么？为什么需要？
 
@@ -500,7 +500,7 @@
 
 # 十三、Git 与工程化
 
-> 📺 **B 站复习**：[Git+Github 核心概念大串讲（技术爬爬虾 96.4万 5月）](https://www.bilibili.com/video/BV1ySLc6QEcB/) · [2026 最新 Git 教程（6358）](https://www.bilibili.com/video/BV19bPkzKEhq/) · [为什么每个开发者都要懂 CI/CD（6949）](https://www.bilibili.com/video/BV1jf7n6NEXV/) · [GitHub Actions 完全指南（8月）](https://www.bilibili.com/video/BV1STbv6xE8w/)
+> 📺 **B 站复习**：[Git+Github 核心概念大串讲（技术爬爬虾 96.4万 5月）](https://www.bilibili.com/video/BV1ySLc6QEcB/) · [2026 最新 Git 教程（6358）](https://www.bilibili.com/video/BV19bPkzKEhq/) · [为什么每个开发者都要懂 CI/CD（6949）](https://www.bilibili.com/video/BV1jf7n6NEXV/)
 
 ## Q1. 你的 Git 工作流是什么样的？
 
@@ -508,7 +508,7 @@
 
 ## Q2. GitHub Actions 是什么？你怎么用的？
 
-> GitHub 的自动化平台：仓库里放 .yml 配置，GitHub 在指定事件（push/PR/定时 cron）触发时在免费云服务器上执行命令。我的 CI 四个并行 job：Ruff lint → Python 3.10/3.11 矩阵测试+覆盖率 → 前端 type-check+build → Docker 双镜像构建验证。配了 concurrency 组（同分支新 push 取消旧跑）。公开仓库免费额度不限时。
+> GitHub 的自动化平台：仓库里放 .yml 配置，GitHub 在指定事件（push/PR）触发时在免费云服务器上执行命令。我的 CI 四个 job：Ruff lint（快速失败）→ Python 3.10/3.11 矩阵测试+覆盖率（pytest-cov，显式注入 CI 环境变量避免读真实 .env）→ 前端 type-check+build → Docker 镜像构建验证。配了 concurrency 组（同分支新 push 取消旧跑）。公开仓库免费额度不限时。
 
 ## Q3. .gitignore 里都排除了什么？为什么？
 
