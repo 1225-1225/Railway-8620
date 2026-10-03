@@ -1033,6 +1033,8 @@ export const useAuthStore = defineStore('auth', () => {
 
 ## 第 21 章 · services/api.ts —— Axios 双拦截器
 
+> **项目约定**：除 SSE（`/chat/stream`）外，所有 HTTP 请求统一走这个 axios 实例。
+
 ```typescript
 const api = axios.create({ baseURL: '', timeout: 60000 })   // 空=相对路径：dev 走 Vite 代理，prod 走 Nginx
 
@@ -1145,7 +1147,7 @@ let abortController: AbortController | null = null
 async function sendMessage() {
   ...
   abortController = new AbortController()
-  const response = await fetch('/chat/stream', { ..., signal: abortController.signal })
+  const response = await fetch('/chat/stream', { ..., signal: abortController.signal })  // SSE 唯一例外：必须 fetch
   const reader = response.body.getReader()
   const decoder = new TextDecoder()
   let assistantMessage = ''
@@ -1208,16 +1210,19 @@ function extractSessionId(threadId: string): string {
 }                                                  // slice(2)+join：session_id 本身可含下划线
 
 async function renameSession(threadId: string, newTitle: string) {
-  const res = await fetch(`/chat/sessions/${encodeURIComponent(threadId)}`, {
-    method: 'PUT', headers: {...}, body: JSON.stringify({ title: newTitle }) })
-  if ((await res.json()).ok) fetchSessions()
+  const { data } = await api.put(`/chat/sessions/${encodeURIComponent(threadId)}`, {
+    title: newTitle,
+  })
+  if (data.ok) fetchSessions()
 }
 
 async function deleteSession(threadId: string) {
   if (!window.confirm('确定删除这个会话吗？')) return
-  ... DELETE → 若删的是当前会话：清空消息区 + 换新 sessionId
+  ... api.delete(...) → 若删的是当前会话：清空消息区 + 换新 sessionId
 }
 ```
+
+**HTTP 层统一约定**：除 SSE 流式接口外，**所有请求都走 `services/api.ts` 的 axios 实例**（会话列表/详情/重命名/删除、登录注册、非流式聊天），不再直接用 fetch。好处：token 注入、令牌过期检查、401 跳登录只有一份实现，组件代码只管业务。唯一例外是 `/chat/stream`——浏览器里 axios 基于 XHR，拿不到 `ReadableStream`，无法逐块读 SSE，必须用 fetch + `response.body.getReader()`（该处手动带 Authorization 头）。
 
 ## 第 25 章 · HistorySidebar.vue —— 侧边栏
 

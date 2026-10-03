@@ -156,7 +156,7 @@
 
 ## Q3.3 前端怎么接收 SSE？（⭐ 高频）
 
-> 用原生 fetch 而不是 axios——因为需要 `response.body.getReader()` 拿 ReadableStream 逐块读，axios 默认攒齐响应才回调，流式就断了。
+> 用原生 fetch 而不是 axios——因为需要 `response.body.getReader()` 拿 ReadableStream 逐块读，axios 默认攒齐响应才回调，流式就断了。这是项目里唯一不走 axios 的请求；其余所有请求（会话管理、登录注册、非流式聊天）统一走 `services/api.ts` 的 axios 实例，共享 token 注入与 401 处理。
 >
 > 读取循环三个关键点：
 > 1. **TextDecoder 开 stream 模式**——UTF-8 一个汉字 3 字节，网络分包可能把字切开，`{stream: true}` 让解码器跨包缓冲不完整的字节序列，否则中文随机乱码；

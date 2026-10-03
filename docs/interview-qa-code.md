@@ -212,7 +212,7 @@
 > 1. `backend/api.py:416-470` — `chat_stream`：`_SENTINEL` 定义 → generate() 生成器 → StreamingResponse
 > 2. `backend/api.py:430-465` — 双层 wait_for（建流 60s / 单块 300s）+ run_in_executor(lambda)
 > 3. `frontend/nginx.conf:31-40` — /chat/ location 的 proxy_buffering off + read_timeout 300s
-> 4. `frontend/src/views/ChatView.vue:283-386` — `sendMessage()`：fetch + getReader + TextDecoder(stream:true) + buffer 跨包拼接
+> 4. `frontend/src/views/ChatView.vue:283-386` — `sendMessage()`：fetch + getReader + TextDecoder(stream:true) + buffer 跨包拼接（项目里唯一不用 axios 的请求）
 
 ## Q1. SSE 是什么？数据格式是什么？
 
@@ -476,10 +476,11 @@
 
 > 📂 **源码阅读顺序**：
 > 1. `frontend/src/stores/auth.ts:34-80` — Pinia auth store（token/username/login/logout）
-> 2. `frontend/src/services/api.ts:1-42` — axios 实例 + 双拦截器（baseURL 为空的含义）
+> 2. `frontend/src/services/api.ts:1-50` — axios 实例 + 双拦截器（baseURL 为空的含义 + 文件头的 HTTP 层约定注释）
 > 3. `frontend/src/router/index.ts:12-70` — routes 动态 import + beforeEach 守卫
-> 4. `frontend/src/views/ChatView.vue:103-152` — MAP_URL_RE + renderContent + renderMapCard（v-html 受控使用）
-> 5. `frontend/src/views/ChatView.vue:283-386` — sendMessage（ref 驱动打字机效果）
+> 4. `frontend/src/views/ChatView.vue:172-245` — axios 版会话管理四函数（列表/加载/重命名/删除）
+> 5. `frontend/src/views/ChatView.vue:103-152` — MAP_URL_RE + renderContent + renderMapCard（v-html 受控使用）
+> 6. `frontend/src/views/ChatView.vue:283-386` — sendMessage：fetch(SSE 例外) + ref 驱动打字机效果
 
 ## Q1. ref 和 reactive 什么区别？你用的哪个？
 
@@ -501,7 +502,9 @@
 
 > 双拦截器：**请求拦截**——发前检查 token 过期（过期就取消请求跳登录）、塞 Authorization 头；**响应拦截**——401 统一清除凭证跳登录。baseURL 为空（相对路径），开发走 Vite 代理、生产走 Nginx 反代，同一份代码环境无关。
 >
-> 注意：聊天流式接口没用 axios 用的原生 fetch——因为需要 response.body.getReader() 逐块读，axios 攒齐才回调。
+> **项目约定：除 SSE 外所有请求都走这个 axios 实例**（会话列表/详情/重命名/删除、登录注册、非流式聊天），不再直接用 fetch——token 注入、过期检查、401 跳登录只有一份实现。
+>
+> **唯一例外**：`/chat/stream` 流式接口必须用原生 fetch——浏览器里 axios 基于 XHR，拿不到 ReadableStream，无法 `response.body.getReader()` 逐块读，只能攒齐才回调，流式就死了。该处手动带 Authorization 头（不过拦截器）。
 
 ## Q6. v-html 有 XSS 风险吗？
 

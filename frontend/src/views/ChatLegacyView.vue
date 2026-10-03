@@ -88,6 +88,7 @@ import { ref, onMounted, nextTick, watch } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { marked } from 'marked'
 import { useRouter } from 'vue-router'
+import api from '@/services/api'
 
 // 配置marked
 marked.setOptions({
@@ -199,20 +200,11 @@ async function sendMessage() {
   scrollToBottom()
 
   try {
-    const response = await fetch('/chat', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${authStore.token || ''}`,
-      },
-      body: JSON.stringify({ message: trimmedMessage, session_id: sessionId.value }),
+    const { data } = await api.post('/chat', {
+      message: trimmedMessage,
+      session_id: sessionId.value,
     })
 
-    if (!response.ok) {
-      throw new Error(`请求失败：${response.status} ${response.statusText}`)
-    }
-
-    const data = await response.json()
     const answer = data.answer
 
     // 模拟打字效果

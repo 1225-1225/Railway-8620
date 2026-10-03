@@ -87,6 +87,7 @@ import 'highlight.js/styles/github-dark.css'
 import { useRouter } from 'vue-router'
 import HistorySidebar from '@/components/HistorySidebar.vue'
 import type { SessionGroup } from '@/components/HistorySidebar.vue'
+import api from '@/services/api'
 marked.setOptions({ breaks: true, gfm: true })
 
 // 高亮代码块（marked v17 的 renderer.code 接收对象参数）
@@ -100,7 +101,7 @@ renderer.code = ({ text, lang }) => {
 marked.setOptions({ renderer })
 
 /** 地图 URL 正则：/maps/xxx.html */
-const MAP_URL_RE = /\/maps\/[A-Za-z0-9_\-]+\.html/
+const MAP_URL_RE = /\/maps\/[A-Za-z0-9_-]+\.html/
 
 /**
  * 渲染 markdown 内容，并将地图 URL 转为内嵌 iframe 卡片
@@ -172,11 +173,8 @@ function extractSessionId(threadId: string): string {
 async function fetchSessions() {
   loadingSessions.value = true
   try {
-    const res = await fetch('/chat/sessions', {
-      headers: { Authorization: `Bearer ${authStore.token || ''}` },
-    })
-    if (!res.ok) return
-    const data = await res.json()
+    // axios 拦截器自动注入 token；非 2xx 会抛异常，401 由响应拦截器统一处理
+    const { data } = await api.get('/chat/sessions')
     sessionGroups.value = data.groups || []
   } catch (e) {
     console.error('获取历史会话失败', e)
@@ -188,11 +186,7 @@ async function fetchSessions() {
 async function loadSession(threadId: string) {
   activeThreadId.value = threadId
   try {
-    const res = await fetch(`/chat/sessions/${encodeURIComponent(threadId)}`, {
-      headers: { Authorization: `Bearer ${authStore.token || ''}` },
-    })
-    if (!res.ok) return
-    const data = await res.json()
+    const { data } = await api.get(`/chat/sessions/${encodeURIComponent(threadId)}`)
     messages.value = data.messages || []
     // 切换到该会话的 session_id，后续发送消息会复用原会话
     sessionId.value = extractSessionId(threadId)
@@ -206,16 +200,9 @@ async function loadSession(threadId: string) {
 /** 重命名会话（行内编辑确认后调用） */
 async function renameSession(threadId: string, newTitle: string) {
   try {
-    const res = await fetch(`/chat/sessions/${encodeURIComponent(threadId)}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${authStore.token || ''}`,
-      },
-      body: JSON.stringify({ title: newTitle }),
+    const { data } = await api.put(`/chat/sessions/${encodeURIComponent(threadId)}`, {
+      title: newTitle,
     })
-    if (!res.ok) return
-    const data = await res.json()
     if (data.ok) {
       fetchSessions()
     }
@@ -228,12 +215,7 @@ async function renameSession(threadId: string, newTitle: string) {
 async function deleteSession(threadId: string) {
   if (!window.confirm('确定删除这个会话吗？')) return
   try {
-    const res = await fetch(`/chat/sessions/${encodeURIComponent(threadId)}`, {
-      method: 'DELETE',
-      headers: { Authorization: `Bearer ${authStore.token || ''}` },
-    })
-    if (!res.ok) return
-    const data = await res.json()
+    const { data } = await api.delete(`/chat/sessions/${encodeURIComponent(threadId)}`)
     if (data.ok) {
       // 如果删除的是当前激活会话，清空消息
       if (threadId === activeThreadId.value) {
@@ -295,6 +277,9 @@ async function sendMessage() {
   const signal = abortController.signal
 
   try {
+    // ⚠️ 这里必须用原生 fetch 而非 axios：浏览器里 axios 基于 XHR，
+    // 拿不到 ReadableStream，无法用 response.body.getReader() 逐块读 SSE。
+    // 因此需要手动带 Authorization 头（不走 axios 拦截器）。
     const response = await fetch('/chat/stream', {
       method: 'POST',
       headers: {

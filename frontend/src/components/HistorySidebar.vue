@@ -131,7 +131,6 @@ function cancelRename() {
 
 function formatDateHeader(dateStr: string): string {
   const today = new Date()
-  const target = new Date(dateStr)
   const todayStr = today.toISOString().slice(0, 10)
   const yesterday = new Date(today)
   yesterday.setDate(yesterday.getDate() - 1)

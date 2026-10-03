@@ -2,9 +2,19 @@ import axios from 'axios'
 import router from '@/router'
 import { isTokenExpired } from '@/stores/auth'
 
+/**
+ * 全局 HTTP 客户端（axios 实例）
+ *
+ * 项目约定：**除 SSE 流式接口外，所有请求都走这里**，不再直接用 fetch。
+ * 统一走拦截器意味着 token 注入、过期检查、401 跳登录只有一份实现。
+ *
+ * 唯一的例外是 `/chat/stream`（SSE）：浏览器里 axios 基于 XHR，
+ * 拿不到 ReadableStream，无法逐块读取响应体；必须用 fetch + response.body.getReader()。
+ * 该处需要手动带 Authorization 头（不经过拦截器）。
+ */
 const api = axios.create({
-  baseURL: '',  // 空 = 相对路径：Docker 中 nginx 代理；本地开发用 Vite proxy
-  timeout: 60000,  // 路线图绘制可能较慢
+  baseURL: '', // 空 = 相对路径：Docker 中 nginx 代理；本地开发用 Vite proxy
+  timeout: 60000, // 路线图绘制可能较慢
 })
 
 api.interceptors.request.use((config) => {
