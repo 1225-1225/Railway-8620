@@ -43,6 +43,12 @@
 
 > 📺 **B 站复习**：[HTTP 协议 5 分钟讲透（9月）](https://www.bilibili.com/video/BV1yKYJ61Ed8/) · [HTTP 高频响应码精讲（9月）](https://www.bilibili.com/video/BV1EyY36mEkD/) · [RESTful API 凭什么火了 20 多年（9月）](https://www.bilibili.com/video/BV1SjeB6yEuX/) · [API 设计最佳实践（郭宏志 8月）](https://www.bilibili.com/video/BV1dHMQ6tEYG/)
 
+> 📂 **源码阅读顺序**：
+> 1. `backend/api.py:133-198` — `ChatRequest`/`RenameRequest` 两个 Pydantic 模型（field_validator 校验、8000/100 字上限）
+> 2. `backend/api.py:200-355` — sessions 四个路由（GET 列表/GET 详情/PUT 重命名/DELETE 删除），看 RESTful 动词与幂等性
+> 3. `backend/api.py:398-414` — `POST /chat`（同步 def 端点）
+> 4. `train_sync/scraper.py` — 爬虫子项目的请求头伪装（Origin/Referer/Sec-Fetch-*）
+
 ## Q1. 我看你项目里用了 POST 来传信息，传的是什么信息？
 
 > 两个 POST 接口，传的都是**聊天的核心数据**：
@@ -100,6 +106,14 @@
 
 > 📺 **B 站复习**（都是 1 小时内的短视频，适合复习）：[10 分钟学会 FastAPI（Indently 8月）](https://www.bilibili.com/video/BV1g88967E18/) · [10 分钟入门 FastAPI 实战示例（8月）](https://www.bilibili.com/video/BV1G38w6BEKN/) · [FastAPI 入门 36 分钟（零到全栈 7月）](https://www.bilibili.com/video/BV1LW3K63ExS/) · [1 小时精通 FastAPI 知识点（科科 48min）](https://www.bilibili.com/video/BV1JTCQBQERg/) · [依赖注入 DI 18 分钟（9月）](https://www.bilibili.com/video/BV1Yato6REW6/) · [请求中间件 18 分钟（9月）](https://www.bilibili.com/video/BV1Yato6RE2U/) · [中间件必看 10 分钟（1月）](https://www.bilibili.com/video/BV1yizsBGEco/)
 
+> 📂 **源码阅读顺序**：
+> 1. `backend/api.py:67-77` — lifespan（yield 前后两段，关闭时 close + shutdown）
+> 2. `backend/api.py:79-105` — app 创建 → CORS 中间件 → include_router → mount /maps（四件套按序看）
+> 3. `backend/api.py:108-131` — `_get_agent()` 懒加载双检锁 + `reload_agent()`
+> 4. `backend/auth.py:145-230` — router 定义 + register/login 两个路由（Depends 注入 db）
+> 5. `backend/database.py:29-35` — `get_db()` 生成器（yield/finally）
+> 6. `backend/api.py:416-470` — `chat_stream` async 端点（对比 399 行的同步 def）
+
 ## Q1. 为什么选 FastAPI 而不是 Flask / Django？
 
 > ① **原生异步**——ASGI 架构，SSE 流式和 async 端点是刚需；② **自动校验**——Pydantic 集成，请求体校验和 Swagger 文档免费获得；③ **类型提示驱动**——IDE 补全和静态检查友好；④ 轻量——Django 的大而全（ORM/Admin/Auth）对这个项目是负担。Flask 同步模型做 SSE 要额外折腾 gevent，FastAPI 原生支持。
@@ -152,6 +166,12 @@
 
 > 📺 **B 站复习**：[Pydantic AI 入门实战（吴恩达 1h13m 8月）](https://www.bilibili.com/video/BV1hQ8u6WEsj/) · [Pydantic 数据验证完整教程（2025-10）](https://www.bilibili.com/video/BV1B5yqBCEPT/)
 
+> 📂 **源码阅读顺序**：
+> 1. `backend/schemas.py:4-10` — `UserCreate`/`Token` 两个最简模型（先看裸的 BaseModel）
+> 2. `backend/api.py:133-158` — `ChatRequest`：field_validator + `SESSION_ID_RE: ClassVar[re.Pattern]`（⭐ 踩坑现场）
+> 3. `backend/api.py:186-198` — `RenameRequest`：第二个校验器对照看
+> 4. `settings.py:7-38` — `Settings(BaseSettings)`：Pydantic 管配置的用法
+
 ## Q1. Pydantic 是什么？为什么需要它？
 
 > 数据校验和序列化库。FastAPI 里它承担三件事：① 解析请求体（JSON → Python 对象）；② 校验（类型不对/规则不满足 → 自动 422）；③ 生成 JSON Schema（Swagger 文档的数据来源）。
@@ -188,6 +208,12 @@
 
 > 📺 **B 站复习**：[SSE 才是 AI 流式输出的答案（1.3万 6月）](https://www.bilibili.com/video/BV15F7J6dEdm/) · [用 FastAPI 讲透 SSE 流式响应（6月）](https://www.bilibili.com/video/BV1if7E64Ex5/) · [SSE vs WebSocket 面试（9月）](https://www.bilibili.com/video/BV1MZYT6pEsE/) · [7 分钟了解 SSE（1.4万）](https://www.bilibili.com/video/BV12auGzHEK2/)
 
+> 📂 **源码阅读顺序**：
+> 1. `backend/api.py:416-470` — `chat_stream`：`_SENTINEL` 定义 → generate() 生成器 → StreamingResponse
+> 2. `backend/api.py:430-465` — 双层 wait_for（建流 60s / 单块 300s）+ run_in_executor(lambda)
+> 3. `frontend/nginx.conf:31-40` — /chat/ location 的 proxy_buffering off + read_timeout 300s
+> 4. `frontend/src/views/ChatView.vue:283-386` — `sendMessage()`：fetch + getReader + TextDecoder(stream:true) + buffer 跨包拼接
+
 ## Q1. SSE 是什么？数据格式是什么？
 
 > Server-Sent Events，基于 HTTP 的**服务器单向推送**协议。响应头 `Content-Type: text/event-stream`，数据格式：
@@ -221,6 +247,12 @@
 # 五、Python 异步编程（asyncio）
 
 > 📺 **B 站复习**：[AsyncIO/多线程/多进程大对决（Indently 12min）](https://www.bilibili.com/video/BV1116ABSES1/) · [async+await+future 高频面试考点（4.2万）](https://www.bilibili.com/video/BV1JsLDzAEGu/) · [15 分钟看懂 GIL（9356）](https://www.bilibili.com/video/BV1RHz4B8EE8/) · [FastAPI 没加 async 性能入土（1万）](https://www.bilibili.com/video/BV1gn7DzXEEj/)
+
+> 📂 **源码阅读顺序**：
+> 1. `backend/api.py:60-64` — 有界线程池定义（为什么不用默认无界池）
+> 2. `backend/api.py:436-465` — `run_in_executor(_agent_executor, lambda: ...)` 两处调用（建流 + 逐块 next）
+> 3. `backend/api.py:399-414` — 同步 `def chat` 端点（对照：FastAPI 自动扔线程池）
+> 4. `agent/agent.py:13-44` — `AgentService.__init__`：SQLite 连接参数（WAL/busy_timeout）
 
 ## Q1. 什么是事件循环？为什么阻塞代码会冻结它？
 
@@ -262,6 +294,13 @@
 # 六、Python 语言特性
 
 > 📺 **B 站复习**：[迭代器与生成器（9月）](https://www.bilibili.com/video/BV1JwtZ6NEAo/) · [装饰器 13 分钟（米沙AI 7月）](https://www.bilibili.com/video/BV1LLgD6hE7M/) · [深入探讨 Python 描述符（1214 3月）](https://www.bilibili.com/video/BV1nLAszcEEf/) · [双下划线到底是什么（2.9万）](https://www.bilibili.com/video/BV1tf7c6YExq/)
+
+> 📂 **源码阅读顺序**：
+> 1. `backend/api.py:417-470` — generate() 生成器：yield 产出 SSE 事件（yield 的实战）
+> 2. `agent/railway_tools.py:21-50` — `log_tool_call` 装饰器（functools.wraps 的必要性）
+> 3. `backend/api.py:133-158` — `SESSION_ID_RE: ClassVar`（⭐ 描述符/私有属性踩坑现场）
+> 4. `settings.py:76-110` — `_SettingsProxy`：`__getattr__`/`__setattr__` 实现配置热更新
+> 5. `backend/database.py:29-35` + `backend/api.py:67-77` — with/上下文管理器：get_db 生成器 + lifespan
 
 ## Q1. yield 是什么？和 return 什么区别？
 
@@ -309,6 +348,14 @@
 
 > 📺 **B 站复习**：[10 分钟搞懂 ReAct Agent](https://www.bilibili.com/video/BV1nqaA64EAJ/) · [Pydantic AI 入门实战（吴恩达 1h13m）](https://www.bilibili.com/video/BV1hQ8u6WEsj/) · [LangGraph 智能体实战（尚硅谷 66.5万，系统课）](https://www.bilibili.com/video/BV1z3NY66EY1/)
 
+> 📂 **源码阅读顺序**：
+> 1. `agent/llm.py:10-30` — `create_llm()`：按 provider 分支创建 LLM 客户端
+> 2. `agent/agent.py:12-44` — `AgentService.__init__`：create_react_agent 组装 + SqliteSaver checkpointer
+> 3. `agent/tools.py:84-108` — `retriever_tool`（@tool 装饰器 + description 写法）
+> 4. `agent/railway_tools.py:159-230` — `query_train_info` / `query_trains_by_route`（工具三原则的实例）
+> 5. `agent/agent.py` — system_prompt 定义（工具顺序规则）
+> 6. `agent/checkpoint_parser.py:137-210` — 三个 parse 函数（checkpoint 的读取端）
+
 ## Q1. ReAct 循环是什么？你的项目里怎么跑的？
 
 > ReAct = Reasoning + Acting：LLM 先推理"我需要什么信息"，调工具获取，看着结果继续推理，直到能回答。
@@ -340,6 +387,12 @@
 # 八、数据库与 SQL
 
 > 📺 **B 站复习**：[SQL 注入原理与实战（2.7万 2025-11）](https://www.bilibili.com/video/BV1WqUUBAET5/) · [预写日志 WAL 提升性能原理（1178）](https://www.bilibili.com/video/BV1awZRBXE12/) · [SQLAlchemy 核心教程（5月）](https://www.bilibili.com/video/BV14qRxBWEpg/) · [事务隔离级别 4 分钟（8月）](https://www.bilibili.com/video/BV18qb663EDN/)
+
+> 📂 **源码阅读顺序**：
+> 1. `backend/database.py:1-35` — 全文（engine/SessionLocal/User 模型/get_db，ORM 一条线）
+> 2. `agent/agent.py:20-30` — WAL 三件套（journal_mode/busy_timeout/check_same_thread）
+> 3. `backend/api.py:160-184` — `_get_checkpointer_db()` + `_ensure_session_meta_table()`（裸 sqlite3 建表）
+> 4. `backend/api.py:288-355` — `rename_session`（UPSERT+commit）与 `delete_session`（三表删除+rowcount）
 
 ## Q1. SQL 注入怎么防的？（⭐ 必考）
 
@@ -384,6 +437,13 @@
 
 > 📺 **B 站复习**：[JWT 真的能替代 Session 吗（4064 9月）](https://www.bilibili.com/video/BV1fKeg6mEt8/) · [一个视频入门密码学：加密/哈希/签名（9月）](https://www.bilibili.com/video/BV1a6bg6oESg/) · [CORS 跨域配置（FastAPI 9月）](https://www.bilibili.com/video/BV1f5b46UEhT/) · [CSRF 攻击原理与防范（1100 7月）](https://www.bilibili.com/video/BV1jE346NESz/) · [XSS 攻击到底有多狠（7月）](https://www.bilibili.com/video/BV1PnNE6gEfe/)
 
+> 📂 **源码阅读顺序**：
+> 1. `backend/auth.py:40-95` — oauth2_scheme + ph(PasswordHasher) + authenticate_user + create_access_token
+> 2. `backend/auth.py:97-143` — `get_current_user`：JWT 解码 → 查库 → 401（⭐ 鉴权核心）
+> 3. `backend/api.py:44-49` — CORS 白名单从环境变量读
+> 4. `backend/api.py:82-89` — CORSMiddleware 挂载参数
+> 5. `frontend/src/stores/auth.ts:6-32` — parseJwtPayload + isTokenExpired（前端侧 token 处理）
+
 ## Q1. JWT 的结构是什么？怎么验证的？
 
 > 三段式：`Header.Payload.Signature`（base64url 编码，点号分隔）。Header 声明算法（HS256），Payload 存 sub（用户名）和 exp（过期时间），Signature 是前两段的 HMAC 签名。
@@ -413,6 +473,13 @@
 # 十、前端 Vue 3 / TypeScript
 
 > 📺 **B 站复习**：[Vue3 极简教程（图灵 71.7万）](https://www.bilibili.com/video/BV13tjqzmEDZ/) · [Vue3 响应式原理面试（Proxy 5月）](https://www.bilibili.com/video/BV1q4Gt6rEtu/) · [路由守卫从全局到组件（9月）](https://www.bilibili.com/video/BV1mJ47z2EuX/) · [Vue3 effect 优化 11 分钟（渡一 9月）](https://www.bilibili.com/video/BV1NvhW6xE3d/)
+
+> 📂 **源码阅读顺序**：
+> 1. `frontend/src/stores/auth.ts:34-80` — Pinia auth store（token/username/login/logout）
+> 2. `frontend/src/services/api.ts:1-42` — axios 实例 + 双拦截器（baseURL 为空的含义）
+> 3. `frontend/src/router/index.ts:12-70` — routes 动态 import + beforeEach 守卫
+> 4. `frontend/src/views/ChatView.vue:103-152` — MAP_URL_RE + renderContent + renderMapCard（v-html 受控使用）
+> 5. `frontend/src/views/ChatView.vue:283-386` — sendMessage（ref 驱动打字机效果）
 
 ## Q1. ref 和 reactive 什么区别？你用的哪个？
 
@@ -450,6 +517,12 @@
 
 > 📺 **B 站复习**：[40 分钟精通 Docker（技术爬爬虾 69.1万）](https://www.bilibili.com/video/BV1THKyzBER6/) · [都 2026 了还不会写 Dockerfile（5519）](https://www.bilibili.com/video/BV1eKiRBeEPi/) · [Nginx 三大功能配置（技术蛋老师 22.2万）](https://www.bilibili.com/video/BV1TZ421b7SD/) · [Nginx 高并发架构拆解（27.5万）](https://www.bilibili.com/video/BV1gMX1YSEtm/)
 
+> 📂 **源码阅读顺序**：
+> 1. `frontend/Dockerfile` — 多阶段构建（node 构建 → nginx 只拷产物）
+> 2. `Dockerfile` — 后端单阶段 + requirements.txt 先装（层缓存）
+> 3. `docker-compose.yml` — 两服务 + ports 映射 + volumes（maps_data 共享卷）
+> 4. `frontend/nginx.conf` — 全文按 location 顺序读（/ → /maps/ → /auth/ → /chat/）
+
 ## Q1. Dockerfile 的多阶段构建是什么？为什么用？
 
 > 前端 Dockerfile 两个 FROM：第一阶段 node:22-alpine 跑 npm build 产出 dist/；第二阶段 nginx:alpine 只 COPY 构建产物。**好处：最终镜像不含 Node 和 node_modules**，体积从几百 MB 降到几十 MB。后端 Dockerfile 的层缓存技巧：requirements.txt 先 COPY 单独 pip install，代码改动不触发依赖重装。
@@ -475,6 +548,12 @@
 # 十二、测试（pytest/Mock）
 
 > 📺 **B 站复习**：[pytest 为什么要用 fixture（9月）](https://www.bilibili.com/video/BV1SytL6vE29/) · [mock 是什么怎么用（2875 5月）](https://www.bilibili.com/video/BV1TGReByEVb/) · [unittest 单元测试（3万）](https://www.bilibili.com/video/BV1bawPesEZL/) · [Playwright+Pytest 快速上手（华为 1.5h）](https://www.bilibili.com/video/BV14dYx6iE36/)
+
+> 📂 **源码阅读顺序**：
+> 1. `tests/conftest.py:18-30` — temp_dir fixture + autouse 的单例重置
+> 2. `tests/test_tools.py:1-60` — mock RAGFlowClient 的五种断言方式
+> 3. `tests/test_api.py:56-230` — 认证端点测试（dependency_overrides 绕鉴权）
+> 4. `tests/test_concurrency.py` — 20 线程并发 + 真 SqliteSaver + 假 LLM
 
 ## Q1. Mock 是什么？为什么需要？
 
@@ -502,6 +581,12 @@
 
 > 📺 **B 站复习**：[Git+Github 核心概念大串讲（技术爬爬虾 96.4万 5月）](https://www.bilibili.com/video/BV1ySLc6QEcB/) · [2026 最新 Git 教程（6358）](https://www.bilibili.com/video/BV19bPkzKEhq/) · [为什么每个开发者都要懂 CI/CD（6949）](https://www.bilibili.com/video/BV1jf7n6NEXV/) · [GitHub Actions 推送即自动化 4 分钟（9月）](https://www.bilibili.com/video/BV12SYG6AEge/)
 
+> 📂 **源码阅读顺序**：
+> 1. `.github/workflows/ci.yml:1-30` — 触发条件 + concurrency 组 + lint job
+> 2. `.github/workflows/ci.yml:32-75` — test job（矩阵 + CI 环境变量注入）
+> 3. `.github/workflows/ci.yml:77-120` — frontend + docker 两个 job
+> 4. `.gitignore` — 对照 Q3 的分类逐行看
+
 ## Q1. 你的 Git 工作流是什么样的？
 
 > 单分支（master）+ 小步提交：每个功能/修复一个 commit，message 按规范写（feat/fix/docs/refactor 前缀 + 正文列要点）。推送前本地跑全量测试。commit 历史本身就是开发日志——面试官翻 commit 能看到真实的开发过程。
@@ -519,6 +604,16 @@
 # 十四、RAGFlow 集成适配
 
 > 📺 **B 站复习**（RAGFlow 官方中文资料偏少，优先看短的 + 官方 Meetup）：[10 分钟用 Qwen3+RAGFlow 搭本地知识库（9月）](https://www.bilibili.com/video/BV1jyaA6QE9G/) · [30 分钟 DeepSeek+RAGFlow 纯本地化部署（9月）](https://www.bilibili.com/video/BV1Zdht64E2E/) · [RAGFlow 官方 Meetup 新版本功能分享（9月）](https://www.bilibili.com/video/BV1R4ej6tEwL/) · [RAG 检索增强生成原理](https://search.bilibili.com/all?keyword=RAG%20%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E5%8E%9F%E7%90%86)
+
+> 📂 **源码阅读顺序**：
+> 1. `agent/ragflow_client.py:15-96` — RAGFlowClient 全文（__init__ 的 Session 复用 → search 的三层容错 → 字段归一化）
+> 2. `agent/tools.py:65-82` — get_ragflow_client 单例工厂（组合根绑定配置）
+> 3. `agent/ragflow_init.py:50-99` — RAGFLOW_PATCHES dict（两个上游 bug 的 old/new 对照）
+> 4. `agent/ragflow_init.py:123-160` — docker_exec / docker_exec_raw（代码注入的机制）
+> 5. `agent/ragflow_init.py:160-225` — apply_container_patches（检查→替换→清 pyc→重启）
+> 6. `agent/ragflow_init.py:585-655` — main() 十步主流程（幂等标记在开头）
+> 7. `docker-compose.ragflow.yml` — 五件套 + healthcheck
+> 8. `agent/ragflow_migrate.py:25-100` — 迁移脚本（list_datasets 探活 + upload_document 循环）
 
 ## Q1. 为什么把 Chroma 换成 RAGFlow？
 
