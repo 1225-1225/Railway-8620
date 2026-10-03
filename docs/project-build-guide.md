@@ -62,7 +62,7 @@ Railway-8620/
 │   ├── station_coords.json      # 车站经纬度
 │   └── maps/                    # 运行时生成的地图 HTML
 ├── mytools/                     # 数据管线：爬虫/清洗/合并（一次性脚本）
-├── tests/                       # 90 个 pytest 用例
+├── tests/                       # 94 个 pytest 用例
 ├── benchmarks/                  # 压测脚本 + 实测数据
 ├── docs/                        # 架构图 / 面试准备 / 本文档
 ├── Dockerfile                   # 后端镜像
@@ -1308,7 +1308,7 @@ function confirmRename(threadId: string) {
 
 ---
 
-# 阶段七 · 测试体系（90 个用例）
+# 阶段七 · 测试体系（94 个用例）
 
 ## 第 26 章 · 测试架构
 
