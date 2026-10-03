@@ -75,6 +75,11 @@
       </div>
     </div>
     </div>
+
+    <!-- 浮动错误提示：会话操作失败时给出可见反馈（3 秒自动消失） -->
+    <transition name="toast">
+      <div v-if="toastMessage" class="toast">⚠️ {{ toastMessage }}</div>
+    </transition>
   </div>
 </template>
 
@@ -148,6 +153,8 @@ let abortController: AbortController | null = null
 const sidebarCollapsed = ref(false)
 const loadingSessions = ref(false)
 const sessionGroups = ref<SessionGroup[]>([])
+// 浮动错误提示（3 秒自动消失）
+const toastMessage = ref('')
 const activeThreadId = ref('')
 
 /** 点击快捷指令：填入输入框并发送 */
@@ -170,6 +177,27 @@ function extractSessionId(threadId: string): string {
   return parts.slice(2).join('_')
 }
 
+/**
+ * 统一的错误提示：闪一条 toast，而不是只 console.error
+ * （此前失败只打日志，用户看到界面没反应，会误以为操作成功了）
+ */
+let toastTimer: ReturnType<typeof setTimeout> | null = null
+function showToast(message: string) {
+  toastMessage.value = message
+  if (toastTimer) clearTimeout(toastTimer)
+  toastTimer = setTimeout(() => {
+    toastMessage.value = ''
+  }, 3000)
+}
+
+/** 从 axios 错误中提取可读文案 */
+function extractErrorMessage(e: unknown, fallback: string): string {
+  const detail = (e as { response?: { data?: { detail?: unknown } } })?.response?.data?.detail
+  if (typeof detail === 'string') return detail
+  if (e instanceof Error && e.message) return e.message
+  return fallback
+}
+
 async function fetchSessions() {
   loadingSessions.value = true
   try {
@@ -178,6 +206,7 @@ async function fetchSessions() {
     sessionGroups.value = data.groups || []
   } catch (e) {
     console.error('获取历史会话失败', e)
+    showToast(extractErrorMessage(e, '获取历史会话失败'))
   } finally {
     loadingSessions.value = false
   }
@@ -194,6 +223,7 @@ async function loadSession(threadId: string) {
     scrollToBottom()
   } catch (e) {
     console.error('加载会话失败', e)
+    showToast(extractErrorMessage(e, '加载会话失败'))
   }
 }
 
@@ -205,9 +235,12 @@ async function renameSession(threadId: string, newTitle: string) {
     })
     if (data.ok) {
       fetchSessions()
+    } else {
+      showToast(data.error || '重命名失败')
     }
   } catch (e) {
     console.error('重命名会话失败', e)
+    showToast(extractErrorMessage(e, '重命名会话失败'))
   }
 }
 
@@ -224,9 +257,12 @@ async function deleteSession(threadId: string) {
         messages.value = []
       }
       fetchSessions()
+    } else {
+      showToast(data.error || '删除失败')
     }
   } catch (e) {
     console.error('删除会话失败', e)
+    showToast(extractErrorMessage(e, '删除会话失败'))
   }
 }
 
@@ -915,6 +951,33 @@ onBeforeUnmount(() => {
   padding: 0.1rem 0.35rem;
   border-radius: 4px;
   font-size: 0.85rem;
+}
+
+/* ===== 浮动错误提示 ===== */
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  background: rgba(220, 80, 80, 0.92);
+  color: white;
+  font-size: 0.85rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
 }
 
 </style>

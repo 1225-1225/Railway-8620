@@ -45,7 +45,7 @@
 
 > 📂 **源码阅读顺序**：
 > 1. `backend/api.py:133-198` — `ChatRequest`/`RenameRequest` 两个 Pydantic 模型（field_validator 校验、8000/100 字上限）
-> 2. `backend/api.py:200-355` — sessions 四个路由（GET 列表/GET 详情/PUT 重命名/DELETE 删除），看 RESTful 动词与幂等性
+> 2. `backend/api.py:200-355` — sessions 四个路由（GET 列表/GET 详情/PUT 重命名/DELETE 删除），看 RESTful 动词与幂等性 + 统一响应信封 `{ok, ...payload}`
 > 3. `backend/api.py:398-414` — `POST /chat`（同步 def 端点）
 > 4. `train_sync/scraper.py` — 爬虫子项目的请求头伪装（Origin/Referer/Sec-Fetch-*）
 
@@ -99,6 +99,14 @@
 > - 响应头 `Content-Type: text/event-stream`——SSE 流式响应的标识
 >
 > 另外爬虫子项目里还用了 `Origin`/`Referer`/`User-Agent`/`Sec-Fetch-*`——模拟浏览器请求头绕过 12306 的基础反爬。
+
+## Q7. 你的接口响应体有统一格式吗？
+
+> 有，**`/chat/*` 全部返回 `{"ok": bool, ...payload}`**：成功时 `ok=true` 带上业务字段（`groups` / `messages` / `title` / `deleted` / `answer`），失败时 `ok=false` 附 `error` 文案。前端统一读 `data.ok` 判断成败、读 `data.error` 展示原因，不用每个接口记一套形状。
+>
+> **唯一的例外是 `/auth/*`**——那里遵循 OAuth2 标准的 `access_token` / `token_type` 格式，加 `ok` 反而破坏规范（Swagger 的 Authorize 按钮也依赖它）。
+>
+> 为什么不全用 HTTP 状态码表达失败：越权、会话不存在这类**业务失败**我故意返回 200 + `ok: false`——避免给攻击者探测信息（"403 说明这个资源存在但你没权限"本身就是情报）。这是刻意的取舍，统一的是**响应体形状**，不是状态码语义。
 
 ---
 
@@ -496,11 +504,13 @@
 
 ## Q4. Pinia 是什么？为什么需要？
 
-> Vue 3 官方状态管理。我的 auth store 存 token/username + login/register/logout 动作 + isLoggedIn 计算属性。为什么需要：token 被路由守卫、axios 拦截器、多个组件共同使用——集中存放，logout 一处调用全部同步失效。
+> Vue 3 官方状态管理。我的 auth store 存 token/username + login/register/logout 动作 + isLoggedIn 计算属性。为什么需要：token 被路由守卫、**axios 拦截器**、多个组件共同使用——集中存放，logout 一处调用全部同步失效。
+>
+> **踩坑**：拦截器最初直接读写 `localStorage`，绕过 store——两个"家"各自维护。服务端 401 拒掉一个"看起来没过期"的 token 时，拦截器只清了 localStorage，Pinia 里 `isLoggedIn` 仍为 true → 守卫放行 → 每个请求继续 401，陷入循环。修复：拦截器统一调 `authStore.logout()`。
 
 ## Q5. axios 拦截器做了什么？
 
-> 双拦截器：**请求拦截**——发前检查 token 过期（过期就取消请求跳登录）、塞 Authorization 头；**响应拦截**——401 统一清除凭证跳登录。baseURL 为空（相对路径），开发走 Vite 代理、生产走 Nginx 反代，同一份代码环境无关。
+> 双拦截器：**请求拦截**——从 Pinia store 读 token（不是直接读 localStorage），过期就取消请求跳登录，否则塞 Authorization 头；**响应拦截**——401 统一 `authStore.logout()` + 跳登录。baseURL 为空（相对路径），开发走 Vite 代理、生产走 Nginx 反代，同一份代码环境无关。
 >
 > **项目约定：除 SSE 外所有请求都走这个 axios 实例**（会话列表/详情/重命名/删除、登录注册、非流式聊天），不再直接用 fetch——token 注入、过期检查、401 跳登录只有一份实现。
 >
@@ -680,6 +690,10 @@
 
 | 指着什么 | 一句话答案 |
 |---|---|
+| `{"ok": True, ...}` | `/chat/*` 统一响应信封：前端只需读 `ok` 判成败、读 `error` 看原因 |
+| `config_data.xxx` | 配置单一入口：全项目不再有裸 `os.getenv`，maps 目录两处同源 |
+| `useAuthStore()`（拦截器里） | token 只从 Pinia 读，避免 store 与 localStorage 状态不同步 |
+| `toastMessage` | 会话操作失败的可见反馈（改造前只 `console.error`，用户看不到） |
 | `POST /chat/stream` | 传用户消息+会话ID，SSE 流式返回 LLM 回答 |
 | `yield` | 生成器：产出一个 SSE 事件就暂停，实现逐 token 推送 |
 | `_SENTINEL = object()` | 结束标记：替代 StopIteration（穿越 Future 会变 RuntimeError） |

@@ -8,14 +8,16 @@ import json
 import os
 import logging
 
+from settings import settings as config_data
+
 logger = logging.getLogger("tool_calls")
 
 _DATA_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'data'))
-# 地图输出目录：
+# 地图输出目录：统一从 settings.maps_output_dir 读取（与 backend/api.py 的 /maps 静态挂载同源）
 #   - Docker 部署时由 docker-compose.yml 注入 maps_output_dir=/app/shared/maps
 #     （共享卷挂载给前端 Nginx 提供 /maps/ 静态访问）
-#   - 本地开发时回退到 data/maps（与 backend/api.py 的 /maps 静态挂载一致）
-_MAP_DIR = os.getenv("maps_output_dir", os.path.join(_DATA_DIR, 'maps'))
+#   - 本地开发时回退到 data/maps
+_MAP_DIR = config_data.maps_output_dir
 
 _COORDS_PATH = os.path.join(_DATA_DIR, 'station_coords.json')
 

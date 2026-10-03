@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '../stores/auth'
+import { useAuthStore } from '@/stores/auth'
 
-// 导入组件（使用动态导入）
-const LoginView = () => import('../views/LoginView.vue')
-const RegisterView = () => import('../views/RegisterView.vue')
-const ChatView = () => import('../views/ChatLegacyView.vue') // 原非流式页面
-const ChatStreamView = () => import('../views/ChatView.vue') // 流式页面
+// 导入组件（使用动态导入 → 代码分割）
+// 注意：别名与文件名保持一致，避免"看名字选错组件"
+const LoginView = () => import('@/views/LoginView.vue')
+const RegisterView = () => import('@/views/RegisterView.vue')
+const ChatStreamView = () => import('@/views/ChatView.vue') // 流式版本（主界面）
+const ChatLegacyView = () => import('@/views/ChatLegacyView.vue') // 非流式版本（对照）
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,7 +36,7 @@ const router = createRouter({
     {
       path: '/chat/legacy',
       name: 'chat-legacy',
-      component: ChatView, // 原非流式版本
+      component: ChatLegacyView, // 原非流式版本
       meta: { requiresAuth: true },
     },
     // 通配符路由：所有未匹配的路径都重定向到登录页

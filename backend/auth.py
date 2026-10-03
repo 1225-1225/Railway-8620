@@ -3,11 +3,6 @@
 
 # === 导入标准库 ===
 from datetime import datetime, timedelta   # 时间处理：获取当前时间、计算过期时间
-import os
-
-# === 加载 .env 文件到环境变量（供 os.getenv 读取） ===
-from dotenv import load_dotenv
-load_dotenv()
 
 # === 导入第三方库 ===
 from jose import JWTError, jwt              # JWT 库：jwt.encode 签发令牌，jwt.decode 验证令牌
@@ -19,14 +14,15 @@ from argon2.exceptions import VerifyMismatchError
 # === 导入项目内部模块 ===
 from sqlalchemy.orm import Session          # SQLAlchemy：数据库会话类型注解
 from . import database, schemas             # 同级包：database（数据库模型）、schemas（请求/响应数据结构）
+from settings import settings as config_data  # 统一配置入口（支持 .env、环境变量引用、热更新）
 
 # ============================================================
 # 常量与配置
 # ============================================================
 
-# JWT 签名密钥：必须通过环境变量 .env 中的 JWT_SECRET_KEY 提供
-# 未配置时为 None，create_access_token / jwt.decode 会直接抛错（拒绝静默使用弱密钥）
-SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+# JWT 签名密钥：来自 .env 的 JWT_SECRET_KEY（也支持写成环境变量名引用）
+# 未配置时为空字符串，create_access_token / jwt.decode 会直接抛错（拒绝静默使用弱密钥）
+SECRET_KEY = config_data.jwt_secret_key or None
 
 # JWT 签名算法：HS256（HMAC-SHA256，对称加密，签验共用同一个密钥）
 ALGORITHM = "HS256"

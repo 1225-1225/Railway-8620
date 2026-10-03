@@ -1,14 +1,12 @@
-import os
-from dotenv import load_dotenv
 from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.orm import sessionmaker, declarative_base
 from datetime import datetime
 
-load_dotenv()
+from settings import settings as config_data
 
-# 数据库连接地址：优先读环境变量 DATABASE_URL，未配置时回退到当前目录下的 users.db
+# 数据库连接地址：统一从 settings 读取（来自 .env 的 DATABASE_URL，未配置则回退 users.db）
 # 生产部署建议通过 .env 显式指定绝对路径，避免 cwd 不可控
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./users.db")
+SQLALCHEMY_DATABASE_URL = config_data.database_url
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
 )

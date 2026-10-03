@@ -524,6 +524,92 @@ class TestSessionManagement:
 
 
 # ═══════════════════════════════════════════════════════════════
+#  响应体信封统一性测试
+#
+#  约定: /chat/* 所有端点统一返回 {"ok": bool, ...payload}
+#  （/auth/* 例外——OAuth2 标准响应格式 access_token/token_type）
+# ═══════════════════════════════════════════════════════════════
+
+class TestResponseEnvelope:
+    """验证所有 /chat/* 端点都带统一的 ok 字段"""
+
+    @pytest.fixture
+    def checkpoint_db(self, tmp_path):
+        import sqlite3
+
+        db_path = tmp_path / "envelope.db"
+        conn = sqlite3.connect(db_path)
+        conn.execute(
+            "CREATE TABLE checkpoints (thread_id TEXT, checkpoint_ns TEXT DEFAULT '', "
+            "checkpoint_id TEXT DEFAULT '', parent_checkpoint_id TEXT DEFAULT '', "
+            "type TEXT DEFAULT '', checkpoint BLOB DEFAULT '', metadata TEXT DEFAULT '{}')"
+        )
+        conn.execute(
+            "CREATE TABLE writes (thread_id TEXT, checkpoint_ns TEXT DEFAULT '', "
+            "checkpoint_id TEXT DEFAULT '', task_id TEXT DEFAULT '', idx INTEGER DEFAULT 0, "
+            "channel TEXT DEFAULT '', type TEXT DEFAULT '', blob BLOB DEFAULT '')"
+        )
+        conn.commit()
+        conn.close()
+        return str(db_path)
+
+    def _override_user(self):
+        app.dependency_overrides[get_current_user] = lambda: fake_current_user()
+
+    def test_list_sessions_has_ok(self, checkpoint_db):
+        """GET /chat/sessions → {"ok": True, "groups": [...]}"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.get("/chat/sessions")
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        data = response.json()
+        assert data["ok"] is True
+        assert "groups" in data
+
+    def test_get_messages_has_ok(self, checkpoint_db):
+        """GET /chat/sessions/{id} → {"ok": True, "messages": [...]}"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.get("/chat/sessions/user_1_test-session")
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        data = response.json()
+        assert data["ok"] is True
+        assert data["messages"] == []
+
+    def test_get_messages_forbidden_has_ok_false(self, checkpoint_db):
+        """读取别人的会话 → ok=False（越权时仍保持统一信封）"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._override_user()
+            response = client.get("/chat/sessions/user_999_other")
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        assert response.json()["ok"] is False
+
+    def test_chat_has_ok(self):
+        """POST /chat → {"ok": True, "answer": ...}"""
+        mock_agent = mock.MagicMock()
+        mock_ai_msg = mock.MagicMock()
+        mock_ai_msg.content = "你好！我是铁路知识助手。"
+        mock_agent.invoke.return_value = {"messages": [mock_ai_msg]}
+        mock_agent.get_state.return_value = None
+
+        with mock.patch("backend.api._get_agent", return_value=mock_agent):
+            self._override_user()
+            response = client.post("/chat", json={"message": "你好", "session_id": "s1"})
+            del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 200
+        data = response.json()
+        assert data["ok"] is True
+        assert data["answer"] == "你好！我是铁路知识助手。"
+
+
+# ═══════════════════════════════════════════════════════════════
 #  /chat/stream 端点测试
 #
 #  与 /chat 的区别:

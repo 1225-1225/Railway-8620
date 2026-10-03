@@ -1,6 +1,6 @@
 import axios from 'axios'
 import router from '@/router'
-import { isTokenExpired } from '@/stores/auth'
+import { useAuthStore, isTokenExpired } from '@/stores/auth'
 
 /**
  * 全局 HTTP 客户端（axios 实例）
@@ -17,16 +17,24 @@ const api = axios.create({
   timeout: 60000, // 路线图绘制可能较慢
 })
 
+/** 统一的登出处理：清空 Pinia store（localStorage 由 store 内部同步）并跳登录 */
+function forceLogout() {
+  const authStore = useAuthStore()
+  authStore.logout()
+  if (router.currentRoute.value.path !== '/login') {
+    router.push('/login')
+  }
+}
+
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
+  // 从 Pinia store 读取，而不是直接读 localStorage——
+  // 避免"store 与 localStorage 状态不同步"（拦截器清了 localStorage 但 store 里还是旧值）
+  const authStore = useAuthStore()
+  const token = authStore.token
   if (token) {
     // 令牌过期 → 清除并跳转登录
     if (isTokenExpired(token)) {
-      localStorage.removeItem('token')
-      localStorage.removeItem('username')
-      if (router.currentRoute.value.path !== '/login') {
-        router.push('/login')
-      }
+      forceLogout()
       return Promise.reject(new axios.Cancel('Token expired'))
     }
     config.headers.Authorization = `Bearer ${token}`
@@ -39,11 +47,7 @@ api.interceptors.response.use(
   (error) => {
     // 服务端返回 401 → 清除并跳转登录
     if (error.response && error.response.status === 401) {
-      localStorage.removeItem('token')
-      localStorage.removeItem('username')
-      if (router.currentRoute.value.path !== '/login') {
-        router.push('/login')
-      }
+      forceLogout()
     }
     return Promise.reject(error)
   },

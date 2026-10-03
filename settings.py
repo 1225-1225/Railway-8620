@@ -34,6 +34,19 @@ class Settings(BaseSettings):
     # 数据路径（用于迁移脚本等）
     data_path: str = ""
 
+    # ── 以下为原先散落在各处用 os.getenv 读取的配置，统一收口到这里 ──
+    # 用户库连接串（backend/database.py）
+    database_url: str = "sqlite:///./users.db"
+    # JWT 签名密钥（backend/auth.py）—— 未配置时留空，auth.py 会拒绝启动
+    jwt_secret_key: str = ""
+    # 地图输出目录（backend/api.py 静态挂载 / agent/route_map_generator.py 生成）
+    # 两处必须一致，因此统一由这里提供；空则回退到 data/maps
+    maps_output_dir: str = ""
+    # Agent 有界线程池容量（backend/api.py）
+    agent_thread_pool_size: int = 8
+    # CORS 允许来源，逗号分隔（backend/api.py）
+    cors_origins: str = "http://localhost:8620"
+
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
@@ -43,10 +56,14 @@ def _apply_path_defaults(s: Settings):
         s.data_path = os.path.join(PROJECT_ROOT, "data", "cleaned_txts")
     if not s.chat_history_storage_path:
         s.chat_history_storage_path = os.path.join(PROJECT_ROOT, "chat_history")
+    if not s.maps_output_dir:
+        s.maps_output_dir = os.path.normpath(
+            os.path.join(PROJECT_ROOT, "data", "maps")
+        )
 
 
 def _resolve_env_var_refs(s: Settings):
-    """将 API Key 字段中的环境变量名引用替换为实际值
+    """将敏感凭证字段中的环境变量名引用替换为实际值
 
     `.env` 中两种写法都支持：
         llm_api_key=sk-xxx              → 直接用
@@ -60,7 +77,7 @@ def _resolve_env_var_refs(s: Settings):
 
     _ENV_REF_RE = re.compile(r"^[A-Z][A-Z0-9_]*$")
 
-    for field in ("llm_api_key", "embedding_api_key", "ragflow_api_key"):
+    for field in ("llm_api_key", "embedding_api_key", "ragflow_api_key", "jwt_secret_key"):
         raw = getattr(s, field)
         if not raw:
             continue

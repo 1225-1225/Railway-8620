@@ -195,13 +195,28 @@ settings = _SettingsProxy()   # 全局单例，所有模块 `from settings impor
 - `__getattr__` 拦截下划线开头属性避免内部状态泄漏
 - 配合 `backend/api.py` 的 `reload_agent()` 实现"改 .env 不重启进程生效"
 
-**面试考点**：代理模式的应用场景；pydantic-settings 的引号处理陷阱；为什么 API key 要支持环境变量间接引用（.env 可入库，真实 key 放 CI/CD 环境变量）。
+### 1.5 配置统一收口（全部从 settings 读）
+
+除 LLM/Embedding/RAGFlow 凭证外，以下也是 `Settings` 的字段——**项目里不再有裸 `os.getenv`**，也不再需要 `load_dotenv()`（pydantic-settings 自己读 `.env`）：
+
+| 字段 | 用在哪 | 默认值 |
+|---|---|---|
+| `database_url` | `backend/database.py` 建 engine | `sqlite:///./users.db` |
+| `jwt_secret_key` | `backend/auth.py` 签/验 JWT | 空（空则拒绝启动，不留后门） |
+| `maps_output_dir` | `backend/api.py` 静态挂载 + `agent/route_map_generator.py` 生成 | `data/maps` |
+| `agent_thread_pool_size` | `backend/api.py` 有界线程池 | `8` |
+| `cors_origins` | `backend/api.py` CORS 白名单 | `http://localhost:8620` |
+
+**为什么重要**：`maps_output_dir` 此前在两个文件里各自 `os.getenv` 读了一遍——一旦写法不一致就会出现"地图生成了但 404"（项目踩过这个坑）。收口到 settings 后，**两处天然同源**。
+
+**面试考点**：代理模式的应用场景；pydantic-settings 的引号处理陷阱；为什么 API key 要支持环境变量间接引用（.env 可入库，真实 key 放 CI/CD 环境变量）；为什么配置读取要单一入口。
 
 ## 第 2 章 · backend/database.py —— 用户模型
 
 ```python
-load_dotenv()
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./users.db")
+from settings import settings as config_data
+
+SQLALCHEMY_DATABASE_URL = config_data.database_url   # 统一从 settings 读
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
@@ -252,7 +267,7 @@ class Token(BaseModel):
 ### 4.1 常量与安全底线
 
 ```python
-SECRET_KEY = os.getenv("JWT_SECRET_KEY")   # 未配置时为 None
+SECRET_KEY = config_data.jwt_secret_key or None   # 来自 settings（空则拒绝启动）
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 300          # 5 小时
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
@@ -411,14 +426,16 @@ def query_trains_by_route(from_station: str, to_station: str, limit: int = 3) ->
 
 ## 第 7 章 · agent/route_map_generator.py —— 地图生成器
 
-### 7.1 输出目录（环境变量可覆盖）
+### 7.1 输出目录（统一从 settings 读）
 
 ```python
+from settings import settings as config_data
+
 _DATA_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'data'))
-_MAP_DIR = os.getenv("maps_output_dir", os.path.join(_DATA_DIR, 'maps'))
+_MAP_DIR = config_data.maps_output_dir   # 与 backend/api.py 的 /maps 挂载同源
 ```
 
-**踩坑记录**：初版硬编码 `data/maps`，但 docker-compose 注入 `maps_output_dir=/app/shared/maps`（共享卷给 Nginx）→ Docker 里地图写错位置，Nginx 404。修复：`os.getenv` 优先，本地默认兜底。同一 bug 还出现在 `backend/api.py` 的静态挂载处——**两处必须指向同一目录**。
+**踩坑记录**：初版硬编码 `data/maps`，但 docker-compose 注入 `maps_output_dir=/app/shared/maps`（共享卷给 Nginx）→ Docker 里地图写错位置，Nginx 404。同一 bug 还出现在 `backend/api.py` 的静态挂载处——**两处必须指向同一目录**。现已收口到 `settings.maps_output_dir`：两处读同一个字段，结构上不可能再不一致。
 
 ### 7.2 生成流程
 
@@ -552,8 +569,10 @@ class AgentService:
 
 ```python
 # ── 有界线程池（拒绝无界！）──
-_AGENT_POOL_SIZE = int(os.getenv("AGENT_THREAD_POOL_SIZE", "8"))
-_agent_executor = ThreadPoolExecutor(max_workers=_AGENT_POOL_SIZE, thread_name_prefix="agent-worker")
+_agent_executor = ThreadPoolExecutor(
+    max_workers=config_data.agent_thread_pool_size,   # 来自 settings（.env 可覆盖）
+    thread_name_prefix="agent-worker",
+)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -566,8 +585,8 @@ app = FastAPI(lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=_cors_origins, ...)
 app.include_router(auth.router)
 
-# ── 地图静态挂载（与生成目录一致！）──
-_maps_dir = os.getenv("maps_output_dir", os.path.normpath(.../data/maps))
+# ── 地图静态挂载（与生成目录同源：都来自 settings.maps_output_dir）──
+_maps_dir = config_data.maps_output_dir
 os.makedirs(_maps_dir, exist_ok=True)
 app.mount("/maps", StaticFiles(directory=_maps_dir), name="maps")
 ```
@@ -714,6 +733,10 @@ def parse_messages_from_checkpoint(blob: bytes) -> list:
 
 ## 第 14 章 · 会话管理接口（4 个）
 
+> **统一响应信封**：`/chat/*` 所有端点都返回 `{"ok": bool, ...payload}`，失败时额外带 `error`。
+> 前端统一读 `data.ok` 判断成败，不用每个接口记一套形状。
+> （`/auth/*` 例外——那里遵循 OAuth2 标准的 `access_token`/`token_type` 格式。）
+
 ```python
 @app.get("/chat/sessions")
 def list_sessions(current_user = Depends(get_current_user)):
@@ -725,23 +748,26 @@ def list_sessions(current_user = Depends(get_current_user)):
     #    created_at = parse_checkpoint_ts(...)
     # 2. session_meta 自定义标题覆盖 preview
     # 3. 按日期分组（今天/昨天/...），组内按时间降序，组间按日期降序
-    return {"groups": sorted_groups}
+    return {"ok": True, "groups": sorted_groups}
 
 @app.get("/chat/sessions/{thread_id:path}")
 def get_session_messages(thread_id, current_user):
     if not thread_id.startswith(f"user_{current_user.id}"):   # 越权校验
-        return {"messages": []}
+        return {"ok": False, "error": "无权限", "messages": []}
     # 取最新一条 checkpoint → parse_messages_from_checkpoint
+    return {"ok": True, "messages": messages}
 
 @app.put("/chat/sessions/{thread_id:path}")
 def rename_session(thread_id, request: RenameRequest, current_user):
     # 越权校验 → 会话必须存在于 checkpoints → UPSERT session_meta
     # RenameRequest.title 校验：非空、≤100 字符
+    return {"ok": True, "title": request.title}   # 失败 → {"ok": False, "error": "..."}
 
 @app.delete("/chat/sessions/{thread_id:path}")
 def delete_session(thread_id, current_user):
     # 越权校验 → DELETE checkpoints + writes + session_meta 三表
-    # deleted == 0 → "会话不存在"
+    # deleted == 0 → {"ok": False, "error": "会话不存在"}
+    return {"ok": True, "deleted": deleted}
 ```
 
 **session_meta 表**（与 checkpointer 同库）：
@@ -770,7 +796,7 @@ def chat(request: ChatRequest, current_user = Depends(get_current_user)):
     _repair_incomplete_tool_calls(agent, config)
     result = agent.invoke(input={"messages": [{"role": "user", "content": request.message}]},
                           config=config)
-    return {"answer": result["messages"][-1].content}
+    return {"ok": True, "answer": result["messages"][-1].content}
 ```
 
 ### 15.2 中断修复机制
@@ -1039,10 +1065,12 @@ export const useAuthStore = defineStore('auth', () => {
 const api = axios.create({ baseURL: '', timeout: 60000 })   // 空=相对路径：dev 走 Vite 代理，prod 走 Nginx
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
+  // 从 Pinia store 读，而不是直接读 localStorage——避免两处状态不同步
+  const authStore = useAuthStore()
+  const token = authStore.token
   if (token) {
     if (isTokenExpired(token)) {          // 发请求前主动检查
-      localStorage.removeItem('token')
+      authStore.logout()                  // store 内部同步清 localStorage
       router.push('/login')
       return Promise.reject(new axios.Cancel('Token expired'))
     }
@@ -1055,13 +1083,15 @@ api.interceptors.response.use(
   (r) => r,
   (error) => {
     if (error.response?.status === 401) {  // 服务端判过期
-      localStorage.removeItem('token')
+      useAuthStore().logout()
       router.push('/login')
     }
     return Promise.reject(error)
   },
 )
 ```
+
+**踩过的坑**：初版拦截器直接操作 `localStorage`，而组件通过 Pinia 读 token——两个“家”各自维护。当服务端 401 拒了一个“看起来没过期”的 token 时，拦截器只清了 localStorage，**Pinia 里 `isLoggedIn` 仍为 true** → 路由守卫放行 → 每个请求继续 401，陷入循环，必须刷新页面才恢复。修复：统一走 `authStore.logout()`，一处清除两处同步。
 
 ## 第 22 章 · router/index.ts —— 路由与守卫
 
@@ -1074,6 +1104,8 @@ const routes = [
   { path: '/chat/legacy', component: ChatLegacyView },   // 非流式版保留
   { path: '/:pathMatch(.*)*', redirect: '/login' },      // 通配兜底
 ]
+// 注意别名与文件名一致：ChatStreamView=ChatView.vue，ChatLegacyView=ChatLegacyView.vue
+// （早期写法把两者写反了——ChatView 指向 ChatLegacyView.vue——看名字必选错）
 const WHITELIST = ['/login', '/register']
 router.beforeEach((to, _from, next) => {
   if (WHITELIST.includes(to.path)) {
@@ -1210,17 +1242,33 @@ function extractSessionId(threadId: string): string {
 }                                                  // slice(2)+join：session_id 本身可含下划线
 
 async function renameSession(threadId: string, newTitle: string) {
-  const { data } = await api.put(`/chat/sessions/${encodeURIComponent(threadId)}`, {
-    title: newTitle,
-  })
-  if (data.ok) fetchSessions()
+  try {
+    const { data } = await api.put(`/chat/sessions/${encodeURIComponent(threadId)}`, {
+      title: newTitle,
+    })
+    if (data.ok) fetchSessions()
+    else showToast(data.error || '重命名失败')      // ← 失败必须给可见反馈
+  } catch (e) {
+    console.error('重命名会话失败', e)
+    showToast(extractErrorMessage(e, '重命名会话失败'))
+  }
 }
 
 async function deleteSession(threadId: string) {
   if (!window.confirm('确定删除这个会话吗？')) return
   ... api.delete(...) → 若删的是当前会话：清空消息区 + 换新 sessionId
 }
+
+/** 统一的错误提示：闪一条 toast，3 秒自动消失 */
+let toastTimer: ReturnType<typeof setTimeout> | null = null
+function showToast(message: string) {
+  toastMessage.value = message
+  if (toastTimer) clearTimeout(toastTimer)
+  toastTimer = setTimeout(() => { toastMessage.value = '' }, 3000)
+}
 ```
+
+**为什么加 toast**：改造前这些操作失败**只 `console.error`**，界面毫无反应——用户点了删除没动静，会以为删掉了，实际失败了。现在统一 `showToast`，并且优先展示后端返回的 `data.error`（如“无权限”“会话不存在”），比通用文案更有信息量。
 
 **HTTP 层统一约定**：除 SSE 流式接口外，**所有请求都走 `services/api.ts` 的 axios 实例**（会话列表/详情/重命名/删除、登录注册、非流式聊天），不再直接用 fetch。好处：token 注入、令牌过期检查、401 跳登录只有一份实现，组件代码只管业务。唯一例外是 `/chat/stream`——浏览器里 axios 基于 XHR，拿不到 `ReadableStream`，无法逐块读 SSE，必须用 fetch + `response.body.getReader()`（该处手动带 Authorization 头）。
 

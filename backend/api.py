@@ -21,6 +21,7 @@ from agent.agent import AgentService
 from backend import auth
 from backend.database import User
 from backend.auth import get_current_user
+from settings import settings as config_data
 
 from fastapi.responses import StreamingResponse
 from langchain_core.messages import AIMessage, AIMessageChunk
@@ -41,9 +42,8 @@ if not logger.handlers:
 
 # CORS 允许的前端来源，逗号分隔；默认仅放行 Vite 开发服务器
 # 生产环境下前端走 Nginx 反代到后端，同源不需要 CORS
-_DEFAULT_CORS_ORIGINS = "http://localhost:8620"
 _cors_origins = [
-    o.strip() for o in os.getenv("CORS_ORIGINS", _DEFAULT_CORS_ORIGINS).split(",") if o.strip()
+    o.strip() for o in config_data.cors_origins.split(",") if o.strip()
 ]
 
 # 智能体对象（懒加载：首次请求或配置保存时才创建，避免空 key 导致启动崩溃）
@@ -56,10 +56,9 @@ _agent_lock = threading.Lock()
 # 有界线程池：所有 agent.stream() 的同步迭代都在这个池子里执行
 # 不能再用默认无界池（run_in_executor(None)）——并发请求会无限创建线程，
 # 且所有请求共享同一个 SQLite 连接，线程爆炸会放大锁竞争。
-# 容量通过环境变量 AGENT_THREAD_POOL_SIZE 配置，默认 8。
-_AGENT_POOL_SIZE = int(os.getenv("AGENT_THREAD_POOL_SIZE", "8"))
+# 容量通过 .env 的 AGENT_THREAD_POOL_SIZE 配置（settings 默认 8）。
 _agent_executor = ThreadPoolExecutor(
-    max_workers=_AGENT_POOL_SIZE,
+    max_workers=config_data.agent_thread_pool_size,
     thread_name_prefix="agent-worker",
 )
 
@@ -92,15 +91,11 @@ app.include_router(auth.router)
 
 # 静态文件：提供地图文件访问
 # 注意：地图由 agent/route_map_generator.py 生成，这里必须挂载同一目录，
-# 否则生成的地图无法通过 /maps 访问。
+# 否则生成的地图无法通过 /maps 访问。两处统一从 settings.maps_output_dir 读取：
 #   - Docker 部署时由 docker-compose.yml 注入 maps_output_dir=/app/shared/maps
 #   - 本地开发时回退到 data/maps
 from fastapi.staticfiles import StaticFiles
-import os
-_maps_dir = os.getenv(
-    "maps_output_dir",
-    os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'maps')),
-)
+_maps_dir = config_data.maps_output_dir
 os.makedirs(_maps_dir, exist_ok=True)
 app.mount("/maps", StaticFiles(directory=_maps_dir), name="maps")
 
@@ -136,11 +131,13 @@ class ChatRequest(BaseModel):
 
     # session_id 会被拼进 thread_id 并作为目录/DB 查询条件，必须限制为安全字符
     # 允许：字母数字、下划线、连字符（覆盖 UUID 与前端生成的自定义 ID）
+    # re.compile() 返回一个re.Pattern对象
     SESSION_ID_RE: ClassVar[re.Pattern] = re.compile(r"^[A-Za-z0-9_-]{0,64}$")
 
     @field_validator("session_id")
     @classmethod
     def _validate_session_id(cls, v: str) -> str:
+        # .match是 re.Pattern 类里自带的方法
         if not cls.SESSION_ID_RE.match(v):
             raise ValueError(
                 "session_id 只能包含字母、数字、下划线或连字符，且长度不超过 64"
@@ -183,6 +180,7 @@ def _ensure_session_meta_table(conn: sqlite3.Connection):
     )
 
 
+# 重命名会话
 class RenameRequest(BaseModel):
     title: str
 
@@ -202,7 +200,7 @@ def list_sessions(current_user: User = Depends(get_current_user)):
     """返回当前用户的所有历史会话，按日期分组"""
     db_path = _get_checkpointer_db()
     if not os.path.exists(db_path):
-        return {"groups": []}
+        return {"ok": True, "groups": []}
 
     prefix = f"user_{current_user.id}_" if current_user else ""
     conn = sqlite3.connect(db_path)
@@ -259,7 +257,7 @@ def list_sessions(current_user: User = Depends(get_current_user)):
         g["sessions"].sort(key=lambda x: x["created_at"], reverse=True)
 
     sorted_groups = sorted(groups.values(), key=lambda g: g["date"], reverse=True)
-    return {"groups": sorted_groups}
+    return {"ok": True, "groups": sorted_groups}
 
 
 @app.get("/chat/sessions/{thread_id:path}")
@@ -268,10 +266,10 @@ def get_session_messages(thread_id: str, current_user: User = Depends(get_curren
     # 安全校验：只允许当前用户的会话
     expected_prefix = f"user_{current_user.id}"
     if not thread_id.startswith(expected_prefix):
-        return {"messages": []}
+        return {"ok": False, "error": "无权限", "messages": []}
     db_path = _get_checkpointer_db()
     if not os.path.exists(db_path):
-        return {"messages": []}
+        return {"ok": True, "messages": []}
     conn = sqlite3.connect(db_path)
     cur = conn.execute(
         "SELECT checkpoint FROM checkpoints WHERE thread_id=? ORDER BY rowid DESC LIMIT 1",
@@ -280,9 +278,9 @@ def get_session_messages(thread_id: str, current_user: User = Depends(get_curren
     row = cur.fetchone()
     conn.close()
     if not row:
-        return {"messages": []}
+        return {"ok": True, "messages": []}
     messages = parse_messages_from_checkpoint(row[0])
-    return {"messages": messages}
+    return {"ok": True, "messages": messages}
 
 
 @app.put("/chat/sessions/{thread_id:path}")
@@ -411,7 +409,7 @@ def chat(
     all_messages = result["messages"]
     
     answer = all_messages[-1].content
-    return {"answer": answer}
+    return {"ok": True, "answer": answer}
 
 @app.post("/chat/stream")
 async def chat_stream(
