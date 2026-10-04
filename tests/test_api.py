@@ -420,11 +420,11 @@ class TestResponseEnvelope:
 # ═══════════════════════════════════════════════════════════════
 #  /chat/stream 端点测试
 #
-#  与 /chat 的区别:
+#  说明:
 #    - 后端调用 agent.stream() 而不是 agent.invoke()
 #    - 响应是 SSE (Server-Sent Events) 格式
 #    - Content-Type: text/event-stream
-#    - 响应体按 data: {...}\n\n 格式逐条发送
+#    - 响应体按 data: {...}\n\n 格式逐条发送（不套 ok 信封）
 # ═══════════════════════════════════════════════════════════════
 
 class TestChatStreamEndpoint:
@@ -434,9 +434,9 @@ class TestChatStreamEndpoint:
         """
         不带 token → 应返回 401
 
-        与 test_chat_requires_auth 同理:
-          - 不 mock 任何东西
-          - FastAPI 的 Depends(get_current_user) 没有 token → 401
+        不 mock 任何东西：FastAPI 的 Depends(get_current_user) 没有 token → 401。
+        注意依赖解析先于 body 校验：所以没带 token 时拿到的总是 401，
+        想测 body 校验（如 session_id 非法）必须先 dependency_overrides 绕掉认证。
         """
         response = client.post("/chat/stream", json={"message": "你好"})
         assert response.status_code == 401

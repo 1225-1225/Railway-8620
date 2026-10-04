@@ -44,17 +44,19 @@
 > 📺 **B 站复习**：[HTTP 协议 5 分钟讲透（9月）](https://www.bilibili.com/video/BV1yKYJ61Ed8/) · [HTTP 高频响应码精讲（9月）](https://www.bilibili.com/video/BV1EyY36mEkD/) · [RESTful API 凭什么火了 20 多年（9月）](https://www.bilibili.com/video/BV1SjeB6yEuX/) · [API 设计最佳实践（郭宏志 8月）](https://www.bilibili.com/video/BV1dHMQ6tEYG/)
 
 > 📂 **源码阅读顺序**：
-> 1. `backend/api.py:133-198` — `ChatRequest`/`RenameRequest` 两个 Pydantic 模型（field_validator 校验、8000/100 字上限）
-> 2. `backend/api.py:200-355` — sessions 四个路由（GET 列表/GET 详情/PUT 重命名/DELETE 删除），看 RESTful 动词与幂等性 + 统一响应信封 `{ok, ...payload}`
-> 3. `backend/api.py:398-414` — `POST /chat/stream`（async 端点，注意与同步 def 的调度差异）
+> 1. `backend/api.py:128-156` — `ChatRequest`（message 8000 字上限 + session_id 正则校验）与 `RenameRequest`（标题 100 字上限）两个 Pydantic 模型
+> 2. `backend/api.py:198-353` — sessions 四个路由（GET 列表 198 / GET 详情 263 / PUT 重命名 286 / DELETE 删除 320），看 RESTful 动词与幂等性 + 统一响应信封 `{ok, ...payload}`
+> 3. `backend/api.py:395-456` — `POST /chat/stream`（async 端点，注意与同步 def 的调度差异）
 > 4. `train_sync/scraper.py` — 爬虫子项目的请求头伪装（Origin/Referer/Sec-Fetch-*）
 
 ## Q1. 我看你项目里用了 POST 来传信息，传的是什么信息？
 
-> 两个 POST 接口，传的都是**聊天的核心数据**：
+> 项目里目前只有**两个** POST 接口：
 >
 > 1. `POST /chat/stream`——请求体是 JSON：`{"message": "用户的问题", "session_id": "会话UUID"}`，请求头带 `Authorization: Bearer <JWT>`。message 是要发给 LLM 的内容，session_id 用于定位多轮对话的历史。
 > 2. `POST /auth/login`——这个传的是 **Form 格式**（`application/x-www-form-urlencoded`），不是 JSON，因为用的是 FastAPI 的 `OAuth2PasswordRequestForm`，它要求表单编码。前端对应用 `FormData` 提交。
+>
+> **设计演进（诚实说明）**：早期还有一个 `POST /chat` 非流式端点，同样传 `{message, session_id}`。后来前端全用流式，它唯一的消费者是压测脚本；我把压测改成打 `/chat/stream` 后（更贴近真实链路，还能顺便测 TTFT），它就没有调用方了，于是删掉。教训是**删接口前要查全链路调用方**——第一轮我只搜了前端，漏掉了压测脚本。
 >
 > 为什么聊天用 POST 而不是 GET：① message 是用户输入的自由文本，可能很长（上限 8000 字符），GET 的 URL 长度有限制；② 语义上这是"提交一个任务"而非"获取资源"；③ 避免敏感内容出现在 URL 和服务器日志里。
 
@@ -68,9 +70,11 @@
 > | GET | /chat/sessions/{id} | 读取单个资源 | 是 |
 > | PUT | /chat/sessions/{id} | 更新资源（重命名） | 是 |
 > | DELETE | /chat/sessions/{id} | 删除资源 | 是 |
-> | POST | /chat | 创建/提交（发起对话） | 否 |
+> | POST | /chat/stream | 提交一条消息并订阅流式回答 | 否 |
 >
-> **幂等性**指"同一请求执行多次和执行一次效果相同"：GET/PUT/DELETE 幂等（重复删一个已删的资源，结果还是不存在），POST 不幂等（重复提交会创建多个对话）。
+> **幂等性**指"同一请求执行多次和执行一次效果相同"：GET/PUT/DELETE 幂等（重复删一个已删的资源，结果还是不存在），POST 不幂等（重复提交会把同一句话再问一遍、在会话里追加多条消息）。
+>
+> 严格说 `/chat/stream` 不是纯 RESTful 的"创建资源"，而更像"发起一次带副作用的任务"——所以用 POST（非幂等 + 避免把长文本塞进 URL）。这类"动作用动词路径"的写法在 RPC 风格里很常见，不必为 REST 教条硬拗。
 
 ## Q3. 422 状态码是什么？你项目哪里返回的？
 
@@ -102,9 +106,13 @@
 
 ## Q7. 你的接口响应体有统一格式吗？
 
-> 有，**`/chat/*` 全部返回 `{"ok": bool, ...payload}`**：成功时 `ok=true` 带上业务字段（`groups` / `messages` / `title` / `deleted` / `answer`），失败时 `ok=false` 附 `error` 文案。前端统一读 `data.ok` 判断成败、读 `data.error` 展示原因，不用每个接口记一套形状。
+> 有，但**分两类**，界限很清楚：
 >
-> **唯一的例外是 `/auth/*`**——那里遵循 OAuth2 标准的 `access_token` / `token_type` 格式，加 `ok` 反而破坏规范（Swagger 的 Authorize 按钮也依赖它）。
+> **① 普通 JSON 接口用 `{"ok": bool, ...payload}` 信封**——即 `/chat/sessions` 的 4 个方法。成功时 `ok=true` 带业务字段（`groups` / `messages` / `title` / `deleted`），失败时 `ok=false` 附 `error` 文案。前端统一读 `data.ok` 判成败、读 `data.error` 展示原因（对应 `ChatView.vue` 里的 `extractErrorMessage()`），不用每个接口记一套形状。
+>
+> **② SSE 流式接口不用信封**——`/chat/stream` 推的是 `data: {"content": "..."}` / `data: {"error": "..."}` / `data: [DONE]`（对应 `backend/api.py:447-454`）。因为流式的本质是"边生成边推"，外面包一层 `ok` 反而多一层解包，且流中途出错时 HTTP 状态码早已发出去了（200），错误只能靠事件体传达——所以错误也做成一种 data 事件，形状和 content 事件平行。
+>
+> **唯一的另一种例外是 `/auth/*`**——那里遵循 OAuth2 标准的 `access_token` / `token_type` 格式，加 `ok` 反而破坏规范（Swagger 的 Authorize 按钮也依赖它）。
 >
 > 为什么不全用 HTTP 状态码表达失败：越权、会话不存在这类**业务失败**我故意返回 200 + `ok: false`——避免给攻击者探测信息（"403 说明这个资源存在但你没权限"本身就是情报）。这是刻意的取舍，统一的是**响应体形状**，不是状态码语义。
 
@@ -116,11 +124,11 @@
 
 > 📂 **源码阅读顺序**：
 > 1. `backend/api.py:67-77` — lifespan（yield 前后两段，关闭时 close + shutdown）
-> 2. `backend/api.py:79-105` — app 创建 → CORS 中间件 → include_router → mount /maps（四件套按序看）
-> 3. `backend/api.py:108-131` — `_get_agent()` 懒加载双检锁 + `reload_agent()`
-> 4. `backend/auth.py:145-230` — router 定义 + register/login 两个路由（Depends 注入 db）
+> 2. `backend/api.py:79-101` — app 创建 → CORS 中间件 → include_router → mount /maps（四件套按序看）
+> 3. `backend/api.py:103-121` — `_get_agent()` 懒加载双检锁 + `reload_agent()`
+> 4. `backend/auth.py:141-230` — router 定义（prefix="/auth"）+ register/login 两个路由（Depends 注入 db）
 > 5. `backend/database.py:29-35` — `get_db()` 生成器（yield/finally）
-> 6. `backend/api.py:416-470` — `chat_stream` async 端点（对比 399 行的同步 def）
+> 6. `backend/api.py:395-456` — `chat_stream` async 端点（含 `_SENTINEL` 与双层 wait_for）
 
 ## Q1. 为什么选 FastAPI 而不是 Flask / Django？
 
@@ -217,10 +225,10 @@
 > 📺 **B 站复习**：[SSE 才是 AI 流式输出的答案（1.3万 6月）](https://www.bilibili.com/video/BV15F7J6dEdm/) · [用 FastAPI 讲透 SSE 流式响应（6月）](https://www.bilibili.com/video/BV1if7E64Ex5/) · [SSE vs WebSocket 面试（9月）](https://www.bilibili.com/video/BV1MZYT6pEsE/) · [7 分钟了解 SSE（1.4万）](https://www.bilibili.com/video/BV12auGzHEK2/)
 
 > 📂 **源码阅读顺序**：
-> 1. `backend/api.py:416-470` — `chat_stream`：`_SENTINEL` 定义 → generate() 生成器 → StreamingResponse
-> 2. `backend/api.py:430-465` — 双层 wait_for（建流 60s / 单块 300s）+ run_in_executor(lambda)
+> 1. `backend/api.py:395-456` — `chat_stream`：`_SENTINEL = object()` → `generate()` 生成器 → StreamingResponse
+> 2. `backend/api.py:414-440` — 双层 wait_for（建流 60s / 单块 300s）+ run_in_executor(lambda)
 > 3. `frontend/nginx.conf:28-38` — /chat/ location 的 proxy_buffering off + read_timeout 300s（注意：**没有** location /chat，因为 /chat 是前端路由，必须回退 index.html）
-> 4. `frontend/src/views/ChatView.vue:283-386` — `sendMessage()`：fetch + getReader + TextDecoder(stream:true) + buffer 跨包拼接（项目里唯一不用 axios 的请求）
+> 4. `frontend/src/views/ChatView.vue:301-400` — `sendMessage()`：fetch + getReader + TextDecoder(stream:true) + buffer 跨包拼接（项目里唯一不用 axios 的请求）
 
 ## Q1. SSE 是什么？数据格式是什么？
 
@@ -258,9 +266,9 @@
 
 > 📂 **源码阅读顺序**：
 > 1. `backend/api.py:60-64` — 有界线程池定义（为什么不用默认无界池）
-> 2. `backend/api.py:436-465` — `run_in_executor(_agent_executor, lambda: ...)` 两处调用（建流 + 逐块 next）
-> 3. `backend/api.py:399-414` — 同步 `def chat` 端点（对照：FastAPI 自动扔线程池）
-> 4. `agent/agent.py:13-44` — `AgentService.__init__`：SQLite 连接参数（WAL/busy_timeout）
+> 2. `backend/api.py:396-456` — `chat_stream` 的 `generate()`：建流处 run_in_executor+60s、逐块处 run_in_executor+300s
+> 3. `backend/api.py:355-392` — `_repair_incomplete_tool_calls` 的同步/异步两版对照（async 版走 executor）
+> 4. `agent/agent.py:12-44` — `AgentService.__init__`：SQLite 连接参数（WAL/busy_timeout）
 
 ## Q1. 什么是事件循环？为什么阻塞代码会冻结它？
 
@@ -295,7 +303,9 @@
 > - `def` 端点：FastAPI 自动用 run_in_threadpool 扔进 Starlette 线程池（默认 40 线程）执行——阻塞安全，类似 Spring MVC 每请求一线程；
 > - `async def` 端点：直接在事件循环上执行——阻塞代码是毒药。
 >
-> 我项目 /chat 用 def（一问一答，阻塞安全且代码最简）、/chat/stream 用 async（需要 wait_for 逐块超时和优雅降级）。没统一是因为统一会让两端点争抢同一个自建线程池，失去故障隔离。
+> 我项目里 `/chat/stream` 是 async（需要 wait_for 逐块超时、优雅降级、以及 finally 里各种清理）；而 `/chat/sessions` 那些**纯 SQLite 查询的同步 `def` 端点**全部保持同步 def——让 FastAPI 自动扔线程池，代码最简。
+>
+> **设计演进（诚实说明）**：我原本还有个同步 def 的 `POST /chat`，当时的说法是"两个端点不统一是为了争取线程池隔离"。前端全用流式后它被删了，这个对比也就不成立了——更准确的表述应该是：**同步 def 用在无流式需求的 CRUD 上，async def 只留给必须自己控制 I/O 节奏的流式接口**。判断依据是"这个端点里有没有需要我手动 await/超时/降级的东西"，而不是刻意制造两种风格。
 
 ---
 
@@ -304,10 +314,10 @@
 > 📺 **B 站复习**：[迭代器与生成器（9月）](https://www.bilibili.com/video/BV1JwtZ6NEAo/) · [装饰器 13 分钟（米沙AI 7月）](https://www.bilibili.com/video/BV1LLgD6hE7M/) · [深入探讨 Python 描述符（1214 3月）](https://www.bilibili.com/video/BV1nLAszcEEf/) · [双下划线到底是什么（2.9万）](https://www.bilibili.com/video/BV1tf7c6YExq/)
 
 > 📂 **源码阅读顺序**：
-> 1. `backend/api.py:417-470` — generate() 生成器：yield 产出 SSE 事件（yield 的实战）
+> 1. `backend/api.py:411-454` — `generate()` 生成器：yield 产出 SSE 事件（yield 的实战）
 > 2. `agent/railway_tools.py:21-50` — `log_tool_call` 装饰器（functools.wraps 的必要性）
-> 3. `backend/api.py:133-158` — `SESSION_ID_RE: ClassVar`（⭐ 描述符/私有属性踩坑现场）
-> 4. `settings.py:76-110` — `_SettingsProxy`：`__getattr__`/`__setattr__` 实现配置热更新
+> 3. `backend/api.py:128-151` — `ChatRequest.SESSION_ID_RE: ClassVar`（⭐ 描述符/私有属性踩坑现场）
+> 4. `settings.py:93-125` — `_SettingsProxy`：`__getattr__`/`__setattr__` 实现配置热更新
 > 5. `backend/database.py:29-35` + `backend/api.py:67-77` — with/上下文管理器：get_db 生成器 + lifespan
 
 ## Q1. yield 是什么？和 return 什么区别？
@@ -358,11 +368,10 @@
 
 > 📂 **源码阅读顺序**：
 > 1. `agent/llm.py:10-30` — `create_llm()`：按 provider 分支创建 LLM 客户端
-> 2. `agent/agent.py:12-44` — `AgentService.__init__`：create_react_agent 组装 + SqliteSaver checkpointer
+> 2. `agent/agent.py:12-44` — `AgentService.__init__`：create_react_agent 组装 + SqliteSaver checkpointer + system_prompt
 > 3. `agent/tools.py:84-108` — `retriever_tool`（@tool 装饰器 + description 写法）
 > 4. `agent/railway_tools.py:159-230` — `query_train_info` / `query_trains_by_route`（工具三原则的实例）
-> 5. `agent/agent.py` — system_prompt 定义（工具顺序规则）
-> 6. `agent/checkpoint_parser.py:137-210` — 三个 parse 函数（checkpoint 的读取端）
+> 5. `agent/checkpoint_parser.py:137-210` — 三个 parse 函数（checkpoint 的读取端）
 
 ## Q1. ReAct 循环是什么？你的项目里怎么跑的？
 
@@ -399,8 +408,8 @@
 > 📂 **源码阅读顺序**：
 > 1. `backend/database.py:1-35` — 全文（engine/SessionLocal/User 模型/get_db，ORM 一条线）
 > 2. `agent/agent.py:20-30` — WAL 三件套（journal_mode/busy_timeout/check_same_thread）
-> 3. `backend/api.py:160-184` — `_get_checkpointer_db()` + `_ensure_session_meta_table()`（裸 sqlite3 建表）
-> 4. `backend/api.py:288-355` — `rename_session`（UPSERT+commit）与 `delete_session`（三表删除+rowcount）
+> 3. `backend/api.py:157-182` — `_get_checkpointer_db()` + `_ensure_session_meta_table()`（裸 sqlite3 建表）
+> 4. `backend/api.py:286-353` — `rename_session`（UPSERT+commit）与 `delete_session`（三表删除+rowcount）
 
 ## Q1. SQL 注入怎么防的？（⭐ 必考）
 
@@ -448,8 +457,8 @@
 > 📂 **源码阅读顺序**：
 > 1. `backend/auth.py:40-95` — oauth2_scheme + ph(PasswordHasher) + authenticate_user + create_access_token
 > 2. `backend/auth.py:97-143` — `get_current_user`：JWT 解码 → 查库 → 401（⭐ 鉴权核心）
-> 3. `backend/api.py:44-49` — CORS 白名单从环境变量读
-> 4. `backend/api.py:82-89` — CORSMiddleware 挂载参数
+> 3. `backend/api.py:44-47` — CORS 白名单从 config_data.cors_origins 读（逗号分隔多来源）
+> 4. `backend/api.py:81-88` — CORSMiddleware 挂载参数
 > 5. `frontend/src/stores/auth.ts:6-32` — parseJwtPayload + isTokenExpired（前端侧 token 处理）
 
 ## Q1. JWT 的结构是什么？怎么验证的？
@@ -484,11 +493,12 @@
 
 > 📂 **源码阅读顺序**：
 > 1. `frontend/src/stores/auth.ts:34-80` — Pinia auth store（token/username/login/logout）
-> 2. `frontend/src/services/api.ts:1-50` — axios 实例 + 双拦截器（baseURL 为空的含义 + 文件头的 HTTP 层约定注释）
+> 2. `frontend/src/services/api.ts:15-58` — axios 实例 + 双拦截器（baseURL 为空的含义、forceLogout 统一登出、文件头的 HTTP 层约定注释）
 > 3. `frontend/src/router/index.ts:12-70` — routes 动态 import + beforeEach 守卫
-> 4. `frontend/src/views/ChatView.vue:172-245` — axios 版会话管理四函数（列表/加载/重命名/删除）
-> 5. `frontend/src/views/ChatView.vue:103-152` — MAP_URL_RE + renderContent + renderMapCard（v-html 受控使用）
-> 6. `frontend/src/views/ChatView.vue:283-386` — sendMessage：fetch(SSE 例外) + ref 驱动打字机效果
+> 4. `frontend/src/views/ChatView.vue:201-260` — axios 版会话管理四函数（列表/加载/重命名/删除）
+> 5. `frontend/src/views/ChatView.vue:109-140` — MAP_URL_RE + renderContent + renderMapCard（v-html 受控使用）
+> 6. `frontend/src/views/ChatView.vue:185-210` — showToast + extractErrorMessage（统一错误提示）
+> 7. `frontend/src/views/ChatView.vue:301-430` — sendMessage：fetch(SSE 例外) + ref 驱动打字机效果 + AbortController 停止生成
 
 ## Q1. ref 和 reactive 什么区别？你用的哪个？
 
@@ -512,9 +522,11 @@
 
 > 双拦截器：**请求拦截**——从 Pinia store 读 token（不是直接读 localStorage），过期就取消请求跳登录，否则塞 Authorization 头；**响应拦截**——401 统一 `authStore.logout()` + 跳登录。baseURL 为空（相对路径），开发走 Vite 代理、生产走 Nginx 反代，同一份代码环境无关。
 >
-> **项目约定：除 SSE 外所有请求都走这个 axios 实例**（会话列表/详情/重命名/删除、登录注册、非流式聊天），不再直接用 fetch——token 注入、过期检查、401 跳登录只有一份实现。
+> **项目约定：除 SSE 外所有请求都走这个 axios 实例**（会话列表/详情/重命名/删除、登录注册），不再直接用 fetch——token 注入、过期检查、401 跳登录只有一份实现。
 >
 > **唯一例外**：`/chat/stream` 流式接口必须用原生 fetch——浏览器里 axios 基于 XHR，拿不到 ReadableStream，无法 `response.body.getReader()` 逐块读，只能攒齐才回调，流式就死了。该处手动带 Authorization 头（不过拦截器）。
+>
+> **改造背景（诚实说明）**：这几个会话管理接口原来是 `fetch` 手写的，每次都要重复搭 Authorization 头 + 判断 401。统一到 axios 后减少了约 60 行重复代码，且**修掉了一个真 bug**：拦截器原来只清 localStorage，而组件读的是 Pinia——两处状态不同步导致 401 死循环（详见 Q4）。所以"统一风格"不只是好看，它消掉了状态不一致的隐患。
 
 ## Q6. v-html 有 XSS 风险吗？
 
@@ -579,8 +591,12 @@
 > 📂 **源码阅读顺序**：
 > 1. `tests/conftest.py:18-30` — temp_dir fixture + autouse 的单例重置
 > 2. `tests/test_tools.py:1-60` — mock RAGFlowClient 的五种断言方式
-> 3. `tests/test_api.py:56-230` — 认证端点测试（dependency_overrides 绕鉴权）
-> 4. `tests/test_concurrency.py` — 20 线程并发 + 真 SqliteSaver + 假 LLM
+> 3. `tests/test_api.py:69-355` — 认证与会话管理端点测试（dependency_overrides 绕鉴权）
+> 4. `tests/test_api.py:359-424` — TestResponseEnvelope：统一响应信封 3 条（列表/详情/越权）
+> 5. `tests/test_api.py:430-571` — TestChatStreamEndpoint（含从 /chat 迁移过来的两条 session_id 校验）
+> 6. `tests/test_concurrency.py` — 20 线程并发 + 真 SqliteSaver + 假 LLM
+>
+> 📊 **当前测试规模：90 个用例全部通过**（`pytest -q`）。
 
 ## Q1. Mock 是什么？为什么需要？
 
@@ -601,6 +617,17 @@
 ## Q5. 怎么测并发安全？
 
 > 真实 SqliteSaver + 假 LLM（FakeMessagesListChatModel，不联网）+ 20 线程并发 invoke。三个断言：无 database is locked 异常、不同 thread_id 状态互不串话、连接确实开了 WAL。假 LLM 让测试不依赖真实 API key，CI 也能跑。
+
+## Q6. 删接口时测试怎么处理？（⭐ 别只会删）
+
+> 删 `POST /chat` 时我的处理是**区分"该删的"和"该迁的"**：
+>
+> - `TestChatEndpoint` 里 4 条是针对该端点本身的（响应形状、`ok` 字段）——随端点一起删；
+> - `test_valid_session_id` / `test_invalid_session_id` 两条测的是 **session_id 校验规则**，而这套规则由 `ChatRequest` 模型定义、`/chat/stream` **同样在用**——所以迁移到 `TestChatStreamEndpoint` 而不是删掉。
+>
+> **踩到的坑**：迁移后调 `client.post("/chat/stream", json={"session_id": "非法值"})` 期望 422，实际拿到 **401**。原因是 **FastAPI 先解析 `Depends`（认证）再校验请求体**——没带 token 时认证就先把请求拦了，根本走不到 Pydantic 校验。验证方式：加个反例（带合法 token 才有 422）。修法是测试里用 `app.dependency_overrides[get_current_user]` 把认证绕掉。
+>
+> 这个细节也算一个面试点：**依赖解析与 body 校验有先后顺序**，测参数校验类用例必须先解决鉴权。
 
 ---
 
@@ -633,11 +660,11 @@
 > 📺 **B 站复习**（RAGFlow 官方中文资料偏少，优先看短的 + 官方 Meetup）：[10 分钟用 Qwen3+RAGFlow 搭本地知识库（9月）](https://www.bilibili.com/video/BV1jyaA6QE9G/) · [30 分钟 DeepSeek+RAGFlow 纯本地化部署（9月）](https://www.bilibili.com/video/BV1Zdht64E2E/) · [RAGFlow 官方 Meetup 新版本功能分享（9月）](https://www.bilibili.com/video/BV1R4ej6tEwL/) · [RAG 检索增强生成原理](https://search.bilibili.com/all?keyword=RAG%20%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E5%8E%9F%E7%90%86)
 
 > 📂 **源码阅读顺序**：
-> 1. `agent/ragflow_client.py:15-96` — RAGFlowClient 全文（__init__ 的 Session 复用 → search 的三层容错 → 字段归一化）
+> 1. `agent/ragflow_client.py:15-115` — RAGFlowClient 全文（__init__ 的 Session 复用 → search 的三层容错 → 字段归一化 → list_datasets/upload_document）
 > 2. `agent/tools.py:65-82` — get_ragflow_client 单例工厂（组合根绑定配置）
 > 3. `agent/ragflow_init.py:50-99` — RAGFLOW_PATCHES dict（两个上游 bug 的 old/new 对照）
-> 4. `agent/ragflow_init.py:123-160` — docker_exec / docker_exec_raw（代码注入的机制）
-> 5. `agent/ragflow_init.py:160-225` — apply_container_patches（检查→替换→清 pyc→重启）
+> 4. `agent/ragflow_init.py:123-158` — docker_exec / docker_exec_raw（代码注入的机制）
+> 5. `agent/ragflow_init.py:160-224` — apply_container_patches（检查→替换→清 pyc→重启）
 > 6. `agent/ragflow_init.py:585-655` — main() 十步主流程（幂等标记在开头）
 > 7. `docker-compose.ragflow.yml` — 五件套 + healthcheck
 > 8. `agent/ragflow_migrate.py:25-100` — 迁移脚本（list_datasets 探活 + upload_document 循环）
@@ -700,20 +727,21 @@
 
 # 附：高频"代码指认题"速查表
 
-面试官指着代码最可能问的 15 个点，一句话答案：
+面试官指着代码最可能问的点，一句话答案：
 
 | 指着什么 | 一句话答案 |
 |---|---|
-| `{"ok": True, ...}` | `/chat/*` 统一响应信封：前端只需读 `ok` 判成败、读 `error` 看原因 |
+| `{"ok": True, ...}` | `/chat/sessions` 四个 JSON 接口的统一信封：前端只需读 `ok` 判成败、读 `error` 看原因（SSE 接口不套这层，见 FAQ Q7） |
 | `config_data.xxx` | 配置单一入口：全项目不再有裸 `os.getenv`，maps 目录两处同源 |
-| `useAuthStore()`（拦截器里） | token 只从 Pinia 读，避免 store 与 localStorage 状态不同步 |
+| `useAuthStore()`（拦截器里） | token 只从 Pinia 读，避免 store 与 localStorage 状态不同步（修过 401 死循环） |
+| `forceLogout()` | 401 时统一调 store 登出，一处清除两处同步 |
 | `toastMessage` | 会话操作失败的可见反馈（改造前只 `console.error`，用户看不到） |
-| `POST /chat/stream` | 传用户消息+会话ID，SSE 流式返回 LLM 回答 |
+| `POST /chat/stream` | 唯一聊天接口：传用户消息+会话ID，SSE 流式返回 LLM 回答 |
 | `yield` | 生成器：产出一个 SSE 事件就暂停，实现逐 token 推送 |
 | `_SENTINEL = object()` | 结束标记：替代 StopIteration（穿越 Future 会变 RuntimeError） |
 | `run_in_executor` | 把同步阻塞代码扔线程池，保护事件循环 |
 | `ClassVar[re.Pattern]` | 类常量标记：告诉 Pydantic 这不是字段（踩过 ModelPrivateAttr 坑） |
-| `Depends(get_current_user)` | 依赖注入鉴权：解析 JWT 查库返回用户 |
+| `Depends(get_current_user)` | 依赖注入鉴权：解析 JWT 查库返回用户（⚠️ 它比 body 校验先执行） |
 | `?` 占位符 | SQL 参数化防注入，用户输入当数据不当代码 |
 | `PRAGMA journal_mode=WAL` | SQLite 读写分离，多线程不互相阻塞 |
 | `thread_id = user_{id}_{session_id}` | 双重隔离：用户间 + 会话间的对话记忆隔离 |
@@ -722,9 +750,11 @@
 | `getReader()` | 前端拿 ReadableStream 逐块读 SSE，axios 做不到 |
 | `TextDecoder({stream:true})` | 跨包缓冲不完整字节序列，防中文乱码 |
 | `proxy_buffering off` | Nginx 不攒响应，SSE 实时到达浏览器 |
+| 没有 `location /chat` | `/chat` 是前端路由，裸配会被最长前缀匹配截走 → 刷新 404 |
 | `ClassVar` + 去掉 `_` | Pydantic 类常量的正确写法，让配置错误在类定义时就暴露 |
 | `RAGFlowClient.search()` | 适配器：返回标准化结构，上层不感知检索后端，挂了返回空列表软降级 |
 | `batch_size=10` 热补丁 | 上游 bug：RAGFlow 写死 16，DashScope 限 10 → 精确替换保证唯一匹配 |
 | `apply_container_patches()` | 容器无状态，down/up 后补丁丢失，所以集成进初始化流程每次重打 |
 | `docker exec` 写数据库创建 token | RAGFlow 无创建 token 的 API（只能 UI 点），用非常规手段补边界 |
 | `.ragflow_initialized` | 标记文件做幂等，重复执行初始化直接跳过 |
+| `client.stream("POST", "/chat/stream")` | 压测用 httpx 流式消费，首个 data 事件即 TTFT（不再等全部响应） |
