@@ -2,7 +2,7 @@
 
 > **用途**：从零复刻整个项目的施工手册。按本文档顺序阅读，可理解每一行代码为什么存在、怎么写出来的。
 > **阅读方式**：先读「第 0 章 总览」建立全局观，再按施工阶段顺序复习。每章末尾有「面试考点」。
-> **配套文档**：架构图见 `docs/architecture.md`，面试速查见 `docs/interview-prep.md`。
+> **配套文档**：架构图见 `docs/architecture.md`，面试速查见 `docs/interview-prep.md`，面试问答全解（代码细节 + 宏观题）见 `docs/interview-qa-code.md`。
 
 ---
 
