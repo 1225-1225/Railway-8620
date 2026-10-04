@@ -44,8 +44,9 @@ mytools/
 # 测试
 tests/
 
-# 文档/面试/临时文件
+# 文档/个人笔记（不进镜像）
 resume.md
-面试提问点*
-复习顺序指南.md
+面试.md
+docs/interview-*
+docs/project-build-guide.md
 _check_size.py

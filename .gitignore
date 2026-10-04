@@ -85,3 +85,9 @@ Desktop.ini
 *.swp
 *.swo
 *~
+
+# 面试辅助文档（个人复习小抄，不公开到仓库）
+面试.md
+docs/interview-prep.md
+docs/interview-qa-code.md
+docs/project-build-guide.md
