@@ -53,7 +53,7 @@ Railway-8620/
 │   ├── router/index.ts          # 路由表 + 守卫
 │   ├── stores/auth.ts           # 认证状态 + JWT 过期解析
 │   ├── services/api.ts          # Axios 实例 + 双拦截器
-│   ├── views/                   # Login / Register / Chat(流式) / ChatLegacy
+│   ├── views/                   # Login / Register / Chat(流式)
 │   └── components/HistorySidebar.vue  # 会话侧边栏（重命名/删除）
 ├── data/
 │   ├── cleaned_txts/            # 237 篇清洗后的知识文档（RAG 语料）
@@ -1101,11 +1101,10 @@ const routes = [
   { path: '/login', component: LoginView, meta: { requiresGuest: true } },
   { path: '/register', component: RegisterView, meta: { requiresGuest: true } },
   { path: '/chat', component: ChatStreamView, meta: { requiresAuth: true } },
-  { path: '/chat/legacy', component: ChatLegacyView },   // 非流式版保留
   { path: '/:pathMatch(.*)*', redirect: '/login' },      // 通配兜底
 ]
-// 注意别名与文件名一致：ChatStreamView=ChatView.vue，ChatLegacyView=ChatLegacyView.vue
-// （早期写法把两者写反了——ChatView 指向 ChatLegacyView.vue——看名字必选错）
+// 非流式页面（ChatLegacyView.vue）已删除：无任何 UI 入口，且与 ChatView 有 700+ 行重复代码。
+// 后端的 POST /chat 接口保留（见第 15 章），作为同步/异步对照与测试用例。
 const WHITELIST = ['/login', '/register']
 router.beforeEach((to, _from, next) => {
   if (WHITELIST.includes(to.path)) {

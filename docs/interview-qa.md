@@ -385,7 +385,7 @@
 > 2. **同一份配置有没有多处读取？** → `maps_output_dir` 在 `api.py`（静态挂载）和 `route_map_generator.py`（生成）各 `os.getenv` 读一遍，写法一旦不一致就"生成了但 404"（**项目真踩过**）。修复：全部收口到 `settings.py`，两处读同一字段，结构上不可能再不一致。
 > 3. **同一类操作有没有统一契约？** → `/chat/*` 响应体存在两种形状（`{"groups":...}` vs `{"ok":true}`），前端要记两套读法。修复：统一 `{ok, ...payload}`，失败带 `error`；`/auth/*` 例外（OAuth2 标准格式）。
 >
-> 另外还有几处：router 里组件别名与文件名**完全写反**（`ChatView` 指向 `ChatLegacyView.vue`，看名字必选错）、会话操作失败只 `console.error` 用户无感知（加 toast）、配置读取两套体系（裸 `os.getenv` + `settings` 并存）。
+> 另外还有几处：router 里组件别名与文件名**完全写反**（名为 `ChatView` 的变量实际 import 的却是 `ChatLegacyView.vue`，看名字必选错——现已修正，且那个孤儿页面本身也已删除）、会话操作失败只 `console.error` 用户无感知（加 toast）、配置读取两套体系（裸 `os.getenv` + `settings` 并存）。
 >
 > **我的判断原则**：能自动发现的（lint/类型）交给工具；**不能自动发现的"同一件事两种做法"才是要人工清理的**——因为工具查不出来，而且它会在未来某次改动里咬你一口（比如上面那个 401 循环）。
 

@@ -79,7 +79,6 @@ Railway-8620/
 │   ├── src/
 │   │   ├── views/
 │   │   │   ├── ChatView.vue        # 流式聊天页（主页，带历史侧边栏）
-│   │   │   ├── ChatLegacyView.vue  # 非流式聊天页
 │   │   │   ├── LoginView.vue       # 登录页
 │   │   │   └── RegisterView.vue    # 注册页
 │   │   ├── components/

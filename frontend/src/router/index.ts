@@ -6,7 +6,6 @@ import { useAuthStore } from '@/stores/auth'
 const LoginView = () => import('@/views/LoginView.vue')
 const RegisterView = () => import('@/views/RegisterView.vue')
 const ChatStreamView = () => import('@/views/ChatView.vue') // 流式版本（主界面）
-const ChatLegacyView = () => import('@/views/ChatLegacyView.vue') // 非流式版本（对照）
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,12 +31,6 @@ const router = createRouter({
       name: 'chat',
       component: ChatStreamView, // 流式版本
       meta: { requiresAuth: true }, // 需要登录
-    },
-    {
-      path: '/chat/legacy',
-      name: 'chat-legacy',
-      component: ChatLegacyView, // 原非流式版本
-      meta: { requiresAuth: true },
     },
     // 通配符路由：所有未匹配的路径都重定向到登录页
     {
