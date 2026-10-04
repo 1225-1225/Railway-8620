@@ -71,7 +71,7 @@ Railway-8620/
 │   ├── ragflow_migrate.py          # 批量上传文档到 RAGFlow
 │   └── chat_history.py             # JSON 文件对话历史（独立存储实现）
 ├── backend/                        # FastAPI 后端
-│   ├── api.py                      # 主入口：流式/非流式聊天接口、CORS 配置
+│   ├── api.py                      # 主入口：流式聊天接口(SSE)、会话管理、CORS 配置
 │   ├── auth.py                     # JWT 认证：注册、登录、令牌验证
 │   ├── database.py                 # SQLite 用户模型 (SQLAlchemy)
 │   └── schemas.py                  # Pydantic 数据模型
@@ -232,7 +232,6 @@ docker compose up -d
 |------|------|------|------|
 | POST | `/auth/register` | 注册新用户 | 否 |
 | POST | `/auth/login` | 登录，返回 JWT（Form 格式） | 否 |
-| POST | `/chat` | 非流式对话（完整响应） | 是 |
 | POST | `/chat/stream` | 流式对话（SSE，打字机效果） | 是 |
 | GET | `/chat/sessions` | 获取历史会话列表 | 是 |
 | GET | `/chat/sessions/{thread_id}` | 获取指定会话的全部消息 | 是 |

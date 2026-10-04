@@ -62,7 +62,7 @@ Railway-8620/
 │   ├── station_coords.json      # 车站经纬度
 │   └── maps/                    # 运行时生成的地图 HTML
 ├── mytools/                     # 数据管线：爬虫/清洗/合并（一次性脚本）
-├── tests/                       # 94 个 pytest 用例
+├── tests/                       # 90 个 pytest 用例
 ├── benchmarks/                  # 压测脚本 + 实测数据
 ├── docs/                        # 架构图 / 面试准备 / 本文档
 ├── Dockerfile                   # 后端镜像
@@ -784,22 +784,12 @@ def _ensure_session_meta_table(conn):
 
 ## 第 15 章 · 聊天接口（核心中的核心）
 
-### 15.1 非流式 /chat
+> **设计说明**：项目一度有非流式 `POST /chat`（同步 `def`）与流式 `POST /chat/stream`（`async def`）两个端点。
+> 后经全链路排查发现：前端只用流式，非流式端点唯一的消费者是压测脚本。
+> 将压测迁移到流式接口后（更贴近真实链路，并新增 TTFT 指标），该端点已无调用方，**故删除**。
+> 保留的章节内容即下面的流式实现——它才是本项目真正的核心。
 
-```python
-@app.post("/chat")
-def chat(request: ChatRequest, current_user = Depends(get_current_user)):
-    session_suffix = f"_{request.session_id}" if request.session_id else ""
-    thread_id = f"user_{current_user.id}{session_suffix}"
-    config = {"configurable": {"thread_id": thread_id}}
-    agent = _get_agent()
-    _repair_incomplete_tool_calls(agent, config)
-    result = agent.invoke(input={"messages": [{"role": "user", "content": request.message}]},
-                          config=config)
-    return {"ok": True, "answer": result["messages"][-1].content}
-```
-
-### 15.2 中断修复机制
+### 15.1 中断修复机制
 
 ```python
 def _repair_incomplete_tool_calls(agent, config):
@@ -826,16 +816,13 @@ async def _repair_incomplete_tool_calls_async(agent, config):
 
 **场景还原**：流式请求 300s 超时被切断时，Agent 可能正停在"LLM 要求调工具"这一步 → checkpoint 里留下悬空的 tool_calls → 下次同 thread_id 请求，LLM API 直接拒绝这种非法消息序列 → **会话永久损坏**。修复 = 请求前检测 + `invoke(None)` 让 LangGraph 走完工具节点。
 
-**两个版本的使用场景（重要设计细节）**：
+**为什么必须有异步包装**：`get_state`/`invoke` 是同步阻塞的（SQLite + 潜在 LLM 调用）。`/chat/stream` 是 `async def`，直接调用会卡住事件循环、阻塞**所有**并发请求（最坏 30 秒），因此必须经 `run_in_executor` 扔进有界线程池。
 
-| 端点                              | 调用方式                                        | 原因                                                                                                                                                      |
-| --------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/chat`（同步 `def`）         | 直接调用`_repair_incomplete_tool_calls()`     | FastAPI 自动把同步端点扔进线程池，阻塞的是工作线程不是事件循环                                                                                            |
-| `/chat/stream`（`async def`） | `await _repair_incomplete_tool_calls_async()` | async 端点跑在事件循环里，同步的`get_state`/`invoke`（SQLite + 潜在 LLM 调用）会卡住**所有**并发请求，必须经 `run_in_executor` 扔进有界线程池 |
+> **踩坑记录**：初版在 async 端点里直接调用同步修复函数——修复期间（最坏 30s，工具内部超时）事件循环被冻结，其他用户的请求全部卡住。这是代码审查时主动发现并修复的真实瑕疵：**async 端点里任何同步阻塞调用都必须走 executor**，与 15.2 的流式处理是同一条原则。
+>
+> **一个反面对照（已删除的代码）**：项目早期还有非流式的 `POST /chat`，它是同步 `def`，因此**可以**直接调用同一个修复函数——FastAPI 会自动把同步端点扔进线程池。这正是"同步端点阻塞安全、异步端点必须自律"的现成例子。该端点后来因无调用方被删除，但这个对比关系值得记住。
 
-> **踩坑记录**：初版两个端点都直接调用同步修复函数——async 端点里修复期间（最坏 30s，工具内部超时）事件循环被阻塞，其他用户的请求全部卡住。这是代码审查时主动发现并修复的真实瑕疵：**async 端点里任何同步阻塞调用都必须走 executor**，与 15.3 的流式处理是同一条原则。
-
-### 15.3 流式 /chat/stream（全项目最精妙的 40 行）
+### 15.2 流式 /chat/stream（全项目最精妙的 40 行）
 
 ```python
 @app.post("/chat/stream")
@@ -1104,7 +1091,7 @@ const routes = [
   { path: '/:pathMatch(.*)*', redirect: '/login' },      // 通配兜底
 ]
 // 非流式页面（ChatLegacyView.vue）已删除：无任何 UI 入口，且与 ChatView 有 700+ 行重复代码。
-// 后端的 POST /chat 接口保留（见第 15 章），作为同步/异步对照与测试用例。
+// 后端的非流式 POST /chat 端点也已删除（见第 15 章说明）。
 const WHITELIST = ['/login', '/register']
 router.beforeEach((to, _from, next) => {
   if (WHITELIST.includes(to.path)) {
@@ -1269,7 +1256,7 @@ function showToast(message: string) {
 
 **为什么加 toast**：改造前这些操作失败**只 `console.error`**，界面毫无反应——用户点了删除没动静，会以为删掉了，实际失败了。现在统一 `showToast`，并且优先展示后端返回的 `data.error`（如“无权限”“会话不存在”），比通用文案更有信息量。
 
-**HTTP 层统一约定**：除 SSE 流式接口外，**所有请求都走 `services/api.ts` 的 axios 实例**（会话列表/详情/重命名/删除、登录注册、非流式聊天），不再直接用 fetch。好处：token 注入、令牌过期检查、401 跳登录只有一份实现，组件代码只管业务。唯一例外是 `/chat/stream`——浏览器里 axios 基于 XHR，拿不到 `ReadableStream`，无法逐块读 SSE，必须用 fetch + `response.body.getReader()`（该处手动带 Authorization 头）。
+**HTTP 层统一约定**：除 SSE 流式接口外，**所有请求都走 `services/api.ts` 的 axios 实例**（会话列表/详情/重命名/删除、登录注册），不再直接用 fetch。好处：token 注入、令牌过期检查、401 跳登录只有一份实现，组件代码只管业务。唯一例外是 `/chat/stream`——浏览器里 axios 基于 XHR，拿不到 `ReadableStream`，无法逐块读 SSE，必须用 fetch + `response.body.getReader()`（该处手动带 Authorization 头）。
 
 ## 第 25 章 · HistorySidebar.vue —— 侧边栏
 
@@ -1307,7 +1294,7 @@ function confirmRename(threadId: string) {
 
 ---
 
-# 阶段七 · 测试体系（94 个用例）
+# 阶段七 · 测试体系（90 个用例）
 
 ## 第 26 章 · 测试架构
 
@@ -1339,9 +1326,9 @@ def fake_current_user():
 # ② 绕过认证：dependency_overrides
 app.dependency_overrides[get_current_user] = lambda: user
 
-# ③ 替换 Agent：直接 patch 模块级变量
+# ③ 替换 Agent：直接 patch 模块级变量（注意现在打的是流式端点）
 with mock.patch("backend.api._agent", mock_agent):
-    response = client.post("/chat", json={...})
+    response = client.post("/chat/stream", json={...})
 del app.dependency_overrides[get_current_user]   # 用完必清！
 
 # ④ mock 数据库链：db.query().filter().first() 链式返回
@@ -1350,6 +1337,10 @@ mock_db.query.return_value.filter.return_value.first.return_value = None
 # ⑤ 流式测试必须用真 AIMessage（后端 isinstance 检查，MagicMock 过不了）
 real_msg = AIMessage(content="hello")
 mock_agent.stream.return_value = [(real_msg, {})]
+
+# ⑥ 请求体校验的用例：依赖必须在 body 校验之前解析！
+#    FastAPI 是先跑 Depends（认证 401）再校验 body（422）——所以测 session_id 非法值
+#    必须用 dependency_overrides 把认证绕掉，否则拿到的是 401 而不是 422。
 ```
 
 ### test_concurrency.py（并发集成测试）
@@ -1506,12 +1497,26 @@ $frontend = Start-Process -FilePath $npmCmd -ArgumentList "run","dev" ... -PassT
 token = get_token(base_url)                    # 注册或登录拿 JWT
 with ThreadPoolExecutor(max_workers=concurrency) as pool:
     futures = [pool.submit(send_one, httpx.Client(...), token, message) for _ in range(requests)]
+
+# send_one：流式消费，边读边打点
+with client.stream("POST", "/chat/stream", json=payload, headers=headers) as resp:
+    for line in resp.iter_lines():             # 惰性读取，不等全部响应
+        if not line.startswith("data: "): continue
+        if not ttft: ttft = time.perf_counter() - start   # 首个 data 事件 = TTFT
+        if '"content"' in data: tokens += 1
 # 统计：QPS = requests/total_time；P50/P95/P99 = 排序后按分位取值×1000ms
 # sys.stdout.reconfigure(encoding="utf-8")     # Windows GBK 控制台输出 emoji 必需
 ```
 
-**实测数据**（并发 5 / 10 请求）：成功率 100%，QPS 0.4，平均延迟 12.5s，P95 27.2s。
-**结论**：瓶颈在 LLM 推理 + RAGFlow 未启动时 Agent 反复重试检索（每次 4s 超时），系统本身（认证/路由/checkpoint）开销极小。
+**实测数据一**（流式接口，并发 2 / 各 2 请求）：
+- 不触发工具的消息：TTFT 平均 **3.7s**，总时长 5.5s，98 token/请求
+- 触发工具调用的消息：TTFT 平均 **8.0s**，总时长 12.1s，300 token/请求
+- 两者"流式收益倍数"都是 **1.5×**
+
+**关键洞察**：TTFT 由**工具调用**主导。`stream_mode="messages"` 只推最终回答的 token，ReAct 循环里首个 token 要等"决定调工具 → 工具执行 → 组织回答"整条链路走完。所以流式改善的是回答生成阶段的感知延迟，工具阶段无能为力——要优化就得推过程事件（调工具时先发 status 事件）。
+
+**实测数据二**（历史，当时压的是非流式 `/chat`，并发 5 / 10 请求）：成功率 100%，QPS 0.4，平均延迟 12.5s，P95 27.2s。
+**结论**：延迟瓶颈在 LLM 推理与外部检索（RAGFlow 未启动时 Agent 反复重试，每次 4s 超时），系统本身（认证/路由/checkpoint）开销毫秒级。0.4 的 QPS 是 LLM 问答接口的必然结果（5 并发 / 12.5s ≈ 0.4），不代表应用层能力上限。
 
 ---
 

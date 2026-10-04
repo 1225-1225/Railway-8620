@@ -3,11 +3,19 @@
 """
 Railway-8620 API 性能压测脚本（纯 Python，零额外依赖）
 
+压测目标：**POST /chat/stream**（SSE 流式接口）——这是前端实际使用的链路，
+因此压测它比压测非流式接口更贴近真实负载。
+
 功能：
   1. 自动注册一个测试用户（或复用已有用户）
-  2. 用线程池并发发送请求到 /chat 接口
-  3. 统计 QPS、P50/P95/P99 延迟、成功率
+  2. 用线程池并发发送请求到 /chat/stream，完整消费 SSE 流
+  3. 统计 QPS、**TTFT（首 token 时间）**、总时长 P50/P95/P99、成功率
   4. 可选输出 JSON 结果文件
+
+为什么同时测 TTFT 和总时长：
+  - 总时长反映后端整体吞吐（受 LLM 生成速度主导）
+  - TTFT 反映用户**感知**的等待——流式架构的价值就是把首字时间从"总时长"
+    降到"首 token 时间"，这两个指标一起看才能说明流式的意义
 
 用法：
     python benchmarks/benchmark_api.py
@@ -42,8 +50,22 @@ TEST_USERNAME = "benchmark_user"
 TEST_PASSWORD = "benchmark_pass_123"
 
 
+class Result:
+    """单次请求的测量结果"""
+
+    __slots__ = ("ttft", "total", "status", "tokens", "error")
+
+    def __init__(self, ttft: float, total: float, status: int,
+                 tokens: int = 0, error: str = ""):
+        self.ttft = ttft        # 首 token 时间（秒）；未收到任何 token 时为 total
+        self.total = total      # 完整响应耗时（秒）
+        self.status = status
+        self.tokens = tokens    # 收到的 token 事件数
+        self.error = error
+
+
 def parse_args():
-    parser = argparse.ArgumentParser(description="Railway-8620 API 压测")
+    parser = argparse.ArgumentParser(description="Railway-8620 API 压测（SSE 流式）")
     parser.add_argument("--base-url", default=DEFAULT_BASE_URL, help="后端地址")
     parser.add_argument("--concurrency", type=int, default=10, help="并发数（默认 10）")
     parser.add_argument("--requests", type=int, default=100, help="总请求数（默认 100）")
@@ -80,24 +102,49 @@ def get_token(base_url: str) -> str:
         ) from e
 
 
-def send_one(client: httpx.Client, token: str, message: str) -> tuple[float, int]:
-    """发送单个请求，返回 (耗时秒, 状态码)"""
+def send_one(client: httpx.Client, token: str, message: str) -> Result:
+    """发送单个 SSE 流式请求并完整消费，返回 TTFT / 总时长 / token 数
+
+    关键点：必须用 client.stream() 惰性读取，才能在第一个 chunk 到达时
+    记录 TTFT；若用 client.post() 会一次性读到流结束，TTFT 就退化成总时长。
+    """
+    payload = {"message": message, "session_id": "benchmark"}
+    headers = {"Authorization": f"Bearer {token}"}
     start = time.perf_counter()
-    resp = client.post(
-        "/chat",
-        json={"message": message, "session_id": "benchmark"},
-        headers={"Authorization": f"Bearer {token}"},
-    )
-    elapsed = time.perf_counter() - start
-    return elapsed, resp.status_code
+    ttft = 0.0
+    tokens = 0
+
+    try:
+        with client.stream("POST", "/chat/stream", json=payload, headers=headers) as resp:
+            if resp.status_code != 200:
+                resp.read()  # 消费掉响应体，保证连接可复用
+                return Result(0.0, time.perf_counter() - start, resp.status_code,
+                              error=f"HTTP {resp.status_code}")
+
+            for line in resp.iter_lines():
+                if not line.startswith("data: "):
+                    continue
+                data = line[6:].strip()
+                if data == "[DONE]":
+                    break
+                if not ttft:
+                    # 第一个有效事件（含 content 或 error）到达 → 记录首字时间
+                    ttft = time.perf_counter() - start
+                if '"content"' in data:
+                    tokens += 1
+
+        total = time.perf_counter() - start
+        return Result(ttft or total, total, 200, tokens=tokens)
+    except Exception as e:  # noqa: BLE001
+        return Result(0.0, time.perf_counter() - start, 0, error=str(e)[:120])
 
 
-def percentile(sorted_latencies: list[float], p: float) -> float:
-    """计算百分位延迟（毫秒）"""
-    if not sorted_latencies:
+def percentile(sorted_values: list[float], p: float) -> float:
+    """计算百分位（输入秒，输出毫秒）"""
+    if not sorted_values:
         return 0.0
-    idx = min(len(sorted_latencies) - 1, int(len(sorted_latencies) * p))
-    return sorted_latencies[idx] * 1000  # 秒 → 毫秒
+    idx = min(len(sorted_values) - 1, int(len(sorted_values) * p))
+    return sorted_values[idx] * 1000  # 秒 → 毫秒
 
 
 def main():
@@ -117,47 +164,67 @@ def main():
 
     # 2. 并发压测
     print(f"🚀 开始压测（并发 {args.concurrency}，共 {args.requests} 请求）...")
-    latencies: list[float] = []
-    status_codes: list[int] = []
+    results: list[Result] = []
     errors: list[str] = []
 
     start_time = time.perf_counter()
 
     with ThreadPoolExecutor(max_workers=args.concurrency) as pool:
         # 每个线程一个独立 client（httpx 连接池线程安全，但独立更干净）
+        clients: list[httpx.Client] = []
         futures = []
         for i in range(args.requests):
             client = httpx.Client(base_url=args.base_url, timeout=120)
+            clients.append(client)
             futures.append(pool.submit(send_one, client, token, args.message))
 
         for fut in as_completed(futures):
             try:
-                elapsed, code = fut.result()
-                latencies.append(elapsed)
-                status_codes.append(code)
+                results.append(fut.result())
             except Exception as e:  # noqa: BLE001
-                errors.append(str(e))
-            finally:
-                pass
+                errors.append(str(e)[:120])
+
+        # 压测结束统一关闭连接（此前遗漏，会留下 TIME_WAIT 连接）
+        for client in clients:
+            client.close()
 
     total_time = time.perf_counter() - start_time
 
     # 3. 统计
-    success = sum(1 for c in status_codes if c < 500)
+    ok_results = [r for r in results if r.status == 200]
+    success = len(ok_results)
     qps = args.requests / total_time if total_time > 0 else 0
-    sorted_lat = sorted(latencies)
+
+    sorted_total = sorted(r.total for r in ok_results)
+    sorted_ttft = sorted(r.ttft for r in ok_results)
+    total_tokens = sum(r.tokens for r in ok_results)
 
     print("\n📊 压测结果:")
     print(f"   总耗时     : {total_time:.2f}s")
     print(f"   QPS        : {qps:.1f} req/s")
     print(f"   成功率     : {success}/{args.requests} ({success / args.requests * 100:.1f}%)")
-    if sorted_lat:
-        print(f"   平均延迟   : {statistics.mean(sorted_lat) * 1000:.0f} ms")
-        print(f"   P50 延迟   : {percentile(sorted_lat, 0.50):.0f} ms")
-        print(f"   P95 延迟   : {percentile(sorted_lat, 0.95):.0f} ms")
-        print(f"   P99 延迟   : {percentile(sorted_lat, 0.99):.0f} ms")
+    if total_tokens:
+        print(f"   token 总数 : {total_tokens}（平均 {total_tokens / success:.0f}/请求）")
+    if sorted_ttft:
+        print()
+        print("   ── 首 token 时间 TTFT（用户感知延迟）──")
+        print(f"   平均       : {statistics.mean(sorted_ttft) * 1000:.0f} ms")
+        print(f"   P50        : {percentile(sorted_ttft, 0.50):.0f} ms")
+        print(f"   P95        : {percentile(sorted_ttft, 0.95):.0f} ms")
+        print(f"   P99        : {percentile(sorted_ttft, 0.99):.0f} ms")
+    if sorted_total:
+        print()
+        print("   ── 完整响应时长（含全部 token 生成）──")
+        print(f"   平均       : {statistics.mean(sorted_total) * 1000:.0f} ms")
+        print(f"   P50        : {percentile(sorted_total, 0.50):.0f} ms")
+        print(f"   P95        : {percentile(sorted_total, 0.95):.0f} ms")
+        print(f"   P99        : {percentile(sorted_total, 0.99):.0f} ms")
+    if sorted_ttft and sorted_total:
+        print()
+        print(f"   💡 流式收益 : 首字比完整响应快 "
+              f"{statistics.mean(sorted_total) / statistics.mean(sorted_ttft):.1f} 倍")
     if errors:
-        print(f"   异常数     : {len(errors)}")
+        print(f"\n   异常数     : {len(errors)}")
         for e in errors[:3]:
             print(f"     - {e}")
 
@@ -170,11 +237,18 @@ def main():
             "success": success,
             "total": args.requests,
             "success_rate": round(success / args.requests, 4),
-            "latency_ms": {
-                "avg": round(statistics.mean(sorted_lat) * 1000, 1) if sorted_lat else 0,
-                "p50": round(percentile(sorted_lat, 0.50), 1),
-                "p95": round(percentile(sorted_lat, 0.95), 1),
-                "p99": round(percentile(sorted_lat, 0.99), 1),
+            "tokens_total": total_tokens,
+            "ttft_ms": {
+                "avg": round(statistics.mean(sorted_ttft) * 1000, 1) if sorted_ttft else 0,
+                "p50": round(percentile(sorted_ttft, 0.50), 1),
+                "p95": round(percentile(sorted_ttft, 0.95), 1),
+                "p99": round(percentile(sorted_ttft, 0.99), 1),
+            },
+            "total_latency_ms": {
+                "avg": round(statistics.mean(sorted_total) * 1000, 1) if sorted_total else 0,
+                "p50": round(percentile(sorted_total, 0.50), 1),
+                "p95": round(percentile(sorted_total, 0.95), 1),
+                "p99": round(percentile(sorted_total, 0.99), 1),
             },
             "errors": errors[:10],
         }

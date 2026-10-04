@@ -360,10 +360,9 @@ def _repair_incomplete_tool_calls(agent, config: dict):
     再次用同一 thread_id 发送消息时，LLM 会拒绝这种不完整的消息序列。
     此函数检测到这种情况时，先调用 invoke() 完成工具执行，使状态恢复完整。
 
-    注意：本函数是同步阻塞的（get_state/invoke 涉及 SQLite 与 LLM 调用）。
-    - 同步端点（/chat）：FastAPI 自动扔线程池，直接调用即可
-    - 异步端点（/chat/stream）：必须经 run_in_executor 调用
-      （见 _repair_incomplete_tool_calls_async），否则会阻塞事件循环
+    注意：本函数是同步阻塞的（get_state/invoke 涉及 SQLite 与 LLM 调用），
+    而唯一的调用方 /chat/stream 是 async 端点——因此必须经 run_in_executor
+    扔进有界线程池（见 _repair_incomplete_tool_calls_async），否则会阻塞事件循环。
     """
     state = agent.get_state(config)
     if state is None or not state.values:
@@ -392,24 +391,6 @@ async def _repair_incomplete_tool_calls_async(agent, config: dict):
         lambda: _repair_incomplete_tool_calls(agent, config),
     )
 
-
-@app.post("/chat")
-def chat(
-    request: ChatRequest,
-    current_user: User = Depends(get_current_user)
-):
-    session_suffix = f"_{request.session_id}" if request.session_id else ""
-    thread_id = f"user_{current_user.id}{session_suffix}"
-    config = {"configurable": {"thread_id": thread_id}}
-    agent = _get_agent()
-    _repair_incomplete_tool_calls(agent, config)
-    
-    input_data = {"messages": [{"role": "user", "content": request.message}]}
-    result = agent.invoke(input=input_data, config=config)
-    all_messages = result["messages"]
-    
-    answer = all_messages[-1].content
-    return {"ok": True, "answer": answer}
 
 @app.post("/chat/stream")
 async def chat_stream(

@@ -29,7 +29,7 @@
 | 前端 | Vue 3.5 + TypeScript + Pinia + Vue Router + SSE 流式 |
 | 可视化 | Folium 交互式地图 |
 | 部署 | Docker Compose（backend + Nginx + RAGFlow） |
-| 测试 | Pytest 94 个用例（Mock 外部依赖） |
+| 测试 | Pytest 90 个用例（Mock 外部依赖） |
 
 ---
 
@@ -71,11 +71,11 @@
 
 ## 工程化亮点
 
-- ✅ **94 个 Pytest 用例**：端到端 API 测试（Mock 外部依赖）、并发安全测试（20 线程真实 SqliteSaver）、checkpoint 解析测试、响应信封一致性测试
+- ✅ **90 个 Pytest 用例**：端到端 API 测试（Mock 外部依赖）、并发安全测试（20 线程真实 SqliteSaver）、checkpoint 解析测试、响应信封一致性测试
 - ✅ **全局一致性治理**：做过一轮风格审查，消除 6 处不统一（token 状态两套管理、配置读取入口分散、响应体形状不一致、失败无用户反馈等）
 - ✅ **SQLite 并发优化**：WAL 模式 + busy_timeout + check_same_thread=False + 有界线程池
 - ✅ **CI/CD**：GitHub Actions（Python 多版本测试 + 覆盖率 + 前端构建 + Docker 构建）
-- ✅ **性能压测**：`benchmarks/` 提供 QPS / P50/P95/P99 指标
+- ✅ **性能压测**：`benchmarks/` 提供 QPS / TTFT / P50-P99 指标（SSE 流式链路）
 - ✅ **Docker 一键部署**：backend + Nginx + RAGFlow 编排，共享卷挂载地图
 
 ---
@@ -93,7 +93,7 @@
 
 ## 电梯陈述（30 秒版）
 
-> "我独立开发了一个基于 LangGraph 的铁路知识问答系统，用 RAGFlow 做向量检索、FastAPI 提供 SSE 流式接口、Vue 3 做前端，支持多轮记忆和交互式地图。过程中解决了同步 Agent 与异步框架的阻塞冲突、LangGraph 二进制检查点的反序列化、以及给开源组件打容器补丁等真实工程问题，并用 Docker Compose 完成了一键部署，配套 94 个自动化测试和 CI 流水线。"
+> "我独立开发了一个基于 LangGraph 的铁路知识问答系统，用 RAGFlow 做向量检索、FastAPI 提供 SSE 流式接口、Vue 3 做前端，支持多轮记忆和交互式地图。过程中解决了同步 Agent 与异步框架的阻塞冲突、LangGraph 二进制检查点的反序列化、以及给开源组件打容器补丁等真实工程问题，并用 Docker Compose 完成了一键部署，配套 90 个自动化测试和 CI 流水线。"
 
 ---
 

@@ -46,7 +46,7 @@
 > 📂 **源码阅读顺序**：
 > 1. `backend/api.py:133-198` — `ChatRequest`/`RenameRequest` 两个 Pydantic 模型（field_validator 校验、8000/100 字上限）
 > 2. `backend/api.py:200-355` — sessions 四个路由（GET 列表/GET 详情/PUT 重命名/DELETE 删除），看 RESTful 动词与幂等性 + 统一响应信封 `{ok, ...payload}`
-> 3. `backend/api.py:398-414` — `POST /chat`（同步 def 端点）
+> 3. `backend/api.py:398-414` — `POST /chat/stream`（async 端点，注意与同步 def 的调度差异）
 > 4. `train_sync/scraper.py` — 爬虫子项目的请求头伪装（Origin/Referer/Sec-Fetch-*）
 
 ## Q1. 我看你项目里用了 POST 来传信息，传的是什么信息？
@@ -219,7 +219,7 @@
 > 📂 **源码阅读顺序**：
 > 1. `backend/api.py:416-470` — `chat_stream`：`_SENTINEL` 定义 → generate() 生成器 → StreamingResponse
 > 2. `backend/api.py:430-465` — 双层 wait_for（建流 60s / 单块 300s）+ run_in_executor(lambda)
-> 3. `frontend/nginx.conf:31-40` — /chat/ location 的 proxy_buffering off + read_timeout 300s
+> 3. `frontend/nginx.conf:28-38` — /chat/ location 的 proxy_buffering off + read_timeout 300s（注意：**没有** location /chat，因为 /chat 是前端路由，必须回退 index.html）
 > 4. `frontend/src/views/ChatView.vue:283-386` — `sendMessage()`：fetch + getReader + TextDecoder(stream:true) + buffer 跨包拼接（项目里唯一不用 axios 的请求）
 
 ## Q1. SSE 是什么？数据格式是什么？
@@ -534,7 +534,7 @@
 > 1. `frontend/Dockerfile` — 多阶段构建（node 构建 → nginx 只拷产物）
 > 2. `Dockerfile` — 后端单阶段 + requirements.txt 先装（层缓存）
 > 3. `docker-compose.yml` — 两服务 + ports 映射 + volumes（maps_data 共享卷）
-> 4. `frontend/nginx.conf` — 全文按 location 顺序读（/ → /maps/ → /auth/ → /chat/）
+> 4. `frontend/nginx.conf` — 全文按 location 顺序读（/ → /maps/ → /auth/ → /chat/），注意**没有** `location /chat`（见 Q6）
 
 ## Q1. Dockerfile 的多阶段构建是什么？为什么用？
 
@@ -550,11 +550,25 @@
 
 ## Q4. Nginx 在你的架构里干了什么？
 
-> 四件事：① 托管 Vue 构建产物（try_files 回退 index.html 支持 SPA 路由）；② 反代 /auth /chat 到 backend 容器；③ **SSE 关键配置**——proxy_buffering off（默认缓冲会破坏流式）+ read_timeout 300s；④ /maps/ 直接读共享卷静态出图，不经后端。
+> 四件事：① 托管 Vue 构建产物（try_files 回退 index.html 支持 SPA 路由）；② 反代 /auth /chat/ 到 backend 容器；③ **SSE 关键配置**——proxy_buffering off（默认缓冲会破坏流式）+ read_timeout 300s；④ /maps/ 直接读共享卷静态出图，不经后端。
+>
+> ⚠️ 注意只能反代 `/chat/`（带斜杠），**不能**反代 `/chat`——见 Q6 的 SPA 路由冲突坑。
 
 ## Q5. 为什么地图走 Nginx 不走后端？
 
 > 静态文件服务是 Nginx 的强项（sendfile 零拷贝、缓存头），后端 Python 进程不该被静态请求占用。实现：后端生成地图写共享卷 → Nginx 只读挂载同一卷 → /maps/ alias 直接出文件。本地开发没有 Nginx，Vite 代理 /maps 到后端的 StaticFiles——两端都配了，环境无关。
+
+## Q6. Nginx 的 location 匹配有个坑，你踩过吗？（SPA 路由 vs API 代理）
+
+> 踩过，而且是删掉 `/chat` 端点时才发现的**线上隐患**。原来我写了 `location /chat { proxy_pass http://backend:8000/chat; }`，本意是代理那个非流式 POST 接口。但 `/chat` **同时是前端路由**——浏览器地址栏停在 `/chat`，用户一刷新，请求就是 `GET /chat`。
+>
+> Nginx 的 location 前缀匹配遵循**最长前缀优先**：`/chat` 比 `/` 更长，所以 `GET /chat` 被这条规则截走代理给后端，**不会**落到 `location /` 的 `try_files ... /index.html`。而后端根本没有 `GET /chat` 路由 → 返回 404，**刷新页面直接白屏**。
+>
+> 这是本地开发测不出来的：Vite dev server 的 SPA fallback 和大意写的 `bypass` 掩盖了它。我是看 Docker 部署配置时才反应过来。
+>
+> **解决**：删掉 `location /chat` 这块。判断依据是——**API 请求都带 `/chat/` 前缀**（`/chat/stream`、`/chat/sessions`），由 `location /chat/` 处理；`/chat` 裸路径没有任何后端接口了，就该交回 SPA fallback。
+>
+> **通用原则**：反向代理配置里，**永远不要为「既是前端路由又是 API 前缀」的路径裸配 location**。要么给 API 加统一前缀（如 `/api/`）从根上隔离，要么只配带子路径的 location。这个坑在很多 SPA + Nginx 项目里都存在。
 
 ---
 

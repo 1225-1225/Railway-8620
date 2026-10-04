@@ -228,180 +228,6 @@ class TestAuthEndpoints:
 
 
 # ═══════════════════════════════════════════════════════════════
-#  /chat 端点测试
-#
-#  需要同时 mock 两样东西:
-#    1. backend.api._agent → 懒加载, 未配置时为 None
-#       直接 mock.patch("backend.api._agent") 替换, _get_agent() 会返回 mock 对象
-#    2. get_current_user → 用 app.dependency_overrides 绕过 JWT 认证
-# ═══════════════════════════════════════════════════════════════
-
-class TestChatEndpoint:
-    """测试普通聊天接口 POST /chat"""
-
-    def test_chat_requires_auth(self):
-        """
-        不带 token 直接访问 /chat → 应返回 401
-
-        这是唯一不需要 mock 的 chat 测试:
-          - 不 mock AgentService → 真实的 AgentService 初始化会报错
-          - 但因为我们用的是 client = TestClient(app) 在模块级已导入
-            不是在函数内才导入, app 已经在模块级初始化过了
-            所以 AgentService() 已经在模块加载时执行
-          - 不 mock get_current_user → FastAPI 的 Depends 会尝试真实解码 token
-            但没有 token → 401
-
-        预期:
-          401 Unauthorized
-        """
-        # 注意: 这个测试依赖 AgentService 在模块导入时能成功初始化
-        # 如果 AgentService.__init__ 报错(比如没装 Chroma), 这个测试也会失败
-        response = client.post("/chat", json={"message": "你好"})
-        assert response.status_code == 401
-
-    def test_chat_success(self):
-        """
-        认证用户发送消息 → 返回 AI 回答
-
-        核心 Mock:
-          1. AgentService() 被拦截, 返回带 .agent 属性的假对象
-          2. agent.invoke(...) 被拦截, 直接返回预制回答
-          3. get_current_user 被拦截, 返回 fake_current_user()
-
-        验证:
-          - 200 OK
-          - response["answer"] == 预制内容
-
-        完整请求链路 (测试视角):
-          请求 POST /chat {"message": "前进型蒸汽机车"}
-            → get_current_user → 假用户(id=1)            [mock]
-            → AgentService()  → 假 agent                 [mock]
-            → agent.invoke(...) → {"messages": [假AI消息]} [mock]
-            → 从 invoke 结果取 messages[-1].content
-            → 返回 {"answer": "你好！我是铁路知识助手。"}
-        """
-        # ── 1. 伪造 Agent ──
-        mock_agent = mock.MagicMock()
-
-        # agent.invoke() 返回的结构: {"messages": [HumanMsg, ..., AIMsg]}
-        # 后端取 messages[-1].content 作为回答
-        mock_ai_msg = mock.MagicMock()
-        mock_ai_msg.content = "你好！我是铁路知识助手。"   # 预制回答
-        mock_agent.invoke.return_value = {"messages": [mock_ai_msg]}
-
-        # ── 2. 绕过认证 ──
-        user = fake_current_user()   # id=1, username="Alice"
-
-        # ── 3. Mock ──
-        # 直接替换模块级变量 backend.api._agent（agent 在模块加载时由 AgentService 初始化）
-        # 同时用 FastAPI dependency_overrides 替代 get_current_user
-        app.dependency_overrides[get_current_user] = lambda: user
-
-        with mock.patch("backend.api._agent", mock_agent):
-            # ── 4. 发送请求 ──
-            response = client.post("/chat", json={"message": "前进型蒸汽机车"})
-
-        # 清理 overrides, 避免污染后续测试
-        del app.dependency_overrides[get_current_user]
-
-        # ── 5. 验证响应 ──
-        assert response.status_code == 200
-        assert response.json()["answer"] == "你好！我是铁路知识助手。"
-
-    def test_chat_passes_user_thread_id(self):
-        """
-        验证 user.id 被正确转为 thread_id 并传给 agent.invoke()
-
-        为什么需要这个测试:
-          - 后端用 f"user_{current_user.id}" 作为 LangGraph 的 thread_id
-          - thread_id 是对话记忆隔离的关键: 不同用户有不同 thread_id
-          - 如果 thread_id 不对, 所有用户的对话历史会串
-
-        验证方式:
-          不检查响应体, 用 mock_agent.invoke.call_args 抓取 invoke 被调用时的参数
-          → 验证 config["configurable"]["thread_id"] == "user_1"
-
-        call_args 结构:
-          agent.invoke(input=input_data, config=config)
-            → call_args[1]["config"] 就是传入的 config dict
-            → call_args[1] 是关键字参数字典
-        """
-        mock_agent = mock.MagicMock()
-        # invoke 必须返回非空结构, 否则后端 messages[-1] 会 IndexError
-        mock_agent.invoke.return_value = {"messages": [mock.MagicMock(content="OK")]}
-
-        user = fake_current_user()   # user.id = 1
-
-        # 直接替换模块级 agent，绕过已初始化的 AgentService
-        app.dependency_overrides[get_current_user] = lambda: user
-
-        with mock.patch("backend.api._agent", mock_agent):
-            # 发送请求
-            client.post("/chat", json={"message": "测试"})
-
-        # 清理 overrides
-        del app.dependency_overrides[get_current_user]
-
-        # ── 抓取 agent.invoke 被调用时的所有参数 ──
-        # call_args 是 (args_tuple, kwargs_dict)
-        # call_args[0] 是位置参数 (input=input_data 的那个 dict)
-        # call_args[1] 是关键字参数 {"input": ..., "config": ...}
-        call_args = mock_agent.invoke.call_args
-        config = call_args[1]["config"]
-
-            # 验证 thread_id 格式: "user_1"
-        assert config["configurable"]["thread_id"] == "user_1"
-
-    def test_chat_valid_session_id(self):
-        """
-        合法 session_id → 200（回归测试）
-
-        背景: 曾有一个 bug —— _SESSION_ID_RE 定义为类属性（_ 前缀），
-        Pydantic v2 会把它当作 ModelPrivateAttr，导致
-        cls._SESSION_ID_RE.match(v) 抛 AttributeError，所有 /chat 请求 500。
-        修复后改为模块级常量。此测试防止该 bug 回归。
-        """
-        mock_agent = mock.MagicMock()
-        mock_agent.invoke.return_value = {"messages": [mock.MagicMock(content="OK")]}
-
-        user = fake_current_user()
-        app.dependency_overrides[get_current_user] = lambda: user
-
-        with mock.patch("backend.api._agent", mock_agent):
-            response = client.post(
-                "/chat",
-                json={"message": "测试", "session_id": "abc-123_XYZ"},
-            )
-
-        del app.dependency_overrides[get_current_user]
-
-        assert response.status_code == 200
-
-    def test_chat_invalid_session_id(self):
-        """
-        非法 session_id（含特殊字符）→ 422 校验错误
-
-        session_id 会被拼进 thread_id 并作为 DB 查询条件，
-        必须限制为安全字符（字母数字、下划线、连字符）。
-        """
-        mock_agent = mock.MagicMock()
-        mock_agent.invoke.return_value = {"messages": [mock.MagicMock(content="OK")]}
-
-        user = fake_current_user()
-        app.dependency_overrides[get_current_user] = lambda: user
-
-        with mock.patch("backend.api._agent", mock_agent):
-            response = client.post(
-                "/chat",
-                json={"message": "测试", "session_id": "bad;DROP TABLE"},
-            )
-
-        del app.dependency_overrides[get_current_user]
-
-        assert response.status_code == 422
-
-
-# ═══════════════════════════════════════════════════════════════
 #  会话管理端点测试: 重命名 (PUT) / 删除 (DELETE)
 #
 #  这两个接口直接操作 checkpointer SQLite（session_meta 表），
@@ -590,24 +416,6 @@ class TestResponseEnvelope:
         assert response.status_code == 200
         assert response.json()["ok"] is False
 
-    def test_chat_has_ok(self):
-        """POST /chat → {"ok": True, "answer": ...}"""
-        mock_agent = mock.MagicMock()
-        mock_ai_msg = mock.MagicMock()
-        mock_ai_msg.content = "你好！我是铁路知识助手。"
-        mock_agent.invoke.return_value = {"messages": [mock_ai_msg]}
-        mock_agent.get_state.return_value = None
-
-        with mock.patch("backend.api._get_agent", return_value=mock_agent):
-            self._override_user()
-            response = client.post("/chat", json={"message": "你好", "session_id": "s1"})
-            del app.dependency_overrides[get_current_user]
-
-        assert response.status_code == 200
-        data = response.json()
-        assert data["ok"] is True
-        assert data["answer"] == "你好！我是铁路知识助手。"
-
 
 # ═══════════════════════════════════════════════════════════════
 #  /chat/stream 端点测试
@@ -715,3 +523,49 @@ class TestChatStreamEndpoint:
         assert '"error"' in body
         assert "LLM 服务不可用" in body
         assert "data: [DONE]" in body
+
+    # ── 以下两条由原 TestChatEndpoint 迁移而来：session_id 校验是
+    #    ChatRequest 层面的规则，对 /chat/stream 同样生效。
+    #    注意 FastAPI 先解依赖（鉴权）再校验请求体，所以必须绕过鉴权才能观察到 422 ──
+
+    def test_stream_valid_session_id(self):
+        """
+        合法 session_id → 通过请求体校验（回归测试）
+
+        背景: 曾有一个 bug —— SESSION_ID_RE 定义为类属性（_ 前缀 + 无注解），
+        Pydantic v2 会把它当作 ModelPrivateAttr，导致
+        cls.SESSION_ID_RE.match(v) 抛 AttributeError，所有聊天请求 500。
+        修复后改为 ClassVar 注解 + 去掉下划线。此测试防止该 bug 回归。
+        """
+        mock_agent = mock.MagicMock()
+        mock_agent.stream.return_value = []
+        app.dependency_overrides[get_current_user] = lambda: fake_current_user()
+
+        with mock.patch("backend.api._agent", mock_agent):
+            response = client.post(
+                "/chat/stream",
+                json={"message": "测试", "session_id": "abc-123_XYZ"},
+            )
+
+        del app.dependency_overrides[get_current_user]
+
+        # 200 说明 session_id 通过了校验（校验失败会是 422）
+        assert response.status_code == 200
+
+    def test_stream_invalid_session_id(self):
+        """
+        非法 session_id（含特殊字符）→ 422 校验错误
+
+        session_id 会被拼进 thread_id 并作为 DB 查询条件，
+        必须限制为安全字符（字母数字、下划线、连字符）。
+        """
+        app.dependency_overrides[get_current_user] = lambda: fake_current_user()
+
+        response = client.post(
+            "/chat/stream",
+            json={"message": "测试", "session_id": "bad;DROP TABLE"},
+        )
+
+        del app.dependency_overrides[get_current_user]
+
+        assert response.status_code == 422
