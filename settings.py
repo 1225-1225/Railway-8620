@@ -27,7 +27,6 @@ class Settings(BaseSettings):
     embedding_base_url: str = ""
 
     # 对话历史
-    session_config: dict = {"configurable": {"session_id": "001"}}
     chat_history_storage_path: str = ""
     history_database_name: str = "chat_history_check_pointer"
 

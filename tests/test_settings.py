@@ -136,13 +136,6 @@ class TestSettingsPathResolution:
 class TestSettingsMeta:
     """Settings 类的元行为"""
 
-    def test_session_config_is_dict(self):
-        with mock.patch.dict(os.environ, {}, clear=True):
-            from settings import Settings
-            s = Settings()
-            assert isinstance(s.session_config, dict)
-            assert "configurable" in s.session_config
-
     def test_extra_fields_ignored(self):
         """extra='ignore'->不存在的字段不会出现"""
         with mock.patch.dict(os.environ, {}, clear=True):
