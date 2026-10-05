@@ -1,7 +1,5 @@
 import osmium
 import geopandas as gpd
-from shapely.geometry import LineString
-from collections import defaultdict
 from shapely import wkt
 from collections import Counter
 
@@ -34,7 +32,7 @@ class RailwayHandler(osmium.SimpleHandler):
                     'name': w.tags.get('name', ''),
                     'geometry': geom
                 })
-            except Exception as e:
+            except Exception:
                 # print(f"忽略失败的 way {w.id}: {e}")
                 pass
 

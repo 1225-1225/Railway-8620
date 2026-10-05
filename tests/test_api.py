@@ -39,9 +39,9 @@ def fake_current_user():
     伪造一个已登录用户, 用于 mock 掉 get_current_user 依赖
 
     为什么不是纯 MagicMock():
-      - 后端 /chat 路由会读取 current_user.id (拼接 thread_id)
+      - 后端 /chat/stream 路由会读取 current_user.id (拼接 thread_id)
       - MagicMock 默认返回子属性也是 MagicMock, 不是整数
-      - 必须显式设 user.id = 1 (真实 int), 否则 ChatHistory 等地会接收 mock 对象进而异常
+      - 必须显式设 user.id = 1 (真实 int), 否则拼接出的 thread_id 里是个 mock 对象
 
     返回:
       mock.MagicMock 对象, 其 .id=1, .username="Alice"

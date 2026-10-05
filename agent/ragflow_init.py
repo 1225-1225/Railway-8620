@@ -422,8 +422,8 @@ else:
     print(f'CHAT_MODEL_CREATED:{{chat_model_id}}')
 
 # ---- 写入 Tenant 默认模型引用 ----
-embd_ref = "{config_data.embedding_model_name}@{emb_instance_name}@{prov_name}"
-llm_ref = "{config_data.llm_model_name}@{llm_instance_name}@{prov_name}"
+embd_ref = "{config_data.embedding_model_name}@{{emb_instance_name}}@{{prov_name}}"
+llm_ref = "{config_data.llm_model_name}@{{llm_instance_name}}@{{prov_name}}"
 Tenant.update(embd_id=embd_ref, llm_id=llm_ref).where(Tenant.id == tid).execute()
 print(f'TENANT_UPDATED: embd={{embd_ref}} llm={{llm_ref}}')
 """

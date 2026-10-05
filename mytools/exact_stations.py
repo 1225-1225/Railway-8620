@@ -4,7 +4,7 @@ import glob
 import geopandas as gpd
 import pandas as pd
 import networkx as nx
-from shapely.geometry import LineString, Point
+from shapely.geometry import LineString
 from geopy.distance import geodesic
 from scipy.spatial import cKDTree
 import numpy as np

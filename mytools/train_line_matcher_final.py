@@ -21,8 +21,7 @@
 """
 
 import json
-import re
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List
 
 
 class TrainLineMatcher:

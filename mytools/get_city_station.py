@@ -8,7 +8,6 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import re
 
 # 网站基础URL
 BASE_URL = "https://shike.gaotie.cn/chengshichezhan/"
@@ -25,21 +24,6 @@ def get_city_list():
 
     # 根据HTML结构，城市链接格式为：
     # https://shike.gaotie.cn/chengshi/?chengshi=<URL编码的城市名>
-
-    # 从图片中看到的城市列表（主要城市）
-    main_cities = [
-        "北京", "上海", "广州", "深圳", "天津", "重庆", "杭州", "西安", "成都", "郑州",
-        "南京", "武汉", "长沙", "青岛", "大连", "厦门", "福州", "昆明", "贵阳", "南宁",
-        "哈尔滨", "沈阳", "济南", "太原", "石家庄", "兰州", "西宁", "银川", "乌鲁木齐", "拉萨",
-        "呼和浩特", "长春", "南昌", "苏州", "宁波", "合肥", "海口", "三亚", "桂林", "丽江",
-        "三亚", "张家界", "黄山", "九寨沟", "敦煌", "喀什", "拉萨", "桂林", "北海", "威海",
-        "烟台", "淄博", "潍坊", "日照", "临沂", "泰安", "济宁", "德州", "聊城", "滨州",
-        "菏泽", "东营", "枣庄", "莱芜", "威海", "烟台", "青岛", "淄博", "潍坊", "日照"
-    ]
-
-    # 从A开头的城市开始爬取（按字母顺序）
-    # 根据你的截图，从"阿坝"开始
-    cities = []
 
     # 尝试获取完整的城市列表
     try:
@@ -77,7 +61,7 @@ def get_city_list():
                                             'url': href
                                         })
                                         print(f"找到城市: {city_name}")
-            except Exception as e:
+            except Exception:
                 continue
 
         print(f"共找到 {len(city_links)} 个城市")
@@ -138,7 +122,7 @@ def parse_city_page(city_url, city_name):
                                     station_name = font_tag.get_text(strip=True)
                                     if station_name and '站' in station_name:
                                         city_data['stations'].append(station_name)
-            except Exception as e:
+            except Exception:
                 continue
 
         city_data['city_station_count'] = len(city_data['stations'])

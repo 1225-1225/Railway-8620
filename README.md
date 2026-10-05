@@ -66,10 +66,10 @@ Railway-8620/
 │   ├── tools.py                    # 工具工厂 + retriever_tool（RAGFlow 知识库检索）
 │   ├── railway_tools.py            # 铁路工具：query_train_info / query_trains_by_route
 │   ├── route_map_generator.py      # Folium 路线地图生成器（相邻站点直线连接）
-│   ├── route_map_service.py        # （保留，暂为空）
+│   ├── checkpoint_parser.py        # LangGraph checkpoint 二进制反解
 │   ├── ragflow_client.py           # RAGFlow REST API 客户端封装
-│   ├── ragflow_migrate.py          # 批量上传文档到 RAGFlow
-│   └── chat_history.py             # JSON 文件对话历史（独立存储实现）
+│   ├── ragflow_init.py             # RAGFlow 首次部署自动化（初始化 + 容器补丁）
+│   └── ragflow_migrate.py          # 批量上传文档到 RAGFlow
 ├── backend/                        # FastAPI 后端
 │   ├── api.py                      # 主入口：流式聊天接口(SSE)、会话管理、CORS 配置
 │   ├── auth.py                     # JWT 认证：注册、登录、令牌验证
@@ -99,7 +99,6 @@ Railway-8620/
 │   ├── train_stations.json         # 车次-站点映射
 │   ├── railway_graph.json          # 铁路线路图结构数据
 │   ├── maps/                       # 运行时生成的 Folium 地图 HTML
-│   ├── vector_database/            # （旧版 Chroma 遗留目录）
 │   └── railway_route/
 │       ├── line_graph.json         # 铁路线路图结构
 │       └── timetable.json          # 列车时刻表
@@ -110,7 +109,6 @@ Railway-8620/
 │   ├── test_tools.py               # 工具函数 + 单例测试
 │   ├── test_database.py            # 用户模型 CRUD
 │   ├── test_schemas.py             # Pydantic 校验
-│   ├── test_chat_history.py        # 对话历史读写
 │   ├── test_llm.py                 # LLM 工厂函数
 │   └── conftest.py                 # 全局夹具 + 环境变量注入
 ├── mytools/                        # 数据采集/清洗/处理工具脚本
@@ -317,7 +315,6 @@ pytest tests/ -v
 | `test_database.py` | 用户模型 CRUD |
 | `test_schemas.py` | Pydantic 数据校验 |
 | `test_llm.py` | LLM 服务创建与链调用 |
-| `test_chat_history.py` | 对话历史读写 |
 | `test_tools.py` | RAGFlow 检索工具 + 单例行为 |
 | `test_settings.py` | 配置管理默认值与环境变量 |
 
@@ -325,17 +322,16 @@ pytest tests/ -v
 
 | 模块 | 覆盖率 |
 |------|--------|
-| `agent/agent.py`（Agent 核心） | 61% |
-| `agent/tools.py`（工具工厂） | 81% |
-| `agent/checkpoint_parser.py`（checkpoint 解析） | 62% |
-| `agent/chat_history.py` | 100% |
-| `agent/llm.py` | 100% |
-| `backend/api.py`（API 路由） | 59% |
-| `backend/auth.py`（JWT 认证） | 82% |
 | `backend/database.py` | 100% |
-| **总计** | **39%** |
+| `agent/llm.py` | 100% |
+| `backend/auth.py`（JWT 认证） | 82% |
+| `agent/tools.py`（工具工厂） | 81% |
+| `backend/api.py`（API 路由） | 78% |
+| `agent/checkpoint_parser.py`（checkpoint 解析） | 62% |
+| `agent/agent.py`（Agent 核心） | 61% |
+| **总计** | **42%** |
 
-> 覆盖率较低的部分（`ragflow_init.py`、`ragflow_migrate.py`、`ragflow_client.py`）是外部依赖（RAGFlow）相关脚本，需要真实 RAGFlow 服务才能测试，属预期情况。
+> 覆盖率较低的部分（`ragflow_init.py`、`ragflow_migrate.py`、`ragflow_client.py`、`route_map_generator.py`）是外部依赖（RAGFlow / Folium 出图）相关脚本，需要真实 RAGFlow 服务才能测试，属预期情况。
 
 ### 📊 性能压测
 
