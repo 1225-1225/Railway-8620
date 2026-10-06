@@ -385,7 +385,9 @@ async def _repair_incomplete_tool_calls_async(agent, config: dict):
     修复涉及同步的 SQLite 读取（get_state）与潜在的 LLM/工具调用（invoke），
     在 async 端点里直接调用会卡住整个事件循环，必须扔进有界线程池。
     """
-    loop = asyncio.get_event_loop()
+    # 用 get_running_loop()（而非 get_event_loop()）：明确要"正在运行的循环"，
+    # 没有则直接报错，不做隐式创建（后者在新版 Python 已弃用，3.14 起将抛错）
+    loop = asyncio.get_running_loop()
     await loop.run_in_executor(
         _agent_executor,
         lambda: _repair_incomplete_tool_calls(agent, config),
@@ -409,7 +411,8 @@ async def chat_stream(
     _SENTINEL = object()
 
     async def generate():
-        loop = asyncio.get_event_loop()
+        # 同 _repair_incomplete_tool_calls_async：用 get_running_loop 明确语义
+        loop = asyncio.get_running_loop()
         try:
             # 在独立线程（有界线程池）中运行同步的 agent.stream()，避免阻塞事件循环
             stream_iter = iter(
