@@ -180,6 +180,43 @@ def _ensure_session_meta_table(conn: sqlite3.Connection):
     )
 
 
+def _user_thread_prefix(user_id: int) -> str:
+    """当前用户 thread_id 的前缀（含结尾下划线）。
+
+    ⚠️ 结尾的 `_` 不可省：thread_id 格式是 `user_{id}_{session_id}`，
+    若只用 `user_{id}` 做前缀匹配，`user_1` 会误匹配 `user_10_xxx`
+    （字符串前缀歧义），造成跨用户越权。列表查询的 LIKE 前缀同理。
+
+    注意：本函数的返回值只用于 Python 的 str.startswith。
+    SQL 查询请用 _user_thread_glob()——LIKE 里的 `_` 是通配符，直接用会出错。
+    """
+    return f"user_{user_id}_"
+
+
+def _user_thread_glob(user_id: int) -> str:
+    """当前用户全部会话的 SQL GLOB 模式（列表查询用）。
+
+    ⚠️ 这里必须用 GLOB 而不是 LIKE：
+    LIKE 的 `_` 是"匹配任意单个字符"的通配符，所以 `LIKE 'user_1_%'`
+    中第一个 `_` 会匹配 `1`、第二个 `_` 会匹配 `0`，从而命中
+    `user_10_victim-session` —— 跨用户数据泄漏。
+    GLOB 只把 `*` / `?` 当通配符，`_` 是普通字符，语义与 startswith 一致。
+
+    thread_id 受正则 `^[A-Za-z0-9_-]{0,64}$` 约束，不含 GLOB 的特殊字符，
+    因此拼接安全。
+    """
+    return f"user_{user_id}_*"
+
+
+def _owns_thread(thread_id: str, user_id: int) -> bool:
+    """校验 thread_id 是否属于该用户（会话接口的越权防线）。
+
+    攻击者可以用自己的合法 token + 手改 URL 里的 thread_id 来尝试访问
+    别人的会话（IDOR）。此处强制校验身份与资源归属一致。
+    """
+    return thread_id.startswith(_user_thread_prefix(user_id))
+
+
 # 重命名会话
 class RenameRequest(BaseModel):
     title: str
@@ -202,13 +239,13 @@ def list_sessions(current_user: User = Depends(get_current_user)):
     if not os.path.exists(db_path):
         return {"ok": True, "groups": []}
 
-    prefix = f"user_{current_user.id}_" if current_user else ""
+    glob_pattern = _user_thread_glob(current_user.id)
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     _ensure_session_meta_table(conn)
     cur = conn.execute(
-        "SELECT thread_id, checkpoint, metadata FROM checkpoints WHERE thread_id LIKE ? ORDER BY rowid",
-        (f"{prefix}%",)
+        "SELECT thread_id, checkpoint, metadata FROM checkpoints WHERE thread_id GLOB ? ORDER BY rowid",
+        (glob_pattern,)
     )
 
     threads = {}
@@ -224,8 +261,8 @@ def list_sessions(current_user: User = Depends(get_current_user)):
     custom_titles = {
         r["thread_id"]: r["title"]
         for r in conn.execute(
-            "SELECT thread_id, title FROM session_meta WHERE thread_id LIKE ?",
-            (f"{prefix}%",)
+            "SELECT thread_id, title FROM session_meta WHERE thread_id GLOB ?",
+            (glob_pattern,)
         )
     }
     for tid, title in custom_titles.items():
@@ -263,9 +300,8 @@ def list_sessions(current_user: User = Depends(get_current_user)):
 @app.get("/chat/sessions/{thread_id:path}")
 def get_session_messages(thread_id: str, current_user: User = Depends(get_current_user)):
     """返回指定会话的全部历史消息"""
-    # 安全校验：只允许当前用户的会话
-    expected_prefix = f"user_{current_user.id}"
-    if not thread_id.startswith(expected_prefix):
+    # 安全校验：只允许当前用户的会话（防 IDOR——自己的 token + 别人的 thread_id）
+    if not _owns_thread(thread_id, current_user.id):
         return {"ok": False, "error": "无权限", "messages": []}
     db_path = _get_checkpointer_db()
     if not os.path.exists(db_path):
@@ -286,9 +322,8 @@ def get_session_messages(thread_id: str, current_user: User = Depends(get_curren
 @app.put("/chat/sessions/{thread_id:path}")
 def rename_session(thread_id: str, request: RenameRequest, current_user: User = Depends(get_current_user)):
     """重命名指定会话（自定义标题，优先于自动预览显示）"""
-    # 安全校验：只允许当前用户的会话
-    expected_prefix = f"user_{current_user.id}"
-    if not thread_id.startswith(expected_prefix):
+    # 安全校验：只允许当前用户的会话（防 IDOR）
+    if not _owns_thread(thread_id, current_user.id):
         return {"ok": False, "error": "无权限"}
     db_path = _get_checkpointer_db()
     if not os.path.exists(db_path):
@@ -320,9 +355,8 @@ def rename_session(thread_id: str, request: RenameRequest, current_user: User = 
 @app.delete("/chat/sessions/{thread_id:path}")
 def delete_session(thread_id: str, current_user: User = Depends(get_current_user)):
     """删除指定会话（含所有 checkpoints 与 writes 记录）"""
-    # 安全校验：只允许当前用户的会话
-    expected_prefix = f"user_{current_user.id}"
-    if not thread_id.startswith(expected_prefix):
+    # 安全校验：只允许当前用户的会话（防 IDOR）
+    if not _owns_thread(thread_id, current_user.id):
         return {"ok": False, "error": "无权限"}
     db_path = _get_checkpointer_db()
     if not os.path.exists(db_path):

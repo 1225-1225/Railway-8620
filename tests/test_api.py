@@ -34,7 +34,7 @@ from backend.auth import get_current_user  # 用于 dependency_overrides 的 key
 client = TestClient(app)
 
 # ── 辅助函数 ───────────────────────────────────────────────────
-def fake_current_user():
+def fake_current_user(uid: int = 1, username: str = "Alice"):
     """
     伪造一个已登录用户, 用于 mock 掉 get_current_user 依赖
 
@@ -43,12 +43,16 @@ def fake_current_user():
       - MagicMock 默认返回子属性也是 MagicMock, 不是整数
       - 必须显式设 user.id = 1 (真实 int), 否则拼接出的 thread_id 里是个 mock 对象
 
+    参数:
+      uid      — 用户 id (默认 1)。测越权时传不同 id 模拟不同用户
+      username — 用户名
+
     返回:
-      mock.MagicMock 对象, 其 .id=1, .username="Alice"
+      mock.MagicMock 对象, 其 .id=uid, .username=username
     """
     user = mock.MagicMock()
-    user.id = 1               # 真实整数, 用于 f"user_{current_user.id}"
-    user.username = "Alice"   # 真实字符串, 用于日志/鉴权逻辑
+    user.id = uid             # 真实整数, 用于 f"user_{current_user.id}"
+    user.username = username  # 真实字符串, 用于日志/鉴权逻辑
     return user
 
 
@@ -347,6 +351,198 @@ class TestSessionManagement:
 
         assert response.status_code == 200
         assert response.json()["ok"] is False
+
+
+# ═══════════════════════════════════════════════════════════════
+#  thread_id 归属校验测试（越权 / IDOR 防线）
+#
+#  背景：会话接口都会校验 thread_id 是否以 "user_{自己的id}_" 开头。
+#  这是防 IDOR 的关键——攻击者可用自己的合法 token，手改 URL 里的
+#  thread_id 去访问别人的会话。
+#
+#  ⚠️ 曾经的 bug：前缀写成 f"user_{id}"（漏了结尾下划线），
+#     导致 user_1 能匹配 user_10_xxx（字符串前缀歧义）→ 跨用户越权。
+#     本测试类专门守住这个边界。
+# ═══════════════════════════════════════════════════════════════
+
+class TestThreadIdOwnership:
+    """校验 thread_id 前缀匹配不会因数字前缀歧义而越权"""
+
+    @pytest.fixture
+    def checkpoint_db(self, tmp_path):
+        """库里放两个会话：user_1 自己的 + user_10 的（10 以 1 开头，是歧义关键）"""
+        import sqlite3
+
+        db_path = tmp_path / "ownership.db"
+        conn = sqlite3.connect(db_path)
+        conn.execute(
+            "CREATE TABLE checkpoints (thread_id TEXT, checkpoint_ns TEXT DEFAULT '', "
+            "checkpoint_id TEXT DEFAULT '', parent_checkpoint_id TEXT DEFAULT '', "
+            "type TEXT DEFAULT '', checkpoint BLOB DEFAULT '', metadata TEXT DEFAULT '{}')"
+        )
+        conn.execute(
+            "CREATE TABLE writes (thread_id TEXT, checkpoint_ns TEXT DEFAULT '', "
+            "checkpoint_id TEXT DEFAULT '', task_id TEXT DEFAULT '', idx INTEGER DEFAULT 0, "
+            "channel TEXT DEFAULT '', type TEXT DEFAULT '', blob BLOB DEFAULT '')"
+        )
+        conn.execute(
+            "INSERT INTO checkpoints (thread_id, metadata) VALUES (?, ?)",
+            ("user_1_mine-session", '{"source": "input"}'),
+        )
+        conn.execute(
+            "INSERT INTO checkpoints (thread_id, metadata) VALUES (?, ?)",
+            ("user_10_victim-session", '{"source": "input"}'),
+        )
+        conn.commit()
+        conn.close()
+        return str(db_path)
+
+    def _as_user(self, uid):
+        app.dependency_overrides[get_current_user] = lambda: fake_current_user(uid=uid)
+
+    def _reset(self):
+        app.dependency_overrides.pop(get_current_user, None)
+
+    # ── 核心：user_1 不能碰 user_10 的会话（数字前缀歧义）──
+
+    def test_prefix_ambiguity_read(self, checkpoint_db):
+        """user_1 读 user_10 的会话 → 必须被拒（曾经会误判为有权限）"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._as_user(1)
+            response = client.get("/chat/sessions/user_10_victim-session")
+            self._reset()
+
+        assert response.status_code == 200
+        data = response.json()
+        assert data["ok"] is False, "user_1 不应能读 user_10 的会话（前缀歧义越权）"
+        assert data["messages"] == []
+
+    def test_prefix_ambiguity_rename(self, checkpoint_db):
+        """user_1 重命名 user_10 的会话 → 必须被拒"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._as_user(1)
+            response = client.put(
+                "/chat/sessions/user_10_victim-session", json={"title": "被改了"}
+            )
+            self._reset()
+
+        assert response.json()["ok"] is False
+
+    def test_prefix_ambiguity_delete(self, checkpoint_db):
+        """user_1 删 user_10 的会话 → 必须被拒，且数据仍在"""
+        import sqlite3
+
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._as_user(1)
+            response = client.delete("/chat/sessions/user_10_victim-session")
+            self._reset()
+
+        assert response.json()["ok"] is False
+        conn = sqlite3.connect(checkpoint_db)
+        count = conn.execute(
+            "SELECT COUNT(*) FROM checkpoints WHERE thread_id='user_10_victim-session'"
+        ).fetchone()[0]
+        conn.close()
+        assert count == 1, "越权删除被拒后，受害者的会话必须还在"
+
+    def test_list_sessions_only_returns_own(self, checkpoint_db):
+        """列表接口只返回自己的会话（LIKE 前缀同样要带下划线）"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._as_user(1)
+            response = client.get("/chat/sessions")
+            self._reset()
+
+        threads = [
+            s["thread_id"]
+            for g in response.json()["groups"]
+            for s in g["sessions"]
+        ]
+        assert "user_1_mine-session" in threads
+        assert "user_10_victim-session" not in threads, "列表不应带出 user_10 的会话"
+
+    # ── 对照：自己的会话必须能正常访问（防止"修过头"把正常路径也拒了）──
+
+    def test_own_session_still_accessible(self, checkpoint_db):
+        """user_1 访问自己的会话 → 正常放行（回归：别把校验写死）"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._as_user(1)
+            response = client.put(
+                "/chat/sessions/user_1_mine-session", json={"title": "我的标题"}
+            )
+            self._reset()
+
+        data = response.json()
+        assert data["ok"] is True
+        assert data["title"] == "我的标题"
+
+    def test_user_10_can_access_own(self, checkpoint_db):
+        """user_10 访问自己的会话 → 正常放行（多位数 id 也要工作）"""
+        with mock.patch("backend.api._get_checkpointer_db", return_value=checkpoint_db):
+            self._as_user(10)
+            response = client.put(
+                "/chat/sessions/user_10_victim-session", json={"title": "10 的标题"}
+            )
+            self._reset()
+
+        assert response.json()["ok"] is True
+
+    # ── 单元级：直接测 helper ──
+
+    def test_user_thread_prefix_has_trailing_underscore(self):
+        """前缀必须以 _ 结尾，否则 user_1 会匹配 user_10"""
+        from backend.api import _user_thread_prefix
+
+        assert _user_thread_prefix(1) == "user_1_"
+        assert not "user_10_x".startswith(_user_thread_prefix(1))
+
+    def test_owns_thread(self):
+        """helper 的归属判断"""
+        from backend.api import _owns_thread
+
+        assert _owns_thread("user_1_abc", 1) is True
+        assert _owns_thread("user_10_abc", 1) is False   # ← 歧义边界
+        assert _owns_thread("user_1", 1) is False        # 缺分隔符，不算自己的
+        assert _owns_thread("user_2_abc", 1) is False
+
+    def test_glob_pattern_matches_sql_semantics(self):
+        """用真实 SQLite 验证 GLOB 模式的行为（这是修 bug 的关键）
+
+        为什么不能用 LIKE：
+          LIKE 里 `_` 匹配任意单字符 → 'user_1_%' 会命中 'user_10_victim'
+          （第 2 个 `_` 吃掉了 '0'）→ 跨用户数据泄漏。
+        GLOB 里 `_` 是普通字符，只有 `*` / `?` 是通配符。
+        """
+        import sqlite3
+
+        from backend.api import _user_thread_glob
+
+        conn = sqlite3.connect(":memory:")
+        conn.execute("CREATE TABLE t (thread_id TEXT)")
+        rows = [
+            "user_1_a",            # 自己的
+            "user_1_b",            # 自己的
+            "user_10_victim",      # 别人的（但以 user_1 开头，是歧义点）
+            "user_2_c",            # 别人的
+            "user_1",              # 缺分隔符，不该匹配
+        ]
+        conn.executemany("INSERT INTO t VALUES (?)", [(r,) for r in rows])
+
+        matched_glob = {
+            r[0] for r in conn.execute(
+                "SELECT thread_id FROM t WHERE thread_id GLOB ?", (_user_thread_glob(1),)
+            )
+        }
+        # 对照：如果用 LIKE 会多带出 user_10_victim
+        matched_like = {
+            r[0] for r in conn.execute(
+                "SELECT thread_id FROM t WHERE thread_id LIKE ?", ("user_1_%",)
+            )
+        }
+        conn.close()
+
+        assert matched_glob == {"user_1_a", "user_1_b"}
+        # 证明 LIKE 确实有漏洞（这条断言记录了 bug 的形态，防止有人改回去）
+        assert "user_10_victim" in matched_like, "LIKE 的 _ 是通配符，这正是要避开的坑"
 
 
 # ═══════════════════════════════════════════════════════════════
