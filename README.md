@@ -310,7 +310,7 @@ pytest tests/ -v
 
 | 文件 | 测试内容 |
 |------|----------|
-| `test_api.py` | 端到端：注册、登录、聊天接口（Mock 数据库 + Agent） |
+| `test_api.py` | 端到端：注册、登录、聊天接口、会话管理、thread_id 归属校验（Mock 数据库 + Agent） |
 | `test_auth.py` | JWT 签发/验证、用户认证逻辑 |
 | `test_database.py` | 用户模型 CRUD |
 | `test_schemas.py` | Pydantic 数据校验 |
@@ -326,10 +326,10 @@ pytest tests/ -v
 | `agent/llm.py` | 100% |
 | `backend/auth.py`（JWT 认证） | 82% |
 | `agent/tools.py`（工具工厂） | 81% |
-| `backend/api.py`（API 路由） | 78% |
-| `agent/checkpoint_parser.py`（checkpoint 解析） | 62% |
+| `backend/api.py`（API 路由） | 85% |
+| `agent/checkpoint_parser.py`（checkpoint 解析） | 67% |
 | `agent/agent.py`（Agent 核心） | 61% |
-| **总计** | **42%** |
+| **总计** | **44%** |
 
 > 覆盖率较低的部分（`ragflow_init.py`、`ragflow_migrate.py`、`ragflow_client.py`、`route_map_generator.py`）是外部依赖（RAGFlow / Folium 出图）相关脚本，需要真实 RAGFlow 服务才能测试，属预期情况。
 
