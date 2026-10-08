@@ -60,7 +60,7 @@ def authenticate_user(db: Session, username: str, password: str):
     if not user:
         return False
     try:
-        ph.verify(user.password, password)
+        ph.verify(user.password_hash, password)
         # 验证通过，返回用户对象
         return user
     except VerifyMismatchError:
@@ -155,7 +155,9 @@ def register(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
         raise HTTPException(status_code=400, detail="Username already registered")
 
     # 2. 创建新用户
-    new_user = database.User(username=user.username, password=ph.hash(user.password))
+    #    注意：`user.password` 是请求体里的**明文**（schemas.UserCreate），
+    #    存库前必须 ph.hash()；目标字段叫 password_hash 正是为了提示这一点。
+    new_user = database.User(username=user.username, password_hash=ph.hash(user.password))
 
     # 3. 写入数据库
     db.add(new_user)    # 添加到会话

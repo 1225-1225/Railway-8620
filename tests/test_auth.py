@@ -128,11 +128,11 @@ class TestAuthenticateUser:
         # 1. 创建一个假的数据库会话对象（不连接真实数据库）
         db = mock.MagicMock()
 
-        # 2. 创建一个假的用户对象，password 字段存储 argon2 哈希（与生产一致）
-        #    早期版本测试用明文 fake_user.password = "secret123"，会触发 argon2
+        # 2. 创建一个假的用户对象，password_hash 字段存储 argon2 哈希（与生产一致）
+        #    早期版本测试用明文 fake_user.password_hash = "secret123"，会触发 argon2
         #    InvalidHashError（而非 VerifyMismatchError），导致 except 捕获不到而抛错
         fake_user = mock.MagicMock()
-        fake_user.password = _hash_password("secret123")
+        fake_user.password_hash = _hash_password("secret123")
 
         # 3. 配置 db 的行为：当调用 db.query(...).filter(...).first() 时，返回 fake_user
         #    SQLAlchemy 的链式调用: db.query(User).filter(User.username == "alice").first()
@@ -152,10 +152,10 @@ class TestAuthenticateUser:
         """
         验证：密码错误 → 返回 False。
         """
-        # 1. 伪造 db 和用户对象，password 存储正确密码的 argon2 哈希
+        # 1. 伪造 db 和用户对象，password_hash 存储正确密码的 argon2 哈希
         db = mock.MagicMock()
         fake_user = mock.MagicMock()
-        fake_user.password = _hash_password("correct_password")
+        fake_user.password_hash = _hash_password("correct_password")
         db.query.return_value.filter.return_value.first.return_value = fake_user
 
         # 2. 用错误密码调用 authenticate_user，ph.verify 会抛 VerifyMismatchError 被捕获

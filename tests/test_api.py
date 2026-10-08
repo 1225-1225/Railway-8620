@@ -148,18 +148,18 @@ class TestAuthEndpoints:
         登录与注册有两个区别:
           1. 请求格式: 登录用 data= (application/x-www-form-urlencoded)
              而不是 json= (application/json), 因为 OAuth2PasswordRequestForm 这么要求
-          2. .first() 返回一个带 .password 属性的假用户对象
+          2. .first() 返回一个带 .password_hash 属性的假用户对象
 
         预期:
           200 OK + {access_token: "...", token_type: "bearer"}
         """
         mock_db = mock.MagicMock()
-        # 构造一个假用户, 其 password 字段存储 argon2 哈希（与生产一致）
+        # 构造一个假用户, 其 password_hash 字段存储 argon2 哈希（与生产一致）
         # 旧测试用明文 "secret" 会触发 argon2 InvalidHashError（不属于 VerifyMismatchError）
         # 导致 except 捕获不到, 登录接口 500 而不是 200
         fake_user = mock.MagicMock()
         fake_user.username = "Alice"
-        fake_user.password = _hash_password("secret")
+        fake_user.password_hash = _hash_password("secret")
         mock_db.query.return_value.filter.return_value.first.return_value = fake_user
 
         with mock.patch("backend.database.SessionLocal") as mock_session_factory:
@@ -182,7 +182,7 @@ class TestAuthEndpoints:
         密码错误 → 返回 401
 
         实现原理:
-          设假用户 password="correct"
+          设假用户 password_hash="correct"
           请求中传 password="wrong_password"
           后端 authenticate_user 比对发现不一致 → 返回 False → 401
 
@@ -193,7 +193,7 @@ class TestAuthEndpoints:
         fake_user = mock.MagicMock()
         fake_user.username = "Alice"
         # 数据库存的是 "correct" 的 argon2 哈希, 输入 "wrong_password" 应触发 VerifyMismatchError
-        fake_user.password = _hash_password("correct")
+        fake_user.password_hash = _hash_password("correct")
         mock_db.query.return_value.filter.return_value.first.return_value = fake_user
 
         with mock.patch("backend.database.SessionLocal") as mock_session_factory:

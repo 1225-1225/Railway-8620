@@ -19,7 +19,14 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True, nullable=False)
-    password = Column(String, nullable=False)  # 存储加密后的密码
+    # 属性名特意叫 password_hash 而非 password：
+    # 这个字段存的是 argon2 哈希，而请求体模型 schemas.UserCreate.password 是明文输入。
+    # 两者同名时极易看混（甚至在 `User(..., password=ph.hash(user.password))` 里同现），
+    # 改成语义明确的名字后，忘记 ph.hash() 一眼就能看出。
+    #
+    # Column("password", ...) 的第一个参数是**数据库列名**，所以沿用旧列名——
+    # 已有 users.db 无需任何迁移。
+    password_hash = Column("password", String, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
 Base.metadata.create_all(bind=engine)
