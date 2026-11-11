@@ -213,6 +213,11 @@ def single_track_path(adj, coords):
 
     做法：按地理直线距离找到线路两端，再求最短路。
     最短路天然只走其中一条轨道，因此里程不会翻倍。
+
+    注意：平行轨道在车站处相连会形成"梯子图"（一串环），
+    最短路可能沿环绕行造成 30km 尺度的折返（实测湘桂线、
+    京哈线、中老昆万线）。因此对路径做折返检测，一旦发现
+    就换用"优先朝目标方向推进"的启发式搜索。
     """
     if not adj:
         return [], 0.0
@@ -222,8 +227,86 @@ def single_track_path(adj, coords):
     if a == b:
         return [], 0.0
 
+    path, km = _dijkstra_path(adj, a, b)
+    if not path:
+        return [], 0.0
+
+    # 折返检测：真实铁路不会在 30km 尺度掉头
+    if _path_has_reversal(path, coords):
+        path2, km2 = _directional_search(adj, coords, a, b)
+        if path2 and not _path_has_reversal(path2, coords):
+            return path2, km2
+
+    return path, km
+
+
+def _dijkstra_path(adj, a, b):
     dist, prev = dijkstra(adj, a)
     if b not in dist:
+        return [], 0.0
+    path = [b]
+    cur = b
+    while cur != a:
+        cur = prev.get(cur)
+        if cur is None:
+            return [], 0.0
+        path.append(cur)
+    path.reverse()
+    return path, dist[b]
+
+
+def _path_has_reversal(node_path, coords, max_deg=150.0, min_seg_km=0.5):
+    """路径中是否存在方位突变（折返）"""
+    if len(node_path) < 3:
+        return False
+    pts = [coords[n] for n in node_path if n in coords]
+    for i in range(1, len(pts) - 1):
+        if haversine_km(pts[i - 1], pts[i]) < min_seg_km:
+            continue
+        if haversine_km(pts[i], pts[i + 1]) < min_seg_km:
+            continue
+        b1 = bearing_deg(pts[i - 1], pts[i])
+        b2 = bearing_deg(pts[i], pts[i + 1])
+        if angle_diff(b1, b2) > max_deg:
+            return True
+    return False
+
+
+def _directional_search(adj, coords, a, b, penalty_deg=60.0):
+    """带方向惩罚的 Dijkstra
+
+    目标方向 = a -> b 的大圆方位。对"反向推进"的边加重惩罚，
+    使搜索倾向于沿线路主方向前进，绕开平行轨道形成的环。
+    """
+    target_bearing = bearing_deg(coords[a], coords[b])
+    dist = {a: 0.0}
+    prev = {}
+    pq = [(0.0, a)]
+    seen = set()
+
+    while pq:
+        d, u = heapq.heappop(pq)
+        if u in seen:
+            continue
+        seen.add(u)
+        if u == b:
+            break
+        for v, w in adj[u]:
+            nd = d + w
+            cu, cv = coords.get(u), coords.get(v)
+            if cu and cv:
+                back = angle_diff(bearing_deg(cu, cv), target_bearing)
+                # 反向（>90°）加倍惩罚；60-90° 轻度惩罚
+                if back > 90.0:
+                    nd += w * 1.5
+                elif back > penalty_deg:
+                    nd += w * 0.3
+            if nd < dist.get(v, float("inf")):
+                dist[v] = nd
+                prev[v] = u
+                heapq.heappush(pq, (nd, v))
+
+    if b not in prev and a != b:
         return [], 0.0
 
     path = [b]
@@ -234,7 +317,12 @@ def single_track_path(adj, coords):
             return [], 0.0
         path.append(cur)
     path.reverse()
-    return path, dist[b]
+
+    # 返回真实里程（不用带惩罚的距离）
+    real = sum(haversine_km(coords[path[i]], coords[path[i + 1]])
+               for i in range(len(path) - 1)
+               if path[i] in coords and path[i + 1] in coords)
+    return path, real
 
 
 def path_covered_ratio(pts, grid, cell=0.02, tol_km=2.0):
@@ -265,24 +353,86 @@ def add_to_grid(pts, grid, cell=0.02):
         grid.setdefault((int(p[0] / cell), int(p[1] / cell)), []).append(p)
 
 
-def _try_insert_piece(chain, pts, max_gap_km):
-    """把一段插到已有链的中间某处（两端都能接上时）
 
-    典型场景：兰新线在哈密断开成两段，第一段被整体拼接后，
-    第二段的两端都无法接在链首尾，但能接在链中间某个节点附近。
+def bearing_deg(a, b):
+    """a -> b 的方位角（0=正北，顺时针）"""
+    (lng1, lat1), (lng2, lat2) = a, b
+    dx = (lng2 - lng1) * math.cos(math.radians((lat1 + lat2) / 2))
+    dy = lat2 - lat1
+    return math.degrees(math.atan2(dx, dy)) % 360.0
+
+
+def angle_diff(b1, b2):
+    d = abs(b1 - b2) % 360.0
+    return d if d <= 180.0 else 360.0 - d
+
+
+
+def stitch_pieces_along_axis(pieces, max_gap_km=30.0):
+    """沿线路主轴排序后拼接分段
+
+    为什么不能只按"端点最近"贪心拼接：
+      线路被切成多段时，各段方向可能相反。实测湘桂线 3 段
+      （532/250/225 km）按端点最近拼接会在中段产生 34.7km 折返。
+
+    做法：
+      1. 用所有分段的端点拟合线路主轴方向（取相距最远的两点）
+      2. 把每段投影到主轴上，得到区间 [t_min, t_max]
+      3. 按 t_min 排序
+      4. 逐段拼接时，方向取"使其 t 递增"的那一端
     """
-    if len(chain) < 2 or len(pts) < 2:
-        return None
+    if not pieces:
+        return [], 0.0
+    if len(pieces) == 1:
+        return list(pieces[0]), traj_length(pieces[0])
 
-    # 在链上找与 pts 两端都近的位置
-    for i in range(len(chain) - 1):
-        d_head = haversine_km(chain[i], pts[0])
-        d_tail = haversine_km(chain[i], pts[-1])
-        if d_head <= max_gap_km:
-            return chain[: i + 1] + list(pts) + chain[i + 1:]
-        if d_tail <= max_gap_km:
-            return chain[: i + 1] + list(reversed(pts)) + chain[i + 1:]
-    return None
+    # 主轴：所有端点中最远的一对
+    all_pts = [p for pts in pieces for p in (pts[0], pts[-1])]
+    o = all_pts[0]
+    a, _ = max(((p, haversine_km(o, p)) for p in all_pts), key=lambda x: x[1])
+    b, _ = max(((p, haversine_km(a, p)) for p in all_pts), key=lambda x: x[1])
+
+    (lng1, lat1), (lng2, lat2) = a, b
+    dx = lng2 - lng1
+    dy = lat2 - lat1
+    norm = math.hypot(dx, dy)
+    if norm < 1e-9:
+        return list(pieces[0]), traj_length(pieces[0])
+    ux, uy = dx / norm, dy / norm
+
+    def project(p):
+        return (p[0] - lng1) * ux + (p[1] - lat1) * uy
+
+    # 每段：(t_min, t_max, pts, 是否需翻转)
+    entries = []
+    for pts in pieces:
+        t0, t1 = project(pts[0]), project(pts[-1])
+        if t0 <= t1:
+            entries.append((t0, t1, pts, False))
+        else:
+            entries.append((t1, t0, pts, True))
+    entries.sort(key=lambda x: x[0])
+
+    chain = []
+    for t0, t1, pts, rev in entries:
+        seg = pts[::-1] if rev else pts
+        if not chain:
+            chain = list(seg)
+            continue
+        gap = haversine_km(chain[-1], seg[0])
+        if gap > max_gap_km:
+            # 接不上就尝试接在链首（线路可能从另一端开始）
+            if haversine_km(seg[-1], chain[0]) <= max_gap_km:
+                chain = list(seg) + chain
+            continue
+        chain.extend(seg[1:])
+
+    cleaned = []
+    for p in chain:
+        if not cleaned or (abs(cleaned[-1][0] - p[0]) > 1e-7
+                           or abs(cleaned[-1][1] - p[1]) > 1e-7):
+            cleaned.append(p)
+    return cleaned, traj_length(cleaned)
 
 
 def assemble_line(adj, coords, dedup_ratio=0.5, max_gap_km=30.0):
@@ -321,36 +471,8 @@ def assemble_line(adj, coords, dedup_ratio=0.5, max_gap_km=30.0):
         kept.append((km, pts))
         add_to_grid(pts, grid)
 
-    chain = list(kept[0][1])
-    for _, pts in kept[1:]:
-        head, tail = pts[0], pts[-1]
-        # 四个端点组合：把 pts 的某一端接到链的某一端。
-        # reverse 的含义 = "pts 需要翻转后再接"。
-        #   接在链首时：pts 的末端要贴链首 => 若用 head 贴链首，必须翻转
-        #   接在链尾时：pts 的首端要贴链尾 => 若用 tail 贴链尾，必须翻转
-        candidates = [
-            (haversine_km(head, chain[0]), "front", True),   # head 贴链首 -> 翻转
-            (haversine_km(tail, chain[0]), "front", False),  # tail 贴链首 -> 不翻转
-            (haversine_km(head, chain[-1]), "back", False),  # head 贴链尾 -> 不翻转
-            (haversine_km(tail, chain[-1]), "back", True),   # tail 贴链尾 -> 翻转
-        ]
-        candidates.sort(key=lambda x: x[0])
-        gap, where, reverse = candidates[0]
-
-        if gap > max_gap_km:
-            inserted = _try_insert_piece(chain, pts, max_gap_km)
-            if inserted is not None:
-                chain = inserted
-            continue
-        seg = pts[::-1] if reverse else pts
-        chain = (seg + chain) if where == "front" else (chain + seg)
-
-    cleaned = []
-    for p in chain:
-        if not cleaned or (abs(cleaned[-1][0] - p[0]) > 1e-7
-                           or abs(cleaned[-1][1] - p[1]) > 1e-7):
-            cleaned.append(p)
-    return cleaned, traj_length(cleaned)
+    # 沿主轴排序拼接（避免"端点最近"贪心在方向各异的段间产生折返）
+    return stitch_pieces_along_axis([pts for _, pts in kept], max_gap_km)
 
 
 def split_at_big_gaps(pts, max_gap_km=50.0):
