@@ -41,6 +41,9 @@ class Settings(BaseSettings):
     # 地图输出目录（backend/api.py 静态挂载 / agent/route_map_generator.py 生成）
     # 两处必须一致，因此统一由这里提供；空则回退到 data/maps
     maps_output_dir: str = ""
+    # OSM 铁路参考数据目录（agent/route_geometry.py 消费）
+    # 由 data/osm/build_reference.py 离线构建；缺失时路线图自动退化为直线
+    route_data_dir: str = ""
     # Agent 有界线程池容量（backend/api.py）
     agent_thread_pool_size: int = 8
     # CORS 允许来源，逗号分隔（backend/api.py）
@@ -58,6 +61,10 @@ def _apply_path_defaults(s: Settings):
     if not s.maps_output_dir:
         s.maps_output_dir = os.path.normpath(
             os.path.join(PROJECT_ROOT, "data", "maps")
+        )
+    if not s.route_data_dir:
+        s.route_data_dir = os.path.normpath(
+            os.path.join(PROJECT_ROOT, "data", "osm", "out")
         )
 
 

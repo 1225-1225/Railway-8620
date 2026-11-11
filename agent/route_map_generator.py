@@ -40,6 +40,7 @@ def _get_station_coord(name: str):
 
 
 def get_train_stations(train_code: str) -> list:
+    """返回车次的经停站列表"""
     _TRAIN_DETAILS_PATH = os.path.join(_DATA_DIR, 'train_details.json')
     _TRAIN_STATIONS_PATH = os.path.join(_DATA_DIR, 'train_stations.json')
     if os.path.exists(_TRAIN_DETAILS_PATH):
@@ -54,27 +55,85 @@ def get_train_stations(train_code: str) -> list:
     return []
 
 
+def get_train_class(train_code: str) -> str:
+    """返回车次类型（高铁/动车/城际/直特/特快/快速…），用于线路消歧"""
+    for fname in ('train_details.json', 'train_stations.json'):
+        path = os.path.join(_DATA_DIR, fname)
+        if not os.path.exists(path):
+            continue
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        info = data.get(train_code)
+        if info:
+            return info.get('class', '') or info.get('train_class', '')
+    return ''
+
+
 # ─── 地图绘制 ───────────────────────────────────────────────
 
-def _generate_route_map(m, stations, line_color):
-    """在地图上绘制车次路线（直线连接相邻站点）"""
+def _generate_route_map(m, stations, line_color, train_class=None):
+    """在地图上绘制车次路线
+
+    优先使用 OSM 真实轨道几何；缺失的站段退化为直线并用虚线区分，
+    让用户一眼看出哪一段是估算的。
+
+    train_class 用于在两站之间有多条候选线路时消歧
+    （G/D/C 优先高速线，K/T/Z 优先普速线）。
+    """
     import folium
+
+    from agent.route_geometry import get_route_geometry
+
+    rg = get_route_geometry()
+    stats = {"total": 0, "matched": 0, "fallback": 0, "missing": 0, "lines": {}}
+    used_lines = []
 
     for i in range(len(stations) - 1):
         s1, s2 = stations[i], stations[i + 1]
-        c1 = _get_station_coord(s1)
-        c2 = _get_station_coord(s2)
-        if not c1 or not c2:
-            continue
+        stats["total"] += 1
 
-        tip = f"{s1} → {s2}"
-        folium.PolyLine(
-            locations=[[c1[1], c1[0]], [c2[1], c2[0]]],
-            color=line_color,
-            weight=3.5,
-            opacity=0.8,
-            tooltip=tip
-        ).add_to(m)
+        # 记录本次命中的线路名（用于标题展示与调试）
+        sa, sb = rg.resolve_station(s1), rg.resolve_station(s2)
+        if sa and sb:
+            for cand in rg._candidates(sa, sb, train_class):
+                if cand not in used_lines:
+                    used_lines.append(cand)
+                    break
+
+        seg, source = rg.find_segment(s1, s2, train_class)
+
+        if source == "no_station" or not seg:
+            # 连坐标都没有：退回本地 station_coords.json
+            c1 = _get_station_coord(s1)
+            c2 = _get_station_coord(s2)
+            if not c1 or not c2:
+                stats["missing"] += 1
+                continue
+            seg = [list(c1), list(c2)]
+            source = "fallback"
+
+        if source == "line":
+            stats["matched"] += 1
+            folium.PolyLine(
+                locations=[[p[1], p[0]] for p in seg],
+                color=line_color,
+                weight=3.5,
+                opacity=0.85,
+                tooltip=f"{s1} → {s2}",
+            ).add_to(m)
+        else:
+            stats["fallback"] += 1
+            folium.PolyLine(
+                locations=[[p[1], p[0]] for p in seg],
+                color="#999999",
+                weight=2.5,
+                opacity=0.9,
+                dash_array="6,8",
+                tooltip=f"{s1} → {s2}（估算直线）",
+            ).add_to(m)
+
+    stats["lines"] = used_lines
+    return stats
 
 
 def generate_train_route_map(train_code: str) -> str:
@@ -104,7 +163,8 @@ def generate_train_route_map(train_code: str) -> str:
                    tiles='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                    attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>')
 
-    _generate_route_map(m, stations, '#FF4444')
+    train_class = get_train_class(train_code)
+    stats = _generate_route_map(m, stations, '#FF4444', train_class)
 
     station_coords_list = [(c, s) for s in stations if (c := _get_station_coord(s))]
     for idx, (coord, name) in enumerate(station_coords_list):
@@ -119,12 +179,35 @@ def generate_train_route_map(train_code: str) -> str:
             folium.CircleMarker(location=[lat, lng], radius=5, color='#3388ff',
                                 fill=True, fill_color='#3388ff', popup=f"🚉 {name}", tooltip=name).add_to(m)
 
+    # 图例：说明实线/虚线的含义
+    legend_html = (
+        '<div style="position: fixed; bottom: 30px; left: 30px; z-index: 1000;'
+        'background: white; padding: 10px 14px; border-radius: 8px;'
+        'box-shadow: 0 2px 8px rgba(0,0,0,0.3); font-size: 13px; line-height: 1.7;">'
+        '<div><span style="display:inline-block;width:26px;height:3px;'
+        'background:#FF4444;vertical-align:middle;"></span> 真实轨道</div>'
+        '<div><span style="display:inline-block;width:26px;height:0;'
+        'border-top:2px dashed #999;vertical-align:middle;"></span> 估算直线</div>'
+        '</div>'
+    )
+    m.get_root().html.add_child(folium.Element(legend_html))
+
+    # 标题栏：附带线路名与真实轨道覆盖率，便于判断精度
+    line_label = ""
+    if stats.get("lines"):
+        line_label = " · " + " / ".join(stats["lines"][:2])
+    matched = stats.get("matched", 0)
+    total = stats.get("total", 1)
+    accuracy = f"{matched}/{total} 段真实轨道"
+
     title_html = (
         '<div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%);'
         'z-index: 1000; background: white; padding: 10px 20px;'
         'border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);'
-        'font-size: 16px; font-weight: bold;">'
+        'font-size: 16px; font-weight: bold; text-align: center;">'
         f'🚄 {train_code} 运行路线图 | {stations[0]} → {stations[-1]}'
+        f'<div style="font-size:12px;font-weight:normal;color:#666;margin-top:4px;">'
+        f'{line_label.strip(" ·")} {accuracy}</div>'
         '</div>'
     )
     m.get_root().html.add_child(folium.Element(title_html))

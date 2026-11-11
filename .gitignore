@@ -64,6 +64,10 @@ frontend/dist/
 frontend/public/maps/*.html
 data/maps/*.html
 
+# OSM 参考数据产物（由 data/osm/build_reference.py 生成，约 6 MB）
+# 需要新克隆即可用时，把下面两行注释掉
+data/osm/out/
+
 # PBF/GPKG 空间数据文件（太大，不提交）
 data/pbf/
 
@@ -90,4 +94,7 @@ Desktop.ini
 面试.md
 docs/interview-prep.md
 docs/interview-qa-code.md
+docs/interview-cheatsheet.md
+docs/interview-self-intro.md
+docs/interview-project-walkthrough.md
 docs/project-build-guide.md

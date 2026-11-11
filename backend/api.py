@@ -387,12 +387,22 @@ def delete_session(thread_id: str, current_user: User = Depends(get_current_user
 
 
 def _repair_incomplete_tool_calls(agent, config: dict):
-    """检测上一次请求是否留下了未完成的 tool_calls，如有则补完。
+    """检测上一次请求是否留下了未跑完的图状态，如有则补完。
 
-    当流式请求因工具执行超时而中断时，checkpoint 中最后一条消息可能是
-    带 tool_calls 的 AIMessage，但缺少对应的 ToolMessage。
-    再次用同一 thread_id 发送消息时，LLM 会拒绝这种不完整的消息序列。
-    此函数检测到这种情况时，先调用 invoke() 完成工具执行，使状态恢复完整。
+    中断的形态不止一种（ReAct 图是 model ⇄ tools 两节点循环，截断点有限）：
+
+    | 截断点 | checkpoint 里留下什么          | 旧判定 | 新判定 |
+    | ------ | ------------------------------ | ------ | ------ |
+    | T1     | AI[tool_calls]，工具还没跑     | 触发   | 触发   |
+    | T2     | AI[tool_calls] → Tool，模型没收尾 | 漏掉   | 触发   |
+
+    T1 会让下一次请求因 tool_calls 未配对而持续失败（本项目最初针对的场景）。
+    T2 更隐蔽：序列合法、不报错，但上一个问题永远得不到回答——静默丢一轮。
+
+    两种形态的共同点是 checkpoint 里都存在**待执行的节点**，而这正是
+    `state.next` 表达的东西（T1 = ('tools',)，T2 = ('model',)，正常完成 = ()）。
+    所以用 `state.next` 判定比"看最后一条消息带不带 tool_calls"更通用：
+    不依赖消息结构，且天然是"接着干"而不是"重做"（T2 修复不会重复执行工具）。
 
     注意：本函数是同步阻塞的（get_state/invoke 涉及 SQLite 与 LLM 调用），
     而唯一的调用方 /chat/stream 是 async 端点——因此必须经 run_in_executor
@@ -401,16 +411,13 @@ def _repair_incomplete_tool_calls(agent, config: dict):
     state = agent.get_state(config)
     if state is None or not state.values:
         return
-    messages = state.values.get('messages', [])
-    if not messages:
+    # next 非空 = 框架知道还有节点没跑完（覆盖 T1 的 tools 与 T2 的 model）
+    if not state.next:
         return
-    last = messages[-1]
-    # 检查最后一条消息是否是 AIMessage 且带有未完成的 tool_calls
-    if hasattr(last, 'tool_calls') and last.tool_calls:
-        try:
-            agent.invoke(input=None, config=config)
-        except Exception as e:
-            logger.warning("修复未完成 tool_calls 失败: %s", e)
+    try:
+        agent.invoke(input=None, config=config)
+    except Exception as e:
+        logger.warning("修复未完成的图状态失败: %s", e)
 
 
 async def _repair_incomplete_tool_calls_async(agent, config: dict):
