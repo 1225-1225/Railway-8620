@@ -139,3 +139,10 @@ def generate_route_map(train_codes: list) -> str:
 
 # ========== 铁路查询工具 ==========
 from agent.railway_tools import query_train_info, query_trains_by_route
+
+# ========== 铁路分析工具（区间速度、线路站点、站点车次）==========
+from agent.railway_analytics import (
+    analyze_train_speed,
+    list_stations_on_line,
+    find_trains_at_station,
+)

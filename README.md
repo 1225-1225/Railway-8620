@@ -65,6 +65,8 @@ Railway-8620/
 │   ├── llm.py                      # LLM 工厂函数（支持 OpenAI / Anthropic）
 │   ├── tools.py                    # 工具工厂 + retriever_tool（RAGFlow 知识库检索）
 │   ├── railway_tools.py            # 铁路工具：query_train_info / query_trains_by_route
+│   ├── railway_analytics.py        # 分析工具：速度分析 / 线路站点 / 站点车次
+│   ├── route_geometry.py           # OSM 真实轨道几何消费层
 │   ├── route_map_generator.py      # Folium 路线地图生成器（相邻站点直线连接）
 │   ├── checkpoint_parser.py        # LangGraph checkpoint 二进制反解
 │   ├── ragflow_client.py           # RAGFlow REST API 客户端封装
@@ -253,7 +255,7 @@ data: [DONE]
 
 ## 🧩 Agent 工具说明
 
-Agent（`agent/agent.py`）基于 LangGraph 的 `create_agent` 构建，使用 `SqliteSaver` 持久化对话检查点，共注册 4 个工具：
+Agent（`agent/agent.py`）基于 LangGraph 的 `create_agent` 构建，使用 `SqliteSaver` 持久化对话检查点，共注册 **7 个工具**。
 
 ### `retriever_tool` — 知识库检索
 
@@ -276,10 +278,40 @@ Agent（`agent/agent.py`）基于 LangGraph 的 `create_agent` 构建，使用 `
 ### `generate_route_map` — 生成路线地图
 
 - 输入车次代码
-- 读取 `station_coords.json` 站点经纬度坐标
-- 将相邻经停站用直线连接，生成 Folium 交互式 HTML 地图
+- **使用 OSM 真实轨道几何**（`data/osm/out/`），92% 的站段为真实轨道
+- 缺失数据的站段降级为直线，用**虚线**区分并在图例中说明
 - 始发站绿色图标、终点站红色方格旗、中间站蓝色圆点，支持悬停查看站名
+- 标题栏显示所用线路名与真实轨道覆盖率（如「京沪高铁 3/3 段真实轨道」）
 - 地图文件保存到 `data/maps/`，通过 `/maps/` 路径访问
+
+### `analyze_train_speed` — 区间速度分析
+
+- 输入车次代码
+- 用**真实轨道里程 ÷ 时刻差**计算每个区间的平均速度
+- 输出逐区间的里程、用时、均速，以及全程汇总
+
+```
+G1 北京南 → 天津南   122km    31m   237km/h
+   天津南 → 南京南   899km  2h51m   316km/h
+   南京南 → 上海     291km  1h03m   277km/h
+   全程：约 1313km，用时 4h25m，平均 297km/h
+```
+
+> **口径说明**：这是「区间平均速度」，含停站时间，**不是最高运行速度**。
+> 工具输出中会显式标注，避免 Agent 回答时混淆。
+
+### `list_stations_on_line` — 线路站点反查
+
+- 输入线路名（如 `京沪线`、`京沪高铁`）
+- 按线路几何走向排列，输出沿线全部站点
+- 京沪线可列出 195 个站点（上海 → 北京方向）
+- 线路名不存在时给出模糊匹配候选
+
+### `find_trains_at_station` — 站点车次反查
+
+- 输入站名（如 `郑州东`），可选 `limit` 控制返回数量
+- 输出车次、类型、起讫站、该站在车次中的序号
+- 附带车型分布统计（如「高速 725，动车 124」）
 
 ---
 
@@ -426,7 +458,7 @@ FastAPI 后端
     │                    ├── retriever_tool          → RAGFlow 知识库检索
     │                    ├── query_train_info        → train_details.json
     │                    ├── query_trains_by_route   → train_stations.json
-    │                    └── generate_route_map      → Folium 直线地图
+    │                    └── generate_route_map      → OSM 真实轨道 Folium 地图
     └── /chat/sessions → 历史会话管理 (SQLite checkpoint)
 ```
 
