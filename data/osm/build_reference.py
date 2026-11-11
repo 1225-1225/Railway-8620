@@ -100,8 +100,74 @@ def traj_length(pts):
     return sum(haversine_km(pts[i], pts[i + 1]) for i in range(len(pts) - 1))
 
 
+def bearing_deg(a, b):
+    """a -> b 的方位角（0=正北，顺时针）"""
+    (lng1, lat1), (lng2, lat2) = a, b
+    dx = (lng2 - lng1) * math.cos(math.radians((lat1 + lat2) / 2))
+    dy = lat2 - lat1
+    return math.degrees(math.atan2(dx, dy)) % 360.0
+
+
+def angle_diff(b1, b2):
+    """两个方位角的夹角（0-180）"""
+    d = abs(b1 - b2) % 360.0
+    return d if d <= 180.0 else 360.0 - d
+
+
+def despike(pts, window=5, max_dev_km=6.0):
+    """用滑动窗口中位数消除锯齿抖动 / 平行轨道交替
+
+    为什么用中位数而不是"逐点删除"：
+      逐点删除只能处理单点尖刺。平行轨道交替是"多个点来回跳"，
+      删一个还会剩下别的（实测兰新线 92.842→92.877→92.849，
+      删中间点后仍有折返）。
+
+    做法：对每个点，取其前后各 window//2 个点的坐标中位数。
+    若该点偏离中位数超过 max_dev_km，用中位数替换它。
+    中位数对"来回跳"天然鲁棒 —— 真实线路的点不会偏离邻域中位数很远，
+    而来回跳的点一定会。
+    """
+    n = len(pts)
+    if n < 3:
+        return pts
+
+    half = window // 2
+    out = []
+
+    for i in range(n):
+        if i < half or i >= n - half:
+            out.append(pts[i])
+            continue
+
+        neigh = pts[i - half: i + half + 1]
+        med_lng = sorted(p[0] for p in neigh)[half]
+        med_lat = sorted(p[1] for p in neigh)[half]
+        med = (med_lng, med_lat)
+
+        dev = haversine_km(pts[i], med)
+        if dev > max_dev_km:
+            out.append(med)
+        else:
+            out.append(pts[i])
+
+    # 去掉因替换产生的重复点
+    cleaned = []
+    for p in out:
+        if not cleaned or (abs(cleaned[-1][0] - p[0]) > 1e-7
+                           or abs(cleaned[-1][1] - p[1]) > 1e-7):
+            cleaned.append(p)
+    return cleaned
+
+
 def downsample(pts, per_100km=POINTS_PER_100KM, cap=MAX_POINTS_PER_LINE):
-    """按里程等距降采样；始终保留首尾点"""
+    """按里程等距降采样；始终保留首尾点
+
+    分层设计（重要）：
+      * 去抖动在 despike() 里做（作用于原始链，窗口 5 点中位数）
+      * 这里只负责"把点数降到合理规模"，不做形状处理
+    把两者混在一起的尝试（Douglas-Peucker 简化）会破坏采样密度：
+    实测线路 km/点 从 3.3 恶化到 9.6，120 条 >100km 的线路只剩不到 20 点。
+    """
     if len(pts) <= 2:
         return [[round(p[0], 5), round(p[1], 5)] for p in pts]
 
@@ -126,10 +192,6 @@ def downsample(pts, per_100km=POINTS_PER_100KM, cap=MAX_POINTS_PER_LINE):
     out.append(pts[-1])
     return [[round(p[0], 5), round(p[1], 5)] for p in out]
 
-
-# ────────────────────────────────────────────────────────────
-#  图算法
-# ────────────────────────────────────────────────────────────
 
 def build_graph(way_ids, way_refs, coords):
     """把一组 way 建成无向图（节点 = OSM node id，边权 = 实际距离）"""
@@ -354,20 +416,6 @@ def add_to_grid(pts, grid, cell=0.02):
 
 
 
-def bearing_deg(a, b):
-    """a -> b 的方位角（0=正北，顺时针）"""
-    (lng1, lat1), (lng2, lat2) = a, b
-    dx = (lng2 - lng1) * math.cos(math.radians((lat1 + lat2) / 2))
-    dy = lat2 - lat1
-    return math.degrees(math.atan2(dx, dy)) % 360.0
-
-
-def angle_diff(b1, b2):
-    d = abs(b1 - b2) % 360.0
-    return d if d <= 180.0 else 360.0 - d
-
-
-
 def stitch_pieces_along_axis(pieces, max_gap_km=30.0):
     """沿线路主轴排序后拼接分段
 
@@ -472,7 +520,11 @@ def assemble_line(adj, coords, dedup_ratio=0.5, max_gap_km=30.0):
         add_to_grid(pts, grid)
 
     # 沿主轴排序拼接（避免"端点最近"贪心在方向各异的段间产生折返）
-    return stitch_pieces_along_axis([pts for _, pts in kept], max_gap_km)
+    chain, km = stitch_pieces_along_axis([pts for _, pts in kept], max_gap_km)
+
+    # 去掉原始节点上的锯齿抖动（车站咽喉、环线等处会出现来回几十米）
+    chain = despike(chain)
+    return chain, traj_length(chain)
 
 
 def split_at_big_gaps(pts, max_gap_km=50.0):
@@ -744,7 +796,17 @@ def main():
         seg_meta = []
         segment_start = None
         segment_end = None
-        for seg_km, seg_pts in segments:
+
+        # 多段必须按主轴排序后拼接，不能简单 extend
+        # （split_at_big_gaps 按长度降序返回，直接拼会造成数千公里的跳变）
+        if len(segments) > 1:
+            ordered, _ = stitch_pieces_along_axis(
+                [s for _, s in segments], max_gap_km=50.0)
+            segments_for_output = [(traj_length(ordered), ordered)]
+        else:
+            segments_for_output = segments
+
+        for seg_km, seg_pts in segments_for_output:
             ds = downsample(seg_pts)
             seg_meta.append({
                 "km": round(seg_km, 1),

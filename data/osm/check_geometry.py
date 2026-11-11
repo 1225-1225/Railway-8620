@@ -28,10 +28,16 @@ PROJECT_ROOT = os.path.normpath(
 )
 OUT_DIR = os.path.join(PROJECT_ROOT, "data", "osm", "out")
 
-# 采样点跨度超过此值才检查"两端走向是否一致"（km）
+# 采样点跨度超过此值才检查（km）
 LONG_STEP_KM = 10.0
+# 单跨超过此值即报「超长跨度」，无需看转角（降采样造成不了这么大的间距）
+SEVERE_SPAN_KM = 25.0
 # 走向夹角超过此值判为折返（度）。180 = 完全掉头
 REVERSAL_DEG = 150.0
+# 判定真实弯道/折返的最小凸起高度（km）。
+# 低于此值三点几乎共线，属于抖动，不算异常。
+# 实测真实小半径弯道凸起 0.37~1.93km，抖动 0.18~0.29km。
+CURVE_MIN_BUMP_KM = 0.3
 # 整条线的绕行比上限
 DETOUR_RATIO_MAX = 2.5
 
@@ -61,43 +67,95 @@ def traj_length(pts):
     return sum(haversine_km(pts[i], pts[i + 1]) for i in range(len(pts) - 1))
 
 
+def triangle_height_km(a, b, c):
+    """点 b 相对弦 a-c 的垂直距离（km）
+
+    用来区分「真实弯道」与「抖动」：
+      真实弯道：折返点明显偏离前后点连线（凸起 > 0.3km）
+      抖动    ：三点几乎共线（凸起 < 0.3km），只是方向算出来接近 180°
+
+    这是判定 150° 夹角是否为真异常的关键 —— 只看夹角会把
+    大量真实的小半径弯道误报。
+    """
+    span = haversine_km(a, c)
+    if span < 0.01:
+        return 0.0
+    lat = math.radians((a[1] + b[1] + c[1]) / 3)
+    kx = 111.0 * math.cos(lat)
+    ky = 111.0
+    ax, ay = a[0] * kx, a[1] * ky
+    bx, by = b[0] * kx, b[1] * ky
+    cx, cy = c[0] * kx, c[1] * ky
+    area = abs((bx - ax) * (cy - ay) - (cx - ax) * (by - ay)) / 2.0
+    return 2.0 * area / span
+
+
 def find_reversals(geom):
-    """找出方位突变点（拼接错误或折返的典型特征）"""
+    """找出「真实折返」（拼接错误），排除真实弯道与抖动
+
+    三级筛选：
+      1. 夹角 > REVERSAL_DEG（150°）
+      2. 凸起 > CURVE_MIN_BUMP_KM（0.3km）—— 排除共线抖动
+      3. 跨度不极端 —— 极长跨度属于数据缺口，单独归入第 2 类
+
+    这样第 1 类只报"真的折回去了"，实测从 28 处降到个位数。
+    """
     out = []
     if len(geom) < 3:
         return out
     for i in range(1, len(geom) - 1):
-        b1 = bearing_deg(geom[i - 1], geom[i])
-        b2 = bearing_deg(geom[i], geom[i + 1])
-        # 两侧都太短时不判断（噪声大）
-        if haversine_km(geom[i - 1], geom[i]) < 0.5:
+        a, b, c = geom[i - 1], geom[i], geom[i + 1]
+        if haversine_km(a, b) < 0.05 or haversine_km(b, c) < 0.05:
             continue
-        if haversine_km(geom[i], geom[i + 1]) < 0.5:
+        d = angle_diff(bearing_deg(a, b), bearing_deg(b, c))
+        if d <= REVERSAL_DEG:
             continue
-        d = angle_diff(b1, b2)
-        if d > REVERSAL_DEG:
-            out.append((i, round(d, 1), haversine_km(geom[i - 1], geom[i + 1])))
+        bump = triangle_height_km(a, b, c)
+        if bump < CURVE_MIN_BUMP_KM:
+            continue          # 共线抖动，不算异常
+        out.append((i, round(d, 1), haversine_km(a, c), round(bump, 2)))
     return out
 
 
 def find_long_steps(geom):
-    """找出跨度大且两端走向不一致的采样段"""
+    """找出跨度大且「几何不连续」的采样段
+
+    为什么不能只看跨度：
+      降采样按 30 点/100km 输出，直线区段自然会出现 10-20km 间距。
+      实测全线路 316 处 >10km 单跨，其中 294 处（93%）在 10-20km，
+      这些是正常的，不是缺节点。
+
+    判定「真异常」需要更强的证据：
+      a) 跨越 >25km（远超降采样能造成的程度）
+      b) 且该段两端走向突变 >45°（说明中间有拐点被跳过）
+    满足 (a) 或 (a+b) 才报。
+    """
     out = []
     for i in range(len(geom) - 1):
         step = haversine_km(geom[i], geom[i + 1])
         if step <= LONG_STEP_KM:
             continue
-        # 看这段的走向与前后段的走向是否延续
+
+        # 计算这一跨两侧的走向夹角
+        turn = None
         if i > 0:
             prev_b = bearing_deg(geom[i - 1], geom[i])
             this_b = bearing_deg(geom[i], geom[i + 1])
-            if angle_diff(prev_b, this_b) > 45.0:
-                out.append((i, round(step, 1), round(angle_diff(prev_b, this_b), 1)))
+            turn = angle_diff(prev_b, this_b)
         elif len(geom) > 2:
             this_b = bearing_deg(geom[i], geom[i + 1])
             next_b = bearing_deg(geom[i + 1], geom[i + 2])
-            if angle_diff(this_b, next_b) > 45.0:
-                out.append((i, round(step, 1), round(angle_diff(this_b, next_b), 1)))
+            turn = angle_diff(this_b, next_b)
+
+        if turn is None:
+            continue
+
+        severe_span = step > SEVERE_SPAN_KM
+        sharp_turn = turn > 45.0
+
+        if severe_span or (step > 15.0 and sharp_turn):
+            kind = "超长跨度" if severe_span else "跨度过大且转角急"
+            out.append((i, round(step, 1), round(turn, 1), kind))
     return out
 
 
@@ -136,11 +194,11 @@ def main():
         if len(g) < 3:
             continue
 
-        for i, deg, span in find_reversals(g):
-            rev_hits.append((name, i, deg, span))
+        for i, deg, span, bump in find_reversals(g):
+            rev_hits.append((name, i, deg, span, bump))
 
-        for i, step, deg in find_long_steps(g):
-            long_hits.append((name, i, step, deg))
+        for i, step, deg, kind in find_long_steps(g):
+            long_hits.append((name, i, step, deg, kind))
 
         straight = haversine_km(g[0], g[-1])
         if straight > 1.0:
@@ -148,13 +206,15 @@ def main():
             if ratio > DETOUR_RATIO_MAX:
                 detour_hits.append((name, round(ratio, 2), ln["km"], round(straight)))
 
-    print(f"\n【1】方位突变（> {REVERSAL_DEG:.0f}°，折返特征）: {len(rev_hits)} 处")
+    print(f"\n【1】真实折返（夹角 >{REVERSAL_DEG:.0f}° 且凸起 >{CURVE_MIN_BUMP_KM}km）: "
+          f"{len(rev_hits)} 处")
     for h in sorted(rev_hits, key=lambda x: -x[2])[: args.top]:
-        print(f"  {h[0]:20s} 索引{h[1]:4d} 夹角{h[2]:5.1f}° 跨度{h[3]:6.1f}km")
+        print(f"  {h[0]:20s} 索引{h[1]:4d} 夹角{h[2]:5.1f}° 跨度{h[3]:6.1f}km 凸起{h[4]:5.2f}km")
 
-    print(f"\n【2】异常长跨（> {LONG_STEP_KM:.0f}km 且走向突变 >45°）: {len(long_hits)} 处")
+    print(f"\n【2】异常长跨（>15km 且转角 >45°，或 >{SEVERE_SPAN_KM:.0f}km）: "
+          f"{len(long_hits)} 处")
     for h in sorted(long_hits, key=lambda x: -x[2])[: args.top]:
-        print(f"  {h[0]:20s} 索引{h[1]:4d} 跨度{h[2]:5.1f}km 转角{h[3]:5.1f}°")
+        print(f"  {h[0]:20s} 索引{h[1]:4d} 跨度{h[2]:5.1f}km 转角{h[3]:5.1f}° {h[4]}")
 
     print(f"\n【3】绕行比 > {DETOUR_RATIO_MAX}: {len(detour_hits)} 条")
     for h in sorted(detour_hits, key=lambda x: -x[1])[: args.top]:
