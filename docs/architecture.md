@@ -40,6 +40,8 @@ flowchart TB
         T6["analyze_train_speed"]
         T7["list_stations_on_line"]
         T8["find_trains_at_station"]
+        T9["find_same_city_stations"]
+        T10["suggest_transfer"]
     end
 
     subgraph 外部依赖
@@ -62,7 +64,7 @@ flowchart TB
     AgentCore --> Checkpointer
     LLMNode -->|tool_calls| ToolsNode
     ToolsNode -->|AIMessage + ToolMessage 循环| LLMNode
-    ToolsNode --> T1 & T2 & T3 & T4 & T5 & T6 & T7 & T8
+    ToolsNode --> T1 & T2 & T3 & T4 & T5 & T6 & T7 & T8 & T9 & T10
     Checkpointer --> SQLite3
     T1 --> RAGFlow
     T2 --> DataJSON
@@ -102,6 +104,8 @@ flowchart LR
     TOOLS --> T6["analyze_train_speed<br/>→ 区间速度分析"]
     TOOLS --> T7["list_stations_on_line<br/>→ 线路站点反查"]
     TOOLS --> T8["find_trains_at_station<br/>→ 站点车次反查"]
+    TOOLS --> T9["find_same_city_stations<br/>→ 同城车站查询"]
+    TOOLS --> T10["suggest_transfer<br/>→ 换乘提示"]
 ```
 
 ### 循环环节与代码映射

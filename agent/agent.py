@@ -14,6 +14,8 @@ from agent.tools import (
     analyze_train_speed,
     list_stations_on_line,
     find_trains_at_station,
+    find_same_city_stations,
+    suggest_transfer,
 )
 
 tools = [
@@ -25,6 +27,8 @@ tools = [
     analyze_train_speed,
     list_stations_on_line,
     find_trains_at_station,
+    find_same_city_stations,
+    suggest_transfer,
 ]
 
 class AgentService:
@@ -62,7 +66,11 @@ class AgentService:
                           "注意如实说明返回的是「区间平均速度」（含停站），不是最高运行速度。\n"
                           "8. 当用户询问某条铁路线路上有哪些站点时，请调用 list_stations_on_line 工具。\n"
                           "9. 当用户询问某个车站有哪些车次经停时，请调用 find_trains_at_station 工具。\n"
-                          "10. 回答中请直接展示车次详细信息，包括发车/到达时间和经停站。",
+                          "10. 当用户询问某城市有几个火车站、同城哪些站时，请调用 find_same_city_stations 工具。\n"
+                          "11. 当用户询问两地之间是否需要换乘、怎么中转时，请调用 suggest_transfer 工具。"
+                          "注意如实说明该工具只做连接关系提示，不含精确换乘时刻衔接，"
+                          "实际出行以 12306 为准。\n"
+                          "12. 回答中请直接展示车次详细信息，包括发车/到达时间和经停站。",
             checkpointer=self.checkpointer
         )
 

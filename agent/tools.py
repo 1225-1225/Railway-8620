@@ -150,6 +150,9 @@ from agent.railway_analytics import (
 # ========== 多车次路线对比图 ==========
 from agent.route_map_generator import generate_comparison_map
 
+# ========== 同城枢纽换乘提示 ==========
+from agent.railway_transfer import find_same_city_stations, suggest_transfer
+
 
 @tool(description="生成多个车次的路线对比图（HTML）。"
                   "当用户想比较不同车次走的路线差异时使用，"

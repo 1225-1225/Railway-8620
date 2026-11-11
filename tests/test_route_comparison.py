@@ -125,6 +125,16 @@ class TestAgentRegistration:
         names = [t.name for t in tools]
         assert "compare_train_routes" in names
 
-    def test_total_tool_count(self):
+    def test_tool_count_grew(self):
+        """工具集应至少包含对比图在内的核心工具（不硬编码总数，
+        避免每次新增工具都要改测试）"""
         from agent.agent import tools
-        assert len(tools) == 8
+        names = {t.name for t in tools}
+        essential = {
+            "retriever_tool", "query_train_info", "query_trains_by_route",
+            "generate_route_map", "compare_train_routes",
+            "analyze_train_speed", "list_stations_on_line",
+            "find_trains_at_station", "find_same_city_stations",
+            "suggest_transfer",
+        }
+        assert essential <= names, f"缺少工具: {essential - names}"
