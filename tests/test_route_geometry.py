@@ -145,6 +145,57 @@ class TestDisambiguation:
         assert len(seg) == 3
 
 
+class TestStationConflict:
+    """同名站在 OSM 里可能对应多个要素（如'新和'既是广东地铁站，
+    也是新疆南疆线车站）。必须按优先级选国铁，而不是先到先得。"""
+
+    @pytest.fixture
+    def conflict_data(self, tmp_path):
+        # 同一站名 '新和' 两个要素：地铁站（广东）与国铁站（新疆）
+        stations = {
+            "node/1": {"name": "新和", "name_zh": "新和", "name_en": "", "ref": "",
+                       "lat": 23.41, "lng": 113.46, "kind": "metro",
+                       "priority": 0, "aliases": [], "lines": []},
+            "node/2": {"name": "新和", "name_zh": "新和", "name_en": "", "ref": "",
+                       "lat": 41.57, "lng": 82.62, "kind": "rail",
+                       "priority": 1, "aliases": [], "lines": ["南疆线"]},
+            "node/3": {"name": "新和站", "name_zh": "新和", "name_en": "", "ref": "",
+                       "lat": 41.57, "lng": 82.62, "kind": "national_rail",
+                       "priority": 2, "aliases": [], "lines": ["南疆线"]},
+        }
+        lines = {"南疆线": {"osm_id": 1, "name": "南疆线", "ref": "", "usage": "",
+                            "operator": "", "way_count": 1, "km": 100.0,
+                            "segment_count": 1, "segments": [], "point_count": 3,
+                            "geometry": [[82.0, 41.5], [82.6, 41.57], [83.0, 41.69]]}}
+        (tmp_path / "rail_lines.json").write_text(
+            json.dumps({"meta": {}, "lines": lines}, ensure_ascii=False), encoding="utf-8")
+        (tmp_path / "stations.json").write_text(
+            json.dumps({"meta": {}, "stations": stations}, ensure_ascii=False), encoding="utf-8")
+        return str(tmp_path)
+
+    @pytest.fixture
+    def rgc(self, conflict_data):
+        RouteGeometry._instance = None
+        obj = RouteGeometry(data_dir=conflict_data)
+        yield obj
+        RouteGeometry._instance = None
+
+    def test_prefers_national_rail_over_metro(self, rgc):
+        st = rgc.resolve_station("新和")
+        assert st["kind"] == "national_rail"
+        assert st["lng"] == pytest.approx(82.62)
+        assert st["lat"] == pytest.approx(41.57)
+
+    def test_not_guangdong_metro_coords(self, rgc):
+        """绝不能解析到广东地铁站坐标"""
+        st = rgc.resolve_station("新和")
+        assert not (st["lng"] == pytest.approx(113.46))
+
+    def test_with_station_suffix(self, rgc):
+        st = rgc.resolve_station("新和站")
+        assert st["kind"] == "national_rail"
+
+
 class TestAvailability:
     def test_available_when_files_exist(self, rg):
         assert rg.available is True

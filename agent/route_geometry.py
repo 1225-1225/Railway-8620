@@ -106,15 +106,31 @@ class RouteGeometry:
             with open(stations_path, encoding="utf-8") as f:
                 self._stations = json.load(f).get("stations", {})
 
-            # 站名 -> 站点记录（name_zh 优先，其次 name / aliases）
+            # 站名 -> 站点记录。
+            # 同名冲突时按优先级择优，而不是"先到先得"：
+            #   实测 '新和' 在 OSM 里既有广东地铁站(113.46,23.42)，
+            #   也有新疆南疆线车站(82.6,41.5)，先到先得会取到广东那个。
+            # 择优规则：国铁(priority 2) > 未标注(1) > 地铁(0)；
+            #          同级时优先"有线路归属"的（说明是真铁路站）。
             index = {}
+
+            def _better(new, old):
+                if old is None:
+                    return True
+                pn, po = new.get("priority", 0), old.get("priority", 0)
+                if pn != po:
+                    return pn > po
+                ln, lo = len(new.get("lines") or []), len(old.get("lines") or [])
+                return ln > lo
+
             for sid, st in self._stations.items():
-                for key in (st.get("name_zh"), st.get("name")):
-                    if key and key not in index:
+                keys = [st.get("name_zh"), st.get("name")]
+                keys.extend(st.get("aliases") or [])
+                for key in keys:
+                    if not key:
+                        continue
+                    if _better(st, index.get(key)):
                         index[key] = st
-                for alias in st.get("aliases") or []:
-                    if alias and alias not in index:
-                        index[alias] = st
             self._name_index = index
 
             logger.info("已加载 OSM 参考数据: %d 条线路, %d 个站点",

@@ -35,6 +35,18 @@ def _load_station_coords():
 
 
 def _get_station_coord(name: str):
+    """站名 -> (lng, lat)
+
+    优先用 OSM 参考数据（覆盖 17536 站，含同名消歧），
+    回退到旧的 station_coords.json。
+    """
+    try:
+        from agent.route_geometry import get_route_geometry
+        c = get_route_geometry().station_coord(name)
+        if c:
+            return c
+    except Exception:
+        pass
     coords = _load_station_coords()
     return coords.get(name)
 
