@@ -265,6 +265,26 @@ def add_to_grid(pts, grid, cell=0.02):
         grid.setdefault((int(p[0] / cell), int(p[1] / cell)), []).append(p)
 
 
+def _try_insert_piece(chain, pts, max_gap_km):
+    """把一段插到已有链的中间某处（两端都能接上时）
+
+    典型场景：兰新线在哈密断开成两段，第一段被整体拼接后，
+    第二段的两端都无法接在链首尾，但能接在链中间某个节点附近。
+    """
+    if len(chain) < 2 or len(pts) < 2:
+        return None
+
+    # 在链上找与 pts 两端都近的位置
+    for i in range(len(chain) - 1):
+        d_head = haversine_km(chain[i], pts[0])
+        d_tail = haversine_km(chain[i], pts[-1])
+        if d_head <= max_gap_km:
+            return chain[: i + 1] + list(pts) + chain[i + 1:]
+        if d_tail <= max_gap_km:
+            return chain[: i + 1] + list(reversed(pts)) + chain[i + 1:]
+    return None
+
+
 def assemble_line(adj, coords, dedup_ratio=0.5, max_gap_km=30.0):
     """装配一条线路的单轨几何
 
@@ -304,14 +324,23 @@ def assemble_line(adj, coords, dedup_ratio=0.5, max_gap_km=30.0):
     chain = list(kept[0][1])
     for _, pts in kept[1:]:
         head, tail = pts[0], pts[-1]
-        best = min(
-            (haversine_km(head, chain[0]), "front", False),
-            (haversine_km(tail, chain[0]), "front", True),
-            (haversine_km(head, chain[-1]), "back", False),
-            (haversine_km(tail, chain[-1]), "back", True),
-        )
-        gap, where, reverse = best
+        # 四个端点组合：把 pts 的某一端接到链的某一端。
+        # reverse 的含义 = "pts 需要翻转后再接"。
+        #   接在链首时：pts 的末端要贴链首 => 若用 head 贴链首，必须翻转
+        #   接在链尾时：pts 的首端要贴链尾 => 若用 tail 贴链尾，必须翻转
+        candidates = [
+            (haversine_km(head, chain[0]), "front", True),   # head 贴链首 -> 翻转
+            (haversine_km(tail, chain[0]), "front", False),  # tail 贴链首 -> 不翻转
+            (haversine_km(head, chain[-1]), "back", False),  # head 贴链尾 -> 不翻转
+            (haversine_km(tail, chain[-1]), "back", True),   # tail 贴链尾 -> 翻转
+        ]
+        candidates.sort(key=lambda x: x[0])
+        gap, where, reverse = candidates[0]
+
         if gap > max_gap_km:
+            inserted = _try_insert_piece(chain, pts, max_gap_km)
+            if inserted is not None:
+                chain = inserted
             continue
         seg = pts[::-1] if reverse else pts
         chain = (seg + chain) if where == "front" else (chain + seg)
@@ -591,6 +620,8 @@ def main():
 
         pts = []
         seg_meta = []
+        segment_start = None
+        segment_end = None
         for seg_km, seg_pts in segments:
             ds = downsample(seg_pts)
             seg_meta.append({
@@ -599,10 +630,31 @@ def main():
                 "start": [round(seg_pts[0][0], 5), round(seg_pts[0][1], 5)],
                 "end": [round(seg_pts[-1][0], 5), round(seg_pts[-1][1], 5)],
             })
+            if segment_start is None:
+                segment_start = seg_pts[0]
+            segment_end = seg_pts[-1]
             pts.extend(ds)
 
         total_km = sum(k for k, _ in segments)
         tags = wc.line_tags.get(name, {})
+
+        # 完整度评估：只在明显异常时提示，避免噪声（80% 线路是短支线，不该告警）
+        warnings = []
+        if len(seg_meta) > 3:
+            warnings.append("多段拼接")
+        # 主干线（>200km）若主段占比 <60%，说明被切得很碎、可能有缺段
+        if total_km > 200 and seg_meta:
+            main_ratio = seg_meta[0]["km"] / total_km
+            if main_ratio < 0.6:
+                warnings.append("主段占比低")
+        # 主干线（>200km）单段但端点间直线距离远小于里程（绕行异常）
+        if total_km > 200 and len(seg_meta) == 1:
+            g0, g1 = segment_start, segment_end
+            if g0 and g1:
+                straight = haversine_km(g0, g1)
+                if straight > 0 and total_km / straight > 2.5:
+                    warnings.append("绕行比异常")
+
         rail_lines[name] = {
             "name": name,
             "ref": tags.get("ref", ""),
@@ -614,6 +666,7 @@ def main():
             "segments": seg_meta,
             "point_count": len(pts),
             "geometry": pts,
+            "warnings": warnings,
         }
         total_pts += len(pts)
 
