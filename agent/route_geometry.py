@@ -30,6 +30,8 @@ logger = logging.getLogger("tool_calls")
 MAX_DETOUR_RATIO = 3.0
 # 站点到线路几何的最大吸附距离（km）
 MAX_SNAP_KM = 5.0
+# 桥接中间站允许的最大绕行比（A->X->B 总长 / A-B 直线）
+MAX_BRIDGE_DETOUR = 1.6
 
 
 def haversine_km(a, b):
@@ -75,6 +77,7 @@ class RouteGeometry:
         self._lines = None
         self._stations = None
         self._name_index = None
+        self._line_stations = None
         self._load_lock = threading.Lock()
 
     # ── 加载 ──────────────────────────────────────────────
@@ -303,50 +306,137 @@ class RouteGeometry:
             return [[round(p[0], 5), round(p[1], 5)] for p in seg]
         return None
 
-    def _segment_via_intermediate(self, sa, sb, pa, pb, straight, train_class=None):
-        """两站不共享线路时，找一个中间站桥接
+    def _build_line_station_index(self):
+        """线路名 -> 该线路上的站点列表（懒加载，供多跳桥接用）"""
+        if self._line_stations is not None:
+            return self._line_stations
 
-        典型场景：合肥 -> 北京丰台。两站分属不同线路，
-        但都连到同一个枢纽站（如徐州），可拆成两段。
+        idx = {}
+        for sid, st in self._stations.items():
+            if st.get("kind") == "metro":
+                continue
+            lines = st.get("lines") or []
+            if not lines:
+                continue
+            for name in lines:
+                idx.setdefault(name, []).append((sid, st))
+        self._line_stations = idx
+        return idx
+
+    def _segment_via_intermediate(self, sa, sb, pa, pb, straight, train_class=None):
+        """两站不共享线路时，用 1~2 个中间站桥接
+
+        典型场景：
+          合肥 -> 北京丰台    两站分属不同线路，经徐州可接
+          新塘 -> 惠州北      经常平可接（实测救回 22/150 失败段）
+
+        约束（避免画出绕远路）：
+          * 中间站必须在 A、B 之间（绕行比 < MAX_BRIDGE_DETOUR）
+          * 每段本身也要通过绕行比质量门
         """
         lines_a = set(sa.get("lines") or [])
         lines_b = set(sb.get("lines") or [])
         if not lines_a or not lines_b:
             return None
 
-        # 候选中间站：同时出现在 A 的线路与 B 的线路上的站点
+        # 一站桥接
+        mid = self._best_bridge(sa, sb, pa, pb, straight)
+        if mid is not None:
+            seg = self._stitch_via([sa, mid, sb], train_class, straight)
+            if seg:
+                return seg
+
+        # 两站桥接（仅在一站失败时尝试，成本较高）
+        idx = self._build_line_station_index()
+        best_pair = None
+        best_detour = None
+
+        for ln_a in lines_a:
+            for xid, x in idx.get(ln_a, ()):
+                if x is sa or x is sb:
+                    continue
+                px = (x["lng"], x["lat"])
+                d_ax = haversine_km(pa, px)
+                if d_ax < max(2.0, straight * 0.02):
+                    continue
+                if straight > 0.5 and d_ax / straight > MAX_BRIDGE_DETOUR:
+                    continue
+
+                for ln_x in (x.get("lines") or []):
+                    for yid, y in idx.get(ln_x, ()):
+                        # 用站点 id 判重（同一站在多条线路上会重复出现，
+                        # 仅比对象身份不够 —— 实测出现 '常平/常平'）
+                        if yid == xid or y is sa or y is sb:
+                            continue
+                        py = (y["lng"], y["lat"])
+                        if haversine_km(px, py) < 2.0:
+                            continue
+                        if not (set(y.get("lines") or []) & lines_b):
+                            continue
+                        if haversine_km(py, pb) < max(2.0, straight * 0.02):
+                            continue
+                        detour = d_ax + haversine_km(px, py) + haversine_km(py, pb)
+                        if straight > 0.5 and detour / straight > MAX_BRIDGE_DETOUR:
+                            continue
+                        if best_detour is None or detour < best_detour:
+                            best_detour = detour
+                            best_pair = (x, y)
+
+        if best_pair is not None:
+            seg = self._stitch_via([sa, best_pair[0], best_pair[1], sb],
+                                   train_class, straight)
+            if seg:
+                return seg
+
+        return None
+
+    def _best_bridge(self, sa, sb, pa, pb, straight):
+        """找单个中间站：同时连到 A 的线路与 B 的线路"""
+        lines_a = set(sa.get("lines") or [])
+        lines_b = set(sb.get("lines") or [])
         best = None
+        best_detour = None
+
+        # 与端点坐标几乎重合的站不能作中间站（同名站会踩到，
+        # 实测 '城西' 与 '海口东' 相距 1.4km 且共享同一组线路，
+        # 若允许会拼出 '城西->城西->海口东' 这种自环）
+        min_gap = max(2.0, straight * 0.02)
+
         for sid, st in self._stations.items():
             if st.get("kind") == "metro":
                 continue
-            st_lines = set(st.get("lines") or [])
-            if not st_lines:
+            lines = set(st.get("lines") or [])
+            if not lines:
                 continue
-            if not (st_lines & lines_a) or not (st_lines & lines_b):
+            if not (lines & lines_a) or not (lines & lines_b):
+                continue
+            if st is sa or st is sb:
                 continue
 
             pc = (st["lng"], st["lat"])
-            # 中间站必须真的在 A、B 之间（避免绕远）
-            detour = haversine_km(pa, pc) + haversine_km(pc, pb)
-            if straight > 0.5 and detour / straight > 1.6:
+            if haversine_km(pa, pc) < min_gap or haversine_km(pb, pc) < min_gap:
                 continue
 
-            if best is None or detour < best[0]:
-                best = (detour, st)
+            detour = haversine_km(pa, pc) + haversine_km(pc, pb)
+            if straight > 0.5 and detour / straight > MAX_BRIDGE_DETOUR:
+                continue
+            if best_detour is None or detour < best_detour:
+                best_detour = detour
+                best = st
+        return best
 
-        if best is None:
-            return None
+    def _stitch_via(self, stations, train_class, straight):
+        """把一串途经站逐段用真实轨道接起来"""
+        merged = []
+        for a, b in zip(stations, stations[1:]):
+            pa = (a["lng"], a["lat"])
+            pb = (b["lng"], b["lat"])
+            seg = self._segment_on_common_line(
+                a, b, pa, pb, haversine_km(pa, pb), train_class)
+            if not seg:
+                return None
+            merged.extend(seg if not merged else seg[1:])
 
-        mid = best[1]
-        pc = (mid["lng"], mid["lat"])
-        seg1 = self._segment_on_common_line(sa, mid, pa, pc,
-                                            haversine_km(pa, pc), train_class)
-        seg2 = self._segment_on_common_line(mid, sb, pc, pb,
-                                            haversine_km(pc, pb), train_class)
-        if not seg1 or not seg2:
-            return None
-
-        merged = seg1 + seg2[1:]
         if straight > 0.5:
             ratio = traj_length(merged) / straight
             if ratio > MAX_DETOUR_RATIO:

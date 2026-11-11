@@ -196,6 +196,79 @@ class TestStationConflict:
         assert st["kind"] == "national_rail"
 
 
+class TestBridging:
+    """跨线车次：两站不共享线路时用中间站桥接"""
+
+    @pytest.fixture
+    def bridge_data(self, tmp_path):
+        """构造 A - X - B 三段线路，A/B 不共享线路但都连 X
+
+        几何：A(116.0) --L1-- X(116.5) --L2-- B(117.0)，同纬度
+        """
+        l1 = [[116.0, 39.0], [116.3, 39.0], [116.5, 39.0]]
+        l2 = [[116.5, 39.0], [116.8, 39.0], [117.0, 39.0]]
+        lines = {
+            "L1": {"osm_id": 1, "name": "L1", "ref": "", "usage": "",
+                   "operator": "", "way_count": 1, "km": 43.0,
+                   "segment_count": 1, "segments": [], "point_count": 3,
+                   "geometry": l1},
+            "L2": {"osm_id": 2, "name": "L2", "ref": "", "usage": "",
+                   "operator": "", "way_count": 1, "km": 43.0,
+                   "segment_count": 1, "segments": [], "point_count": 3,
+                   "geometry": l2},
+        }
+        base = {"name_en": "", "ref": "", "kind": "national_rail",
+                "priority": 2, "aliases": []}
+        stations = {
+            "node/1": {**base, "name": "A", "name_zh": "A",
+                       "lat": 39.0, "lng": 116.0, "lines": ["L1"]},
+            "node/2": {**base, "name": "X", "name_zh": "X",
+                       "lat": 39.0, "lng": 116.5, "lines": ["L1", "L2"]},
+            "node/3": {**base, "name": "B", "name_zh": "B",
+                       "lat": 39.0, "lng": 117.0, "lines": ["L2"]},
+        }
+        (tmp_path / "rail_lines.json").write_text(
+            json.dumps({"meta": {}, "lines": lines}, ensure_ascii=False), encoding="utf-8")
+        (tmp_path / "stations.json").write_text(
+            json.dumps({"meta": {}, "stations": stations}, ensure_ascii=False), encoding="utf-8")
+        return str(tmp_path)
+
+    @pytest.fixture
+    def rgb(self, bridge_data):
+        RouteGeometry._instance = None
+        obj = RouteGeometry(data_dir=bridge_data)
+        yield obj
+        RouteGeometry._instance = None
+
+    def test_one_hop_bridge(self, rgb):
+        seg, source = rgb.find_segment("A", "B", "高速")
+        assert source == "line"
+        assert seg[0] == [116.0, 39.0]
+        assert seg[-1] == [117.0, 39.0]
+
+    def test_bridge_does_not_use_endpoint_as_middle(self, rgb):
+        """中间站不能与端点重合（防止 A->A->B 自环）"""
+        mid = rgb._best_bridge(
+            rgb.resolve_station("A"), rgb.resolve_station("B"),
+            (116.0, 39.0), (117.0, 39.0), 86.0)
+        # X 是唯一合法中间站，不能选中 A 或 B
+        assert mid is not None
+        assert mid["name_zh"] == "X"
+
+    def test_no_path_returns_fallback(self, rgb):
+        """B 与一个孤立站之间无通路 -> 直线"""
+        rgb._ensure_loaded()
+        rgb._stations["node/9"] = {
+            "name": "Z", "name_zh": "Z", "name_en": "", "ref": "",
+            "lat": 20.0, "lng": 100.0, "kind": "national_rail",
+            "priority": 2, "aliases": [], "lines": ["L9"],
+        }
+        rgb._name_index["Z"] = rgb._stations["node/9"]
+        rgb._line_stations = None
+        seg, source = rgb.find_segment("A", "Z", "高速")
+        assert source == "fallback"
+
+
 class TestAvailability:
     def test_available_when_files_exist(self, rg):
         assert rg.available is True
