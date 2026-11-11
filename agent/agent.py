@@ -10,6 +10,7 @@ from agent.tools import (
     query_train_info,
     query_trains_by_route,
     generate_route_map,
+    compare_train_routes,
     analyze_train_speed,
     list_stations_on_line,
     find_trains_at_station,
@@ -20,6 +21,7 @@ tools = [
     query_train_info,
     query_trains_by_route,
     generate_route_map,
+    compare_train_routes,
     analyze_train_speed,
     list_stations_on_line,
     find_trains_at_station,
@@ -54,11 +56,13 @@ class AgentService:
                           "2. 当用户询问两地之间的车次时（如'北京到合肥的车'），请调用 query_trains_by_route 工具，传入起讫站和数量。\n"
                           "3. 当用户需要查看车次运行路线地图时，请调用 generate_route_map 工具，传入车次列表。\n"
                           "4. 如果用户同时要求查车次信息和画路线图，先调用 query_train_info 查信息，再调用 generate_route_map 画图。\n"
-                          "5. 当用户询问车次速度、耗时、跑多快时，请调用 analyze_train_speed 工具。"
+                          "6. 当用户想比较不同车次的路线差异时（如'G1 和 T35 走的路线有什么不同'），"
+                          "请调用 compare_train_routes 工具，传入车次列表（2~6 个）。\n"
+                          "7. 当用户询问车次速度、耗时、跑多快时，请调用 analyze_train_speed 工具。"
                           "注意如实说明返回的是「区间平均速度」（含停站），不是最高运行速度。\n"
-                          "6. 当用户询问某条铁路线路上有哪些站点时，请调用 list_stations_on_line 工具。\n"
-                          "7. 当用户询问某个车站有哪些车次经停时，请调用 find_trains_at_station 工具。\n"
-                          "8. 回答中请直接展示车次详细信息，包括发车/到达时间和经停站。",
+                          "8. 当用户询问某条铁路线路上有哪些站点时，请调用 list_stations_on_line 工具。\n"
+                          "9. 当用户询问某个车站有哪些车次经停时，请调用 find_trains_at_station 工具。\n"
+                          "10. 回答中请直接展示车次详细信息，包括发车/到达时间和经停站。",
             checkpointer=self.checkpointer
         )
 

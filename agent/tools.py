@@ -146,3 +146,41 @@ from agent.railway_analytics import (
     list_stations_on_line,
     find_trains_at_station,
 )
+
+# ========== 多车次路线对比图 ==========
+from agent.route_map_generator import generate_comparison_map
+
+
+@tool(description="生成多个车次的路线对比图（HTML）。"
+                  "当用户想比较不同车次走的路线差异时使用，"
+                  "例如「G1 和 T35 走的路线有什么不同」。"
+                  "输入车次列表（2~6 个），例如 ['G1', 'T35']，"
+                  "可选 title 自定义标题。返回地图的访问URL。")
+@log_tool_call
+def compare_train_routes(train_codes: list, title: str = "") -> str:
+    """生成多车次路线对比图
+
+    Args:
+        train_codes: 车次号列表，2~6 个，如 ['G1', 'T35']
+        title: 可选标题
+
+    Returns:
+        地图的访问 URL 与各车次概况
+    """
+    if not train_codes or len(train_codes) < 2:
+        return "对比图至少需要 2 个车次，例如 ['G1', 'T35']"
+
+    result = generate_comparison_map(train_codes, title)
+    if not (result.endswith(".html") and os.path.exists(result)):
+        # 生成函数在参数非法时返回说明字符串
+        return result
+
+    filename = os.path.basename(result)
+    url = f"{_MAP_URL_PREFIX}/{filename}"
+
+    codes = [str(c).strip().upper() for c in train_codes][:6]
+    return (
+        f"已生成 {len(codes)} 个车次的路线对比图：{' vs '.join(codes)}\n"
+        f"请访问：{url}\n"
+        "（图例在左下角，可看出各车次的走向差异与真实轨道覆盖率）"
+    )

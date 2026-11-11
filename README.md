@@ -255,7 +255,7 @@ data: [DONE]
 
 ## 🧩 Agent 工具说明
 
-Agent（`agent/agent.py`）基于 LangGraph 的 `create_agent` 构建，使用 `SqliteSaver` 持久化对话检查点，共注册 **7 个工具**。
+Agent（`agent/agent.py`）基于 LangGraph 的 `create_agent` 构建，使用 `SqliteSaver` 持久化对话检查点，共注册 **8 个工具**。
 
 ### `retriever_tool` — 知识库检索
 
@@ -283,6 +283,22 @@ Agent（`agent/agent.py`）基于 LangGraph 的 `create_agent` 构建，使用 `
 - 始发站绿色图标、终点站红色方格旗、中间站蓝色圆点，支持悬停查看站名
 - 标题栏显示所用线路名与真实轨道覆盖率（如「京沪高铁 3/3 段真实轨道」）
 - 地图文件保存到 `data/maps/`，通过 `/maps/` 路径访问
+
+### `compare_train_routes` — 多车次路线对比图
+
+- 输入 2~6 个车次，生成叠加在同一张地图上的对比图
+- 每个车次一种颜色（红/深蓝/青绿/橙红/紫/橙）
+- 用于回答「G1 和 T35 走的路线有什么不同」这类问题
+
+```
+G1 (高速) 北京南→上海   4站 · 3/3 段真实 · 京沪高铁
+T35 (特快) 北京→合肥    6站 · 5/5 段真实 · 京沪线
+```
+
+- 只标注第一个车次的站点标记，避免多车次站点重叠成一团
+- 图例在左下角，含每个车次的颜色、类型、起讫站、站点数、真实轨道覆盖率
+- 文件名格式 `compare_{车次1}_{车次2}.html`，只含 ASCII 字符
+  （前端 `MAP_URL_RE` 为 `/maps/[A-Za-z0-9_-]+\.html`，中文名会被忽略）
 
 ### `analyze_train_speed` — 区间速度分析
 

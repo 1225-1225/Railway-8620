@@ -1,7 +1,8 @@
 """
-车次运行路线地图生成器（简化版）
+车次运行路线地图生成器
 
-将相邻站点用直线连接，不再使用真实铁路轨迹。
+使用 OSM 真实轨道几何绘制车次路线；缺失数据的站段降级为直线并用虚线区分。
+支持单车次地图（generate_train_route_map）与多车次对比图（generate_comparison_map）。
 """
 
 import json
@@ -83,21 +84,18 @@ def get_train_class(train_code: str) -> str:
 
 # ─── 地图绘制 ───────────────────────────────────────────────
 
-def _generate_route_map(m, stations, line_color, train_class=None):
-    """在地图上绘制车次路线
+def _draw_train_line(m, stations, line_color, train_class=None):
+    """在地图上绘制一个车次的路线，返回统计
 
-    优先使用 OSM 真实轨道几何；缺失的站段退化为直线并用虚线区分，
-    让用户一眼看出哪一段是估算的。
-
-    train_class 用于在两站之间有多条候选线路时消歧
-    （G/D/C 优先高速线，K/T/Z 优先普速线）。
+    优先使用 OSM 真实轨道几何；缺失的站段退化为直线并用虚线区分。
+    train_class 用于在两站之间有多条候选线路时消歧。
     """
     import folium
 
     from agent.route_geometry import get_route_geometry
 
     rg = get_route_geometry()
-    stats = {"total": 0, "matched": 0, "fallback": 0, "missing": 0, "lines": {}}
+    stats = {"total": 0, "matched": 0, "fallback": 0, "missing": 0, "lines": []}
     used_lines = []
 
     for i in range(len(stations) - 1):
@@ -115,7 +113,6 @@ def _generate_route_map(m, stations, line_color, train_class=None):
         seg, source = rg.find_segment(s1, s2, train_class)
 
         if source == "no_station" or not seg:
-            # 连坐标都没有：退回本地 station_coords.json
             c1 = _get_station_coord(s1)
             c2 = _get_station_coord(s2)
             if not c1 or not c2:
@@ -137,15 +134,20 @@ def _generate_route_map(m, stations, line_color, train_class=None):
             stats["fallback"] += 1
             folium.PolyLine(
                 locations=[[p[1], p[0]] for p in seg],
-                color="#999999",
+                color=line_color,
                 weight=2.5,
-                opacity=0.9,
+                opacity=0.75,
                 dash_array="6,8",
                 tooltip=f"{s1} → {s2}（估算直线）",
             ).add_to(m)
 
     stats["lines"] = used_lines
     return stats
+
+
+def _generate_route_map(m, stations, line_color, train_class=None):
+    """在地图上绘制车次路线（单线，保留旧签名以兼容）"""
+    return _draw_train_line(m, stations, line_color, train_class)
 
 
 def generate_train_route_map(train_code: str) -> str:
@@ -228,6 +230,174 @@ def generate_train_route_map(train_code: str) -> str:
     map_path = os.path.join(_MAP_DIR, f"{train_code}_route.html")
     m.save(map_path)
     logger.info(f"地图已生成: {map_path}")
+    return map_path
+
+
+# ─── 多车次对比图 ──────────────────────────────────────────
+
+# 对比图配色（最多 6 条线，超出循环使用）
+_COMPARE_COLORS = [
+    ("#E63946", "红色"),
+    ("#1D3557", "深蓝"),
+    ("#2A9D8F", "青绿"),
+    ("#E76F51", "橙红"),
+    ("#7209B7", "紫色"),
+    ("#F4A261", "橙色"),
+]
+
+
+def generate_comparison_map(train_codes: list, title: str = "") -> str:
+    """生成多个车次的路线对比图
+
+    用于回答「G1 和 T35 走的路线有什么不同」这类问题：
+    把多个车次的轨迹叠加在同一张地图上，用不同颜色区分。
+
+    Args:
+        train_codes: 车次号列表，2~6 个
+        title: 可选标题
+
+    Returns:
+        生成的 HTML 文件路径；失败时返回错误说明字符串
+    """
+    try:
+        import folium
+    except ImportError:
+        return "需要安装 folium: pip install folium"
+
+    codes = []
+    for c in (train_codes or []):
+        c = str(c).strip().upper()
+        if c and c not in codes:
+            codes.append(c)
+
+    if len(codes) < 2:
+        return "对比图至少需要 2 个车次"
+    if len(codes) > 6:
+        return f"对比图最多支持 6 个车次（收到 {len(codes)} 个）"
+
+    # 收集每个车次的站点与统计
+    plans = []
+    all_points = []
+    for code in codes:
+        stations = [s for s in get_train_stations(code) if s]
+        if len(stations) < 2:
+            return f"车次 {code} 的站点数据不足，无法对比"
+        cls = get_train_class(code)
+        plans.append({"code": code, "stations": stations, "class": cls})
+
+    # 先算中心点与范围（用所有站点坐标）
+    for p in plans:
+        for s in p["stations"]:
+            c = _get_station_coord(s)
+            if c:
+                all_points.append(c)
+
+    if not all_points:
+        return "无法获取车站坐标"
+
+    avg_lat = sum(p[1] for p in all_points) / len(all_points)
+    avg_lng = sum(p[0] for p in all_points) / len(all_points)
+
+    m = folium.Map(location=[avg_lat, avg_lng], zoom_start=5,
+                   tiles='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                   attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>')
+
+    # 逐车次绘制
+    legend_rows = []
+    for idx, p in enumerate(plans):
+        color, color_name = _COMPARE_COLORS[idx % len(_COMPARE_COLORS)]
+        stats = _draw_train_line(m, p["stations"], color, p["class"])
+        p["stats"] = stats
+        p["color"] = color
+        p["color_name"] = color_name
+
+        line_label = " / ".join(stats["lines"][:1]) if stats["lines"] else ""
+        legend_rows.append({
+            "code": p["code"],
+            "class": p["class"],
+            "color": color,
+            "color_name": color_name,
+            "from": p["stations"][0],
+            "to": p["stations"][-1],
+            "line": line_label,
+            "matched": stats["matched"],
+            "total": stats["total"],
+            "points": len(p["stations"]),
+        })
+
+    # 只在第一个车次上标注站点，避免多点重叠成一团
+    first = plans[0]
+    sc = [(c, s) for s in first["stations"] if (c := _get_station_coord(s))]
+    for i, (coord, name) in enumerate(sc):
+        lng, lat = coord
+        if i == 0:
+            folium.Marker(location=[lat, lng], popup=f"🚉 {name}（{first['code']} 始发）",
+                          tooltip=name,
+                          icon=folium.Icon(color='green', icon='play', prefix='fa')).add_to(m)
+        elif i == len(sc) - 1:
+            folium.Marker(location=[lat, lng], popup=f"🚉 {name}（{first['code']} 终点）",
+                          tooltip=name,
+                          icon=folium.Icon(color='red', icon='flag-checkered', prefix='fa')).add_to(m)
+        else:
+            folium.CircleMarker(location=[lat, lng], radius=4, color='#666',
+                                fill=True, fill_color='#999', fill_opacity=0.7,
+                                popup=f"🚉 {name}", tooltip=name).add_to(m)
+
+    # 图例：每个车次一行，含颜色/类型/起讫/精度
+    rows_html = ""
+    for r in legend_rows:
+        rows_html += (
+            '<div style="margin-top:6px;white-space:nowrap;">'
+            f'<span style="display:inline-block;width:22px;height:3px;'
+            f'background:{r["color"]};vertical-align:middle;margin-right:6px;"></span>'
+            f'<b>{r["code"]}</b> <span style="color:#666;">({r["class"]})</span> '
+            f'{r["from"]}→{r["to"]} '
+            f'<span style="color:#888;font-size:11px;">'
+            f'{r["points"]}站 · {r["matched"]}/{r["total"]} 段真实'
+            + (f' · {r["line"]}' if r["line"] else '')
+            + '</span></div>'
+        )
+
+    legend_html = (
+        '<div style="position: fixed; bottom: 24px; left: 24px; z-index: 1000;'
+        'background: white; padding: 10px 14px; border-radius: 8px;'
+        'box-shadow: 0 2px 8px rgba(0,0,0,0.3); font-size: 13px; line-height: 1.6;'
+        'max-width: 420px;">'
+        '<div style="font-weight:bold;margin-bottom:2px;">🚄 车次路线对比</div>'
+        + rows_html +
+        '<div style="margin-top:8px;padding-top:6px;border-top:1px solid #eee;'
+        'font-size:11px;color:#888;">'
+        '虚线 = 该段无 OSM 轨道数据，按直线估算'
+        '</div></div>'
+    )
+    m.get_root().html.add_child(folium.Element(legend_html))
+
+    if not title:
+        title = " vs ".join(c["code"] for c in plans)
+    title_html = (
+        '<div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%);'
+        'z-index: 1000; background: white; padding: 8px 18px;'
+        'border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);'
+        'font-size: 15px; font-weight: bold;">'
+        f'🚄 {title}'
+        '</div>'
+    )
+    m.get_root().html.add_child(folium.Element(title_html))
+
+    # 自适应缩放
+    try:
+        m.fit_bounds([[min(p[1] for p in all_points), min(p[0] for p in all_points)],
+                      [max(p[1] for p in all_points), max(p[0] for p in all_points)]],
+                     padding=(40, 40))
+    except Exception:
+        pass
+
+    os.makedirs(_MAP_DIR, exist_ok=True)
+    # 文件名必须只含 [A-Za-z0-9_-]，否则前端 MAP_URL_RE 无法识别并转成地图卡片
+    fname = "compare_" + "_".join(codes) + ".html"
+    map_path = os.path.join(_MAP_DIR, fname)
+    m.save(map_path)
+    logger.info(f"对比图已生成: {map_path}")
     return map_path
 
 

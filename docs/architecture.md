@@ -36,9 +36,10 @@ flowchart TB
         T2["query_train_info"]
         T3["query_trains_by_route"]
         T4["generate_route_map"]
-        T5["analyze_train_speed"]
-        T6["list_stations_on_line"]
-        T7["find_trains_at_station"]
+        T5["compare_train_routes"]
+        T6["analyze_train_speed"]
+        T7["list_stations_on_line"]
+        T8["find_trains_at_station"]
     end
 
     subgraph 外部依赖
@@ -61,7 +62,7 @@ flowchart TB
     AgentCore --> Checkpointer
     LLMNode -->|tool_calls| ToolsNode
     ToolsNode -->|AIMessage + ToolMessage 循环| LLMNode
-    ToolsNode --> T1 & T2 & T3 & T4 & T5 & T6 & T7
+    ToolsNode --> T1 & T2 & T3 & T4 & T5 & T6 & T7 & T8
     Checkpointer --> SQLite3
     T1 --> RAGFlow
     T2 --> DataJSON
@@ -97,9 +98,10 @@ flowchart LR
     TOOLS --> T2["query_train_info<br/>→ train_details.json"]
     TOOLS --> T3["query_trains_by_route<br/>→ train_stations.json"]
     TOOLS --> T4["generate_route_map<br/>→ OSM 真实轨道地图"]
-    TOOLS --> T5["analyze_train_speed<br/>→ 区间速度分析"]
-    TOOLS --> T6["list_stations_on_line<br/>→ 线路站点反查"]
-    TOOLS --> T7["find_trains_at_station<br/>→ 站点车次反查"]
+    TOOLS --> T5["compare_train_routes<br/>→ 多车次对比图"]
+    TOOLS --> T6["analyze_train_speed<br/>→ 区间速度分析"]
+    TOOLS --> T7["list_stations_on_line<br/>→ 线路站点反查"]
+    TOOLS --> T8["find_trains_at_station<br/>→ 站点车次反查"]
 ```
 
 ### 循环环节与代码映射
