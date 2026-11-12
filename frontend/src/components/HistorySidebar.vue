@@ -2,14 +2,22 @@
   <div class="sidebar" :class="{ collapsed }">
     <!-- 折叠/展开按钮 -->
     <button class="toggle-btn" @click="$emit('toggle')" :title="collapsed ? '展开历史' : '收起历史'">
-      <span v-if="collapsed">☰</span>
-      <span v-else>✕</span>
+      <svg v-if="collapsed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+      <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
     </button>
 
     <div class="sidebar-content" v-show="!collapsed">
       <div class="sidebar-header">
         <h3>历史对话</h3>
-        <button class="new-chat-btn" @click="$emit('new-chat')">＋ 新对话</button>
+        <button class="new-chat-btn" @click="$emit('new-chat')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" />
+          </svg>新对话
+        </button>
       </div>
 
       <!-- 加载中 -->
@@ -54,12 +62,20 @@
                     class="rename-btn"
                     title="重命名会话"
                     @click.stop="startRename(session)"
-                  >✏️</button>
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M4 20h4l10-10a2.8 2.8 0 0 0-4-4L4 16z" />
+                    </svg>
+                  </button>
                   <button
                     class="delete-btn"
                     title="删除会话"
                     @click.stop="$emit('delete-session', session.thread_id)"
-                  >🗑</button>
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13" />
+                    </svg>
+                  </button>
                 </span>
               </div>
             </template>
@@ -153,47 +169,67 @@ function formatDateHeader(dateStr: string): string {
 .sidebar {
   position: relative;
   height: 100%;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  transition: width 0.3s ease;
+  background: var(--ink-800);
+  border-right: 1px solid var(--border);
+  /* 折叠动画用 transform 平移，而非 transition width
+     （width 会触发布局重排，且 sloplint 规则 10a 明确禁止） */
+  transition: transform var(--dur-mid) var(--ease);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  will-change: transform;
 }
 
 .sidebar:not(.collapsed) {
   width: 280px;
+  transform: translateX(0);
 }
 
 .sidebar.collapsed {
-  width: 40px;
+  width: 44px;
+  transform: translateX(0);
 }
 
 .toggle-btn {
   position: absolute;
-  top: 12px;
-  right: 8px;
+  top: var(--sp-3);
+  right: var(--sp-2);
   z-index: 20;
   width: 28px;
   height: 28px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-300);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  transition: all 0.2s;
+  transition:
+    background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+
+.toggle-btn svg {
+  width: 15px;
+  height: 15px;
 }
 
 .toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
+  background: var(--ink-700);
+  color: var(--text-100);
+  border-color: var(--border);
+}
+
+.toggle-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.toggle-btn:active {
+  background: var(--ink-600);
 }
 
 .sidebar-content {
@@ -201,40 +237,63 @@ function formatDateHeader(dateStr: string): string {
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  padding-top: 50px;
+  padding-top: 48px;
 }
 
 .sidebar-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: var(--sp-2);
+  padding: 0 var(--sp-4) var(--sp-3);
+  border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
 
 .sidebar-header h3 {
-  color: white;
-  font-size: 14px;
+  color: var(--text-100);
+  font-size: var(--fs-sm);
   font-weight: 600;
   margin: 0;
+  letter-spacing: 0;
 }
 
 .new-chat-btn {
-  padding: 4px 10px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(90, 103, 216, 0.4), rgba(139, 92, 246, 0.4));
-  color: white;
-  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-1) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-200);
+  font-size: var(--fs-xs);
   cursor: pointer;
-  transition: all 0.2s;
+  transition:
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
   white-space: nowrap;
 }
 
+.new-chat-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
 .new-chat-btn:hover {
-  background: linear-gradient(135deg, rgba(90, 103, 216, 0.7), rgba(139, 92, 246, 0.7));
-  transform: translateY(-1px);
+  background: var(--accent-wash);
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+.new-chat-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.new-chat-btn:active {
+  background: var(--ink-600);
 }
 
 .loading-state,
@@ -242,69 +301,83 @@ function formatDateHeader(dateStr: string): string {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 16px;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 13px;
+  padding: var(--sp-10) var(--sp-4);
+  color: var(--text-400);
+  font-size: var(--fs-sm);
 }
 
 .session-list {
   flex: 1;
   overflow-y: auto;
-  padding: 8px 8px 16px;
+  padding: var(--sp-2) var(--sp-2) var(--sp-4);
 }
 
 .date-group {
-  margin-bottom: 8px;
+  margin-bottom: var(--sp-2);
 }
 
 .date-header {
-  padding: 8px 12px 4px;
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.35);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  padding: var(--sp-2) var(--sp-3) var(--sp-1);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--text-400);
 }
 
 .session-item {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 10px 12px;
-  border-radius: 10px;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
   cursor: pointer;
-  transition: all 0.2s;
+  transition:
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
   margin-bottom: 2px;
 }
 
 .session-item:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--ink-700);
+}
+
+.session-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 .session-item.active {
-  background: rgba(90, 103, 216, 0.15);
-  border: 1px solid rgba(90, 103, 216, 0.2);
+  background: var(--accent-wash);
+  border-color: var(--accent-line);
+}
+
+.session-item:active {
+  background: var(--ink-600);
 }
 
 .session-preview {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--fs-sm);
+  color: var(--text-200);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: 1.3;
+  line-height: 1.4;
+}
+
+.session-item.active .session-preview {
+  color: var(--text-100);
 }
 
 .session-time {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.3);
+  font-size: var(--fs-xs);
+  color: var(--text-400);
 }
 
 .session-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4px;
+  gap: var(--sp-1);
 }
 
 .session-actions {
@@ -312,50 +385,75 @@ function formatDateHeader(dateStr: string): string {
   align-items: center;
   gap: 2px;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity var(--dur-fast) var(--ease);
 }
 
-.session-item:hover .session-actions {
+.session-item:hover .session-actions,
+.session-item:focus-within .session-actions {
   opacity: 1;
 }
 
 .rename-btn,
 .delete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
   border: none;
   background: transparent;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 12px;
+  color: var(--text-400);
   cursor: pointer;
-  padding: 2px 4px;
+  padding: 0;
   border-radius: 4px;
-  transition: all 0.2s;
-  line-height: 1;
+  transition:
+    color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.rename-btn svg,
+.delete-btn svg {
+  width: 13px;
+  height: 13px;
 }
 
 .rename-btn:hover {
-  color: #7dd3fc;
-  background: rgba(125, 211, 252, 0.15);
+  color: var(--accent);
+  background: var(--accent-wash);
 }
 
 .delete-btn:hover {
-  color: #ff6b6b;
-  background: rgba(255, 100, 100, 0.15);
+  color: var(--danger);
+  background: var(--danger-wash);
+}
+
+.rename-btn:focus-visible,
+.delete-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.rename-btn:disabled,
+.delete-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .rename-input {
   width: 100%;
-  padding: 4px 8px;
-  border: 1px solid rgba(125, 211, 252, 0.5);
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
-  font-size: 13px;
+  padding: var(--sp-1) var(--sp-2);
+  border: 1px solid var(--accent-line);
+  border-radius: var(--r-sm);
+  background: var(--ink-900);
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  font-family: var(--font-body);
   outline: none;
 }
 
-.rename-input:focus {
-  border-color: rgba(125, 211, 252, 0.9);
-  box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.15);
+.rename-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
 }
 
 .session-list::-webkit-scrollbar {
@@ -367,7 +465,19 @@ function formatDateHeader(dateStr: string): string {
 }
 
 .session-list::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--ink-600);
   border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .toggle-btn,
+  .session-item,
+  .new-chat-btn,
+  .session-actions,
+  .rename-btn,
+  .delete-btn {
+    transition: none;
+  }
 }
 </style>

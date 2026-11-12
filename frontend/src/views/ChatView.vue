@@ -14,7 +14,15 @@
     <div class="main-area">
       <header class="chat-header">
         <div class="header-left">
-          <div class="logo">🚂</div>
+          <div class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5" y="3" width="14" height="13" rx="3" />
+            <path d="M5 9h14" />
+            <circle cx="9" cy="12.5" r="1" fill="currentColor" stroke="none" />
+            <circle cx="15" cy="12.5" r="1" fill="currentColor" stroke="none" />
+            <path d="M8 16l-2 4M16 16l2 4M4 20h16" />
+          </svg>
+        </div>
           <div class="header-text">
             <h2>铁路历史专家 (流式版)</h2>
             <p class="online-status">已连接 · 实时流式输出</p>
@@ -27,33 +35,72 @@
 
     <div class="chat-messages" ref="messageListRef">
       <div v-if="messages.length === 0" class="welcome-message">
-        <div class="welcome-icon">👋</div>
+        <div class="welcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.8-.9L3 20.5l1.4-4.2A8.4 8.4 0 0 1 3 11.5a8.4 8.4 0 0 1 9-8.4 8.4 8.4 0 0 1 9 8.4z" />
+          </svg>
+        </div>
         <h3>欢迎回来，{{ authStore.username }}！</h3>
         <p>这是流式版，答案会逐字显示，体验更流畅～</p>
       </div>
 
       <div v-for="(msg, idx) in messages" :key="idx" class="message-wrapper">
         <div class="message" :class="[msg.role]">
-          <div class="avatar">{{ msg.role === 'user' ? '👤' : '🤖' }}</div>
+          <div class="avatar">
+            <svg v-if="msg.role === 'user'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.5" />
+              <path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" />
+            </svg>
+            <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="7" width="16" height="12" rx="3" />
+              <path d="M12 7V4M9 13h.01M15 13h.01M9 16.5h6" />
+            </svg>
+          </div>
           <div class="message-bubble" v-html="renderContent(msg.content)"></div>
         </div>
       </div>
 
       <div v-if="loading" class="message assistant loading">
-        <div class="avatar">🤖</div>
+        <div class="avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="7" width="16" height="12" rx="3" />
+            <path d="M12 7V4M9 13h.01M15 13h.01M9 16.5h6" />
+          </svg>
+        </div>
         <div class="message-bubble">
           <span class="loading-dots">正在接收</span>
-          <button class="stop-btn" @click="stopGenerating">■ 停止</button>
+          <button class="stop-btn" @click="stopGenerating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:9px;height:9px;vertical-align:middle;margin-right:4px">
+              <rect x="6" y="6" width="12" height="12" rx="1.5" />
+            </svg>停止
+          </button>
         </div>
       </div>
     </div>
 
     <div class="chat-input-area">
       <div v-if="messages.length === 0" class="suggestions">
-        <button class="suggestion-chip" @click="useSuggestion('介绍一下前进型蒸汽机车')">🚂 机车知识</button>
-        <button class="suggestion-chip" @click="useSuggestion('查询 Z227 车次信息')">🚄 查车次</button>
-        <button class="suggestion-chip" @click="useSuggestion('北京到合肥有哪些车次？')">🔍 路线推荐</button>
-        <button class="suggestion-chip" @click="useSuggestion('生成 T35 次列车的运行路线地图')">🗺️ 路线地图</button>
+        <button class="suggestion-chip" @click="useSuggestion('介绍一下前进型蒸汽机车')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 17h16M6 17V9a3 3 0 0 1 3-3h5l3 4v7M9 6V4M14 9h4" />
+            <circle cx="8" cy="20" r="1.4" /><circle cx="16" cy="20" r="1.4" />
+          </svg>机车知识
+        </button>
+        <button class="suggestion-chip" @click="useSuggestion('查询 Z227 车次信息')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5" y="3" width="14" height="13" rx="3" /><path d="M5 9h14M8 16l-2 4M16 16l2 4M4 20h16" />
+          </svg>查车次
+        </button>
+        <button class="suggestion-chip" @click="useSuggestion('北京到合肥有哪些车次？')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="6" /><path d="M20 20l-4.2-4.2" />
+          </svg>路线推荐
+        </button>
+        <button class="suggestion-chip" @click="useSuggestion('生成 T35 次列车的运行路线地图')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z" /><path d="M9 4v13.5M15 6.5V20" />
+          </svg>路线地图
+        </button>
       </div>
       <div class="input-container">
         <textarea
@@ -67,7 +114,9 @@
           ref="inputRef"
         ></textarea>
         <button @click="sendMessage" class="send-btn" :disabled="loading || !inputMessage.trim()">
-          <span class="send-icon">✈️</span>
+          <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12h15M13 6l6 6-6 6" />
+          </svg>
         </button>
       </div>
       <div class="input-hint">
@@ -78,7 +127,11 @@
 
     <!-- 浮动错误提示：会话操作失败时给出可见反馈（3 秒自动消失） -->
     <transition name="toast">
-      <div v-if="toastMessage" class="toast">⚠️ {{ toastMessage }}</div>
+      <div v-if="toastMessage" class="toast">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" /><path d="M12 7.5v5M12 16h.01" />
+        </svg>{{ toastMessage }}
+      </div>
     </transition>
   </div>
 </template>
@@ -131,7 +184,7 @@ function renderContent(raw: string): string {
 function renderMapCard(url: string): string {
   return `
   <div class="map-card">
-    <div class="map-card-header">🗺️ 交互式路线地图</div>
+    <div class="map-card-header">交互式路线地图</div>
     <iframe src="${url}" class="map-frame" loading="lazy" title="路线地图"></iframe>
     <a class="map-card-link" href="${url}" target="_blank" rel="noopener">在新窗口打开 ↗</a>
   </div>`
@@ -431,17 +484,12 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-/* 样式部分完全不变，此处省略（保持之前的样式代码） */
 .app-layout {
   height: 100vh;
   display: flex;
   flex-direction: row;
-  background: transparent;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  background: var(--ink-900);
+  font-family: var(--font-body);
   overflow: hidden;
 }
 
@@ -452,16 +500,15 @@ onBeforeUnmount(() => {
   min-width: 0;
 }
 
+/* ── 顶栏 ─────────────────────────────────────── */
 .chat-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--ink-800);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-100);
   position: relative;
   z-index: 10;
 }
@@ -469,112 +516,93 @@ onBeforeUnmount(() => {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--sp-3);
 }
 
 .logo {
-  font-size: 1.8rem;
-  animation: pulse 2s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  background: var(--accent);
+  color: var(--ink-900);
 }
 
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
+.logo svg {
+  width: 20px;
+  height: 20px;
 }
 
 .header-text h2 {
   margin: 0;
   font-weight: 600;
-  font-size: 1.3rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: var(--fs-lg);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 .online-status {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--fs-xs);
+  color: var(--text-300);
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: var(--sp-1);
 }
 
 .online-status::before {
   content: '';
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #22c55e;
-  animation: blink 2s infinite;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+  background: var(--ok);
 }
 
 .logout-btn {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(4px);
-  color: white;
-  font-size: 0.9rem;
-  font-weight: 500;
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-200);
+  font-size: var(--fs-sm);
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition:
+    background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+  border: 1px solid var(--border);
 }
 
 .logout-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: var(--ink-700);
+  color: var(--text-100);
+  border-color: var(--border-strong);
+}
+
+.logout-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.logout-btn:active {
+  background: var(--ink-600);
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: var(--sp-2);
 }
 
+/* ── 消息区 ───────────────────────────────────── */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
-  padding: 1.5rem 2rem;
+  padding: var(--sp-6);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  background: rgba(0, 0, 0, 0.05);
+  gap: var(--sp-5);
+  background: var(--ink-900);
   position: relative;
-  transition: all 0.3s ease;
-}
-
-.chat-messages.scrolled {
-  background: rgba(0, 0, 0, 0.08);
-}
-
-.chat-messages::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: linear-gradient(to bottom, rgba(90, 103, 216, 0.1), transparent);
-  pointer-events: none;
-  z-index: 1;
 }
 
 .welcome-message {
@@ -584,61 +612,89 @@ onBeforeUnmount(() => {
   justify-content: center;
   height: 100%;
   text-align: center;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
+  color: var(--text-200);
+  padding: var(--sp-8);
 }
 
 .welcome-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  animation: bounce 2s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-md);
+  background: var(--accent-wash);
+  color: var(--accent);
+  margin-bottom: var(--sp-4);
+}
+
+.welcome-icon svg {
+  width: 26px;
+  height: 26px;
 }
 
 .welcome-message h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: white;
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  margin-bottom: var(--sp-2);
+  color: var(--text-100);
 }
 
 .welcome-message p {
-  max-width: 500px;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.7);
+  max-width: 460px;
+  margin-bottom: var(--sp-6);
+  color: var(--text-300);
+  font-size: var(--fs-base);
+  line-height: 1.6;
 }
 
 .suggestions {
   display: flex;
-  gap: 1rem;
+  gap: var(--sp-2);
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .suggest-btn {
-  padding: 0.8rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
-  font-size: 0.9rem;
+  padding: var(--sp-2) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--ink-800);
+  color: var(--text-200);
+  font-size: var(--fs-sm);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
 }
 
 .suggest-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+  border-color: var(--accent-line);
+  color: var(--text-100);
+  background: var(--ink-700);
 }
 
+.suggest-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.suggest-btn:active {
+  background: var(--ink-600);
+}
+
+/* ── 消息气泡 ─────────────────────────────────── */
 .message-wrapper {
   width: 100%;
 }
 
 .message {
   display: flex;
-  gap: 1rem;
-  animation: message-fade-in 0.5s ease forwards;
+  gap: var(--sp-3);
+  animation: message-fade-in var(--dur-mid) var(--ease) forwards;
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(6px);
 }
 
 @keyframes message-fade-in {
@@ -657,176 +713,383 @@ onBeforeUnmount(() => {
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-sm);
+  background: var(--ink-700);
+  color: var(--text-300);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 1.2rem;
+}
+
+.avatar svg {
+  width: 16px;
+  height: 16px;
 }
 
 .message.user .avatar {
-  background: rgba(90, 103, 216, 0.3);
+  background: var(--accent-wash);
+  color: var(--accent);
 }
 
 .message-bubble {
-  max-width: 70%;
-  padding: 1rem 1.2rem;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: white;
-  line-height: 1.6;
+  max-width: 72%;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--ink-800);
+  border: 1px solid var(--border);
+  color: var(--text-100);
+  line-height: 1.65;
+  font-size: var(--fs-base);
   word-wrap: break-word;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
 }
 
 .message.user .message-bubble {
-  background: linear-gradient(135deg, rgba(90, 103, 216, 0.3), rgba(139, 92, 246, 0.3));
-  border-color: rgba(255, 255, 255, 0.2);
-  border-bottom-right-radius: 4px;
+  background: var(--accent-wash);
+  border-color: var(--accent-line);
+  border-bottom-right-radius: 2px;
 }
 
 .message.assistant .message-bubble {
-  background: rgba(255, 255, 255, 0.08);
-  border-bottom-left-radius: 4px;
+  background: var(--ink-800);
+  border-bottom-left-radius: 2px;
 }
 
 .loading .message-bubble {
   background: transparent;
-  border: none;
-  box-shadow: none;
+  border: 1px solid var(--border);
 }
 
 .loading-dots {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-300);
   display: inline-block;
-  position: relative;
+  font-size: var(--fs-sm);
 }
 
 .loading-dots::after {
   content: '';
-  animation: dots 1.5s infinite;
+  animation: dots 1.4s steps(4, end) infinite;
 }
 
 @keyframes dots {
   0% {
+    content: '';
+  }
+  25% {
     content: '.';
   }
-  33% {
+  50% {
     content: '..';
   }
-  66% {
+  75% {
     content: '...';
-  }
-  100% {
-    content: '.';
   }
 }
 
+/* ── 输入区 ───────────────────────────────────── */
 .chat-input-area {
-  padding: 1rem 2rem 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--sp-4) var(--sp-6) var(--sp-5);
+  background: var(--ink-800);
+  border-top: 1px solid var(--border);
   position: relative;
   z-index: 10;
 }
 
-.input-container {
-  display: flex;
-  gap: 0.8rem;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+.suggestions + .input-container {
+  margin-top: var(--sp-4);
 }
 
-.input-focused {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+.input-container {
+  display: flex;
+  gap: var(--sp-2);
+  background: var(--ink-700);
+  border-radius: var(--r-md);
+  padding: var(--sp-1);
+  border: 1px solid var(--border);
+  transition: border-color var(--dur-fast) var(--ease);
+}
+
+.input-container:focus-within {
+  border-color: var(--border-strong);
+  outline: 2px solid var(--accent-line);
+  outline-offset: 1px;
 }
 
 .message-input {
   flex: 1;
-  padding: 0.8rem 1rem;
+  padding: var(--sp-2) var(--sp-3);
   border: none;
-  border-radius: 16px;
+  border-radius: var(--r-sm);
   background: transparent;
-  color: white;
-  font-size: 1rem;
+  color: var(--text-100);
+  font-size: var(--fs-base);
   outline: none;
   resize: none;
-  min-height: 44px;
+  min-height: 38px;
   max-height: 200px;
-  font-family: inherit;
+  font-family: var(--font-body);
+  line-height: 1.5;
 }
 
 .message-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-400);
 }
 
 .send-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-sm);
   border: none;
-  background: linear-gradient(135deg, #5a67d8, #8b5cf6);
-  color: white;
+  background: var(--accent);
+  color: var(--ink-900);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    background var(--dur-fast) var(--ease),
+    opacity var(--dur-fast) var(--ease);
   flex-shrink: 0;
 }
 
+.send-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
 .send-btn:hover:not(:disabled) {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  background: var(--accent-hover);
+}
+
+.send-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.send-btn:active:not(:disabled) {
+  background: var(--accent-dim);
 }
 
 .send-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.35;
   cursor: not-allowed;
-  transform: none;
 }
 
 .input-hint {
-  margin-top: 0.8rem;
+  margin-top: var(--sp-2);
   text-align: center;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: var(--fs-xs);
+  color: var(--text-400);
 }
 
+/* ── 快捷指令 chips ───────────────────────────── */
+.suggestion-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--ink-800);
+  color: var(--text-200);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+
+.suggestion-chip svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
+.suggestion-chip:hover {
+  border-color: var(--accent-line);
+  background: var(--ink-700);
+  color: var(--text-100);
+}
+
+.suggestion-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.suggestion-chip:active {
+  background: var(--ink-600);
+}
+
+/* ── 停止生成 ─────────────────────────────────── */
+.stop-btn {
+  margin-left: var(--sp-3);
+  padding: var(--sp-1) var(--sp-3);
+  border: 1px solid var(--danger);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--danger);
+  font-size: var(--fs-xs);
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.stop-btn:hover {
+  background: var(--danger-wash);
+}
+
+.stop-btn:focus-visible {
+  outline: 2px solid var(--danger);
+  outline-offset: 2px;
+}
+
+/* ── 地图卡片 ─────────────────────────────────── */
+.map-card {
+  margin: var(--sp-2) 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--ink-900);
+}
+
+.map-card-header {
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-200);
+  background: var(--ink-700);
+  border-bottom: 1px solid var(--border);
+}
+
+.map-frame {
+  width: 100%;
+  height: 340px;
+  border: none;
+  display: block;
+}
+
+.map-card-link {
+  display: block;
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  text-decoration: none;
+  background: var(--ink-800);
+  text-align: right;
+  transition:
+    background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.map-card-link:hover {
+  color: var(--accent-hover);
+  background: var(--ink-700);
+}
+
+.map-card-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* ── Markdown 代码块 ──────────────────────────── */
+.message-bubble pre {
+  background: var(--ink-900);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: var(--sp-3);
+  overflow-x: auto;
+  margin: var(--sp-2) 0;
+}
+
+.message-bubble pre code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-200);
+}
+
+.message-bubble code {
+  font-family: var(--font-mono);
+  background: var(--ink-900);
+  padding: 0 var(--sp-1);
+  border-radius: 4px;
+  font-size: var(--fs-sm);
+  color: var(--text-200);
+}
+
+.message-bubble a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-line);
+}
+
+.message-bubble a:hover {
+  color: var(--accent-hover);
+}
+
+/* ── 浮动提示 ─────────────────────────────────── */
+.toast {
+  position: fixed;
+  top: var(--sp-6);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-sm);
+  background: var(--danger);
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  box-shadow: 0 6px 20px var(--shadow-toast);
+  pointer-events: none;
+}
+
+.toast svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition:
+    opacity var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-8px);
+}
+
+/* ── 响应式 ───────────────────────────────────── */
 @media (max-width: 768px) {
   .chat-header {
-    padding: 1rem;
+    padding: var(--sp-3) var(--sp-4);
   }
 
   .chat-messages {
-    padding: 1rem;
+    padding: var(--sp-4);
   }
 
   .chat-input-area {
-    padding: 1rem;
+    padding: var(--sp-3) var(--sp-4) var(--sp-4);
   }
 
   .message-bubble {
-    max-width: 85%;
+    max-width: 88%;
   }
 
   .welcome-message {
-    padding: 1rem;
+    padding: var(--sp-4);
   }
 
   .suggestions {
@@ -841,143 +1104,25 @@ onBeforeUnmount(() => {
   }
 
   .header-text h2 {
-    font-size: 1.1rem;
+    font-size: var(--fs-base);
   }
 
   .message-bubble {
-    padding: 0.8rem;
-    font-size: 0.95rem;
+    padding: var(--sp-3);
+    font-size: var(--fs-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .message {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 
+  .loading-dots::after {
+    animation: none;
+    content: '…';
+  }
 }
-
-/* ===== 快捷指令 Chips ===== */
-.suggestion-chip {
-  padding: 0.55rem 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-
-.suggestion-chip:hover {
-  background: rgba(90, 103, 216, 0.25);
-  border-color: rgba(90, 103, 216, 0.5);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(90, 103, 216, 0.2);
-}
-
-/* ===== 停止生成按钮 ===== */
-.stop-btn {
-  margin-left: 0.8rem;
-  padding: 0.3rem 0.8rem;
-  border: 1px solid rgba(255, 100, 100, 0.4);
-  border-radius: 8px;
-  background: rgba(255, 100, 100, 0.15);
-  color: rgba(255, 150, 150, 1);
-  font-size: 0.75rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.stop-btn:hover {
-  background: rgba(255, 100, 100, 0.3);
-  border-color: rgba(255, 100, 100, 0.7);
-}
-
-/* ===== 地图卡片（内嵌 iframe） ===== */
-.map-card {
-  margin: 0.5rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.map-card-header {
-  padding: 0.5rem 0.9rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(90, 103, 216, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.map-frame {
-  width: 100%;
-  height: 340px;
-  border: none;
-  display: block;
-}
-
-.map-card-link {
-  display: block;
-  padding: 0.4rem 0.9rem;
-  font-size: 0.75rem;
-  color: rgba(139, 180, 255, 0.9);
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.05);
-  text-align: right;
-  transition: all 0.2s;
-}
-
-.map-card-link:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ===== Markdown 代码块高亮 ===== */
-.message-bubble pre {
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
-  padding: 0.8rem 1rem;
-  overflow-x: auto;
-  margin: 0.5rem 0;
-}
-
-.message-bubble pre code {
-  font-family: 'Fira Code', 'Consolas', monospace;
-  font-size: 0.85rem;
-  color: #e2e8f0;
-}
-
-.message-bubble code {
-  font-family: 'Fira Code', 'Consolas', monospace;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-}
-
-/* ===== 浮动错误提示 ===== */
-.toast {
-  position: fixed;
-  top: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  background: rgba(220, 80, 80, 0.92);
-  color: white;
-  font-size: 0.85rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  pointer-events: none;
-}
-
-.toast-enter-active,
-.toast-leave-active {
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.toast-enter-from,
-.toast-leave-to {
-  opacity: 0;
-  transform: translateX(-50%) translateY(-10px);
-}
-
 </style>

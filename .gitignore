@@ -98,3 +98,6 @@ docs/interview-cheatsheet.md
 docs/interview-self-intro.md
 docs/interview-project-walkthrough.md
 docs/project-build-guide.md
+
+# 第三方 skill（Hallmark 等，体积大且非本项目代码）
+.copilot/skills/

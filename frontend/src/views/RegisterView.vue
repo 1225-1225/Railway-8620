@@ -1,12 +1,16 @@
 <template>
   <div class="register-page">
-    <!-- 装饰元素 -->
-    <div class="decorative-element top-right"></div>
-    <div class="decorative-element bottom-left"></div>
-
-    <div class="register-card" @mouseenter="cardHover = true" @mouseleave="cardHover = false">
+    <div class="register-card">
       <div class="card-header">
-        <div class="logo">🚂</div>
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5" y="3" width="14" height="13" rx="3" />
+            <path d="M5 9h14" />
+            <circle cx="9" cy="12.5" r="1" fill="currentColor" stroke="none" />
+            <circle cx="15" cy="12.5" r="1" fill="currentColor" stroke="none" />
+            <path d="M8 16l-2 4M16 16l2 4M4 20h16" />
+          </svg>
+        </div>
         <h2>创建账号</h2>
         <p class="subtitle">加入铁路历史专家的问答社区</p>
       </div>
@@ -88,7 +92,6 @@ const route = useRoute()
 const form = ref({ username: '', password: '', confirmPassword: '' })
 const error = ref('')
 const loading = ref(false)
-const cardHover = ref(false)
 const usernameFocus = ref(false)
 const passwordFocus = ref(false)
 const confirmFocus = ref(false)
@@ -146,94 +149,67 @@ async function handleSubmit() {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 20px;
-  overflow: hidden;
+  padding: var(--sp-5);
+  background: var(--ink-900);
 }
 
-/* 装饰元素 */
-.decorative-element {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  filter: blur(80px);
-  z-index: 0;
-}
-
-.top-right {
-  top: -200px;
-  right: -200px;
-}
-
-.bottom-left {
-  bottom: -200px;
-  left: -200px;
+.register-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .register-card {
   width: 100%;
-  max-width: 420px;
-  padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    0 1px 2px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+  max-width: 400px;
+  padding: var(--sp-8);
+  background: var(--ink-800);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  color: var(--text-100);
   position: relative;
   z-index: 1;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.register-card:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.15),
-    0 2px 4px rgba(0, 0, 0, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .card-header {
-  text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: var(--sp-6);
 }
 
 .logo {
-  font-size: 2.5rem;
-  margin-bottom: 0.8rem;
-  animation: bounce 2s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: var(--accent);
+  color: var(--ink-900);
+  margin-bottom: var(--sp-4);
 }
 
-@keyframes bounce {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
+.logo svg {
+  width: 22px;
+  height: 22px;
 }
 
 .card-header h2 {
   font-weight: 600;
-  font-size: 1.8rem;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: var(--fs-xl);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--sp-1);
+  text-wrap: balance;
 }
 
 .subtitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+  color: var(--text-300);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
 }
 
 .register-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--sp-4);
 }
 
 .form-group {
@@ -243,61 +219,55 @@ async function handleSubmit() {
 .input-label {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--sp-1);
 }
 
 .label-text {
   font-weight: 500;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--fs-xs);
+  color: var(--text-300);
 }
 
 .form-input {
   width: 100%;
-  padding: 0.9rem 1.2rem;
-  border: none;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  color: white;
-  font-size: 1rem;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm);
+  background: var(--ink-900);
+  color: var(--text-100);
+  font-size: var(--fs-base);
+  font-family: var(--font-body);
   outline: none;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  transition: border-color var(--dur-fast) var(--ease);
 }
 
-.form-input:focus {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+.form-input:focus-visible {
+  border-color: var(--border-strong);
+  outline: 2px solid var(--accent-line);
+  outline-offset: 1px;
 }
 
 .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-400);
 }
 
-.input-focus {
-  background: rgba(255, 255, 255, 0.12);
+.form-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .error-message {
-  background: rgba(255, 80, 80, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 100, 100, 0.4);
-  color: white;
-  padding: 0.8rem 1.2rem;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+  background: var(--danger-wash);
+  border: 1px solid var(--danger);
+  color: var(--text-100);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
 }
 
 .error-shake {
-  animation: shake 0.5s ease-in-out;
+  animation: shake 0.4s var(--ease);
 }
 
 @keyframes shake {
@@ -305,79 +275,60 @@ async function handleSubmit() {
   100% {
     transform: translateX(0);
   }
-  20% {
-    transform: translateX(-5px);
+  25% {
+    transform: translateX(-4px);
   }
-  40% {
-    transform: translateX(5px);
+  50% {
+    transform: translateX(4px);
   }
-  60% {
-    transform: translateX(-3px);
-  }
-  80% {
-    transform: translateX(3px);
+  75% {
+    transform: translateX(-2px);
   }
 }
 
 .submit-btn {
   width: 100%;
-  padding: 0.9rem;
+  padding: var(--sp-3);
   border: none;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(90, 103, 216, 0.8));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: white;
-  font-size: 1rem;
+  border-radius: var(--r-sm);
+  background: var(--accent);
+  color: var(--ink-900);
+  font-size: var(--fs-base);
   font-weight: 600;
+  font-family: var(--font-body);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background var(--dur-fast) var(--ease);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.submit-btn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.6s ease;
-}
-
-.submit-btn:hover:not(:disabled)::after {
-  left: 100%;
+  gap: var(--sp-2);
 }
 
 .submit-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+  background: var(--accent-hover);
+}
+
+.submit-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .submit-btn:active:not(:disabled) {
-  transform: scale(0.98) translateY(0);
+  background: var(--accent-dim);
 }
 
 .submit-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
 }
 
 .loading-spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--ink-900);
   border-radius: 50%;
-  border-top-color: white;
-  animation: spin 1s linear infinite;
+  border-top-color: transparent;
+  animation: spin 0.7s linear infinite;
 }
 
 @keyframes spin {
@@ -387,42 +338,35 @@ async function handleSubmit() {
 }
 
 .login-link {
-  text-align: center;
-  margin-top: 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+  margin-top: var(--sp-5);
+  color: var(--text-300);
+  font-size: var(--fs-sm);
 }
 
 .link {
-  color: white;
-  font-weight: 600;
+  color: var(--accent);
+  font-weight: 500;
   text-decoration: none;
-  position: relative;
+  border-bottom: 1px solid var(--accent-line);
 }
 
-.link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: white;
-  transition: width 0.3s ease;
+.link:hover {
+  color: var(--accent-hover);
 }
 
-.link:hover::after {
-  width: 100%;
+.link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
-/* 响应式适配 */
-@media (max-width: 480px) {
-  .register-card {
-    padding: 2rem 1.5rem;
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+    border-top-color: var(--ink-900);
   }
 
-  .card-header h2 {
-    font-size: 1.5rem;
+  .error-shake {
+    animation: none;
   }
 }
 </style>
