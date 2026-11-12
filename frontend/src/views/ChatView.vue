@@ -2,6 +2,7 @@
   <div class="app-layout">
     <HistorySidebar
       :collapsed="sidebarCollapsed"
+      :width="sidebarWidth"
       :loading="loadingSessions"
       :groups="sessionGroups"
       :active-thread-id="activeThreadId"
@@ -11,6 +12,22 @@
       @rename-session="renameSession"
       @delete-session="deleteSession"
     />
+    <!-- 可拖拽分隔条：调整历史侧边栏宽度 -->
+    <div
+      v-show="!sidebarCollapsed"
+      class="resize-handle"
+      :class="{ dragging: isResizing }"
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="调整历史对话宽度"
+      :aria-valuenow="sidebarWidth"
+      :aria-valuemin="SIDEBAR_MIN"
+      :aria-valuemax="SIDEBAR_MAX"
+      tabindex="0"
+      @mousedown="startResize"
+      @keydown="onResizeKeydown"
+      @dblclick="resetSidebarWidth"
+    ></div>
     <div class="main-area">
       <header class="chat-header">
         <div class="header-left">
@@ -209,6 +226,75 @@ const sessionGroups = ref<SessionGroup[]>([])
 // 浮动错误提示（3 秒自动消失）
 const toastMessage = ref('')
 const activeThreadId = ref('')
+
+// ── 侧边栏宽度拖拽 ──────────────────────────────
+const SIDEBAR_MIN = 220
+const SIDEBAR_MAX = 520
+const SIDEBAR_DEFAULT = 280
+const SIDEBAR_STORAGE_KEY = 'sidebar-width'
+
+/** 从 localStorage 恢复宽度，非法值回退默认 */
+function loadSidebarWidth(): number {
+  const raw = localStorage.getItem(SIDEBAR_STORAGE_KEY)
+  const n = raw ? Number.parseInt(raw, 10) : NaN
+  if (Number.isFinite(n)) {
+    return Math.min(SIDEBAR_MAX, Math.max(SIDEBAR_MIN, n))
+  }
+  return SIDEBAR_DEFAULT
+}
+
+const sidebarWidth = ref(loadSidebarWidth())
+const isResizing = ref(false)
+
+/** 拖拽分隔条：更新宽度并持久化 */
+function startResize(e: MouseEvent) {
+  if (sidebarCollapsed.value) return
+  e.preventDefault()
+  isResizing.value = true
+  const startX = e.clientX
+  const startWidth = sidebarWidth.value
+
+  function onMove(ev: MouseEvent) {
+    const next = startWidth + (ev.clientX - startX)
+    sidebarWidth.value = Math.min(SIDEBAR_MAX, Math.max(SIDEBAR_MIN, next))
+  }
+
+  function onUp() {
+    isResizing.value = false
+    localStorage.setItem(SIDEBAR_STORAGE_KEY, String(sidebarWidth.value))
+    document.removeEventListener('mousemove', onMove)
+    document.removeEventListener('mouseup', onUp)
+    document.body.style.removeProperty('cursor')
+    document.body.style.removeProperty('user-select')
+  }
+
+  // 拖拽期间锁住光标与文本选择，避免划选内容
+  document.body.style.cursor = 'col-resize'
+  document.body.style.userSelect = 'none'
+  document.addEventListener('mousemove', onMove)
+  document.addEventListener('mouseup', onUp)
+}
+
+/** 键盘调整（左右方向键 ±16px） */
+function onResizeKeydown(e: KeyboardEvent) {
+  if (sidebarCollapsed.value) return
+  let delta = 0
+  if (e.key === 'ArrowLeft') delta = -16
+  else if (e.key === 'ArrowRight') delta = 16
+  else return
+  e.preventDefault()
+  sidebarWidth.value = Math.min(
+    SIDEBAR_MAX,
+    Math.max(SIDEBAR_MIN, sidebarWidth.value + delta),
+  )
+  localStorage.setItem(SIDEBAR_STORAGE_KEY, String(sidebarWidth.value))
+}
+
+/** 双击分隔条恢复默认宽度 */
+function resetSidebarWidth() {
+  sidebarWidth.value = SIDEBAR_DEFAULT
+  localStorage.setItem(SIDEBAR_STORAGE_KEY, String(SIDEBAR_DEFAULT))
+}
 
 /** 点击快捷指令：填入输入框并发送 */
 function useSuggestion(text: string) {
@@ -498,6 +584,49 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   min-width: 0;
+}
+
+/* ── 侧边栏拖拽分隔条 ─────────────────────────── */
+.resize-handle {
+  flex: 0 0 auto;
+  width: 5px;
+  cursor: col-resize;
+  background: transparent;
+  position: relative;
+  z-index: 15;
+  /* 扩大命中区域，但视觉保持细线 */
+  margin: 0 -2px;
+  transition: background var(--dur-fast) var(--ease);
+}
+
+/* 视觉细线用伪元素，避免撑宽布局 */
+.resize-handle::before {
+  content: '';
+  position: absolute;
+  inset: 0 2px;
+  background: var(--border);
+  transition: background var(--dur-fast) var(--ease);
+}
+
+.resize-handle:hover::before,
+.resize-handle.dragging::before {
+  background: var(--accent);
+}
+
+.resize-handle.dragging::before {
+  inset: 0 1px;
+}
+
+.resize-handle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+@media (max-width: 768px) {
+  /* 窄屏下不提供拖拽，避免误触 */
+  .resize-handle {
+    display: none;
+  }
 }
 
 /* ── 顶栏 ─────────────────────────────────────── */

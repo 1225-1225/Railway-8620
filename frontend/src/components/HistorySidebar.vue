@@ -1,5 +1,9 @@
 <template>
-  <div class="sidebar" :class="{ collapsed }">
+  <div
+    class="sidebar"
+    :class="{ collapsed }"
+    :style="collapsed ? undefined : { width: width + 'px' }"
+  >
     <!-- 折叠/展开按钮 -->
     <button class="toggle-btn" @click="$emit('toggle')" :title="collapsed ? '展开历史' : '收起历史'">
       <svg v-if="collapsed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -101,6 +105,7 @@ export interface SessionGroup {
 
 defineProps<{
   collapsed: boolean
+  width: number
   loading: boolean
   groups: SessionGroup[]
   activeThreadId: string
@@ -170,25 +175,18 @@ function formatDateHeader(dateStr: string): string {
   position: relative;
   height: 100%;
   background: var(--ink-800);
-  border-right: 1px solid var(--border);
-  /* 折叠动画用 transform 平移，而非 transition width
-     （width 会触发布局重排，且 sloplint 规则 10a 明确禁止） */
-  transition: transform var(--dur-mid) var(--ease);
+  border-right: none;
+  /* 宽度由 JS 内联控制（可拖拽）；折叠态固定 44px。
+     不在此处动画 width —— 拖拽时需要跟手，动画会拖沓；
+     折叠/展开的宽度变化由 CSS 覆盖，无需过渡（瞬时更利落）。 */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  will-change: transform;
-}
-
-.sidebar:not(.collapsed) {
-  width: 280px;
-  transform: translateX(0);
 }
 
 .sidebar.collapsed {
-  width: 44px;
-  transform: translateX(0);
+  width: 44px !important;
 }
 
 .toggle-btn {
