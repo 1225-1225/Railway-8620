@@ -6,11 +6,13 @@
       :loading="loadingSessions"
       :groups="sessionGroups"
       :active-thread-id="activeThreadId"
+      :username="authStore.username"
       @toggle="sidebarCollapsed = !sidebarCollapsed"
       @new-chat="startNewChat"
       @select-session="loadSession"
       @rename-session="renameSession"
       @delete-session="deleteSession"
+      @logout="logout"
     />
     <!-- 可拖拽分隔条：调整历史侧边栏宽度 -->
     <div
@@ -45,9 +47,7 @@
             <p class="online-status">已连接 · 实时流式输出</p>
           </div>
         </div>
-        <div class="header-right">
-          <button class="logout-btn" @click="logout">退出</button>
-        </div>
+        <div class="header-right"></div>
     </header>
 
     <div class="chat-messages" ref="messageListRef">
@@ -688,39 +688,10 @@ onBeforeUnmount(() => {
   background: var(--ok);
 }
 
-.logout-btn {
-  padding: var(--sp-2) var(--sp-4);
-  border-radius: var(--r-sm);
-  background: transparent;
-  color: var(--text-200);
-  font-size: var(--fs-sm);
-  cursor: pointer;
-  transition:
-    background var(--dur-fast) var(--ease),
-    color var(--dur-fast) var(--ease);
-  border: 1px solid var(--border);
-}
 
-.logout-btn:hover {
-  background: var(--ink-700);
-  color: var(--text-100);
-  border-color: var(--border-strong);
-}
 
-.logout-btn:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
 
-.logout-btn:active {
-  background: var(--ink-600);
-}
 
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-}
 
 /* ── 消息区 ───────────────────────────────────── */
 .chat-messages {
@@ -1228,9 +1199,6 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 480px) {
-  .logout-text {
-    display: none;
-  }
 
   .header-text h2 {
     font-size: var(--fs-base);

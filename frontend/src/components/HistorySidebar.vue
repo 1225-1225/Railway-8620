@@ -87,11 +87,44 @@
         </div>
       </div>
     </div>
+
+    <!-- 底部账号区：头像 + 用户名 + 菜单 -->
+    <div class="account-bar" ref="accountRef">
+      <button
+        class="account-trigger"
+        type="button"
+        :aria-expanded="menuOpen"
+        aria-haspopup="menu"
+        @click="toggleMenu"
+      >
+        <span class="avatar-badge" aria-hidden="true">{{ initial }}</span>
+        <span class="account-name" :title="username">{{ username || '未登录' }}</span>
+        <svg class="chevron" :class="{ open: menuOpen }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
+
+      <div v-if="menuOpen" class="account-menu" role="menu">
+        <div class="account-menu-head">
+          <span class="avatar-badge lg" aria-hidden="true">{{ initial }}</span>
+          <div class="account-menu-id">
+            <div class="account-menu-name">{{ username || '未登录' }}</div>
+            <div class="account-menu-sub">已登录</div>
+          </div>
+        </div>
+        <div class="account-menu-sep" role="separator"></div>
+        <button class="account-menu-item danger" type="button" role="menuitem" @click="onLogout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 17l5-5-5-5M20 12H9M12 20H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6" />
+          </svg>退出登录
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 export interface SessionGroup {
   date: string
@@ -103,12 +136,13 @@ export interface SessionGroup {
   }>
 }
 
-defineProps<{
+const props = defineProps<{
   collapsed: boolean
   width: number
   loading: boolean
   groups: SessionGroup[]
   activeThreadId: string
+  username: string
 }>()
 
 const emit = defineEmits<{
@@ -117,7 +151,54 @@ const emit = defineEmits<{
   'select-session': [threadId: string]
   'rename-session': [threadId: string, newTitle: string]
   'delete-session': [threadId: string]
+  logout: []
 }>()
+
+// ── 底部账号区 ──────────────────────────────────
+const menuOpen = ref(false)
+const accountRef = ref<HTMLElement | null>(null)
+
+/** 头像首字母：取用户名首字符，英文转大写 */
+const initial = computed(() => {
+  const n = (props.username || '').trim()
+  return n ? n[0]!.toUpperCase() : '?'
+})
+
+function toggleMenu() {
+  menuOpen.value = !menuOpen.value
+}
+
+function closeMenu() {
+  menuOpen.value = false
+}
+
+function onLogout() {
+  closeMenu()
+  emit('logout')
+}
+
+/** 点击账号区之外关闭菜单 */
+function onDocumentClick(e: MouseEvent) {
+  if (!menuOpen.value) return
+  if (accountRef.value && !accountRef.value.contains(e.target as Node)) {
+    closeMenu()
+  }
+}
+
+/** Esc 关闭菜单 */
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape' && menuOpen.value) closeMenu()
+}
+
+onMounted(() => {
+  document.addEventListener('click', onDocumentClick)
+  document.addEventListener('keydown', onKeydown)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', onDocumentClick)
+  document.removeEventListener('keydown', onKeydown)
+})
 
 // ── 行内重命名状态 ──
 const renamingId = ref('')
@@ -233,7 +314,8 @@ function formatDateHeader(dateStr: string): string {
 .sidebar-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   padding-top: 48px;
 }
@@ -299,6 +381,7 @@ function formatDateHeader(dateStr: string): string {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
   padding: var(--sp-10) var(--sp-4);
   color: var(--text-400);
   font-size: var(--fs-sm);
@@ -467,6 +550,192 @@ function formatDateHeader(dateStr: string): string {
   border-radius: 4px;
 }
 
+/* ── 底部账号区 ───────────────────────────────── */
+.account-bar {
+  position: relative;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border);
+  padding: var(--sp-2);
+}
+
+.account-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  width: 100%;
+  padding: var(--sp-2);
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-200);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+
+.account-trigger:hover {
+  background: var(--ink-700);
+}
+
+.account-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.account-trigger:active {
+  background: var(--ink-600);
+}
+
+.avatar-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: var(--r-sm);
+  background: var(--accent);
+  color: var(--ink-900);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.avatar-badge.lg {
+  width: 32px;
+  height: 32px;
+  font-size: var(--fs-base);
+}
+
+.account-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--text-100);
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--text-400);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+/* 弹出菜单：从下往上展开 */
+.account-menu {
+  position: absolute;
+  left: var(--sp-2);
+  right: var(--sp-2);
+  bottom: calc(100% - var(--sp-1));
+  z-index: 30;
+  padding: var(--sp-2);
+  background: var(--ink-700);
+  border-radius: var(--r-md);
+  box-shadow: 0 8px 24px var(--shadow-panel);
+}
+
+.account-menu-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-1) var(--sp-2);
+}
+
+.account-menu-id {
+  min-width: 0;
+}
+
+.account-menu-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-100);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-menu-sub {
+  font-size: var(--fs-xs);
+  color: var(--text-400);
+}
+
+.account-menu-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 0 calc(-1 * var(--sp-2)) var(--sp-2);
+}
+
+.account-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  width: 100%;
+  padding: var(--sp-2);
+  border: none;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-200);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.account-menu-item svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.account-menu-item:hover {
+  background: var(--ink-600);
+  color: var(--text-100);
+}
+
+.account-menu-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.account-menu-item.danger:hover {
+  background: var(--danger-wash);
+  color: var(--danger);
+}
+
+.account-menu-item:active {
+  background: var(--ink-500);
+}
+
+/* 折叠态：只留头像 */
+.sidebar.collapsed .account-bar {
+  padding: var(--sp-2) 0;
+}
+
+.sidebar.collapsed .account-trigger {
+  justify-content: center;
+  padding: var(--sp-1) 0;
+}
+
+.sidebar.collapsed .account-name,
+.sidebar.collapsed .chevron {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sidebar,
   .toggle-btn,
@@ -474,7 +743,10 @@ function formatDateHeader(dateStr: string): string {
   .new-chat-btn,
   .session-actions,
   .rename-btn,
-  .delete-btn {
+  .delete-btn,
+  .account-trigger,
+  .account-menu-item,
+  .chevron {
     transition: none;
   }
 }
